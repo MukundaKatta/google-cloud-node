@@ -25,7 +25,7 @@ import * as dataformModule from '../src';
 
 import {PassThrough} from 'stream';
 
-import {protobuf, IamProtos, LocationProtos} from 'google-gax';
+import {protobuf, LROperation, operationsProtos, IamProtos, LocationProtos} from 'google-gax';
 
 // Dynamically loaded proto JSON is needed to get the type information
 // to fill in default values for request objects
@@ -52,6 +52,22 @@ function stubSimpleCall<ResponseType>(response?: ResponseType, error?: Error) {
 
 function stubSimpleCallWithCallback<ResponseType>(response?: ResponseType, error?: Error) {
     return error ? sinon.stub().callsArgWith(2, error) : sinon.stub().callsArgWith(2, null, response);
+}
+
+function stubLongRunningCall<ResponseType>(response?: ResponseType, callError?: Error, lroError?: Error) {
+    const innerStub = lroError ? sinon.stub().rejects(lroError) : sinon.stub().resolves([response]);
+    const mockOperation = {
+        promise: innerStub,
+    };
+    return callError ? sinon.stub().rejects(callError) : sinon.stub().resolves([mockOperation]);
+}
+
+function stubLongRunningCallWithCallback<ResponseType>(response?: ResponseType, callError?: Error, lroError?: Error) {
+    const innerStub = lroError ? sinon.stub().rejects(lroError) : sinon.stub().resolves([response]);
+    const mockOperation = {
+        promise: innerStub,
+    };
+    return callError ? sinon.stub().callsArgWith(2, callError) : sinon.stub().callsArgWith(2, null, mockOperation);
 }
 
 function stubPageStreamingCall<ResponseType>(responses?: ResponseType[], error?: Error) {
@@ -256,6 +272,878 @@ describe('v1beta1.DataformClient', () => {
             });
             const result = await promise;
             assert.strictEqual(result, fakeProjectId);
+        });
+    });
+
+    describe('getTeamFolder', () => {
+        it('invokes getTeamFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.TeamFolder()
+            );
+            client.innerApiCalls.getTeamFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.getTeamFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.getTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getTeamFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.TeamFolder()
+            );
+            client.innerApiCalls.getTeamFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.getTeamFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.ITeamFolder|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.getTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getTeamFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.getTeamFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.getTeamFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.getTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getTeamFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.getTeamFolder(request), expectedError);
+        });
+    });
+
+    describe('createTeamFolder', () => {
+        it('invokes createTeamFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateTeamFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedHeaderRequestParams = `parent=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.TeamFolder()
+            );
+            client.innerApiCalls.createTeamFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.createTeamFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.createTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.createTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes createTeamFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateTeamFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedHeaderRequestParams = `parent=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.TeamFolder()
+            );
+            client.innerApiCalls.createTeamFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.createTeamFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.ITeamFolder|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.createTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.createTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes createTeamFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateTeamFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedHeaderRequestParams = `parent=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.createTeamFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.createTeamFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.createTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.createTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes createTeamFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateTeamFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.createTeamFolder(request), expectedError);
+        });
+    });
+
+    describe('updateTeamFolder', () => {
+        it('invokes updateTeamFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest()
+            );
+            request.teamFolder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest', ['teamFolder', 'name']);
+            request.teamFolder.name = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder.name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.TeamFolder()
+            );
+            client.innerApiCalls.updateTeamFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.updateTeamFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.updateTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.updateTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes updateTeamFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest()
+            );
+            request.teamFolder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest', ['teamFolder', 'name']);
+            request.teamFolder.name = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder.name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.TeamFolder()
+            );
+            client.innerApiCalls.updateTeamFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.updateTeamFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.ITeamFolder|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.updateTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.updateTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes updateTeamFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest()
+            );
+            request.teamFolder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest', ['teamFolder', 'name']);
+            request.teamFolder.name = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder.name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.updateTeamFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.updateTeamFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.updateTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.updateTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes updateTeamFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest()
+            );
+            request.teamFolder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateTeamFolderRequest', ['teamFolder', 'name']);
+            request.teamFolder.name = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.updateTeamFolder(request), expectedError);
+        });
+    });
+
+    describe('deleteTeamFolder', () => {
+        it('invokes deleteTeamFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.protobuf.Empty()
+            );
+            client.innerApiCalls.deleteTeamFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.deleteTeamFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.deleteTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.deleteTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes deleteTeamFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.protobuf.Empty()
+            );
+            client.innerApiCalls.deleteTeamFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.deleteTeamFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.protobuf.IEmpty|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.deleteTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.deleteTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes deleteTeamFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.deleteTeamFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.deleteTeamFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.deleteTeamFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.deleteTeamFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes deleteTeamFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteTeamFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.deleteTeamFolder(request), expectedError);
+        });
+    });
+
+    describe('getFolder', () => {
+        it('invokes getFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.Folder()
+            );
+            client.innerApiCalls.getFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.getFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.getFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.Folder()
+            );
+            client.innerApiCalls.getFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.getFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.IFolder|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.getFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.getFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.getFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.getFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.GetFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.GetFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.getFolder(request), expectedError);
+        });
+    });
+
+    describe('createFolder', () => {
+        it('invokes createFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedHeaderRequestParams = `parent=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.Folder()
+            );
+            client.innerApiCalls.createFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.createFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.createFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.createFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes createFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedHeaderRequestParams = `parent=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.Folder()
+            );
+            client.innerApiCalls.createFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.createFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.IFolder|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.createFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.createFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes createFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedHeaderRequestParams = `parent=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.createFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.createFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.createFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.createFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes createFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.CreateFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.CreateFolderRequest', ['parent']);
+            request.parent = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.createFolder(request), expectedError);
+        });
+    });
+
+    describe('updateFolder', () => {
+        it('invokes updateFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateFolderRequest()
+            );
+            request.folder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateFolderRequest', ['folder', 'name']);
+            request.folder.name = defaultValue1;
+            const expectedHeaderRequestParams = `folder.name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.Folder()
+            );
+            client.innerApiCalls.updateFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.updateFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.updateFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.updateFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes updateFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateFolderRequest()
+            );
+            request.folder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateFolderRequest', ['folder', 'name']);
+            request.folder.name = defaultValue1;
+            const expectedHeaderRequestParams = `folder.name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.Folder()
+            );
+            client.innerApiCalls.updateFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.updateFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.IFolder|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.updateFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.updateFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes updateFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateFolderRequest()
+            );
+            request.folder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateFolderRequest', ['folder', 'name']);
+            request.folder.name = defaultValue1;
+            const expectedHeaderRequestParams = `folder.name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.updateFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.updateFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.updateFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.updateFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes updateFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.UpdateFolderRequest()
+            );
+            request.folder ??= {};
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.UpdateFolderRequest', ['folder', 'name']);
+            request.folder.name = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.updateFolder(request), expectedError);
+        });
+    });
+
+    describe('deleteFolder', () => {
+        it('invokes deleteFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.protobuf.Empty()
+            );
+            client.innerApiCalls.deleteFolder = stubSimpleCall(expectedResponse);
+            const [response] = await client.deleteFolder(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.deleteFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.deleteFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes deleteFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.protobuf.Empty()
+            );
+            client.innerApiCalls.deleteFolder = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.deleteFolder(
+                    request,
+                    (err?: Error|null, result?: protos.google.protobuf.IEmpty|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.deleteFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.deleteFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes deleteFolder with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.deleteFolder = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.deleteFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.deleteFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.deleteFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes deleteFolder with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.DeleteFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.DeleteFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.deleteFolder(request), expectedError);
         });
     });
 
@@ -4811,6 +5699,1618 @@ describe('v1beta1.DataformClient', () => {
         });
     });
 
+    describe('getIamPolicy', () => {
+        it('invokes getIamPolicy without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.GetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.GetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.iam.v1.Policy()
+            );
+            client.innerApiCalls.getIamPolicy = stubSimpleCall(expectedResponse);
+            const [response] = await client.getIamPolicy(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.getIamPolicy as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getIamPolicy as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getIamPolicy without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.GetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.GetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.iam.v1.Policy()
+            );
+            client.innerApiCalls.getIamPolicy = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.getIamPolicy(
+                    request,
+                    (err?: Error|null, result?: protos.google.iam.v1.IPolicy|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.getIamPolicy as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getIamPolicy as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getIamPolicy with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.GetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.GetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.getIamPolicy = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.getIamPolicy(request), expectedError);
+            const actualRequest = (client.innerApiCalls.getIamPolicy as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.getIamPolicy as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes getIamPolicy with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.GetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.GetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.getIamPolicy(request), expectedError);
+        });
+    });
+
+    describe('setIamPolicy', () => {
+        it('invokes setIamPolicy without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.SetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.SetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.iam.v1.Policy()
+            );
+            client.innerApiCalls.setIamPolicy = stubSimpleCall(expectedResponse);
+            const [response] = await client.setIamPolicy(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.setIamPolicy as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.setIamPolicy as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes setIamPolicy without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.SetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.SetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.iam.v1.Policy()
+            );
+            client.innerApiCalls.setIamPolicy = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.setIamPolicy(
+                    request,
+                    (err?: Error|null, result?: protos.google.iam.v1.IPolicy|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.setIamPolicy as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.setIamPolicy as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes setIamPolicy with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.SetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.SetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.setIamPolicy = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.setIamPolicy(request), expectedError);
+            const actualRequest = (client.innerApiCalls.setIamPolicy as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.setIamPolicy as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes setIamPolicy with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.SetIamPolicyRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.SetIamPolicyRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.setIamPolicy(request), expectedError);
+        });
+    });
+
+    describe('testIamPermissions', () => {
+        it('invokes testIamPermissions without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.TestIamPermissionsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.TestIamPermissionsRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.iam.v1.TestIamPermissionsResponse()
+            );
+            client.innerApiCalls.testIamPermissions = stubSimpleCall(expectedResponse);
+            const [response] = await client.testIamPermissions(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.testIamPermissions as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.testIamPermissions as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes testIamPermissions without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.TestIamPermissionsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.TestIamPermissionsRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.iam.v1.TestIamPermissionsResponse()
+            );
+            client.innerApiCalls.testIamPermissions = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.testIamPermissions(
+                    request,
+                    (err?: Error|null, result?: protos.google.iam.v1.ITestIamPermissionsResponse|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.testIamPermissions as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.testIamPermissions as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes testIamPermissions with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.TestIamPermissionsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.TestIamPermissionsRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedHeaderRequestParams = `resource=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.testIamPermissions = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.testIamPermissions(request), expectedError);
+            const actualRequest = (client.innerApiCalls.testIamPermissions as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.testIamPermissions as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes testIamPermissions with closed client', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.iam.v1.TestIamPermissionsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.iam.v1.TestIamPermissionsRequest', ['resource']);
+            request.resource = defaultValue1;
+            const expectedError = new Error('The client has already been closed.');
+            client.close().catch(err => {throw err});
+            await assert.rejects(client.testIamPermissions(request), expectedError);
+        });
+    });
+
+    describe('moveFolder', () => {
+        it('invokes moveFolder without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.longrunning.Operation()
+            );
+            client.innerApiCalls.moveFolder = stubLongRunningCall(expectedResponse);
+            const [operation] = await client.moveFolder(request);
+            const [response] = await operation.promise();
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes moveFolder without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.longrunning.Operation()
+            );
+            client.innerApiCalls.moveFolder = stubLongRunningCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.moveFolder(
+                    request,
+                    (err?: Error|null,
+                     result?: LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1beta1.IMoveFolderMetadata>|null
+                    ) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const operation = await promise as LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1beta1.IMoveFolderMetadata>;
+            const [response] = await operation.promise();
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes moveFolder with call error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.moveFolder = stubLongRunningCall(undefined, expectedError);
+            await assert.rejects(client.moveFolder(request), expectedError);
+            const actualRequest = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes moveFolder with LRO error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveFolderRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveFolderRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.moveFolder = stubLongRunningCall(undefined, undefined, expectedError);
+            const [operation] = await client.moveFolder(request);
+            await assert.rejects(operation.promise(), expectedError);
+            const actualRequest = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveFolder as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes checkMoveFolderProgress without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const expectedResponse = generateSampleMessage(
+              new operationsProtos.google.longrunning.Operation()
+            );
+            expectedResponse.name = 'test';
+            expectedResponse.response = {type_url: 'url', value: Buffer.from('')};
+            expectedResponse.metadata = {type_url: 'url', value: Buffer.from('')}
+
+            client.operationsClient.getOperation = stubSimpleCall(expectedResponse);
+            const decodedOperation = await client.checkMoveFolderProgress(expectedResponse.name);
+            assert.deepStrictEqual(decodedOperation.name, expectedResponse.name);
+            assert(decodedOperation.metadata);
+            assert((client.operationsClient.getOperation as SinonStub).getCall(0));
+        });
+
+        it('invokes checkMoveFolderProgress with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const expectedError = new Error('expected');
+
+            client.operationsClient.getOperation = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.checkMoveFolderProgress(''), expectedError);
+            assert((client.operationsClient.getOperation as SinonStub)
+                .getCall(0));
+        });
+    });
+
+    describe('moveRepository', () => {
+        it('invokes moveRepository without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveRepositoryRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveRepositoryRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.longrunning.Operation()
+            );
+            client.innerApiCalls.moveRepository = stubLongRunningCall(expectedResponse);
+            const [operation] = await client.moveRepository(request);
+            const [response] = await operation.promise();
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes moveRepository without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveRepositoryRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveRepositoryRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedResponse = generateSampleMessage(
+              new protos.google.longrunning.Operation()
+            );
+            client.innerApiCalls.moveRepository = stubLongRunningCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.moveRepository(
+                    request,
+                    (err?: Error|null,
+                     result?: LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1beta1.IMoveRepositoryMetadata>|null
+                    ) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const operation = await promise as LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1beta1.IMoveRepositoryMetadata>;
+            const [response] = await operation.promise();
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes moveRepository with call error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveRepositoryRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveRepositoryRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.moveRepository = stubLongRunningCall(undefined, expectedError);
+            await assert.rejects(client.moveRepository(request), expectedError);
+            const actualRequest = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes moveRepository with LRO error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.MoveRepositoryRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.MoveRepositoryRequest', ['name']);
+            request.name = defaultValue1;
+            const expectedHeaderRequestParams = `name=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.moveRepository = stubLongRunningCall(undefined, undefined, expectedError);
+            const [operation] = await client.moveRepository(request);
+            await assert.rejects(operation.promise(), expectedError);
+            const actualRequest = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.moveRepository as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes checkMoveRepositoryProgress without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const expectedResponse = generateSampleMessage(
+              new operationsProtos.google.longrunning.Operation()
+            );
+            expectedResponse.name = 'test';
+            expectedResponse.response = {type_url: 'url', value: Buffer.from('')};
+            expectedResponse.metadata = {type_url: 'url', value: Buffer.from('')}
+
+            client.operationsClient.getOperation = stubSimpleCall(expectedResponse);
+            const decodedOperation = await client.checkMoveRepositoryProgress(expectedResponse.name);
+            assert.deepStrictEqual(decodedOperation.name, expectedResponse.name);
+            assert(decodedOperation.metadata);
+            assert((client.operationsClient.getOperation as SinonStub).getCall(0));
+        });
+
+        it('invokes checkMoveRepositoryProgress with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const expectedError = new Error('expected');
+
+            client.operationsClient.getOperation = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.checkMoveRepositoryProgress(''), expectedError);
+            assert((client.operationsClient.getOperation as SinonStub)
+                .getCall(0));
+        });
+    });
+
+    describe('queryTeamFolderContents', () => {
+        it('invokes queryTeamFolderContents without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+            ];
+            client.innerApiCalls.queryTeamFolderContents = stubSimpleCall(expectedResponse);
+            const [response] = await client.queryTeamFolderContents(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.queryTeamFolderContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryTeamFolderContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryTeamFolderContents without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+            ];
+            client.innerApiCalls.queryTeamFolderContents = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.queryTeamFolderContents(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[]|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.queryTeamFolderContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryTeamFolderContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryTeamFolderContents with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.queryTeamFolderContents = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.queryTeamFolderContents(request), expectedError);
+            const actualRequest = (client.innerApiCalls.queryTeamFolderContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryTeamFolderContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryTeamFolderContentsStream without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+            ];
+            client.descriptors.page.queryTeamFolderContents.createStream = stubPageStreamingCall(expectedResponse);
+            const stream = client.queryTeamFolderContentsStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            const responses = await promise;
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert((client.descriptors.page.queryTeamFolderContents.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.queryTeamFolderContents, request));
+            assert(
+                (client.descriptors.page.queryTeamFolderContents.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('invokes queryTeamFolderContentsStream with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.queryTeamFolderContents.createStream = stubPageStreamingCall(undefined, expectedError);
+            const stream = client.queryTeamFolderContentsStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            await assert.rejects(promise, expectedError);
+            assert((client.descriptors.page.queryTeamFolderContents.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.queryTeamFolderContents, request));
+            assert(
+                (client.descriptors.page.queryTeamFolderContents.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                         expectedHeaderRequestParams
+                    ) 
+            );
+        });
+
+        it('uses async iteration with queryTeamFolderContents without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry()),
+            ];
+            client.descriptors.page.queryTeamFolderContents.asyncIterate = stubAsyncIterationCall(expectedResponse);
+            const responses: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[] = [];
+            const iterable = client.queryTeamFolderContentsAsync(request);
+            for await (const resource of iterable) {
+                responses.push(resource!);
+            }
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert.deepStrictEqual(
+                (client.descriptors.page.queryTeamFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.queryTeamFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('uses async iteration with queryTeamFolderContents with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryTeamFolderContentsRequest', ['teamFolder']);
+            request.teamFolder = defaultValue1;
+            const expectedHeaderRequestParams = `team_folder=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.queryTeamFolderContents.asyncIterate = stubAsyncIterationCall(undefined, expectedError);
+            const iterable = client.queryTeamFolderContentsAsync(request);
+            await assert.rejects(async () => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[] = [];
+                for await (const resource of iterable) {
+                    responses.push(resource!);
+                }
+            });
+            assert.deepStrictEqual(
+                (client.descriptors.page.queryTeamFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.queryTeamFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+    });
+
+    describe('searchTeamFolders', () => {
+        it('invokes searchTeamFolders without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+            ];
+            client.innerApiCalls.searchTeamFolders = stubSimpleCall(expectedResponse);
+            const [response] = await client.searchTeamFolders(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.searchTeamFolders as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.searchTeamFolders as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes searchTeamFolders without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+            ];
+            client.innerApiCalls.searchTeamFolders = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.searchTeamFolders(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.ITeamFolderSearchResult[]|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.searchTeamFolders as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.searchTeamFolders as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes searchTeamFolders with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.searchTeamFolders = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.searchTeamFolders(request), expectedError);
+            const actualRequest = (client.innerApiCalls.searchTeamFolders as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.searchTeamFolders as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes searchTeamFoldersStream without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+            ];
+            client.descriptors.page.searchTeamFolders.createStream = stubPageStreamingCall(expectedResponse);
+            const stream = client.searchTeamFoldersStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            const responses = await promise;
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert((client.descriptors.page.searchTeamFolders.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.searchTeamFolders, request));
+            assert(
+                (client.descriptors.page.searchTeamFolders.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('invokes searchTeamFoldersStream with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.searchTeamFolders.createStream = stubPageStreamingCall(undefined, expectedError);
+            const stream = client.searchTeamFoldersStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            await assert.rejects(promise, expectedError);
+            assert((client.descriptors.page.searchTeamFolders.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.searchTeamFolders, request));
+            assert(
+                (client.descriptors.page.searchTeamFolders.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                         expectedHeaderRequestParams
+                    ) 
+            );
+        });
+
+        it('uses async iteration with searchTeamFolders without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.TeamFolderSearchResult()),
+            ];
+            client.descriptors.page.searchTeamFolders.asyncIterate = stubAsyncIterationCall(expectedResponse);
+            const responses: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.ITeamFolderSearchResult[] = [];
+            const iterable = client.searchTeamFoldersAsync(request);
+            for await (const resource of iterable) {
+                responses.push(resource!);
+            }
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert.deepStrictEqual(
+                (client.descriptors.page.searchTeamFolders.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.searchTeamFolders.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('uses async iteration with searchTeamFolders with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.SearchTeamFoldersRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.searchTeamFolders.asyncIterate = stubAsyncIterationCall(undefined, expectedError);
+            const iterable = client.searchTeamFoldersAsync(request);
+            await assert.rejects(async () => {
+                const responses: protos.google.cloud.dataform.v1beta1.SearchTeamFoldersResponse.ITeamFolderSearchResult[] = [];
+                for await (const resource of iterable) {
+                    responses.push(resource!);
+                }
+            });
+            assert.deepStrictEqual(
+                (client.descriptors.page.searchTeamFolders.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.searchTeamFolders.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+    });
+
+    describe('queryFolderContents', () => {
+        it('invokes queryFolderContents without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+            ];
+            client.innerApiCalls.queryFolderContents = stubSimpleCall(expectedResponse);
+            const [response] = await client.queryFolderContents(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.queryFolderContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryFolderContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryFolderContents without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+            ];
+            client.innerApiCalls.queryFolderContents = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.queryFolderContents(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.IFolderContentsEntry[]|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.queryFolderContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryFolderContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryFolderContents with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.queryFolderContents = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.queryFolderContents(request), expectedError);
+            const actualRequest = (client.innerApiCalls.queryFolderContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryFolderContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryFolderContentsStream without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+            ];
+            client.descriptors.page.queryFolderContents.createStream = stubPageStreamingCall(expectedResponse);
+            const stream = client.queryFolderContentsStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            const responses = await promise;
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert((client.descriptors.page.queryFolderContents.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.queryFolderContents, request));
+            assert(
+                (client.descriptors.page.queryFolderContents.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('invokes queryFolderContentsStream with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.queryFolderContents.createStream = stubPageStreamingCall(undefined, expectedError);
+            const stream = client.queryFolderContentsStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            await assert.rejects(promise, expectedError);
+            assert((client.descriptors.page.queryFolderContents.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.queryFolderContents, request));
+            assert(
+                (client.descriptors.page.queryFolderContents.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                         expectedHeaderRequestParams
+                    ) 
+            );
+        });
+
+        it('uses async iteration with queryFolderContents without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.FolderContentsEntry()),
+            ];
+            client.descriptors.page.queryFolderContents.asyncIterate = stubAsyncIterationCall(expectedResponse);
+            const responses: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.IFolderContentsEntry[] = [];
+            const iterable = client.queryFolderContentsAsync(request);
+            for await (const resource of iterable) {
+                responses.push(resource!);
+            }
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert.deepStrictEqual(
+                (client.descriptors.page.queryFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.queryFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('uses async iteration with queryFolderContents with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryFolderContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryFolderContentsRequest', ['folder']);
+            request.folder = defaultValue1;
+            const expectedHeaderRequestParams = `folder=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.queryFolderContents.asyncIterate = stubAsyncIterationCall(undefined, expectedError);
+            const iterable = client.queryFolderContentsAsync(request);
+            await assert.rejects(async () => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryFolderContentsResponse.IFolderContentsEntry[] = [];
+                for await (const resource of iterable) {
+                    responses.push(resource!);
+                }
+            });
+            assert.deepStrictEqual(
+                (client.descriptors.page.queryFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.queryFolderContents.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+    });
+
+    describe('queryUserRootContents', () => {
+        it('invokes queryUserRootContents without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+            ];
+            client.innerApiCalls.queryUserRootContents = stubSimpleCall(expectedResponse);
+            const [response] = await client.queryUserRootContents(request);
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.queryUserRootContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryUserRootContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryUserRootContents without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+            ];
+            client.innerApiCalls.queryUserRootContents = stubSimpleCallWithCallback(expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.queryUserRootContents(
+                    request,
+                    (err?: Error|null, result?: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.IRootContentsEntry[]|null) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    });
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            const actualRequest = (client.innerApiCalls.queryUserRootContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryUserRootContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryUserRootContents with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.innerApiCalls.queryUserRootContents = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(client.queryUserRootContents(request), expectedError);
+            const actualRequest = (client.innerApiCalls.queryUserRootContents as SinonStub)
+                .getCall(0).args[0];
+            assert.deepStrictEqual(actualRequest, request);
+            const actualHeaderRequestParams = (client.innerApiCalls.queryUserRootContents as SinonStub)
+                .getCall(0).args[1].otherArgs.headers['x-goog-request-params'];
+            assert(actualHeaderRequestParams.includes(expectedHeaderRequestParams));
+        });
+
+        it('invokes queryUserRootContentsStream without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+            ];
+            client.descriptors.page.queryUserRootContents.createStream = stubPageStreamingCall(expectedResponse);
+            const stream = client.queryUserRootContentsStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            const responses = await promise;
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert((client.descriptors.page.queryUserRootContents.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.queryUserRootContents, request));
+            assert(
+                (client.descriptors.page.queryUserRootContents.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('invokes queryUserRootContentsStream with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.queryUserRootContents.createStream = stubPageStreamingCall(undefined, expectedError);
+            const stream = client.queryUserRootContentsStream(request);
+            const promise = new Promise((resolve, reject) => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry[] = [];
+                stream.on('data', (response: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry) => {
+                    responses.push(response);
+                });
+                stream.on('end', () => {
+                    resolve(responses);
+                });
+                stream.on('error', (err: Error) => {
+                    reject(err);
+                });
+            });
+            await assert.rejects(promise, expectedError);
+            assert((client.descriptors.page.queryUserRootContents.createStream as SinonStub)
+                .getCall(0).calledWith(client.innerApiCalls.queryUserRootContents, request));
+            assert(
+                (client.descriptors.page.queryUserRootContents.createStream as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                         expectedHeaderRequestParams
+                    ) 
+            );
+        });
+
+        it('uses async iteration with queryUserRootContents without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedResponse = [
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+              generateSampleMessage(new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.RootContentsEntry()),
+            ];
+            client.descriptors.page.queryUserRootContents.asyncIterate = stubAsyncIterationCall(expectedResponse);
+            const responses: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.IRootContentsEntry[] = [];
+            const iterable = client.queryUserRootContentsAsync(request);
+            for await (const resource of iterable) {
+                responses.push(resource!);
+            }
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert.deepStrictEqual(
+                (client.descriptors.page.queryUserRootContents.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.queryUserRootContents.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+
+        it('uses async iteration with queryUserRootContents with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new protos.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest()
+            );
+            const defaultValue1 =
+              getTypeDefaultValue('.google.cloud.dataform.v1beta1.QueryUserRootContentsRequest', ['location']);
+            request.location = defaultValue1;
+            const expectedHeaderRequestParams = `location=${defaultValue1 ?? '' }`;
+            const expectedError = new Error('expected');
+            client.descriptors.page.queryUserRootContents.asyncIterate = stubAsyncIterationCall(undefined, expectedError);
+            const iterable = client.queryUserRootContentsAsync(request);
+            await assert.rejects(async () => {
+                const responses: protos.google.cloud.dataform.v1beta1.QueryUserRootContentsResponse.IRootContentsEntry[] = [];
+                for await (const resource of iterable) {
+                    responses.push(resource!);
+                }
+            });
+            assert.deepStrictEqual(
+                (client.descriptors.page.queryUserRootContents.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+            assert(
+                (client.descriptors.page.queryUserRootContents.asyncIterate as SinonStub)
+                    .getCall(0).args[2].otherArgs.headers['x-goog-request-params'].includes(
+                        expectedHeaderRequestParams
+                    )
+            );
+        });
+    });
+
     describe('listRepositories', () => {
         it('invokes listRepositories without error', async () => {
             const client = new dataformModule.v1beta1.DataformClient({
@@ -8192,6 +10692,261 @@ describe('v1beta1.DataformClient', () => {
             );
         });
     });
+    describe('getOperation', () => {
+        it('invokes getOperation without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.GetOperationRequest()
+            );
+            const expectedResponse = generateSampleMessage(
+                new operationsProtos.google.longrunning.Operation()
+            );
+            client.operationsClient.getOperation = stubSimpleCall(expectedResponse);
+            const response = await client.getOperation(request);
+            assert.deepStrictEqual(response, [expectedResponse]);
+            assert((client.operationsClient.getOperation as SinonStub)
+                .getCall(0).calledWith(request)
+            );
+        });
+        it('invokes getOperation without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.GetOperationRequest()
+            );
+            const expectedResponse = generateSampleMessage(
+                new operationsProtos.google.longrunning.Operation()
+            );
+            client.operationsClient.getOperation = sinon.stub().callsArgWith(2, null, expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.operationsClient.getOperation(
+                    request,
+                    undefined,
+                    (
+                        err?: Error | null,
+                        result?: operationsProtos.google.longrunning.Operation | null
+                    ) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    }).catch(err => {throw err});
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            assert((client.operationsClient.getOperation as SinonStub)
+                .getCall(0));
+        });
+        it('invokes getOperation with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.GetOperationRequest()
+            );
+            const expectedError = new Error('expected');
+            client.operationsClient.getOperation = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(async () => {await client.getOperation(request)}, expectedError);
+            assert((client.operationsClient.getOperation as SinonStub)
+                .getCall(0).calledWith(request));
+        });
+    });
+    describe('cancelOperation', () => {
+        it('invokes cancelOperation without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.CancelOperationRequest()
+            );
+            const expectedResponse = generateSampleMessage(
+                new protos.google.protobuf.Empty()
+            );
+            client.operationsClient.cancelOperation = stubSimpleCall(expectedResponse);
+            const response = await client.cancelOperation(request);
+            assert.deepStrictEqual(response, [expectedResponse]);
+            assert((client.operationsClient.cancelOperation as SinonStub)
+                .getCall(0).calledWith(request)
+            );
+        });
+        it('invokes cancelOperation without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.CancelOperationRequest()
+            );
+            const expectedResponse = generateSampleMessage(
+                new protos.google.protobuf.Empty()
+            );
+            client.operationsClient.cancelOperation = sinon.stub().callsArgWith(2, null, expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.operationsClient.cancelOperation(
+                    request,
+                    undefined,
+                    (
+                        err?: Error | null,
+                        result?: protos.google.protobuf.Empty | null
+                    ) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    }).catch(err => {throw err});
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            assert((client.operationsClient.cancelOperation as SinonStub)
+                .getCall(0));
+        });
+        it('invokes cancelOperation with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.CancelOperationRequest()
+            );
+            const expectedError = new Error('expected');
+            client.operationsClient.cancelOperation = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(async () => {await client.cancelOperation(request)}, expectedError);
+            assert((client.operationsClient.cancelOperation as SinonStub)
+                .getCall(0).calledWith(request));
+        });
+    });
+    describe('deleteOperation', () => {
+        it('invokes deleteOperation without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.DeleteOperationRequest()
+            );
+            const expectedResponse = generateSampleMessage(
+                new protos.google.protobuf.Empty()
+            );
+            client.operationsClient.deleteOperation = stubSimpleCall(expectedResponse);
+            const response = await client.deleteOperation(request);
+            assert.deepStrictEqual(response, [expectedResponse]);
+            assert((client.operationsClient.deleteOperation as SinonStub)
+                .getCall(0).calledWith(request)
+            );
+        });
+        it('invokes deleteOperation without error using callback', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.DeleteOperationRequest()
+            );
+            const expectedResponse = generateSampleMessage(
+                new protos.google.protobuf.Empty()
+            );
+            client.operationsClient.deleteOperation = sinon.stub().callsArgWith(2, null, expectedResponse);
+            const promise = new Promise((resolve, reject) => {
+                 client.operationsClient.deleteOperation(
+                    request,
+                    undefined,
+                    (
+                        err?: Error | null,
+                        result?: protos.google.protobuf.Empty | null
+                    ) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(result);
+                        }
+                    }).catch(err => {throw err});
+            });
+            const response = await promise;
+            assert.deepStrictEqual(response, expectedResponse);
+            assert((client.operationsClient.deleteOperation as SinonStub)
+                .getCall(0));
+        });
+        it('invokes deleteOperation with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.DeleteOperationRequest()
+            );
+            const expectedError = new Error('expected');
+            client.operationsClient.deleteOperation = stubSimpleCall(undefined, expectedError);
+            await assert.rejects(async () => {await client.deleteOperation(request)}, expectedError);
+            assert((client.operationsClient.deleteOperation as SinonStub)
+                .getCall(0).calledWith(request));
+        });
+    });
+    describe('listOperationsAsync', () => {
+        it('uses async iteration with listOperations without error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+              credentials: {client_email: 'bogus', private_key: 'bogus'},
+              projectId: 'bogus',
+            });
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.ListOperationsRequest()
+            );
+            const expectedResponse = [
+                generateSampleMessage(
+                    new operationsProtos.google.longrunning.ListOperationsResponse()
+                ),
+                generateSampleMessage(
+                    new operationsProtos.google.longrunning.ListOperationsResponse()
+                ),
+                generateSampleMessage(
+                    new operationsProtos.google.longrunning.ListOperationsResponse()
+                ),
+            ];
+            client.operationsClient.descriptor.listOperations.asyncIterate = stubAsyncIterationCall(expectedResponse);
+            const responses: operationsProtos.google.longrunning.IOperation[] = [];
+            const iterable = client.operationsClient.listOperationsAsync(request);
+            for await (const resource of iterable) {
+                responses.push(resource!);
+            }
+            assert.deepStrictEqual(responses, expectedResponse);
+            assert.deepStrictEqual(
+                (client.operationsClient.descriptor.listOperations.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+        });
+        it('uses async iteration with listOperations with error', async () => {
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            const request = generateSampleMessage(
+              new operationsProtos.google.longrunning.ListOperationsRequest()
+            );
+            const expectedError = new Error('expected');
+            client.operationsClient.descriptor.listOperations.asyncIterate = stubAsyncIterationCall(undefined, expectedError);
+            const iterable = client.operationsClient.listOperationsAsync(request);
+            await assert.rejects(async () => {
+                const responses: operationsProtos.google.longrunning.IOperation[] = [];
+                for await (const resource of iterable) {
+                    responses.push(resource!);
+                }
+            });
+            assert.deepStrictEqual(
+                (client.operationsClient.descriptor.listOperations.asyncIterate as SinonStub)
+                    .getCall(0).args[1], request);
+        });
+    });
 
     describe('Path templates', () => {
 
@@ -8399,6 +11154,52 @@ describe('v1beta1.DataformClient', () => {
                 const result = client.matchCryptoKeyVersionFromCryptoKeyVersionName(fakePath);
                 assert.strictEqual(result, "cryptoKeyVersionValue");
                 assert((client.pathTemplates.cryptoKeyVersionPathTemplate.match as SinonStub)
+                    .getCall(-1).calledWith(fakePath));
+            });
+        });
+
+        describe('folder', async () => {
+            const fakePath = "/rendered/path/folder";
+            const expectedParameters = {
+                project: "projectValue",
+                location: "locationValue",
+                folder: "folderValue",
+            };
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            client.pathTemplates.folderPathTemplate.render =
+                sinon.stub().returns(fakePath);
+            client.pathTemplates.folderPathTemplate.match =
+                sinon.stub().returns(expectedParameters);
+
+            it('folderPath', () => {
+                const result = client.folderPath("projectValue", "locationValue", "folderValue");
+                assert.strictEqual(result, fakePath);
+                assert((client.pathTemplates.folderPathTemplate.render as SinonStub)
+                    .getCall(-1).calledWith(expectedParameters));
+            });
+
+            it('matchProjectFromFolderName', () => {
+                const result = client.matchProjectFromFolderName(fakePath);
+                assert.strictEqual(result, "projectValue");
+                assert((client.pathTemplates.folderPathTemplate.match as SinonStub)
+                    .getCall(-1).calledWith(fakePath));
+            });
+
+            it('matchLocationFromFolderName', () => {
+                const result = client.matchLocationFromFolderName(fakePath);
+                assert.strictEqual(result, "locationValue");
+                assert((client.pathTemplates.folderPathTemplate.match as SinonStub)
+                    .getCall(-1).calledWith(fakePath));
+            });
+
+            it('matchFolderFromFolderName', () => {
+                const result = client.matchFolderFromFolderName(fakePath);
+                assert.strictEqual(result, "folderValue");
+                assert((client.pathTemplates.folderPathTemplate.match as SinonStub)
                     .getCall(-1).calledWith(fakePath));
             });
         });
@@ -8629,6 +11430,52 @@ describe('v1beta1.DataformClient', () => {
                 const result = client.matchVersionFromSecretVersionName(fakePath);
                 assert.strictEqual(result, "versionValue");
                 assert((client.pathTemplates.secretVersionPathTemplate.match as SinonStub)
+                    .getCall(-1).calledWith(fakePath));
+            });
+        });
+
+        describe('teamFolder', async () => {
+            const fakePath = "/rendered/path/teamFolder";
+            const expectedParameters = {
+                project: "projectValue",
+                location: "locationValue",
+                team_folder: "teamFolderValue",
+            };
+            const client = new dataformModule.v1beta1.DataformClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            await client.initialize();
+            client.pathTemplates.teamFolderPathTemplate.render =
+                sinon.stub().returns(fakePath);
+            client.pathTemplates.teamFolderPathTemplate.match =
+                sinon.stub().returns(expectedParameters);
+
+            it('teamFolderPath', () => {
+                const result = client.teamFolderPath("projectValue", "locationValue", "teamFolderValue");
+                assert.strictEqual(result, fakePath);
+                assert((client.pathTemplates.teamFolderPathTemplate.render as SinonStub)
+                    .getCall(-1).calledWith(expectedParameters));
+            });
+
+            it('matchProjectFromTeamFolderName', () => {
+                const result = client.matchProjectFromTeamFolderName(fakePath);
+                assert.strictEqual(result, "projectValue");
+                assert((client.pathTemplates.teamFolderPathTemplate.match as SinonStub)
+                    .getCall(-1).calledWith(fakePath));
+            });
+
+            it('matchLocationFromTeamFolderName', () => {
+                const result = client.matchLocationFromTeamFolderName(fakePath);
+                assert.strictEqual(result, "locationValue");
+                assert((client.pathTemplates.teamFolderPathTemplate.match as SinonStub)
+                    .getCall(-1).calledWith(fakePath));
+            });
+
+            it('matchTeamFolderFromTeamFolderName', () => {
+                const result = client.matchTeamFolderFromTeamFolderName(fakePath);
+                assert.strictEqual(result, "teamFolderValue");
+                assert((client.pathTemplates.teamFolderPathTemplate.match as SinonStub)
                     .getCall(-1).calledWith(fakePath));
             });
         });
