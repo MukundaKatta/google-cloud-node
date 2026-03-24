@@ -99,6 +99,501 @@
                         };
     
                         /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|getTeamFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef GetTeamFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.TeamFolder} [response] TeamFolder
+                         */
+    
+                        /**
+                         * Calls GetTeamFolder.
+                         * @function getTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IGetTeamFolderRequest} request GetTeamFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.GetTeamFolderCallback} callback Node-style callback called with the error, if any, and TeamFolder
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.getTeamFolder = function getTeamFolder(request, callback) {
+                            return this.rpcCall(getTeamFolder, $root.google.cloud.dataform.v1.GetTeamFolderRequest, $root.google.cloud.dataform.v1.TeamFolder, request, callback);
+                        }, "name", { value: "GetTeamFolder" });
+    
+                        /**
+                         * Calls GetTeamFolder.
+                         * @function getTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IGetTeamFolderRequest} request GetTeamFolderRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.TeamFolder>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|createTeamFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef CreateTeamFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.TeamFolder} [response] TeamFolder
+                         */
+    
+                        /**
+                         * Calls CreateTeamFolder.
+                         * @function createTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.ICreateTeamFolderRequest} request CreateTeamFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.CreateTeamFolderCallback} callback Node-style callback called with the error, if any, and TeamFolder
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.createTeamFolder = function createTeamFolder(request, callback) {
+                            return this.rpcCall(createTeamFolder, $root.google.cloud.dataform.v1.CreateTeamFolderRequest, $root.google.cloud.dataform.v1.TeamFolder, request, callback);
+                        }, "name", { value: "CreateTeamFolder" });
+    
+                        /**
+                         * Calls CreateTeamFolder.
+                         * @function createTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.ICreateTeamFolderRequest} request CreateTeamFolderRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.TeamFolder>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|updateTeamFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef UpdateTeamFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.TeamFolder} [response] TeamFolder
+                         */
+    
+                        /**
+                         * Calls UpdateTeamFolder.
+                         * @function updateTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IUpdateTeamFolderRequest} request UpdateTeamFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.UpdateTeamFolderCallback} callback Node-style callback called with the error, if any, and TeamFolder
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.updateTeamFolder = function updateTeamFolder(request, callback) {
+                            return this.rpcCall(updateTeamFolder, $root.google.cloud.dataform.v1.UpdateTeamFolderRequest, $root.google.cloud.dataform.v1.TeamFolder, request, callback);
+                        }, "name", { value: "UpdateTeamFolder" });
+    
+                        /**
+                         * Calls UpdateTeamFolder.
+                         * @function updateTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IUpdateTeamFolderRequest} request UpdateTeamFolderRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.TeamFolder>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteTeamFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef DeleteTeamFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.protobuf.Empty} [response] Empty
+                         */
+    
+                        /**
+                         * Calls DeleteTeamFolder.
+                         * @function deleteTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderRequest} request DeleteTeamFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.DeleteTeamFolderCallback} callback Node-style callback called with the error, if any, and Empty
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.deleteTeamFolder = function deleteTeamFolder(request, callback) {
+                            return this.rpcCall(deleteTeamFolder, $root.google.cloud.dataform.v1.DeleteTeamFolderRequest, $root.google.protobuf.Empty, request, callback);
+                        }, "name", { value: "DeleteTeamFolder" });
+    
+                        /**
+                         * Calls DeleteTeamFolder.
+                         * @function deleteTeamFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderRequest} request DeleteTeamFolderRequest message or plain object
+                         * @returns {Promise<google.protobuf.Empty>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteTeamFolderTree}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef DeleteTeamFolderTreeCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.longrunning.Operation} [response] Operation
+                         */
+    
+                        /**
+                         * Calls DeleteTeamFolderTree.
+                         * @function deleteTeamFolderTree
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest} request DeleteTeamFolderTreeRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.DeleteTeamFolderTreeCallback} callback Node-style callback called with the error, if any, and Operation
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.deleteTeamFolderTree = function deleteTeamFolderTree(request, callback) {
+                            return this.rpcCall(deleteTeamFolderTree, $root.google.cloud.dataform.v1.DeleteTeamFolderTreeRequest, $root.google.longrunning.Operation, request, callback);
+                        }, "name", { value: "DeleteTeamFolderTree" });
+    
+                        /**
+                         * Calls DeleteTeamFolderTree.
+                         * @function deleteTeamFolderTree
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest} request DeleteTeamFolderTreeRequest message or plain object
+                         * @returns {Promise<google.longrunning.Operation>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|queryTeamFolderContents}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef QueryTeamFolderContentsCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse} [response] QueryTeamFolderContentsResponse
+                         */
+    
+                        /**
+                         * Calls QueryTeamFolderContents.
+                         * @function queryTeamFolderContents
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsRequest} request QueryTeamFolderContentsRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.QueryTeamFolderContentsCallback} callback Node-style callback called with the error, if any, and QueryTeamFolderContentsResponse
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.queryTeamFolderContents = function queryTeamFolderContents(request, callback) {
+                            return this.rpcCall(queryTeamFolderContents, $root.google.cloud.dataform.v1.QueryTeamFolderContentsRequest, $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse, request, callback);
+                        }, "name", { value: "QueryTeamFolderContents" });
+    
+                        /**
+                         * Calls QueryTeamFolderContents.
+                         * @function queryTeamFolderContents
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsRequest} request QueryTeamFolderContentsRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.QueryTeamFolderContentsResponse>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|searchTeamFolders}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef SearchTeamFoldersCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse} [response] SearchTeamFoldersResponse
+                         */
+    
+                        /**
+                         * Calls SearchTeamFolders.
+                         * @function searchTeamFolders
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersRequest} request SearchTeamFoldersRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.SearchTeamFoldersCallback} callback Node-style callback called with the error, if any, and SearchTeamFoldersResponse
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.searchTeamFolders = function searchTeamFolders(request, callback) {
+                            return this.rpcCall(searchTeamFolders, $root.google.cloud.dataform.v1.SearchTeamFoldersRequest, $root.google.cloud.dataform.v1.SearchTeamFoldersResponse, request, callback);
+                        }, "name", { value: "SearchTeamFolders" });
+    
+                        /**
+                         * Calls SearchTeamFolders.
+                         * @function searchTeamFolders
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersRequest} request SearchTeamFoldersRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.SearchTeamFoldersResponse>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|getFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef GetFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.Folder} [response] Folder
+                         */
+    
+                        /**
+                         * Calls GetFolder.
+                         * @function getFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IGetFolderRequest} request GetFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.GetFolderCallback} callback Node-style callback called with the error, if any, and Folder
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.getFolder = function getFolder(request, callback) {
+                            return this.rpcCall(getFolder, $root.google.cloud.dataform.v1.GetFolderRequest, $root.google.cloud.dataform.v1.Folder, request, callback);
+                        }, "name", { value: "GetFolder" });
+    
+                        /**
+                         * Calls GetFolder.
+                         * @function getFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IGetFolderRequest} request GetFolderRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.Folder>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|createFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef CreateFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.Folder} [response] Folder
+                         */
+    
+                        /**
+                         * Calls CreateFolder.
+                         * @function createFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.ICreateFolderRequest} request CreateFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.CreateFolderCallback} callback Node-style callback called with the error, if any, and Folder
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.createFolder = function createFolder(request, callback) {
+                            return this.rpcCall(createFolder, $root.google.cloud.dataform.v1.CreateFolderRequest, $root.google.cloud.dataform.v1.Folder, request, callback);
+                        }, "name", { value: "CreateFolder" });
+    
+                        /**
+                         * Calls CreateFolder.
+                         * @function createFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.ICreateFolderRequest} request CreateFolderRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.Folder>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|updateFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef UpdateFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.Folder} [response] Folder
+                         */
+    
+                        /**
+                         * Calls UpdateFolder.
+                         * @function updateFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IUpdateFolderRequest} request UpdateFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.UpdateFolderCallback} callback Node-style callback called with the error, if any, and Folder
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.updateFolder = function updateFolder(request, callback) {
+                            return this.rpcCall(updateFolder, $root.google.cloud.dataform.v1.UpdateFolderRequest, $root.google.cloud.dataform.v1.Folder, request, callback);
+                        }, "name", { value: "UpdateFolder" });
+    
+                        /**
+                         * Calls UpdateFolder.
+                         * @function updateFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IUpdateFolderRequest} request UpdateFolderRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.Folder>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef DeleteFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.protobuf.Empty} [response] Empty
+                         */
+    
+                        /**
+                         * Calls DeleteFolder.
+                         * @function deleteFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteFolderRequest} request DeleteFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.DeleteFolderCallback} callback Node-style callback called with the error, if any, and Empty
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.deleteFolder = function deleteFolder(request, callback) {
+                            return this.rpcCall(deleteFolder, $root.google.cloud.dataform.v1.DeleteFolderRequest, $root.google.protobuf.Empty, request, callback);
+                        }, "name", { value: "DeleteFolder" });
+    
+                        /**
+                         * Calls DeleteFolder.
+                         * @function deleteFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteFolderRequest} request DeleteFolderRequest message or plain object
+                         * @returns {Promise<google.protobuf.Empty>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteFolderTree}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef DeleteFolderTreeCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.longrunning.Operation} [response] Operation
+                         */
+    
+                        /**
+                         * Calls DeleteFolderTree.
+                         * @function deleteFolderTree
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeRequest} request DeleteFolderTreeRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.DeleteFolderTreeCallback} callback Node-style callback called with the error, if any, and Operation
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.deleteFolderTree = function deleteFolderTree(request, callback) {
+                            return this.rpcCall(deleteFolderTree, $root.google.cloud.dataform.v1.DeleteFolderTreeRequest, $root.google.longrunning.Operation, request, callback);
+                        }, "name", { value: "DeleteFolderTree" });
+    
+                        /**
+                         * Calls DeleteFolderTree.
+                         * @function deleteFolderTree
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeRequest} request DeleteFolderTreeRequest message or plain object
+                         * @returns {Promise<google.longrunning.Operation>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|queryFolderContents}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef QueryFolderContentsCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.QueryFolderContentsResponse} [response] QueryFolderContentsResponse
+                         */
+    
+                        /**
+                         * Calls QueryFolderContents.
+                         * @function queryFolderContents
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsRequest} request QueryFolderContentsRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.QueryFolderContentsCallback} callback Node-style callback called with the error, if any, and QueryFolderContentsResponse
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.queryFolderContents = function queryFolderContents(request, callback) {
+                            return this.rpcCall(queryFolderContents, $root.google.cloud.dataform.v1.QueryFolderContentsRequest, $root.google.cloud.dataform.v1.QueryFolderContentsResponse, request, callback);
+                        }, "name", { value: "QueryFolderContents" });
+    
+                        /**
+                         * Calls QueryFolderContents.
+                         * @function queryFolderContents
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsRequest} request QueryFolderContentsRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.QueryFolderContentsResponse>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|queryUserRootContents}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef QueryUserRootContentsCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse} [response] QueryUserRootContentsResponse
+                         */
+    
+                        /**
+                         * Calls QueryUserRootContents.
+                         * @function queryUserRootContents
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsRequest} request QueryUserRootContentsRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.QueryUserRootContentsCallback} callback Node-style callback called with the error, if any, and QueryUserRootContentsResponse
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.queryUserRootContents = function queryUserRootContents(request, callback) {
+                            return this.rpcCall(queryUserRootContents, $root.google.cloud.dataform.v1.QueryUserRootContentsRequest, $root.google.cloud.dataform.v1.QueryUserRootContentsResponse, request, callback);
+                        }, "name", { value: "QueryUserRootContents" });
+    
+                        /**
+                         * Calls QueryUserRootContents.
+                         * @function queryUserRootContents
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsRequest} request QueryUserRootContentsRequest message or plain object
+                         * @returns {Promise<google.cloud.dataform.v1.QueryUserRootContentsResponse>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|moveFolder}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef MoveFolderCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.longrunning.Operation} [response] Operation
+                         */
+    
+                        /**
+                         * Calls MoveFolder.
+                         * @function moveFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IMoveFolderRequest} request MoveFolderRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.MoveFolderCallback} callback Node-style callback called with the error, if any, and Operation
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.moveFolder = function moveFolder(request, callback) {
+                            return this.rpcCall(moveFolder, $root.google.cloud.dataform.v1.MoveFolderRequest, $root.google.longrunning.Operation, request, callback);
+                        }, "name", { value: "MoveFolder" });
+    
+                        /**
+                         * Calls MoveFolder.
+                         * @function moveFolder
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IMoveFolderRequest} request MoveFolderRequest message or plain object
+                         * @returns {Promise<google.longrunning.Operation>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
                          * Callback as used by {@link google.cloud.dataform.v1.Dataform|listRepositories}.
                          * @memberof google.cloud.dataform.v1.Dataform
                          * @typedef ListRepositoriesCallback
@@ -260,6 +755,39 @@
                          * @instance
                          * @param {google.cloud.dataform.v1.IDeleteRepositoryRequest} request DeleteRepositoryRequest message or plain object
                          * @returns {Promise<google.protobuf.Empty>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|moveRepository}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef MoveRepositoryCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.longrunning.Operation} [response] Operation
+                         */
+    
+                        /**
+                         * Calls MoveRepository.
+                         * @function moveRepository
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryRequest} request MoveRepositoryRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.MoveRepositoryCallback} callback Node-style callback called with the error, if any, and Operation
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.moveRepository = function moveRepository(request, callback) {
+                            return this.rpcCall(moveRepository, $root.google.cloud.dataform.v1.MoveRepositoryRequest, $root.google.longrunning.Operation, request, callback);
+                        }, "name", { value: "MoveRepository" });
+    
+                        /**
+                         * Calls MoveRepository.
+                         * @function moveRepository
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryRequest} request MoveRepositoryRequest message or plain object
+                         * @returns {Promise<google.longrunning.Operation>} Promise
                          * @variation 2
                          */
     
@@ -1880,7 +2408,122 @@
                          * @variation 2
                          */
     
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|getIamPolicy}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef GetIamPolicyCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.iam.v1.Policy} [response] Policy
+                         */
+    
+                        /**
+                         * Calls GetIamPolicy.
+                         * @function getIamPolicy
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.iam.v1.IGetIamPolicyRequest} request GetIamPolicyRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.GetIamPolicyCallback} callback Node-style callback called with the error, if any, and Policy
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.getIamPolicy = function getIamPolicy(request, callback) {
+                            return this.rpcCall(getIamPolicy, $root.google.iam.v1.GetIamPolicyRequest, $root.google.iam.v1.Policy, request, callback);
+                        }, "name", { value: "GetIamPolicy" });
+    
+                        /**
+                         * Calls GetIamPolicy.
+                         * @function getIamPolicy
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.iam.v1.IGetIamPolicyRequest} request GetIamPolicyRequest message or plain object
+                         * @returns {Promise<google.iam.v1.Policy>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|setIamPolicy}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef SetIamPolicyCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.iam.v1.Policy} [response] Policy
+                         */
+    
+                        /**
+                         * Calls SetIamPolicy.
+                         * @function setIamPolicy
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.iam.v1.ISetIamPolicyRequest} request SetIamPolicyRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.SetIamPolicyCallback} callback Node-style callback called with the error, if any, and Policy
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.setIamPolicy = function setIamPolicy(request, callback) {
+                            return this.rpcCall(setIamPolicy, $root.google.iam.v1.SetIamPolicyRequest, $root.google.iam.v1.Policy, request, callback);
+                        }, "name", { value: "SetIamPolicy" });
+    
+                        /**
+                         * Calls SetIamPolicy.
+                         * @function setIamPolicy
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.iam.v1.ISetIamPolicyRequest} request SetIamPolicyRequest message or plain object
+                         * @returns {Promise<google.iam.v1.Policy>} Promise
+                         * @variation 2
+                         */
+    
+                        /**
+                         * Callback as used by {@link google.cloud.dataform.v1.Dataform|testIamPermissions}.
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @typedef TestIamPermissionsCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {google.iam.v1.TestIamPermissionsResponse} [response] TestIamPermissionsResponse
+                         */
+    
+                        /**
+                         * Calls TestIamPermissions.
+                         * @function testIamPermissions
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.iam.v1.ITestIamPermissionsRequest} request TestIamPermissionsRequest message or plain object
+                         * @param {google.cloud.dataform.v1.Dataform.TestIamPermissionsCallback} callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Dataform.prototype.testIamPermissions = function testIamPermissions(request, callback) {
+                            return this.rpcCall(testIamPermissions, $root.google.iam.v1.TestIamPermissionsRequest, $root.google.iam.v1.TestIamPermissionsResponse, request, callback);
+                        }, "name", { value: "TestIamPermissions" });
+    
+                        /**
+                         * Calls TestIamPermissions.
+                         * @function testIamPermissions
+                         * @memberof google.cloud.dataform.v1.Dataform
+                         * @instance
+                         * @param {google.iam.v1.ITestIamPermissionsRequest} request TestIamPermissionsRequest message or plain object
+                         * @returns {Promise<google.iam.v1.TestIamPermissionsResponse>} Promise
+                         * @variation 2
+                         */
+    
                         return Dataform;
+                    })();
+    
+                    /**
+                     * DirectoryContentsView enum.
+                     * @name google.cloud.dataform.v1.DirectoryContentsView
+                     * @enum {number}
+                     * @property {number} DIRECTORY_CONTENTS_VIEW_UNSPECIFIED=0 DIRECTORY_CONTENTS_VIEW_UNSPECIFIED value
+                     * @property {number} DIRECTORY_CONTENTS_VIEW_BASIC=1 DIRECTORY_CONTENTS_VIEW_BASIC value
+                     * @property {number} DIRECTORY_CONTENTS_VIEW_METADATA=2 DIRECTORY_CONTENTS_VIEW_METADATA value
+                     */
+                    v1.DirectoryContentsView = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "DIRECTORY_CONTENTS_VIEW_UNSPECIFIED"] = 0;
+                        values[valuesById[1] = "DIRECTORY_CONTENTS_VIEW_BASIC"] = 1;
+                        values[valuesById[2] = "DIRECTORY_CONTENTS_VIEW_METADATA"] = 2;
+                        return values;
                     })();
     
                     v1.DataEncryptionState = (function() {
@@ -2095,6 +2738,8 @@
                          * @memberof google.cloud.dataform.v1
                          * @interface IRepository
                          * @property {string|null} [name] Repository name
+                         * @property {string|null} [containingFolder] Repository containingFolder
+                         * @property {string|null} [teamFolderName] Repository teamFolderName
                          * @property {google.protobuf.ITimestamp|null} [createTime] Repository createTime
                          * @property {string|null} [displayName] Repository displayName
                          * @property {google.cloud.dataform.v1.Repository.IGitRemoteSettings|null} [gitRemoteSettings] Repository gitRemoteSettings
@@ -2131,6 +2776,22 @@
                          * @instance
                          */
                         Repository.prototype.name = "";
+    
+                        /**
+                         * Repository containingFolder.
+                         * @member {string|null|undefined} containingFolder
+                         * @memberof google.cloud.dataform.v1.Repository
+                         * @instance
+                         */
+                        Repository.prototype.containingFolder = null;
+    
+                        /**
+                         * Repository teamFolderName.
+                         * @member {string|null|undefined} teamFolderName
+                         * @memberof google.cloud.dataform.v1.Repository
+                         * @instance
+                         */
+                        Repository.prototype.teamFolderName = null;
     
                         /**
                          * Repository createTime.
@@ -2224,6 +2885,18 @@
                         var $oneOfFields;
     
                         // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(Repository.prototype, "_containingFolder", {
+                            get: $util.oneOfGetter($oneOfFields = ["containingFolder"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(Repository.prototype, "_teamFolderName", {
+                            get: $util.oneOfGetter($oneOfFields = ["teamFolderName"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        // Virtual OneOf for proto3 optional field
                         Object.defineProperty(Repository.prototype, "_internalMetadata", {
                             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
                             set: $util.oneOfSetter($oneOfFields)
@@ -2278,6 +2951,10 @@
                                 $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
                             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                                 writer.uint32(/* id 15, wireType 2 =*/122).string(message.internalMetadata);
+                            if (message.containingFolder != null && Object.hasOwnProperty.call(message, "containingFolder"))
+                                writer.uint32(/* id 16, wireType 2 =*/130).string(message.containingFolder);
+                            if (message.teamFolderName != null && Object.hasOwnProperty.call(message, "teamFolderName"))
+                                writer.uint32(/* id 18, wireType 2 =*/146).string(message.teamFolderName);
                             return writer;
                         };
     
@@ -2316,6 +2993,14 @@
                                 switch (tag >>> 3) {
                                 case 1: {
                                         message.name = reader.string();
+                                        break;
+                                    }
+                                case 16: {
+                                        message.containingFolder = reader.string();
+                                        break;
+                                    }
+                                case 18: {
+                                        message.teamFolderName = reader.string();
                                         break;
                                     }
                                 case 13: {
@@ -2420,6 +3105,16 @@
                             if (message.name != null && message.hasOwnProperty("name"))
                                 if (!$util.isString(message.name))
                                     return "name: string expected";
+                            if (message.containingFolder != null && message.hasOwnProperty("containingFolder")) {
+                                properties._containingFolder = 1;
+                                if (!$util.isString(message.containingFolder))
+                                    return "containingFolder: string expected";
+                            }
+                            if (message.teamFolderName != null && message.hasOwnProperty("teamFolderName")) {
+                                properties._teamFolderName = 1;
+                                if (!$util.isString(message.teamFolderName))
+                                    return "teamFolderName: string expected";
+                            }
                             if (message.createTime != null && message.hasOwnProperty("createTime")) {
                                 var error = $root.google.protobuf.Timestamp.verify(message.createTime);
                                 if (error)
@@ -2485,6 +3180,10 @@
                             var message = new $root.google.cloud.dataform.v1.Repository();
                             if (object.name != null)
                                 message.name = String(object.name);
+                            if (object.containingFolder != null)
+                                message.containingFolder = String(object.containingFolder);
+                            if (object.teamFolderName != null)
+                                message.teamFolderName = String(object.teamFolderName);
                             if (object.createTime != null) {
                                 if (typeof object.createTime !== "object")
                                     throw TypeError(".google.cloud.dataform.v1.Repository.createTime: object expected");
@@ -2584,6 +3283,16 @@
                                 object.internalMetadata = message.internalMetadata;
                                 if (options.oneofs)
                                     object._internalMetadata = "internalMetadata";
+                            }
+                            if (message.containingFolder != null && message.hasOwnProperty("containingFolder")) {
+                                object.containingFolder = message.containingFolder;
+                                if (options.oneofs)
+                                    object._containingFolder = "containingFolder";
+                            }
+                            if (message.teamFolderName != null && message.hasOwnProperty("teamFolderName")) {
+                                object.teamFolderName = message.teamFolderName;
+                                if (options.oneofs)
+                                    object._teamFolderName = "teamFolderName";
                             }
                             return object;
                         };
@@ -3448,6 +4157,211 @@
                         return Repository;
                     })();
     
+                    v1.PrivateResourceMetadata = (function() {
+    
+                        /**
+                         * Properties of a PrivateResourceMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IPrivateResourceMetadata
+                         * @property {boolean|null} [userScoped] PrivateResourceMetadata userScoped
+                         */
+    
+                        /**
+                         * Constructs a new PrivateResourceMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a PrivateResourceMetadata.
+                         * @implements IPrivateResourceMetadata
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IPrivateResourceMetadata=} [properties] Properties to set
+                         */
+                        function PrivateResourceMetadata(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * PrivateResourceMetadata userScoped.
+                         * @member {boolean} userScoped
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @instance
+                         */
+                        PrivateResourceMetadata.prototype.userScoped = false;
+    
+                        /**
+                         * Creates a new PrivateResourceMetadata instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IPrivateResourceMetadata=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.PrivateResourceMetadata} PrivateResourceMetadata instance
+                         */
+                        PrivateResourceMetadata.create = function create(properties) {
+                            return new PrivateResourceMetadata(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified PrivateResourceMetadata message. Does not implicitly {@link google.cloud.dataform.v1.PrivateResourceMetadata.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IPrivateResourceMetadata} message PrivateResourceMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        PrivateResourceMetadata.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.userScoped != null && Object.hasOwnProperty.call(message, "userScoped"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.userScoped);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified PrivateResourceMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.PrivateResourceMetadata.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IPrivateResourceMetadata} message PrivateResourceMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        PrivateResourceMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a PrivateResourceMetadata message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.PrivateResourceMetadata} PrivateResourceMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        PrivateResourceMetadata.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.PrivateResourceMetadata();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.userScoped = reader.bool();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a PrivateResourceMetadata message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.PrivateResourceMetadata} PrivateResourceMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        PrivateResourceMetadata.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a PrivateResourceMetadata message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        PrivateResourceMetadata.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.userScoped != null && message.hasOwnProperty("userScoped"))
+                                if (typeof message.userScoped !== "boolean")
+                                    return "userScoped: boolean expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a PrivateResourceMetadata message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.PrivateResourceMetadata} PrivateResourceMetadata
+                         */
+                        PrivateResourceMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.PrivateResourceMetadata)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.PrivateResourceMetadata();
+                            if (object.userScoped != null)
+                                message.userScoped = Boolean(object.userScoped);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a PrivateResourceMetadata message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.PrivateResourceMetadata} message PrivateResourceMetadata
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        PrivateResourceMetadata.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.userScoped = false;
+                            if (message.userScoped != null && message.hasOwnProperty("userScoped"))
+                                object.userScoped = message.userScoped;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this PrivateResourceMetadata to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        PrivateResourceMetadata.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for PrivateResourceMetadata
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.PrivateResourceMetadata
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        PrivateResourceMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.PrivateResourceMetadata";
+                        };
+    
+                        return PrivateResourceMetadata;
+                    })();
+    
                     v1.ListRepositoriesRequest = (function() {
     
                         /**
@@ -4034,6 +4948,248 @@
                         };
     
                         return ListRepositoriesResponse;
+                    })();
+    
+                    v1.MoveRepositoryRequest = (function() {
+    
+                        /**
+                         * Properties of a MoveRepositoryRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IMoveRepositoryRequest
+                         * @property {string|null} [name] MoveRepositoryRequest name
+                         * @property {string|null} [destinationContainingFolder] MoveRepositoryRequest destinationContainingFolder
+                         */
+    
+                        /**
+                         * Constructs a new MoveRepositoryRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a MoveRepositoryRequest.
+                         * @implements IMoveRepositoryRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryRequest=} [properties] Properties to set
+                         */
+                        function MoveRepositoryRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * MoveRepositoryRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @instance
+                         */
+                        MoveRepositoryRequest.prototype.name = "";
+    
+                        /**
+                         * MoveRepositoryRequest destinationContainingFolder.
+                         * @member {string|null|undefined} destinationContainingFolder
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @instance
+                         */
+                        MoveRepositoryRequest.prototype.destinationContainingFolder = null;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(MoveRepositoryRequest.prototype, "_destinationContainingFolder", {
+                            get: $util.oneOfGetter($oneOfFields = ["destinationContainingFolder"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
+                         * Creates a new MoveRepositoryRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryRequest} MoveRepositoryRequest instance
+                         */
+                        MoveRepositoryRequest.create = function create(properties) {
+                            return new MoveRepositoryRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified MoveRepositoryRequest message. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryRequest} message MoveRepositoryRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveRepositoryRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.destinationContainingFolder != null && Object.hasOwnProperty.call(message, "destinationContainingFolder"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.destinationContainingFolder);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified MoveRepositoryRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryRequest} message MoveRepositoryRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveRepositoryRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a MoveRepositoryRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryRequest} MoveRepositoryRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveRepositoryRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.MoveRepositoryRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.destinationContainingFolder = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a MoveRepositoryRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryRequest} MoveRepositoryRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveRepositoryRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a MoveRepositoryRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        MoveRepositoryRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            var properties = {};
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.destinationContainingFolder != null && message.hasOwnProperty("destinationContainingFolder")) {
+                                properties._destinationContainingFolder = 1;
+                                if (!$util.isString(message.destinationContainingFolder))
+                                    return "destinationContainingFolder: string expected";
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a MoveRepositoryRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryRequest} MoveRepositoryRequest
+                         */
+                        MoveRepositoryRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.MoveRepositoryRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.MoveRepositoryRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.destinationContainingFolder != null)
+                                message.destinationContainingFolder = String(object.destinationContainingFolder);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a MoveRepositoryRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.MoveRepositoryRequest} message MoveRepositoryRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        MoveRepositoryRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.name = "";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.destinationContainingFolder != null && message.hasOwnProperty("destinationContainingFolder")) {
+                                object.destinationContainingFolder = message.destinationContainingFolder;
+                                if (options.oneofs)
+                                    object._destinationContainingFolder = "destinationContainingFolder";
+                            }
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this MoveRepositoryRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        MoveRepositoryRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for MoveRepositoryRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        MoveRepositoryRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.MoveRepositoryRequest";
+                        };
+    
+                        return MoveRepositoryRequest;
                     })();
     
                     v1.GetRepositoryRequest = (function() {
@@ -8530,6 +9686,7 @@
                                 case 1:
                                 case 2:
                                 case 3:
+                                case 4:
                                     break;
                                 }
                             return null;
@@ -8569,6 +9726,10 @@
                             case "VALID":
                             case 3:
                                 message.tokenStatus = 3;
+                                break;
+                            case "PERMISSION_DENIED":
+                            case 4:
+                                message.tokenStatus = 4;
                                 break;
                             }
                             return message;
@@ -8628,6 +9789,7 @@
                          * @property {number} NOT_FOUND=1 NOT_FOUND value
                          * @property {number} INVALID=2 INVALID value
                          * @property {number} VALID=3 VALID value
+                         * @property {number} PERMISSION_DENIED=4 PERMISSION_DENIED value
                          */
                         ComputeRepositoryAccessTokenStatusResponse.TokenStatus = (function() {
                             var valuesById = {}, values = Object.create(valuesById);
@@ -8635,6 +9797,7 @@
                             values[valuesById[1] = "NOT_FOUND"] = 1;
                             values[valuesById[2] = "INVALID"] = 2;
                             values[valuesById[3] = "VALID"] = 3;
+                            values[valuesById[4] = "PERMISSION_DENIED"] = 4;
                             return values;
                         })();
     
@@ -9077,6 +10240,8 @@
                          * @property {google.protobuf.ITimestamp|null} [createTime] Workspace createTime
                          * @property {google.cloud.dataform.v1.IDataEncryptionState|null} [dataEncryptionState] Workspace dataEncryptionState
                          * @property {string|null} [internalMetadata] Workspace internalMetadata
+                         * @property {boolean|null} [disableMoves] Workspace disableMoves
+                         * @property {google.cloud.dataform.v1.IPrivateResourceMetadata|null} [privateResourceMetadata] Workspace privateResourceMetadata
                          */
     
                         /**
@@ -9126,12 +10291,34 @@
                          */
                         Workspace.prototype.internalMetadata = null;
     
+                        /**
+                         * Workspace disableMoves.
+                         * @member {boolean|null|undefined} disableMoves
+                         * @memberof google.cloud.dataform.v1.Workspace
+                         * @instance
+                         */
+                        Workspace.prototype.disableMoves = null;
+    
+                        /**
+                         * Workspace privateResourceMetadata.
+                         * @member {google.cloud.dataform.v1.IPrivateResourceMetadata|null|undefined} privateResourceMetadata
+                         * @memberof google.cloud.dataform.v1.Workspace
+                         * @instance
+                         */
+                        Workspace.prototype.privateResourceMetadata = null;
+    
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
     
                         // Virtual OneOf for proto3 optional field
                         Object.defineProperty(Workspace.prototype, "_internalMetadata", {
                             get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(Workspace.prototype, "_disableMoves", {
+                            get: $util.oneOfGetter($oneOfFields = ["disableMoves"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
     
@@ -9167,6 +10354,10 @@
                                 $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.internalMetadata);
+                            if (message.disableMoves != null && Object.hasOwnProperty.call(message, "disableMoves"))
+                                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.disableMoves);
+                            if (message.privateResourceMetadata != null && Object.hasOwnProperty.call(message, "privateResourceMetadata"))
+                                $root.google.cloud.dataform.v1.PrivateResourceMetadata.encode(message.privateResourceMetadata, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                             return writer;
                         };
     
@@ -9217,6 +10408,14 @@
                                     }
                                 case 5: {
                                         message.internalMetadata = reader.string();
+                                        break;
+                                    }
+                                case 6: {
+                                        message.disableMoves = reader.bool();
+                                        break;
+                                    }
+                                case 8: {
+                                        message.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.decode(reader, reader.uint32());
                                         break;
                                     }
                                 default:
@@ -9273,6 +10472,16 @@
                                 if (!$util.isString(message.internalMetadata))
                                     return "internalMetadata: string expected";
                             }
+                            if (message.disableMoves != null && message.hasOwnProperty("disableMoves")) {
+                                properties._disableMoves = 1;
+                                if (typeof message.disableMoves !== "boolean")
+                                    return "disableMoves: boolean expected";
+                            }
+                            if (message.privateResourceMetadata != null && message.hasOwnProperty("privateResourceMetadata")) {
+                                var error = $root.google.cloud.dataform.v1.PrivateResourceMetadata.verify(message.privateResourceMetadata);
+                                if (error)
+                                    return "privateResourceMetadata." + error;
+                            }
                             return null;
                         };
     
@@ -9302,6 +10511,13 @@
                             }
                             if (object.internalMetadata != null)
                                 message.internalMetadata = String(object.internalMetadata);
+                            if (object.disableMoves != null)
+                                message.disableMoves = Boolean(object.disableMoves);
+                            if (object.privateResourceMetadata != null) {
+                                if (typeof object.privateResourceMetadata !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.Workspace.privateResourceMetadata: object expected");
+                                message.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.fromObject(object.privateResourceMetadata);
+                            }
                             return message;
                         };
     
@@ -9322,6 +10538,7 @@
                                 object.name = "";
                                 object.dataEncryptionState = null;
                                 object.createTime = null;
+                                object.privateResourceMetadata = null;
                             }
                             if (message.name != null && message.hasOwnProperty("name"))
                                 object.name = message.name;
@@ -9334,6 +10551,13 @@
                                 if (options.oneofs)
                                     object._internalMetadata = "internalMetadata";
                             }
+                            if (message.disableMoves != null && message.hasOwnProperty("disableMoves")) {
+                                object.disableMoves = message.disableMoves;
+                                if (options.oneofs)
+                                    object._disableMoves = "disableMoves";
+                            }
+                            if (message.privateResourceMetadata != null && message.hasOwnProperty("privateResourceMetadata"))
+                                object.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.toObject(message.privateResourceMetadata, options);
                             return object;
                         };
     
@@ -14226,6 +15450,7 @@
                          * @property {string|null} [path] QueryDirectoryContentsRequest path
                          * @property {number|null} [pageSize] QueryDirectoryContentsRequest pageSize
                          * @property {string|null} [pageToken] QueryDirectoryContentsRequest pageToken
+                         * @property {google.cloud.dataform.v1.DirectoryContentsView|null} [view] QueryDirectoryContentsRequest view
                          */
     
                         /**
@@ -14276,6 +15501,14 @@
                         QueryDirectoryContentsRequest.prototype.pageToken = "";
     
                         /**
+                         * QueryDirectoryContentsRequest view.
+                         * @member {google.cloud.dataform.v1.DirectoryContentsView} view
+                         * @memberof google.cloud.dataform.v1.QueryDirectoryContentsRequest
+                         * @instance
+                         */
+                        QueryDirectoryContentsRequest.prototype.view = 0;
+    
+                        /**
                          * Creates a new QueryDirectoryContentsRequest instance using the specified properties.
                          * @function create
                          * @memberof google.cloud.dataform.v1.QueryDirectoryContentsRequest
@@ -14307,6 +15540,8 @@
                                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.pageSize);
                             if (message.pageToken != null && Object.hasOwnProperty.call(message, "pageToken"))
                                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.pageToken);
+                            if (message.view != null && Object.hasOwnProperty.call(message, "view"))
+                                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.view);
                             return writer;
                         };
     
@@ -14359,6 +15594,10 @@
                                         message.pageToken = reader.string();
                                         break;
                                     }
+                                case 5: {
+                                        message.view = reader.int32();
+                                        break;
+                                    }
                                 default:
                                     reader.skipType(tag & 7);
                                     break;
@@ -14406,6 +15645,15 @@
                             if (message.pageToken != null && message.hasOwnProperty("pageToken"))
                                 if (!$util.isString(message.pageToken))
                                     return "pageToken: string expected";
+                            if (message.view != null && message.hasOwnProperty("view"))
+                                switch (message.view) {
+                                default:
+                                    return "view: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                    break;
+                                }
                             return null;
                         };
     
@@ -14429,6 +15677,26 @@
                                 message.pageSize = object.pageSize | 0;
                             if (object.pageToken != null)
                                 message.pageToken = String(object.pageToken);
+                            switch (object.view) {
+                            default:
+                                if (typeof object.view === "number") {
+                                    message.view = object.view;
+                                    break;
+                                }
+                                break;
+                            case "DIRECTORY_CONTENTS_VIEW_UNSPECIFIED":
+                            case 0:
+                                message.view = 0;
+                                break;
+                            case "DIRECTORY_CONTENTS_VIEW_BASIC":
+                            case 1:
+                                message.view = 1;
+                                break;
+                            case "DIRECTORY_CONTENTS_VIEW_METADATA":
+                            case 2:
+                                message.view = 2;
+                                break;
+                            }
                             return message;
                         };
     
@@ -14450,6 +15718,7 @@
                                 object.path = "";
                                 object.pageSize = 0;
                                 object.pageToken = "";
+                                object.view = options.enums === String ? "DIRECTORY_CONTENTS_VIEW_UNSPECIFIED" : 0;
                             }
                             if (message.workspace != null && message.hasOwnProperty("workspace"))
                                 object.workspace = message.workspace;
@@ -14459,6 +15728,8 @@
                                 object.pageSize = message.pageSize;
                             if (message.pageToken != null && message.hasOwnProperty("pageToken"))
                                 object.pageToken = message.pageToken;
+                            if (message.view != null && message.hasOwnProperty("view"))
+                                object.view = options.enums === String ? $root.google.cloud.dataform.v1.DirectoryContentsView[message.view] === undefined ? message.view : $root.google.cloud.dataform.v1.DirectoryContentsView[message.view] : message.view;
                             return object;
                         };
     
@@ -14749,6 +16020,7 @@
                          * @interface IDirectoryEntry
                          * @property {string|null} [file] DirectoryEntry file
                          * @property {string|null} [directory] DirectoryEntry directory
+                         * @property {google.cloud.dataform.v1.IFilesystemEntryMetadata|null} [metadata] DirectoryEntry metadata
                          */
     
                         /**
@@ -14781,6 +16053,14 @@
                          * @instance
                          */
                         DirectoryEntry.prototype.directory = null;
+    
+                        /**
+                         * DirectoryEntry metadata.
+                         * @member {google.cloud.dataform.v1.IFilesystemEntryMetadata|null|undefined} metadata
+                         * @memberof google.cloud.dataform.v1.DirectoryEntry
+                         * @instance
+                         */
+                        DirectoryEntry.prototype.metadata = null;
     
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
@@ -14824,6 +16104,8 @@
                                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.file);
                             if (message.directory != null && Object.hasOwnProperty.call(message, "directory"))
                                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.directory);
+                            if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                                $root.google.cloud.dataform.v1.FilesystemEntryMetadata.encode(message.metadata, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                             return writer;
                         };
     
@@ -14866,6 +16148,10 @@
                                     }
                                 case 2: {
                                         message.directory = reader.string();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.metadata = $root.google.cloud.dataform.v1.FilesystemEntryMetadata.decode(reader, reader.uint32());
                                         break;
                                     }
                                 default:
@@ -14916,6 +16202,11 @@
                                 if (!$util.isString(message.directory))
                                     return "directory: string expected";
                             }
+                            if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                                var error = $root.google.cloud.dataform.v1.FilesystemEntryMetadata.verify(message.metadata);
+                                if (error)
+                                    return "metadata." + error;
+                            }
                             return null;
                         };
     
@@ -14935,6 +16226,11 @@
                                 message.file = String(object.file);
                             if (object.directory != null)
                                 message.directory = String(object.directory);
+                            if (object.metadata != null) {
+                                if (typeof object.metadata !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.DirectoryEntry.metadata: object expected");
+                                message.metadata = $root.google.cloud.dataform.v1.FilesystemEntryMetadata.fromObject(object.metadata);
+                            }
                             return message;
                         };
     
@@ -14951,6 +16247,8 @@
                             if (!options)
                                 options = {};
                             var object = {};
+                            if (options.defaults)
+                                object.metadata = null;
                             if (message.file != null && message.hasOwnProperty("file")) {
                                 object.file = message.file;
                                 if (options.oneofs)
@@ -14961,6 +16259,8 @@
                                 if (options.oneofs)
                                     object.entry = "directory";
                             }
+                            if (message.metadata != null && message.hasOwnProperty("metadata"))
+                                object.metadata = $root.google.cloud.dataform.v1.FilesystemEntryMetadata.toObject(message.metadata, options);
                             return object;
                         };
     
@@ -14991,6 +16291,254 @@
                         };
     
                         return DirectoryEntry;
+                    })();
+    
+                    v1.FilesystemEntryMetadata = (function() {
+    
+                        /**
+                         * Properties of a FilesystemEntryMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IFilesystemEntryMetadata
+                         * @property {number|Long|null} [sizeBytes] FilesystemEntryMetadata sizeBytes
+                         * @property {google.protobuf.ITimestamp|null} [updateTime] FilesystemEntryMetadata updateTime
+                         */
+    
+                        /**
+                         * Constructs a new FilesystemEntryMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a FilesystemEntryMetadata.
+                         * @implements IFilesystemEntryMetadata
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IFilesystemEntryMetadata=} [properties] Properties to set
+                         */
+                        function FilesystemEntryMetadata(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * FilesystemEntryMetadata sizeBytes.
+                         * @member {number|Long} sizeBytes
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @instance
+                         */
+                        FilesystemEntryMetadata.prototype.sizeBytes = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+    
+                        /**
+                         * FilesystemEntryMetadata updateTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} updateTime
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @instance
+                         */
+                        FilesystemEntryMetadata.prototype.updateTime = null;
+    
+                        /**
+                         * Creates a new FilesystemEntryMetadata instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IFilesystemEntryMetadata=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.FilesystemEntryMetadata} FilesystemEntryMetadata instance
+                         */
+                        FilesystemEntryMetadata.create = function create(properties) {
+                            return new FilesystemEntryMetadata(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified FilesystemEntryMetadata message. Does not implicitly {@link google.cloud.dataform.v1.FilesystemEntryMetadata.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IFilesystemEntryMetadata} message FilesystemEntryMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        FilesystemEntryMetadata.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.sizeBytes != null && Object.hasOwnProperty.call(message, "sizeBytes"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.sizeBytes);
+                            if (message.updateTime != null && Object.hasOwnProperty.call(message, "updateTime"))
+                                $root.google.protobuf.Timestamp.encode(message.updateTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified FilesystemEntryMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.FilesystemEntryMetadata.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IFilesystemEntryMetadata} message FilesystemEntryMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        FilesystemEntryMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a FilesystemEntryMetadata message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.FilesystemEntryMetadata} FilesystemEntryMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        FilesystemEntryMetadata.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.FilesystemEntryMetadata();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.sizeBytes = reader.int64();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.updateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a FilesystemEntryMetadata message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.FilesystemEntryMetadata} FilesystemEntryMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        FilesystemEntryMetadata.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a FilesystemEntryMetadata message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        FilesystemEntryMetadata.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.sizeBytes != null && message.hasOwnProperty("sizeBytes"))
+                                if (!$util.isInteger(message.sizeBytes) && !(message.sizeBytes && $util.isInteger(message.sizeBytes.low) && $util.isInteger(message.sizeBytes.high)))
+                                    return "sizeBytes: integer|Long expected";
+                            if (message.updateTime != null && message.hasOwnProperty("updateTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.updateTime);
+                                if (error)
+                                    return "updateTime." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a FilesystemEntryMetadata message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.FilesystemEntryMetadata} FilesystemEntryMetadata
+                         */
+                        FilesystemEntryMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.FilesystemEntryMetadata)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.FilesystemEntryMetadata();
+                            if (object.sizeBytes != null)
+                                if ($util.Long)
+                                    (message.sizeBytes = $util.Long.fromValue(object.sizeBytes)).unsigned = false;
+                                else if (typeof object.sizeBytes === "string")
+                                    message.sizeBytes = parseInt(object.sizeBytes, 10);
+                                else if (typeof object.sizeBytes === "number")
+                                    message.sizeBytes = object.sizeBytes;
+                                else if (typeof object.sizeBytes === "object")
+                                    message.sizeBytes = new $util.LongBits(object.sizeBytes.low >>> 0, object.sizeBytes.high >>> 0).toNumber();
+                            if (object.updateTime != null) {
+                                if (typeof object.updateTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.FilesystemEntryMetadata.updateTime: object expected");
+                                message.updateTime = $root.google.protobuf.Timestamp.fromObject(object.updateTime);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a FilesystemEntryMetadata message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.FilesystemEntryMetadata} message FilesystemEntryMetadata
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        FilesystemEntryMetadata.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                if ($util.Long) {
+                                    var long = new $util.Long(0, 0, false);
+                                    object.sizeBytes = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                } else
+                                    object.sizeBytes = options.longs === String ? "0" : 0;
+                                object.updateTime = null;
+                            }
+                            if (message.sizeBytes != null && message.hasOwnProperty("sizeBytes"))
+                                if (typeof message.sizeBytes === "number")
+                                    object.sizeBytes = options.longs === String ? String(message.sizeBytes) : message.sizeBytes;
+                                else
+                                    object.sizeBytes = options.longs === String ? $util.Long.prototype.toString.call(message.sizeBytes) : options.longs === Number ? new $util.LongBits(message.sizeBytes.low >>> 0, message.sizeBytes.high >>> 0).toNumber() : message.sizeBytes;
+                            if (message.updateTime != null && message.hasOwnProperty("updateTime"))
+                                object.updateTime = $root.google.protobuf.Timestamp.toObject(message.updateTime, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this FilesystemEntryMetadata to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        FilesystemEntryMetadata.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for FilesystemEntryMetadata
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.FilesystemEntryMetadata
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        FilesystemEntryMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.FilesystemEntryMetadata";
+                        };
+    
+                        return FilesystemEntryMetadata;
                     })();
     
                     v1.SearchFilesRequest = (function() {
@@ -21737,6 +23285,7 @@
                          * @property {google.cloud.dataform.v1.IDataEncryptionState|null} [dataEncryptionState] CompilationResult dataEncryptionState
                          * @property {google.protobuf.ITimestamp|null} [createTime] CompilationResult createTime
                          * @property {string|null} [internalMetadata] CompilationResult internalMetadata
+                         * @property {google.cloud.dataform.v1.IPrivateResourceMetadata|null} [privateResourceMetadata] CompilationResult privateResourceMetadata
                          */
     
                         /**
@@ -21843,6 +23392,14 @@
                          */
                         CompilationResult.prototype.internalMetadata = null;
     
+                        /**
+                         * CompilationResult privateResourceMetadata.
+                         * @member {google.cloud.dataform.v1.IPrivateResourceMetadata|null|undefined} privateResourceMetadata
+                         * @memberof google.cloud.dataform.v1.CompilationResult
+                         * @instance
+                         */
+                        CompilationResult.prototype.privateResourceMetadata = null;
+    
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
     
@@ -21910,6 +23467,8 @@
                                 $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                                 writer.uint32(/* id 11, wireType 2 =*/90).string(message.internalMetadata);
+                            if (message.privateResourceMetadata != null && Object.hasOwnProperty.call(message, "privateResourceMetadata"))
+                                $root.google.cloud.dataform.v1.PrivateResourceMetadata.encode(message.privateResourceMetadata, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
                             return writer;
                         };
     
@@ -21990,6 +23549,10 @@
                                     }
                                 case 11: {
                                         message.internalMetadata = reader.string();
+                                        break;
+                                    }
+                                case 12: {
+                                        message.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.decode(reader, reader.uint32());
                                         break;
                                     }
                                 default:
@@ -22085,6 +23648,11 @@
                                 if (!$util.isString(message.internalMetadata))
                                     return "internalMetadata: string expected";
                             }
+                            if (message.privateResourceMetadata != null && message.hasOwnProperty("privateResourceMetadata")) {
+                                var error = $root.google.cloud.dataform.v1.PrivateResourceMetadata.verify(message.privateResourceMetadata);
+                                if (error)
+                                    return "privateResourceMetadata." + error;
+                            }
                             return null;
                         };
     
@@ -22139,6 +23707,11 @@
                             }
                             if (object.internalMetadata != null)
                                 message.internalMetadata = String(object.internalMetadata);
+                            if (object.privateResourceMetadata != null) {
+                                if (typeof object.privateResourceMetadata !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.CompilationResult.privateResourceMetadata: object expected");
+                                message.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.fromObject(object.privateResourceMetadata);
+                            }
                             return message;
                         };
     
@@ -22164,6 +23737,7 @@
                                 object.resolvedGitCommitSha = "";
                                 object.dataEncryptionState = null;
                                 object.createTime = null;
+                                object.privateResourceMetadata = null;
                             }
                             if (message.name != null && message.hasOwnProperty("name"))
                                 object.name = message.name;
@@ -22202,6 +23776,8 @@
                                 if (options.oneofs)
                                     object._internalMetadata = "internalMetadata";
                             }
+                            if (message.privateResourceMetadata != null && message.hasOwnProperty("privateResourceMetadata"))
+                                object.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.toObject(message.privateResourceMetadata, options);
                             return object;
                         };
     
@@ -25623,6 +27199,10 @@
                              * @property {number|null} [partitionExpirationDays] Relation partitionExpirationDays
                              * @property {boolean|null} [requirePartitionFilter] Relation requirePartitionFilter
                              * @property {Object.<string,string>|null} [additionalOptions] Relation additionalOptions
+                             * @property {string|null} [connection] Relation connection
+                             * @property {google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat|null} [tableFormat] Relation tableFormat
+                             * @property {google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat|null} [fileFormat] Relation fileFormat
+                             * @property {string|null} [storageUri] Relation storageUri
                              */
     
                             /**
@@ -25759,6 +27339,38 @@
                             Relation.prototype.additionalOptions = $util.emptyObject;
     
                             /**
+                             * Relation connection.
+                             * @member {string} connection
+                             * @memberof google.cloud.dataform.v1.CompilationResultAction.Relation
+                             * @instance
+                             */
+                            Relation.prototype.connection = "";
+    
+                            /**
+                             * Relation tableFormat.
+                             * @member {google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat} tableFormat
+                             * @memberof google.cloud.dataform.v1.CompilationResultAction.Relation
+                             * @instance
+                             */
+                            Relation.prototype.tableFormat = 0;
+    
+                            /**
+                             * Relation fileFormat.
+                             * @member {google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat} fileFormat
+                             * @memberof google.cloud.dataform.v1.CompilationResultAction.Relation
+                             * @instance
+                             */
+                            Relation.prototype.fileFormat = 0;
+    
+                            /**
+                             * Relation storageUri.
+                             * @member {string} storageUri
+                             * @memberof google.cloud.dataform.v1.CompilationResultAction.Relation
+                             * @instance
+                             */
+                            Relation.prototype.storageUri = "";
+    
+                            /**
                              * Creates a new Relation instance using the specified properties.
                              * @function create
                              * @memberof google.cloud.dataform.v1.CompilationResultAction.Relation
@@ -25816,6 +27428,14 @@
                                 if (message.additionalOptions != null && Object.hasOwnProperty.call(message, "additionalOptions"))
                                     for (var keys = Object.keys(message.additionalOptions), i = 0; i < keys.length; ++i)
                                         writer.uint32(/* id 14, wireType 2 =*/114).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.additionalOptions[keys[i]]).ldelim();
+                                if (message.connection != null && Object.hasOwnProperty.call(message, "connection"))
+                                    writer.uint32(/* id 15, wireType 2 =*/122).string(message.connection);
+                                if (message.tableFormat != null && Object.hasOwnProperty.call(message, "tableFormat"))
+                                    writer.uint32(/* id 16, wireType 0 =*/128).int32(message.tableFormat);
+                                if (message.fileFormat != null && Object.hasOwnProperty.call(message, "fileFormat"))
+                                    writer.uint32(/* id 17, wireType 0 =*/136).int32(message.fileFormat);
+                                if (message.storageUri != null && Object.hasOwnProperty.call(message, "storageUri"))
+                                    writer.uint32(/* id 18, wireType 2 =*/146).string(message.storageUri);
                                 return writer;
                             };
     
@@ -25937,6 +27557,22 @@
                                             message.additionalOptions[key] = value;
                                             break;
                                         }
+                                    case 15: {
+                                            message.connection = reader.string();
+                                            break;
+                                        }
+                                    case 16: {
+                                            message.tableFormat = reader.int32();
+                                            break;
+                                        }
+                                    case 17: {
+                                            message.fileFormat = reader.int32();
+                                            break;
+                                        }
+                                    case 18: {
+                                            message.storageUri = reader.string();
+                                            break;
+                                        }
                                     default:
                                         reader.skipType(tag & 7);
                                         break;
@@ -26053,6 +27689,28 @@
                                         if (!$util.isString(message.additionalOptions[key[i]]))
                                             return "additionalOptions: string{k:string} expected";
                                 }
+                                if (message.connection != null && message.hasOwnProperty("connection"))
+                                    if (!$util.isString(message.connection))
+                                        return "connection: string expected";
+                                if (message.tableFormat != null && message.hasOwnProperty("tableFormat"))
+                                    switch (message.tableFormat) {
+                                    default:
+                                        return "tableFormat: enum value expected";
+                                    case 0:
+                                    case 1:
+                                        break;
+                                    }
+                                if (message.fileFormat != null && message.hasOwnProperty("fileFormat"))
+                                    switch (message.fileFormat) {
+                                    default:
+                                        return "fileFormat: enum value expected";
+                                    case 0:
+                                    case 1:
+                                        break;
+                                    }
+                                if (message.storageUri != null && message.hasOwnProperty("storageUri"))
+                                    if (!$util.isString(message.storageUri))
+                                        return "storageUri: string expected";
                                 return null;
                             };
     
@@ -26161,6 +27819,42 @@
                                     for (var keys = Object.keys(object.additionalOptions), i = 0; i < keys.length; ++i)
                                         message.additionalOptions[keys[i]] = String(object.additionalOptions[keys[i]]);
                                 }
+                                if (object.connection != null)
+                                    message.connection = String(object.connection);
+                                switch (object.tableFormat) {
+                                default:
+                                    if (typeof object.tableFormat === "number") {
+                                        message.tableFormat = object.tableFormat;
+                                        break;
+                                    }
+                                    break;
+                                case "TABLE_FORMAT_UNSPECIFIED":
+                                case 0:
+                                    message.tableFormat = 0;
+                                    break;
+                                case "ICEBERG":
+                                case 1:
+                                    message.tableFormat = 1;
+                                    break;
+                                }
+                                switch (object.fileFormat) {
+                                default:
+                                    if (typeof object.fileFormat === "number") {
+                                        message.fileFormat = object.fileFormat;
+                                        break;
+                                    }
+                                    break;
+                                case "FILE_FORMAT_UNSPECIFIED":
+                                case 0:
+                                    message.fileFormat = 0;
+                                    break;
+                                case "PARQUET":
+                                case 1:
+                                    message.fileFormat = 1;
+                                    break;
+                                }
+                                if (object.storageUri != null)
+                                    message.storageUri = String(object.storageUri);
                                 return message;
                             };
     
@@ -26195,6 +27889,10 @@
                                     object.partitionExpression = "";
                                     object.partitionExpirationDays = 0;
                                     object.requirePartitionFilter = false;
+                                    object.connection = "";
+                                    object.tableFormat = options.enums === String ? "TABLE_FORMAT_UNSPECIFIED" : 0;
+                                    object.fileFormat = options.enums === String ? "FILE_FORMAT_UNSPECIFIED" : 0;
+                                    object.storageUri = "";
                                 }
                                 if (message.dependencyTargets && message.dependencyTargets.length) {
                                     object.dependencyTargets = [];
@@ -26243,6 +27941,14 @@
                                     for (var j = 0; j < keys2.length; ++j)
                                         object.additionalOptions[keys2[j]] = message.additionalOptions[keys2[j]];
                                 }
+                                if (message.connection != null && message.hasOwnProperty("connection"))
+                                    object.connection = message.connection;
+                                if (message.tableFormat != null && message.hasOwnProperty("tableFormat"))
+                                    object.tableFormat = options.enums === String ? $root.google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat[message.tableFormat] === undefined ? message.tableFormat : $root.google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat[message.tableFormat] : message.tableFormat;
+                                if (message.fileFormat != null && message.hasOwnProperty("fileFormat"))
+                                    object.fileFormat = options.enums === String ? $root.google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat[message.fileFormat] === undefined ? message.fileFormat : $root.google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat[message.fileFormat] : message.fileFormat;
+                                if (message.storageUri != null && message.hasOwnProperty("storageUri"))
+                                    object.storageUri = message.storageUri;
                                 return object;
                             };
     
@@ -26660,6 +28366,34 @@
                                 values[valuesById[2] = "VIEW"] = 2;
                                 values[valuesById[3] = "INCREMENTAL_TABLE"] = 3;
                                 values[valuesById[4] = "MATERIALIZED_VIEW"] = 4;
+                                return values;
+                            })();
+    
+                            /**
+                             * TableFormat enum.
+                             * @name google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat
+                             * @enum {number}
+                             * @property {number} TABLE_FORMAT_UNSPECIFIED=0 TABLE_FORMAT_UNSPECIFIED value
+                             * @property {number} ICEBERG=1 ICEBERG value
+                             */
+                            Relation.TableFormat = (function() {
+                                var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "TABLE_FORMAT_UNSPECIFIED"] = 0;
+                                values[valuesById[1] = "ICEBERG"] = 1;
+                                return values;
+                            })();
+    
+                            /**
+                             * FileFormat enum.
+                             * @name google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat
+                             * @enum {number}
+                             * @property {number} FILE_FORMAT_UNSPECIFIED=0 FILE_FORMAT_UNSPECIFIED value
+                             * @property {number} PARQUET=1 PARQUET value
+                             */
+                            Relation.FileFormat = (function() {
+                                var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "FILE_FORMAT_UNSPECIFIED"] = 0;
+                                values[valuesById[1] = "PARQUET"] = 1;
                                 return values;
                             })();
     
@@ -30811,6 +32545,7 @@
                          * @property {boolean|null} [transitiveDependentsIncluded] InvocationConfig transitiveDependentsIncluded
                          * @property {boolean|null} [fullyRefreshIncrementalTablesEnabled] InvocationConfig fullyRefreshIncrementalTablesEnabled
                          * @property {string|null} [serviceAccount] InvocationConfig serviceAccount
+                         * @property {google.cloud.dataform.v1.InvocationConfig.QueryPriority|null} [queryPriority] InvocationConfig queryPriority
                          */
     
                         /**
@@ -30879,6 +32614,23 @@
                         InvocationConfig.prototype.serviceAccount = "";
     
                         /**
+                         * InvocationConfig queryPriority.
+                         * @member {google.cloud.dataform.v1.InvocationConfig.QueryPriority|null|undefined} queryPriority
+                         * @memberof google.cloud.dataform.v1.InvocationConfig
+                         * @instance
+                         */
+                        InvocationConfig.prototype.queryPriority = null;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(InvocationConfig.prototype, "_queryPriority", {
+                            get: $util.oneOfGetter($oneOfFields = ["queryPriority"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
                          * Creates a new InvocationConfig instance using the specified properties.
                          * @function create
                          * @memberof google.cloud.dataform.v1.InvocationConfig
@@ -30916,6 +32668,8 @@
                                 writer.uint32(/* id 5, wireType 0 =*/40).bool(message.fullyRefreshIncrementalTablesEnabled);
                             if (message.serviceAccount != null && Object.hasOwnProperty.call(message, "serviceAccount"))
                                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.serviceAccount);
+                            if (message.queryPriority != null && Object.hasOwnProperty.call(message, "queryPriority"))
+                                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.queryPriority);
                             return writer;
                         };
     
@@ -30980,6 +32734,10 @@
                                         message.serviceAccount = reader.string();
                                         break;
                                     }
+                                case 9: {
+                                        message.queryPriority = reader.int32();
+                                        break;
+                                    }
                                 default:
                                     reader.skipType(tag & 7);
                                     break;
@@ -31015,6 +32773,7 @@
                         InvocationConfig.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
+                            var properties = {};
                             if (message.includedTargets != null && message.hasOwnProperty("includedTargets")) {
                                 if (!Array.isArray(message.includedTargets))
                                     return "includedTargets: array expected";
@@ -31043,6 +32802,17 @@
                             if (message.serviceAccount != null && message.hasOwnProperty("serviceAccount"))
                                 if (!$util.isString(message.serviceAccount))
                                     return "serviceAccount: string expected";
+                            if (message.queryPriority != null && message.hasOwnProperty("queryPriority")) {
+                                properties._queryPriority = 1;
+                                switch (message.queryPriority) {
+                                default:
+                                    return "queryPriority: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                    break;
+                                }
+                            }
                             return null;
                         };
     
@@ -31083,6 +32853,26 @@
                                 message.fullyRefreshIncrementalTablesEnabled = Boolean(object.fullyRefreshIncrementalTablesEnabled);
                             if (object.serviceAccount != null)
                                 message.serviceAccount = String(object.serviceAccount);
+                            switch (object.queryPriority) {
+                            default:
+                                if (typeof object.queryPriority === "number") {
+                                    message.queryPriority = object.queryPriority;
+                                    break;
+                                }
+                                break;
+                            case "QUERY_PRIORITY_UNSPECIFIED":
+                            case 0:
+                                message.queryPriority = 0;
+                                break;
+                            case "INTERACTIVE":
+                            case 1:
+                                message.queryPriority = 1;
+                                break;
+                            case "BATCH":
+                            case 2:
+                                message.queryPriority = 2;
+                                break;
+                            }
                             return message;
                         };
     
@@ -31127,6 +32917,11 @@
                                 object.fullyRefreshIncrementalTablesEnabled = message.fullyRefreshIncrementalTablesEnabled;
                             if (message.serviceAccount != null && message.hasOwnProperty("serviceAccount"))
                                 object.serviceAccount = message.serviceAccount;
+                            if (message.queryPriority != null && message.hasOwnProperty("queryPriority")) {
+                                object.queryPriority = options.enums === String ? $root.google.cloud.dataform.v1.InvocationConfig.QueryPriority[message.queryPriority] === undefined ? message.queryPriority : $root.google.cloud.dataform.v1.InvocationConfig.QueryPriority[message.queryPriority] : message.queryPriority;
+                                if (options.oneofs)
+                                    object._queryPriority = "queryPriority";
+                            }
                             return object;
                         };
     
@@ -31155,6 +32950,22 @@
                             }
                             return typeUrlPrefix + "/google.cloud.dataform.v1.InvocationConfig";
                         };
+    
+                        /**
+                         * QueryPriority enum.
+                         * @name google.cloud.dataform.v1.InvocationConfig.QueryPriority
+                         * @enum {number}
+                         * @property {number} QUERY_PRIORITY_UNSPECIFIED=0 QUERY_PRIORITY_UNSPECIFIED value
+                         * @property {number} INTERACTIVE=1 INTERACTIVE value
+                         * @property {number} BATCH=2 BATCH value
+                         */
+                        InvocationConfig.QueryPriority = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "QUERY_PRIORITY_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "INTERACTIVE"] = 1;
+                            values[valuesById[2] = "BATCH"] = 2;
+                            return values;
+                        })();
     
                         return InvocationConfig;
                     })();
@@ -32622,6 +34433,7 @@
                          * @property {string|null} [resolvedCompilationResult] WorkflowInvocation resolvedCompilationResult
                          * @property {google.cloud.dataform.v1.IDataEncryptionState|null} [dataEncryptionState] WorkflowInvocation dataEncryptionState
                          * @property {string|null} [internalMetadata] WorkflowInvocation internalMetadata
+                         * @property {google.cloud.dataform.v1.IPrivateResourceMetadata|null} [privateResourceMetadata] WorkflowInvocation privateResourceMetadata
                          */
     
                         /**
@@ -32711,6 +34523,14 @@
                          */
                         WorkflowInvocation.prototype.internalMetadata = null;
     
+                        /**
+                         * WorkflowInvocation privateResourceMetadata.
+                         * @member {google.cloud.dataform.v1.IPrivateResourceMetadata|null|undefined} privateResourceMetadata
+                         * @memberof google.cloud.dataform.v1.WorkflowInvocation
+                         * @instance
+                         */
+                        WorkflowInvocation.prototype.privateResourceMetadata = null;
+    
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
     
@@ -32773,6 +34593,8 @@
                                 $root.google.cloud.dataform.v1.DataEncryptionState.encode(message.dataEncryptionState, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                             if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                                 writer.uint32(/* id 9, wireType 2 =*/74).string(message.internalMetadata);
+                            if (message.privateResourceMetadata != null && Object.hasOwnProperty.call(message, "privateResourceMetadata"))
+                                $root.google.cloud.dataform.v1.PrivateResourceMetadata.encode(message.privateResourceMetadata, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                             return writer;
                         };
     
@@ -32843,6 +34665,10 @@
                                     }
                                 case 9: {
                                         message.internalMetadata = reader.string();
+                                        break;
+                                    }
+                                case 10: {
+                                        message.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.decode(reader, reader.uint32());
                                         break;
                                     }
                                 default:
@@ -32931,6 +34757,11 @@
                                 if (!$util.isString(message.internalMetadata))
                                     return "internalMetadata: string expected";
                             }
+                            if (message.privateResourceMetadata != null && message.hasOwnProperty("privateResourceMetadata")) {
+                                var error = $root.google.cloud.dataform.v1.PrivateResourceMetadata.verify(message.privateResourceMetadata);
+                                if (error)
+                                    return "privateResourceMetadata." + error;
+                            }
                             return null;
                         };
     
@@ -33003,6 +34834,11 @@
                             }
                             if (object.internalMetadata != null)
                                 message.internalMetadata = String(object.internalMetadata);
+                            if (object.privateResourceMetadata != null) {
+                                if (typeof object.privateResourceMetadata !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.WorkflowInvocation.privateResourceMetadata: object expected");
+                                message.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.fromObject(object.privateResourceMetadata);
+                            }
                             return message;
                         };
     
@@ -33026,6 +34862,7 @@
                                 object.invocationTiming = null;
                                 object.resolvedCompilationResult = "";
                                 object.dataEncryptionState = null;
+                                object.privateResourceMetadata = null;
                             }
                             if (message.name != null && message.hasOwnProperty("name"))
                                 object.name = message.name;
@@ -33054,6 +34891,8 @@
                                 if (options.oneofs)
                                     object._internalMetadata = "internalMetadata";
                             }
+                            if (message.privateResourceMetadata != null && message.hasOwnProperty("privateResourceMetadata"))
+                                object.privateResourceMetadata = $root.google.cloud.dataform.v1.PrivateResourceMetadata.toObject(message.privateResourceMetadata, options);
                             return object;
                         };
     
@@ -37740,6 +39579,7 @@
                          * @interface IConfig
                          * @property {string|null} [name] Config name
                          * @property {string|null} [defaultKmsKeyName] Config defaultKmsKeyName
+                         * @property {string|null} [internalMetadata] Config internalMetadata
                          */
     
                         /**
@@ -37774,6 +39614,23 @@
                         Config.prototype.defaultKmsKeyName = "";
     
                         /**
+                         * Config internalMetadata.
+                         * @member {string|null|undefined} internalMetadata
+                         * @memberof google.cloud.dataform.v1.Config
+                         * @instance
+                         */
+                        Config.prototype.internalMetadata = null;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(Config.prototype, "_internalMetadata", {
+                            get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
                          * Creates a new Config instance using the specified properties.
                          * @function create
                          * @memberof google.cloud.dataform.v1.Config
@@ -37801,6 +39658,8 @@
                                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
                             if (message.defaultKmsKeyName != null && Object.hasOwnProperty.call(message, "defaultKmsKeyName"))
                                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.defaultKmsKeyName);
+                            if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
+                                writer.uint32(/* id 7, wireType 2 =*/58).string(message.internalMetadata);
                             return writer;
                         };
     
@@ -37845,6 +39704,10 @@
                                         message.defaultKmsKeyName = reader.string();
                                         break;
                                     }
+                                case 7: {
+                                        message.internalMetadata = reader.string();
+                                        break;
+                                    }
                                 default:
                                     reader.skipType(tag & 7);
                                     break;
@@ -37880,12 +39743,18 @@
                         Config.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
+                            var properties = {};
                             if (message.name != null && message.hasOwnProperty("name"))
                                 if (!$util.isString(message.name))
                                     return "name: string expected";
                             if (message.defaultKmsKeyName != null && message.hasOwnProperty("defaultKmsKeyName"))
                                 if (!$util.isString(message.defaultKmsKeyName))
                                     return "defaultKmsKeyName: string expected";
+                            if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
+                                properties._internalMetadata = 1;
+                                if (!$util.isString(message.internalMetadata))
+                                    return "internalMetadata: string expected";
+                            }
                             return null;
                         };
     
@@ -37905,6 +39774,8 @@
                                 message.name = String(object.name);
                             if (object.defaultKmsKeyName != null)
                                 message.defaultKmsKeyName = String(object.defaultKmsKeyName);
+                            if (object.internalMetadata != null)
+                                message.internalMetadata = String(object.internalMetadata);
                             return message;
                         };
     
@@ -37929,6 +39800,11 @@
                                 object.name = message.name;
                             if (message.defaultKmsKeyName != null && message.hasOwnProperty("defaultKmsKeyName"))
                                 object.defaultKmsKeyName = message.defaultKmsKeyName;
+                            if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
+                                object.internalMetadata = message.internalMetadata;
+                                if (options.oneofs)
+                                    object._internalMetadata = "internalMetadata";
+                            }
                             return object;
                         };
     
@@ -38403,6 +40279,7527 @@
                         };
     
                         return UpdateConfigRequest;
+                    })();
+    
+                    v1.Folder = (function() {
+    
+                        /**
+                         * Properties of a Folder.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IFolder
+                         * @property {string|null} [name] Folder name
+                         * @property {string|null} [displayName] Folder displayName
+                         * @property {string|null} [containingFolder] Folder containingFolder
+                         * @property {string|null} [teamFolderName] Folder teamFolderName
+                         * @property {google.protobuf.ITimestamp|null} [createTime] Folder createTime
+                         * @property {google.protobuf.ITimestamp|null} [updateTime] Folder updateTime
+                         * @property {string|null} [internalMetadata] Folder internalMetadata
+                         * @property {string|null} [creatorIamPrincipal] Folder creatorIamPrincipal
+                         */
+    
+                        /**
+                         * Constructs a new Folder.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a Folder.
+                         * @implements IFolder
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IFolder=} [properties] Properties to set
+                         */
+                        function Folder(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * Folder name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.name = "";
+    
+                        /**
+                         * Folder displayName.
+                         * @member {string} displayName
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.displayName = "";
+    
+                        /**
+                         * Folder containingFolder.
+                         * @member {string} containingFolder
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.containingFolder = "";
+    
+                        /**
+                         * Folder teamFolderName.
+                         * @member {string} teamFolderName
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.teamFolderName = "";
+    
+                        /**
+                         * Folder createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.createTime = null;
+    
+                        /**
+                         * Folder updateTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} updateTime
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.updateTime = null;
+    
+                        /**
+                         * Folder internalMetadata.
+                         * @member {string|null|undefined} internalMetadata
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.internalMetadata = null;
+    
+                        /**
+                         * Folder creatorIamPrincipal.
+                         * @member {string|null|undefined} creatorIamPrincipal
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         */
+                        Folder.prototype.creatorIamPrincipal = null;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(Folder.prototype, "_internalMetadata", {
+                            get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(Folder.prototype, "_creatorIamPrincipal", {
+                            get: $util.oneOfGetter($oneOfFields = ["creatorIamPrincipal"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
+                         * Creates a new Folder instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {google.cloud.dataform.v1.IFolder=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.Folder} Folder instance
+                         */
+                        Folder.create = function create(properties) {
+                            return new Folder(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified Folder message. Does not implicitly {@link google.cloud.dataform.v1.Folder.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {google.cloud.dataform.v1.IFolder} message Folder message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Folder.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.displayName != null && Object.hasOwnProperty.call(message, "displayName"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.displayName);
+                            if (message.containingFolder != null && Object.hasOwnProperty.call(message, "containingFolder"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.containingFolder);
+                            if (message.teamFolderName != null && Object.hasOwnProperty.call(message, "teamFolderName"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.teamFolderName);
+                            if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                            if (message.updateTime != null && Object.hasOwnProperty.call(message, "updateTime"))
+                                $root.google.protobuf.Timestamp.encode(message.updateTime, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                            if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
+                                writer.uint32(/* id 7, wireType 2 =*/58).string(message.internalMetadata);
+                            if (message.creatorIamPrincipal != null && Object.hasOwnProperty.call(message, "creatorIamPrincipal"))
+                                writer.uint32(/* id 8, wireType 2 =*/66).string(message.creatorIamPrincipal);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified Folder message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.Folder.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {google.cloud.dataform.v1.IFolder} message Folder message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Folder.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a Folder message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.Folder} Folder
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Folder.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.Folder();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.displayName = reader.string();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.containingFolder = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.teamFolderName = reader.string();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 6: {
+                                        message.updateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 7: {
+                                        message.internalMetadata = reader.string();
+                                        break;
+                                    }
+                                case 8: {
+                                        message.creatorIamPrincipal = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a Folder message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.Folder} Folder
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Folder.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a Folder message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        Folder.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            var properties = {};
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                if (!$util.isString(message.displayName))
+                                    return "displayName: string expected";
+                            if (message.containingFolder != null && message.hasOwnProperty("containingFolder"))
+                                if (!$util.isString(message.containingFolder))
+                                    return "containingFolder: string expected";
+                            if (message.teamFolderName != null && message.hasOwnProperty("teamFolderName"))
+                                if (!$util.isString(message.teamFolderName))
+                                    return "teamFolderName: string expected";
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.updateTime != null && message.hasOwnProperty("updateTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.updateTime);
+                                if (error)
+                                    return "updateTime." + error;
+                            }
+                            if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
+                                properties._internalMetadata = 1;
+                                if (!$util.isString(message.internalMetadata))
+                                    return "internalMetadata: string expected";
+                            }
+                            if (message.creatorIamPrincipal != null && message.hasOwnProperty("creatorIamPrincipal")) {
+                                properties._creatorIamPrincipal = 1;
+                                if (!$util.isString(message.creatorIamPrincipal))
+                                    return "creatorIamPrincipal: string expected";
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a Folder message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.Folder} Folder
+                         */
+                        Folder.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.Folder)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.Folder();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.displayName != null)
+                                message.displayName = String(object.displayName);
+                            if (object.containingFolder != null)
+                                message.containingFolder = String(object.containingFolder);
+                            if (object.teamFolderName != null)
+                                message.teamFolderName = String(object.teamFolderName);
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.Folder.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.updateTime != null) {
+                                if (typeof object.updateTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.Folder.updateTime: object expected");
+                                message.updateTime = $root.google.protobuf.Timestamp.fromObject(object.updateTime);
+                            }
+                            if (object.internalMetadata != null)
+                                message.internalMetadata = String(object.internalMetadata);
+                            if (object.creatorIamPrincipal != null)
+                                message.creatorIamPrincipal = String(object.creatorIamPrincipal);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a Folder message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {google.cloud.dataform.v1.Folder} message Folder
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        Folder.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.displayName = "";
+                                object.containingFolder = "";
+                                object.teamFolderName = "";
+                                object.createTime = null;
+                                object.updateTime = null;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                object.displayName = message.displayName;
+                            if (message.containingFolder != null && message.hasOwnProperty("containingFolder"))
+                                object.containingFolder = message.containingFolder;
+                            if (message.teamFolderName != null && message.hasOwnProperty("teamFolderName"))
+                                object.teamFolderName = message.teamFolderName;
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.updateTime != null && message.hasOwnProperty("updateTime"))
+                                object.updateTime = $root.google.protobuf.Timestamp.toObject(message.updateTime, options);
+                            if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
+                                object.internalMetadata = message.internalMetadata;
+                                if (options.oneofs)
+                                    object._internalMetadata = "internalMetadata";
+                            }
+                            if (message.creatorIamPrincipal != null && message.hasOwnProperty("creatorIamPrincipal")) {
+                                object.creatorIamPrincipal = message.creatorIamPrincipal;
+                                if (options.oneofs)
+                                    object._creatorIamPrincipal = "creatorIamPrincipal";
+                            }
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this Folder to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        Folder.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for Folder
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.Folder
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        Folder.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.Folder";
+                        };
+    
+                        return Folder;
+                    })();
+    
+                    v1.CreateFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a CreateFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface ICreateFolderRequest
+                         * @property {string|null} [parent] CreateFolderRequest parent
+                         * @property {google.cloud.dataform.v1.IFolder|null} [folder] CreateFolderRequest folder
+                         */
+    
+                        /**
+                         * Constructs a new CreateFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a CreateFolderRequest.
+                         * @implements ICreateFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.ICreateFolderRequest=} [properties] Properties to set
+                         */
+                        function CreateFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * CreateFolderRequest parent.
+                         * @member {string} parent
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @instance
+                         */
+                        CreateFolderRequest.prototype.parent = "";
+    
+                        /**
+                         * CreateFolderRequest folder.
+                         * @member {google.cloud.dataform.v1.IFolder|null|undefined} folder
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @instance
+                         */
+                        CreateFolderRequest.prototype.folder = null;
+    
+                        /**
+                         * Creates a new CreateFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ICreateFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.CreateFolderRequest} CreateFolderRequest instance
+                         */
+                        CreateFolderRequest.create = function create(properties) {
+                            return new CreateFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified CreateFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.CreateFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ICreateFolderRequest} message CreateFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CreateFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.parent != null && Object.hasOwnProperty.call(message, "parent"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.parent);
+                            if (message.folder != null && Object.hasOwnProperty.call(message, "folder"))
+                                $root.google.cloud.dataform.v1.Folder.encode(message.folder, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified CreateFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.CreateFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ICreateFolderRequest} message CreateFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CreateFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a CreateFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.CreateFolderRequest} CreateFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CreateFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.CreateFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.parent = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.folder = $root.google.cloud.dataform.v1.Folder.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a CreateFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.CreateFolderRequest} CreateFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CreateFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a CreateFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CreateFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.parent != null && message.hasOwnProperty("parent"))
+                                if (!$util.isString(message.parent))
+                                    return "parent: string expected";
+                            if (message.folder != null && message.hasOwnProperty("folder")) {
+                                var error = $root.google.cloud.dataform.v1.Folder.verify(message.folder);
+                                if (error)
+                                    return "folder." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a CreateFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.CreateFolderRequest} CreateFolderRequest
+                         */
+                        CreateFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.CreateFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.CreateFolderRequest();
+                            if (object.parent != null)
+                                message.parent = String(object.parent);
+                            if (object.folder != null) {
+                                if (typeof object.folder !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.CreateFolderRequest.folder: object expected");
+                                message.folder = $root.google.cloud.dataform.v1.Folder.fromObject(object.folder);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a CreateFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.CreateFolderRequest} message CreateFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CreateFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.parent = "";
+                                object.folder = null;
+                            }
+                            if (message.parent != null && message.hasOwnProperty("parent"))
+                                object.parent = message.parent;
+                            if (message.folder != null && message.hasOwnProperty("folder"))
+                                object.folder = $root.google.cloud.dataform.v1.Folder.toObject(message.folder, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this CreateFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CreateFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for CreateFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.CreateFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        CreateFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.CreateFolderRequest";
+                        };
+    
+                        return CreateFolderRequest;
+                    })();
+    
+                    v1.MoveFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a MoveFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IMoveFolderRequest
+                         * @property {string|null} [name] MoveFolderRequest name
+                         * @property {string|null} [destinationContainingFolder] MoveFolderRequest destinationContainingFolder
+                         */
+    
+                        /**
+                         * Constructs a new MoveFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a MoveFolderRequest.
+                         * @implements IMoveFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IMoveFolderRequest=} [properties] Properties to set
+                         */
+                        function MoveFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * MoveFolderRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @instance
+                         */
+                        MoveFolderRequest.prototype.name = "";
+    
+                        /**
+                         * MoveFolderRequest destinationContainingFolder.
+                         * @member {string|null|undefined} destinationContainingFolder
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @instance
+                         */
+                        MoveFolderRequest.prototype.destinationContainingFolder = null;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(MoveFolderRequest.prototype, "_destinationContainingFolder", {
+                            get: $util.oneOfGetter($oneOfFields = ["destinationContainingFolder"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
+                         * Creates a new MoveFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.MoveFolderRequest} MoveFolderRequest instance
+                         */
+                        MoveFolderRequest.create = function create(properties) {
+                            return new MoveFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified MoveFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveFolderRequest} message MoveFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.destinationContainingFolder != null && Object.hasOwnProperty.call(message, "destinationContainingFolder"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.destinationContainingFolder);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified MoveFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveFolderRequest} message MoveFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a MoveFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.MoveFolderRequest} MoveFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.MoveFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.destinationContainingFolder = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a MoveFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.MoveFolderRequest} MoveFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a MoveFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        MoveFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            var properties = {};
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.destinationContainingFolder != null && message.hasOwnProperty("destinationContainingFolder")) {
+                                properties._destinationContainingFolder = 1;
+                                if (!$util.isString(message.destinationContainingFolder))
+                                    return "destinationContainingFolder: string expected";
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a MoveFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.MoveFolderRequest} MoveFolderRequest
+                         */
+                        MoveFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.MoveFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.MoveFolderRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.destinationContainingFolder != null)
+                                message.destinationContainingFolder = String(object.destinationContainingFolder);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a MoveFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.MoveFolderRequest} message MoveFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        MoveFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.name = "";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.destinationContainingFolder != null && message.hasOwnProperty("destinationContainingFolder")) {
+                                object.destinationContainingFolder = message.destinationContainingFolder;
+                                if (options.oneofs)
+                                    object._destinationContainingFolder = "destinationContainingFolder";
+                            }
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this MoveFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        MoveFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for MoveFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.MoveFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        MoveFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.MoveFolderRequest";
+                        };
+    
+                        return MoveFolderRequest;
+                    })();
+    
+                    v1.GetFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a GetFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IGetFolderRequest
+                         * @property {string|null} [name] GetFolderRequest name
+                         */
+    
+                        /**
+                         * Constructs a new GetFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a GetFolderRequest.
+                         * @implements IGetFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IGetFolderRequest=} [properties] Properties to set
+                         */
+                        function GetFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * GetFolderRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @instance
+                         */
+                        GetFolderRequest.prototype.name = "";
+    
+                        /**
+                         * Creates a new GetFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IGetFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.GetFolderRequest} GetFolderRequest instance
+                         */
+                        GetFolderRequest.create = function create(properties) {
+                            return new GetFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified GetFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.GetFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IGetFolderRequest} message GetFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified GetFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.GetFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IGetFolderRequest} message GetFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a GetFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.GetFolderRequest} GetFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.GetFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a GetFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.GetFolderRequest} GetFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a GetFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        GetFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a GetFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.GetFolderRequest} GetFolderRequest
+                         */
+                        GetFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.GetFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.GetFolderRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a GetFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.GetFolderRequest} message GetFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        GetFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.name = "";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this GetFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        GetFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for GetFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.GetFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        GetFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.GetFolderRequest";
+                        };
+    
+                        return GetFolderRequest;
+                    })();
+    
+                    v1.UpdateFolderRequest = (function() {
+    
+                        /**
+                         * Properties of an UpdateFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IUpdateFolderRequest
+                         * @property {google.protobuf.IFieldMask|null} [updateMask] UpdateFolderRequest updateMask
+                         * @property {google.cloud.dataform.v1.IFolder|null} [folder] UpdateFolderRequest folder
+                         */
+    
+                        /**
+                         * Constructs a new UpdateFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents an UpdateFolderRequest.
+                         * @implements IUpdateFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IUpdateFolderRequest=} [properties] Properties to set
+                         */
+                        function UpdateFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * UpdateFolderRequest updateMask.
+                         * @member {google.protobuf.IFieldMask|null|undefined} updateMask
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @instance
+                         */
+                        UpdateFolderRequest.prototype.updateMask = null;
+    
+                        /**
+                         * UpdateFolderRequest folder.
+                         * @member {google.cloud.dataform.v1.IFolder|null|undefined} folder
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @instance
+                         */
+                        UpdateFolderRequest.prototype.folder = null;
+    
+                        /**
+                         * Creates a new UpdateFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IUpdateFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.UpdateFolderRequest} UpdateFolderRequest instance
+                         */
+                        UpdateFolderRequest.create = function create(properties) {
+                            return new UpdateFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified UpdateFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.UpdateFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IUpdateFolderRequest} message UpdateFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        UpdateFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.updateMask != null && Object.hasOwnProperty.call(message, "updateMask"))
+                                $root.google.protobuf.FieldMask.encode(message.updateMask, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.folder != null && Object.hasOwnProperty.call(message, "folder"))
+                                $root.google.cloud.dataform.v1.Folder.encode(message.folder, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified UpdateFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.UpdateFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IUpdateFolderRequest} message UpdateFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        UpdateFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes an UpdateFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.UpdateFolderRequest} UpdateFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        UpdateFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.UpdateFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.updateMask = $root.google.protobuf.FieldMask.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 2: {
+                                        message.folder = $root.google.cloud.dataform.v1.Folder.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes an UpdateFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.UpdateFolderRequest} UpdateFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        UpdateFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies an UpdateFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        UpdateFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.updateMask != null && message.hasOwnProperty("updateMask")) {
+                                var error = $root.google.protobuf.FieldMask.verify(message.updateMask);
+                                if (error)
+                                    return "updateMask." + error;
+                            }
+                            if (message.folder != null && message.hasOwnProperty("folder")) {
+                                var error = $root.google.cloud.dataform.v1.Folder.verify(message.folder);
+                                if (error)
+                                    return "folder." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates an UpdateFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.UpdateFolderRequest} UpdateFolderRequest
+                         */
+                        UpdateFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.UpdateFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.UpdateFolderRequest();
+                            if (object.updateMask != null) {
+                                if (typeof object.updateMask !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.UpdateFolderRequest.updateMask: object expected");
+                                message.updateMask = $root.google.protobuf.FieldMask.fromObject(object.updateMask);
+                            }
+                            if (object.folder != null) {
+                                if (typeof object.folder !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.UpdateFolderRequest.folder: object expected");
+                                message.folder = $root.google.cloud.dataform.v1.Folder.fromObject(object.folder);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from an UpdateFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.UpdateFolderRequest} message UpdateFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        UpdateFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.updateMask = null;
+                                object.folder = null;
+                            }
+                            if (message.updateMask != null && message.hasOwnProperty("updateMask"))
+                                object.updateMask = $root.google.protobuf.FieldMask.toObject(message.updateMask, options);
+                            if (message.folder != null && message.hasOwnProperty("folder"))
+                                object.folder = $root.google.cloud.dataform.v1.Folder.toObject(message.folder, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this UpdateFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        UpdateFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for UpdateFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.UpdateFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        UpdateFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.UpdateFolderRequest";
+                        };
+    
+                        return UpdateFolderRequest;
+                    })();
+    
+                    v1.DeleteFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a DeleteFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IDeleteFolderRequest
+                         * @property {string|null} [name] DeleteFolderRequest name
+                         */
+    
+                        /**
+                         * Constructs a new DeleteFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a DeleteFolderRequest.
+                         * @implements IDeleteFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IDeleteFolderRequest=} [properties] Properties to set
+                         */
+                        function DeleteFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * DeleteFolderRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @instance
+                         */
+                        DeleteFolderRequest.prototype.name = "";
+    
+                        /**
+                         * Creates a new DeleteFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.DeleteFolderRequest} DeleteFolderRequest instance
+                         */
+                        DeleteFolderRequest.create = function create(properties) {
+                            return new DeleteFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderRequest} message DeleteFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderRequest} message DeleteFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a DeleteFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.DeleteFolderRequest} DeleteFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.DeleteFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a DeleteFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.DeleteFolderRequest} DeleteFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a DeleteFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        DeleteFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a DeleteFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.DeleteFolderRequest} DeleteFolderRequest
+                         */
+                        DeleteFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.DeleteFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.DeleteFolderRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a DeleteFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.DeleteFolderRequest} message DeleteFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        DeleteFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.name = "";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this DeleteFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        DeleteFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for DeleteFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.DeleteFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        DeleteFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.DeleteFolderRequest";
+                        };
+    
+                        return DeleteFolderRequest;
+                    })();
+    
+                    v1.DeleteFolderTreeRequest = (function() {
+    
+                        /**
+                         * Properties of a DeleteFolderTreeRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IDeleteFolderTreeRequest
+                         * @property {string|null} [name] DeleteFolderTreeRequest name
+                         * @property {boolean|null} [force] DeleteFolderTreeRequest force
+                         */
+    
+                        /**
+                         * Constructs a new DeleteFolderTreeRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a DeleteFolderTreeRequest.
+                         * @implements IDeleteFolderTreeRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeRequest=} [properties] Properties to set
+                         */
+                        function DeleteFolderTreeRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * DeleteFolderTreeRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @instance
+                         */
+                        DeleteFolderTreeRequest.prototype.name = "";
+    
+                        /**
+                         * DeleteFolderTreeRequest force.
+                         * @member {boolean} force
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @instance
+                         */
+                        DeleteFolderTreeRequest.prototype.force = false;
+    
+                        /**
+                         * Creates a new DeleteFolderTreeRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeRequest} DeleteFolderTreeRequest instance
+                         */
+                        DeleteFolderTreeRequest.create = function create(properties) {
+                            return new DeleteFolderTreeRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteFolderTreeRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeRequest} message DeleteFolderTreeRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteFolderTreeRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.force != null && Object.hasOwnProperty.call(message, "force"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.force);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteFolderTreeRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeRequest} message DeleteFolderTreeRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteFolderTreeRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a DeleteFolderTreeRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeRequest} DeleteFolderTreeRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteFolderTreeRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.DeleteFolderTreeRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.force = reader.bool();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a DeleteFolderTreeRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeRequest} DeleteFolderTreeRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteFolderTreeRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a DeleteFolderTreeRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        DeleteFolderTreeRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.force != null && message.hasOwnProperty("force"))
+                                if (typeof message.force !== "boolean")
+                                    return "force: boolean expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a DeleteFolderTreeRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeRequest} DeleteFolderTreeRequest
+                         */
+                        DeleteFolderTreeRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.DeleteFolderTreeRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.DeleteFolderTreeRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.force != null)
+                                message.force = Boolean(object.force);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a DeleteFolderTreeRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.DeleteFolderTreeRequest} message DeleteFolderTreeRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        DeleteFolderTreeRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.force = false;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.force != null && message.hasOwnProperty("force"))
+                                object.force = message.force;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this DeleteFolderTreeRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        DeleteFolderTreeRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for DeleteFolderTreeRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        DeleteFolderTreeRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.DeleteFolderTreeRequest";
+                        };
+    
+                        return DeleteFolderTreeRequest;
+                    })();
+    
+                    v1.DeleteTeamFolderTreeRequest = (function() {
+    
+                        /**
+                         * Properties of a DeleteTeamFolderTreeRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IDeleteTeamFolderTreeRequest
+                         * @property {string|null} [name] DeleteTeamFolderTreeRequest name
+                         * @property {boolean|null} [force] DeleteTeamFolderTreeRequest force
+                         */
+    
+                        /**
+                         * Constructs a new DeleteTeamFolderTreeRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a DeleteTeamFolderTreeRequest.
+                         * @implements IDeleteTeamFolderTreeRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest=} [properties] Properties to set
+                         */
+                        function DeleteTeamFolderTreeRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * DeleteTeamFolderTreeRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @instance
+                         */
+                        DeleteTeamFolderTreeRequest.prototype.name = "";
+    
+                        /**
+                         * DeleteTeamFolderTreeRequest force.
+                         * @member {boolean} force
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @instance
+                         */
+                        DeleteTeamFolderTreeRequest.prototype.force = false;
+    
+                        /**
+                         * Creates a new DeleteTeamFolderTreeRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderTreeRequest} DeleteTeamFolderTreeRequest instance
+                         */
+                        DeleteTeamFolderTreeRequest.create = function create(properties) {
+                            return new DeleteTeamFolderTreeRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteTeamFolderTreeRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderTreeRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest} message DeleteTeamFolderTreeRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteTeamFolderTreeRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.force != null && Object.hasOwnProperty.call(message, "force"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.force);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteTeamFolderTreeRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderTreeRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest} message DeleteTeamFolderTreeRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteTeamFolderTreeRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a DeleteTeamFolderTreeRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderTreeRequest} DeleteTeamFolderTreeRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteTeamFolderTreeRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.DeleteTeamFolderTreeRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.force = reader.bool();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a DeleteTeamFolderTreeRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderTreeRequest} DeleteTeamFolderTreeRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteTeamFolderTreeRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a DeleteTeamFolderTreeRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        DeleteTeamFolderTreeRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.force != null && message.hasOwnProperty("force"))
+                                if (typeof message.force !== "boolean")
+                                    return "force: boolean expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a DeleteTeamFolderTreeRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderTreeRequest} DeleteTeamFolderTreeRequest
+                         */
+                        DeleteTeamFolderTreeRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.DeleteTeamFolderTreeRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.DeleteTeamFolderTreeRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.force != null)
+                                message.force = Boolean(object.force);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a DeleteTeamFolderTreeRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.DeleteTeamFolderTreeRequest} message DeleteTeamFolderTreeRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        DeleteTeamFolderTreeRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.force = false;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.force != null && message.hasOwnProperty("force"))
+                                object.force = message.force;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this DeleteTeamFolderTreeRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        DeleteTeamFolderTreeRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for DeleteTeamFolderTreeRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderTreeRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        DeleteTeamFolderTreeRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.DeleteTeamFolderTreeRequest";
+                        };
+    
+                        return DeleteTeamFolderTreeRequest;
+                    })();
+    
+                    v1.DeleteFolderTreeMetadata = (function() {
+    
+                        /**
+                         * Properties of a DeleteFolderTreeMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IDeleteFolderTreeMetadata
+                         * @property {google.protobuf.ITimestamp|null} [createTime] DeleteFolderTreeMetadata createTime
+                         * @property {google.protobuf.ITimestamp|null} [endTime] DeleteFolderTreeMetadata endTime
+                         * @property {string|null} [target] DeleteFolderTreeMetadata target
+                         * @property {google.cloud.dataform.v1.DeleteFolderTreeMetadata.State|null} [state] DeleteFolderTreeMetadata state
+                         * @property {number|null} [percentComplete] DeleteFolderTreeMetadata percentComplete
+                         */
+    
+                        /**
+                         * Constructs a new DeleteFolderTreeMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a DeleteFolderTreeMetadata.
+                         * @implements IDeleteFolderTreeMetadata
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeMetadata=} [properties] Properties to set
+                         */
+                        function DeleteFolderTreeMetadata(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * DeleteFolderTreeMetadata createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @instance
+                         */
+                        DeleteFolderTreeMetadata.prototype.createTime = null;
+    
+                        /**
+                         * DeleteFolderTreeMetadata endTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} endTime
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @instance
+                         */
+                        DeleteFolderTreeMetadata.prototype.endTime = null;
+    
+                        /**
+                         * DeleteFolderTreeMetadata target.
+                         * @member {string} target
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @instance
+                         */
+                        DeleteFolderTreeMetadata.prototype.target = "";
+    
+                        /**
+                         * DeleteFolderTreeMetadata state.
+                         * @member {google.cloud.dataform.v1.DeleteFolderTreeMetadata.State} state
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @instance
+                         */
+                        DeleteFolderTreeMetadata.prototype.state = 0;
+    
+                        /**
+                         * DeleteFolderTreeMetadata percentComplete.
+                         * @member {number} percentComplete
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @instance
+                         */
+                        DeleteFolderTreeMetadata.prototype.percentComplete = 0;
+    
+                        /**
+                         * Creates a new DeleteFolderTreeMetadata instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeMetadata=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeMetadata} DeleteFolderTreeMetadata instance
+                         */
+                        DeleteFolderTreeMetadata.create = function create(properties) {
+                            return new DeleteFolderTreeMetadata(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteFolderTreeMetadata message. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeMetadata.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeMetadata} message DeleteFolderTreeMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteFolderTreeMetadata.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
+                                $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.target != null && Object.hasOwnProperty.call(message, "target"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.target);
+                            if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.state);
+                            if (message.percentComplete != null && Object.hasOwnProperty.call(message, "percentComplete"))
+                                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.percentComplete);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteFolderTreeMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeMetadata.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteFolderTreeMetadata} message DeleteFolderTreeMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteFolderTreeMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a DeleteFolderTreeMetadata message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeMetadata} DeleteFolderTreeMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteFolderTreeMetadata.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.DeleteFolderTreeMetadata();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 2: {
+                                        message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 3: {
+                                        message.target = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.state = reader.int32();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.percentComplete = reader.int32();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a DeleteFolderTreeMetadata message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeMetadata} DeleteFolderTreeMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteFolderTreeMetadata.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a DeleteFolderTreeMetadata message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        DeleteFolderTreeMetadata.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.endTime != null && message.hasOwnProperty("endTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.endTime);
+                                if (error)
+                                    return "endTime." + error;
+                            }
+                            if (message.target != null && message.hasOwnProperty("target"))
+                                if (!$util.isString(message.target))
+                                    return "target: string expected";
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                switch (message.state) {
+                                default:
+                                    return "state: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    break;
+                                }
+                            if (message.percentComplete != null && message.hasOwnProperty("percentComplete"))
+                                if (!$util.isInteger(message.percentComplete))
+                                    return "percentComplete: integer expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a DeleteFolderTreeMetadata message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.DeleteFolderTreeMetadata} DeleteFolderTreeMetadata
+                         */
+                        DeleteFolderTreeMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.DeleteFolderTreeMetadata)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.DeleteFolderTreeMetadata();
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.DeleteFolderTreeMetadata.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.endTime != null) {
+                                if (typeof object.endTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.DeleteFolderTreeMetadata.endTime: object expected");
+                                message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
+                            }
+                            if (object.target != null)
+                                message.target = String(object.target);
+                            switch (object.state) {
+                            default:
+                                if (typeof object.state === "number") {
+                                    message.state = object.state;
+                                    break;
+                                }
+                                break;
+                            case "STATE_UNSPECIFIED":
+                            case 0:
+                                message.state = 0;
+                                break;
+                            case "INITIALIZED":
+                            case 1:
+                                message.state = 1;
+                                break;
+                            case "IN_PROGRESS":
+                            case 2:
+                                message.state = 2;
+                                break;
+                            case "SUCCEEDED":
+                            case 3:
+                                message.state = 3;
+                                break;
+                            case "FAILED":
+                            case 4:
+                                message.state = 4;
+                                break;
+                            }
+                            if (object.percentComplete != null)
+                                message.percentComplete = object.percentComplete | 0;
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a DeleteFolderTreeMetadata message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.DeleteFolderTreeMetadata} message DeleteFolderTreeMetadata
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        DeleteFolderTreeMetadata.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.createTime = null;
+                                object.endTime = null;
+                                object.target = "";
+                                object.state = options.enums === String ? "STATE_UNSPECIFIED" : 0;
+                                object.percentComplete = 0;
+                            }
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.endTime != null && message.hasOwnProperty("endTime"))
+                                object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
+                            if (message.target != null && message.hasOwnProperty("target"))
+                                object.target = message.target;
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                object.state = options.enums === String ? $root.google.cloud.dataform.v1.DeleteFolderTreeMetadata.State[message.state] === undefined ? message.state : $root.google.cloud.dataform.v1.DeleteFolderTreeMetadata.State[message.state] : message.state;
+                            if (message.percentComplete != null && message.hasOwnProperty("percentComplete"))
+                                object.percentComplete = message.percentComplete;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this DeleteFolderTreeMetadata to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        DeleteFolderTreeMetadata.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for DeleteFolderTreeMetadata
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.DeleteFolderTreeMetadata
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        DeleteFolderTreeMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.DeleteFolderTreeMetadata";
+                        };
+    
+                        /**
+                         * State enum.
+                         * @name google.cloud.dataform.v1.DeleteFolderTreeMetadata.State
+                         * @enum {number}
+                         * @property {number} STATE_UNSPECIFIED=0 STATE_UNSPECIFIED value
+                         * @property {number} INITIALIZED=1 INITIALIZED value
+                         * @property {number} IN_PROGRESS=2 IN_PROGRESS value
+                         * @property {number} SUCCEEDED=3 SUCCEEDED value
+                         * @property {number} FAILED=4 FAILED value
+                         */
+                        DeleteFolderTreeMetadata.State = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "STATE_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "INITIALIZED"] = 1;
+                            values[valuesById[2] = "IN_PROGRESS"] = 2;
+                            values[valuesById[3] = "SUCCEEDED"] = 3;
+                            values[valuesById[4] = "FAILED"] = 4;
+                            return values;
+                        })();
+    
+                        return DeleteFolderTreeMetadata;
+                    })();
+    
+                    v1.QueryFolderContentsRequest = (function() {
+    
+                        /**
+                         * Properties of a QueryFolderContentsRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IQueryFolderContentsRequest
+                         * @property {string|null} [folder] QueryFolderContentsRequest folder
+                         * @property {number|null} [pageSize] QueryFolderContentsRequest pageSize
+                         * @property {string|null} [pageToken] QueryFolderContentsRequest pageToken
+                         * @property {string|null} [orderBy] QueryFolderContentsRequest orderBy
+                         * @property {string|null} [filter] QueryFolderContentsRequest filter
+                         */
+    
+                        /**
+                         * Constructs a new QueryFolderContentsRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a QueryFolderContentsRequest.
+                         * @implements IQueryFolderContentsRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsRequest=} [properties] Properties to set
+                         */
+                        function QueryFolderContentsRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * QueryFolderContentsRequest folder.
+                         * @member {string} folder
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @instance
+                         */
+                        QueryFolderContentsRequest.prototype.folder = "";
+    
+                        /**
+                         * QueryFolderContentsRequest pageSize.
+                         * @member {number} pageSize
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @instance
+                         */
+                        QueryFolderContentsRequest.prototype.pageSize = 0;
+    
+                        /**
+                         * QueryFolderContentsRequest pageToken.
+                         * @member {string} pageToken
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @instance
+                         */
+                        QueryFolderContentsRequest.prototype.pageToken = "";
+    
+                        /**
+                         * QueryFolderContentsRequest orderBy.
+                         * @member {string} orderBy
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @instance
+                         */
+                        QueryFolderContentsRequest.prototype.orderBy = "";
+    
+                        /**
+                         * QueryFolderContentsRequest filter.
+                         * @member {string} filter
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @instance
+                         */
+                        QueryFolderContentsRequest.prototype.filter = "";
+    
+                        /**
+                         * Creates a new QueryFolderContentsRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsRequest} QueryFolderContentsRequest instance
+                         */
+                        QueryFolderContentsRequest.create = function create(properties) {
+                            return new QueryFolderContentsRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified QueryFolderContentsRequest message. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsRequest} message QueryFolderContentsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryFolderContentsRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.folder != null && Object.hasOwnProperty.call(message, "folder"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.folder);
+                            if (message.pageSize != null && Object.hasOwnProperty.call(message, "pageSize"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.pageSize);
+                            if (message.pageToken != null && Object.hasOwnProperty.call(message, "pageToken"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.pageToken);
+                            if (message.orderBy != null && Object.hasOwnProperty.call(message, "orderBy"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.orderBy);
+                            if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.filter);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified QueryFolderContentsRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsRequest} message QueryFolderContentsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryFolderContentsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a QueryFolderContentsRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsRequest} QueryFolderContentsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryFolderContentsRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryFolderContentsRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.folder = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.pageSize = reader.int32();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.pageToken = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.orderBy = reader.string();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.filter = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a QueryFolderContentsRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsRequest} QueryFolderContentsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryFolderContentsRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a QueryFolderContentsRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        QueryFolderContentsRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.folder != null && message.hasOwnProperty("folder"))
+                                if (!$util.isString(message.folder))
+                                    return "folder: string expected";
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                if (!$util.isInteger(message.pageSize))
+                                    return "pageSize: integer expected";
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                if (!$util.isString(message.pageToken))
+                                    return "pageToken: string expected";
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                if (!$util.isString(message.orderBy))
+                                    return "orderBy: string expected";
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                if (!$util.isString(message.filter))
+                                    return "filter: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a QueryFolderContentsRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsRequest} QueryFolderContentsRequest
+                         */
+                        QueryFolderContentsRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.QueryFolderContentsRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.QueryFolderContentsRequest();
+                            if (object.folder != null)
+                                message.folder = String(object.folder);
+                            if (object.pageSize != null)
+                                message.pageSize = object.pageSize | 0;
+                            if (object.pageToken != null)
+                                message.pageToken = String(object.pageToken);
+                            if (object.orderBy != null)
+                                message.orderBy = String(object.orderBy);
+                            if (object.filter != null)
+                                message.filter = String(object.filter);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a QueryFolderContentsRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.QueryFolderContentsRequest} message QueryFolderContentsRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        QueryFolderContentsRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.folder = "";
+                                object.pageSize = 0;
+                                object.pageToken = "";
+                                object.orderBy = "";
+                                object.filter = "";
+                            }
+                            if (message.folder != null && message.hasOwnProperty("folder"))
+                                object.folder = message.folder;
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                object.pageSize = message.pageSize;
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                object.pageToken = message.pageToken;
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                object.orderBy = message.orderBy;
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                object.filter = message.filter;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this QueryFolderContentsRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        QueryFolderContentsRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for QueryFolderContentsRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        QueryFolderContentsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.QueryFolderContentsRequest";
+                        };
+    
+                        return QueryFolderContentsRequest;
+                    })();
+    
+                    v1.QueryFolderContentsResponse = (function() {
+    
+                        /**
+                         * Properties of a QueryFolderContentsResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IQueryFolderContentsResponse
+                         * @property {Array.<google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>|null} [entries] QueryFolderContentsResponse entries
+                         * @property {string|null} [nextPageToken] QueryFolderContentsResponse nextPageToken
+                         */
+    
+                        /**
+                         * Constructs a new QueryFolderContentsResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a QueryFolderContentsResponse.
+                         * @implements IQueryFolderContentsResponse
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsResponse=} [properties] Properties to set
+                         */
+                        function QueryFolderContentsResponse(properties) {
+                            this.entries = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * QueryFolderContentsResponse entries.
+                         * @member {Array.<google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>} entries
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @instance
+                         */
+                        QueryFolderContentsResponse.prototype.entries = $util.emptyArray;
+    
+                        /**
+                         * QueryFolderContentsResponse nextPageToken.
+                         * @member {string} nextPageToken
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @instance
+                         */
+                        QueryFolderContentsResponse.prototype.nextPageToken = "";
+    
+                        /**
+                         * Creates a new QueryFolderContentsResponse instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsResponse=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse} QueryFolderContentsResponse instance
+                         */
+                        QueryFolderContentsResponse.create = function create(properties) {
+                            return new QueryFolderContentsResponse(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified QueryFolderContentsResponse message. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsResponse} message QueryFolderContentsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryFolderContentsResponse.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.entries != null && message.entries.length)
+                                for (var i = 0; i < message.entries.length; ++i)
+                                    $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.encode(message.entries[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.nextPageToken != null && Object.hasOwnProperty.call(message, "nextPageToken"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.nextPageToken);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified QueryFolderContentsResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryFolderContentsResponse} message QueryFolderContentsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryFolderContentsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a QueryFolderContentsResponse message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse} QueryFolderContentsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryFolderContentsResponse.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryFolderContentsResponse();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        if (!(message.entries && message.entries.length))
+                                            message.entries = [];
+                                        message.entries.push($root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.decode(reader, reader.uint32()));
+                                        break;
+                                    }
+                                case 2: {
+                                        message.nextPageToken = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a QueryFolderContentsResponse message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse} QueryFolderContentsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryFolderContentsResponse.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a QueryFolderContentsResponse message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        QueryFolderContentsResponse.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.entries != null && message.hasOwnProperty("entries")) {
+                                if (!Array.isArray(message.entries))
+                                    return "entries: array expected";
+                                for (var i = 0; i < message.entries.length; ++i) {
+                                    var error = $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.verify(message.entries[i]);
+                                    if (error)
+                                        return "entries." + error;
+                                }
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                if (!$util.isString(message.nextPageToken))
+                                    return "nextPageToken: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a QueryFolderContentsResponse message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse} QueryFolderContentsResponse
+                         */
+                        QueryFolderContentsResponse.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.QueryFolderContentsResponse)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.QueryFolderContentsResponse();
+                            if (object.entries) {
+                                if (!Array.isArray(object.entries))
+                                    throw TypeError(".google.cloud.dataform.v1.QueryFolderContentsResponse.entries: array expected");
+                                message.entries = [];
+                                for (var i = 0; i < object.entries.length; ++i) {
+                                    if (typeof object.entries[i] !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryFolderContentsResponse.entries: object expected");
+                                    message.entries[i] = $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.fromObject(object.entries[i]);
+                                }
+                            }
+                            if (object.nextPageToken != null)
+                                message.nextPageToken = String(object.nextPageToken);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a QueryFolderContentsResponse message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.QueryFolderContentsResponse} message QueryFolderContentsResponse
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        QueryFolderContentsResponse.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.entries = [];
+                            if (options.defaults)
+                                object.nextPageToken = "";
+                            if (message.entries && message.entries.length) {
+                                object.entries = [];
+                                for (var j = 0; j < message.entries.length; ++j)
+                                    object.entries[j] = $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.toObject(message.entries[j], options);
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                object.nextPageToken = message.nextPageToken;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this QueryFolderContentsResponse to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        QueryFolderContentsResponse.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for QueryFolderContentsResponse
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        QueryFolderContentsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.QueryFolderContentsResponse";
+                        };
+    
+                        QueryFolderContentsResponse.FolderContentsEntry = (function() {
+    
+                            /**
+                             * Properties of a FolderContentsEntry.
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                             * @interface IFolderContentsEntry
+                             * @property {google.cloud.dataform.v1.IFolder|null} [folder] FolderContentsEntry folder
+                             * @property {google.cloud.dataform.v1.IRepository|null} [repository] FolderContentsEntry repository
+                             */
+    
+                            /**
+                             * Constructs a new FolderContentsEntry.
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse
+                             * @classdesc Represents a FolderContentsEntry.
+                             * @implements IFolderContentsEntry
+                             * @constructor
+                             * @param {google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry=} [properties] Properties to set
+                             */
+                            function FolderContentsEntry(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * FolderContentsEntry folder.
+                             * @member {google.cloud.dataform.v1.IFolder|null|undefined} folder
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @instance
+                             */
+                            FolderContentsEntry.prototype.folder = null;
+    
+                            /**
+                             * FolderContentsEntry repository.
+                             * @member {google.cloud.dataform.v1.IRepository|null|undefined} repository
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @instance
+                             */
+                            FolderContentsEntry.prototype.repository = null;
+    
+                            // OneOf field names bound to virtual getters and setters
+                            var $oneOfFields;
+    
+                            /**
+                             * FolderContentsEntry entry.
+                             * @member {"folder"|"repository"|undefined} entry
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @instance
+                             */
+                            Object.defineProperty(FolderContentsEntry.prototype, "entry", {
+                                get: $util.oneOfGetter($oneOfFields = ["folder", "repository"]),
+                                set: $util.oneOfSetter($oneOfFields)
+                            });
+    
+                            /**
+                             * Creates a new FolderContentsEntry instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry=} [properties] Properties to set
+                             * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry} FolderContentsEntry instance
+                             */
+                            FolderContentsEntry.create = function create(properties) {
+                                return new FolderContentsEntry(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified FolderContentsEntry message. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry} message FolderContentsEntry message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            FolderContentsEntry.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.folder != null && Object.hasOwnProperty.call(message, "folder"))
+                                    $root.google.cloud.dataform.v1.Folder.encode(message.folder, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                if (message.repository != null && Object.hasOwnProperty.call(message, "repository"))
+                                    $root.google.cloud.dataform.v1.Repository.encode(message.repository, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified FolderContentsEntry message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry} message FolderContentsEntry message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            FolderContentsEntry.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a FolderContentsEntry message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry} FolderContentsEntry
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            FolderContentsEntry.decode = function decode(reader, length, error) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    if (tag === error)
+                                        break;
+                                    switch (tag >>> 3) {
+                                    case 1: {
+                                            message.folder = $root.google.cloud.dataform.v1.Folder.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    case 2: {
+                                            message.repository = $root.google.cloud.dataform.v1.Repository.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a FolderContentsEntry message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry} FolderContentsEntry
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            FolderContentsEntry.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a FolderContentsEntry message.
+                             * @function verify
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            FolderContentsEntry.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                var properties = {};
+                                if (message.folder != null && message.hasOwnProperty("folder")) {
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.Folder.verify(message.folder);
+                                        if (error)
+                                            return "folder." + error;
+                                    }
+                                }
+                                if (message.repository != null && message.hasOwnProperty("repository")) {
+                                    if (properties.entry === 1)
+                                        return "entry: multiple values";
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.Repository.verify(message.repository);
+                                        if (error)
+                                            return "repository." + error;
+                                    }
+                                }
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a FolderContentsEntry message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry} FolderContentsEntry
+                             */
+                            FolderContentsEntry.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry)
+                                    return object;
+                                var message = new $root.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry();
+                                if (object.folder != null) {
+                                    if (typeof object.folder !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.folder: object expected");
+                                    message.folder = $root.google.cloud.dataform.v1.Folder.fromObject(object.folder);
+                                }
+                                if (object.repository != null) {
+                                    if (typeof object.repository !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.repository: object expected");
+                                    message.repository = $root.google.cloud.dataform.v1.Repository.fromObject(object.repository);
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a FolderContentsEntry message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry} message FolderContentsEntry
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            FolderContentsEntry.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (message.folder != null && message.hasOwnProperty("folder")) {
+                                    object.folder = $root.google.cloud.dataform.v1.Folder.toObject(message.folder, options);
+                                    if (options.oneofs)
+                                        object.entry = "folder";
+                                }
+                                if (message.repository != null && message.hasOwnProperty("repository")) {
+                                    object.repository = $root.google.cloud.dataform.v1.Repository.toObject(message.repository, options);
+                                    if (options.oneofs)
+                                        object.entry = "repository";
+                                }
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this FolderContentsEntry to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            FolderContentsEntry.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            /**
+                             * Gets the default type url for FolderContentsEntry
+                             * @function getTypeUrl
+                             * @memberof google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry
+                             * @static
+                             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                             * @returns {string} The default type url
+                             */
+                            FolderContentsEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                if (typeUrlPrefix === undefined) {
+                                    typeUrlPrefix = "type.googleapis.com";
+                                }
+                                return typeUrlPrefix + "/google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry";
+                            };
+    
+                            return FolderContentsEntry;
+                        })();
+    
+                        return QueryFolderContentsResponse;
+                    })();
+    
+                    v1.QueryUserRootContentsRequest = (function() {
+    
+                        /**
+                         * Properties of a QueryUserRootContentsRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IQueryUserRootContentsRequest
+                         * @property {string|null} [location] QueryUserRootContentsRequest location
+                         * @property {number|null} [pageSize] QueryUserRootContentsRequest pageSize
+                         * @property {string|null} [pageToken] QueryUserRootContentsRequest pageToken
+                         * @property {string|null} [orderBy] QueryUserRootContentsRequest orderBy
+                         * @property {string|null} [filter] QueryUserRootContentsRequest filter
+                         */
+    
+                        /**
+                         * Constructs a new QueryUserRootContentsRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a QueryUserRootContentsRequest.
+                         * @implements IQueryUserRootContentsRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsRequest=} [properties] Properties to set
+                         */
+                        function QueryUserRootContentsRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * QueryUserRootContentsRequest location.
+                         * @member {string} location
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @instance
+                         */
+                        QueryUserRootContentsRequest.prototype.location = "";
+    
+                        /**
+                         * QueryUserRootContentsRequest pageSize.
+                         * @member {number} pageSize
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @instance
+                         */
+                        QueryUserRootContentsRequest.prototype.pageSize = 0;
+    
+                        /**
+                         * QueryUserRootContentsRequest pageToken.
+                         * @member {string} pageToken
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @instance
+                         */
+                        QueryUserRootContentsRequest.prototype.pageToken = "";
+    
+                        /**
+                         * QueryUserRootContentsRequest orderBy.
+                         * @member {string} orderBy
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @instance
+                         */
+                        QueryUserRootContentsRequest.prototype.orderBy = "";
+    
+                        /**
+                         * QueryUserRootContentsRequest filter.
+                         * @member {string} filter
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @instance
+                         */
+                        QueryUserRootContentsRequest.prototype.filter = "";
+    
+                        /**
+                         * Creates a new QueryUserRootContentsRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsRequest} QueryUserRootContentsRequest instance
+                         */
+                        QueryUserRootContentsRequest.create = function create(properties) {
+                            return new QueryUserRootContentsRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified QueryUserRootContentsRequest message. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsRequest} message QueryUserRootContentsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryUserRootContentsRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.location != null && Object.hasOwnProperty.call(message, "location"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.location);
+                            if (message.pageSize != null && Object.hasOwnProperty.call(message, "pageSize"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.pageSize);
+                            if (message.pageToken != null && Object.hasOwnProperty.call(message, "pageToken"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.pageToken);
+                            if (message.orderBy != null && Object.hasOwnProperty.call(message, "orderBy"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.orderBy);
+                            if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.filter);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified QueryUserRootContentsRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsRequest} message QueryUserRootContentsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryUserRootContentsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a QueryUserRootContentsRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsRequest} QueryUserRootContentsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryUserRootContentsRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryUserRootContentsRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.location = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.pageSize = reader.int32();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.pageToken = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.orderBy = reader.string();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.filter = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a QueryUserRootContentsRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsRequest} QueryUserRootContentsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryUserRootContentsRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a QueryUserRootContentsRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        QueryUserRootContentsRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                if (!$util.isString(message.location))
+                                    return "location: string expected";
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                if (!$util.isInteger(message.pageSize))
+                                    return "pageSize: integer expected";
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                if (!$util.isString(message.pageToken))
+                                    return "pageToken: string expected";
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                if (!$util.isString(message.orderBy))
+                                    return "orderBy: string expected";
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                if (!$util.isString(message.filter))
+                                    return "filter: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a QueryUserRootContentsRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsRequest} QueryUserRootContentsRequest
+                         */
+                        QueryUserRootContentsRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.QueryUserRootContentsRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.QueryUserRootContentsRequest();
+                            if (object.location != null)
+                                message.location = String(object.location);
+                            if (object.pageSize != null)
+                                message.pageSize = object.pageSize | 0;
+                            if (object.pageToken != null)
+                                message.pageToken = String(object.pageToken);
+                            if (object.orderBy != null)
+                                message.orderBy = String(object.orderBy);
+                            if (object.filter != null)
+                                message.filter = String(object.filter);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a QueryUserRootContentsRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.QueryUserRootContentsRequest} message QueryUserRootContentsRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        QueryUserRootContentsRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.location = "";
+                                object.pageSize = 0;
+                                object.pageToken = "";
+                                object.orderBy = "";
+                                object.filter = "";
+                            }
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                object.location = message.location;
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                object.pageSize = message.pageSize;
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                object.pageToken = message.pageToken;
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                object.orderBy = message.orderBy;
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                object.filter = message.filter;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this QueryUserRootContentsRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        QueryUserRootContentsRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for QueryUserRootContentsRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        QueryUserRootContentsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.QueryUserRootContentsRequest";
+                        };
+    
+                        return QueryUserRootContentsRequest;
+                    })();
+    
+                    v1.QueryUserRootContentsResponse = (function() {
+    
+                        /**
+                         * Properties of a QueryUserRootContentsResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IQueryUserRootContentsResponse
+                         * @property {Array.<google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>|null} [entries] QueryUserRootContentsResponse entries
+                         * @property {string|null} [nextPageToken] QueryUserRootContentsResponse nextPageToken
+                         */
+    
+                        /**
+                         * Constructs a new QueryUserRootContentsResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a QueryUserRootContentsResponse.
+                         * @implements IQueryUserRootContentsResponse
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsResponse=} [properties] Properties to set
+                         */
+                        function QueryUserRootContentsResponse(properties) {
+                            this.entries = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * QueryUserRootContentsResponse entries.
+                         * @member {Array.<google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>} entries
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @instance
+                         */
+                        QueryUserRootContentsResponse.prototype.entries = $util.emptyArray;
+    
+                        /**
+                         * QueryUserRootContentsResponse nextPageToken.
+                         * @member {string} nextPageToken
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @instance
+                         */
+                        QueryUserRootContentsResponse.prototype.nextPageToken = "";
+    
+                        /**
+                         * Creates a new QueryUserRootContentsResponse instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsResponse=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse} QueryUserRootContentsResponse instance
+                         */
+                        QueryUserRootContentsResponse.create = function create(properties) {
+                            return new QueryUserRootContentsResponse(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified QueryUserRootContentsResponse message. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsResponse} message QueryUserRootContentsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryUserRootContentsResponse.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.entries != null && message.entries.length)
+                                for (var i = 0; i < message.entries.length; ++i)
+                                    $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.encode(message.entries[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.nextPageToken != null && Object.hasOwnProperty.call(message, "nextPageToken"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.nextPageToken);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified QueryUserRootContentsResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryUserRootContentsResponse} message QueryUserRootContentsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryUserRootContentsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a QueryUserRootContentsResponse message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse} QueryUserRootContentsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryUserRootContentsResponse.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryUserRootContentsResponse();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        if (!(message.entries && message.entries.length))
+                                            message.entries = [];
+                                        message.entries.push($root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.decode(reader, reader.uint32()));
+                                        break;
+                                    }
+                                case 2: {
+                                        message.nextPageToken = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a QueryUserRootContentsResponse message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse} QueryUserRootContentsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryUserRootContentsResponse.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a QueryUserRootContentsResponse message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        QueryUserRootContentsResponse.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.entries != null && message.hasOwnProperty("entries")) {
+                                if (!Array.isArray(message.entries))
+                                    return "entries: array expected";
+                                for (var i = 0; i < message.entries.length; ++i) {
+                                    var error = $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.verify(message.entries[i]);
+                                    if (error)
+                                        return "entries." + error;
+                                }
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                if (!$util.isString(message.nextPageToken))
+                                    return "nextPageToken: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a QueryUserRootContentsResponse message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse} QueryUserRootContentsResponse
+                         */
+                        QueryUserRootContentsResponse.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.QueryUserRootContentsResponse)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.QueryUserRootContentsResponse();
+                            if (object.entries) {
+                                if (!Array.isArray(object.entries))
+                                    throw TypeError(".google.cloud.dataform.v1.QueryUserRootContentsResponse.entries: array expected");
+                                message.entries = [];
+                                for (var i = 0; i < object.entries.length; ++i) {
+                                    if (typeof object.entries[i] !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryUserRootContentsResponse.entries: object expected");
+                                    message.entries[i] = $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.fromObject(object.entries[i]);
+                                }
+                            }
+                            if (object.nextPageToken != null)
+                                message.nextPageToken = String(object.nextPageToken);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a QueryUserRootContentsResponse message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse} message QueryUserRootContentsResponse
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        QueryUserRootContentsResponse.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.entries = [];
+                            if (options.defaults)
+                                object.nextPageToken = "";
+                            if (message.entries && message.entries.length) {
+                                object.entries = [];
+                                for (var j = 0; j < message.entries.length; ++j)
+                                    object.entries[j] = $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.toObject(message.entries[j], options);
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                object.nextPageToken = message.nextPageToken;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this QueryUserRootContentsResponse to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        QueryUserRootContentsResponse.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for QueryUserRootContentsResponse
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        QueryUserRootContentsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.QueryUserRootContentsResponse";
+                        };
+    
+                        QueryUserRootContentsResponse.RootContentsEntry = (function() {
+    
+                            /**
+                             * Properties of a RootContentsEntry.
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                             * @interface IRootContentsEntry
+                             * @property {google.cloud.dataform.v1.IFolder|null} [folder] RootContentsEntry folder
+                             * @property {google.cloud.dataform.v1.IRepository|null} [repository] RootContentsEntry repository
+                             */
+    
+                            /**
+                             * Constructs a new RootContentsEntry.
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse
+                             * @classdesc Represents a RootContentsEntry.
+                             * @implements IRootContentsEntry
+                             * @constructor
+                             * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry=} [properties] Properties to set
+                             */
+                            function RootContentsEntry(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * RootContentsEntry folder.
+                             * @member {google.cloud.dataform.v1.IFolder|null|undefined} folder
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @instance
+                             */
+                            RootContentsEntry.prototype.folder = null;
+    
+                            /**
+                             * RootContentsEntry repository.
+                             * @member {google.cloud.dataform.v1.IRepository|null|undefined} repository
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @instance
+                             */
+                            RootContentsEntry.prototype.repository = null;
+    
+                            // OneOf field names bound to virtual getters and setters
+                            var $oneOfFields;
+    
+                            /**
+                             * RootContentsEntry entry.
+                             * @member {"folder"|"repository"|undefined} entry
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @instance
+                             */
+                            Object.defineProperty(RootContentsEntry.prototype, "entry", {
+                                get: $util.oneOfGetter($oneOfFields = ["folder", "repository"]),
+                                set: $util.oneOfSetter($oneOfFields)
+                            });
+    
+                            /**
+                             * Creates a new RootContentsEntry instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry=} [properties] Properties to set
+                             * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry} RootContentsEntry instance
+                             */
+                            RootContentsEntry.create = function create(properties) {
+                                return new RootContentsEntry(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified RootContentsEntry message. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry} message RootContentsEntry message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            RootContentsEntry.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.folder != null && Object.hasOwnProperty.call(message, "folder"))
+                                    $root.google.cloud.dataform.v1.Folder.encode(message.folder, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                if (message.repository != null && Object.hasOwnProperty.call(message, "repository"))
+                                    $root.google.cloud.dataform.v1.Repository.encode(message.repository, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified RootContentsEntry message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry} message RootContentsEntry message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            RootContentsEntry.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a RootContentsEntry message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry} RootContentsEntry
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            RootContentsEntry.decode = function decode(reader, length, error) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    if (tag === error)
+                                        break;
+                                    switch (tag >>> 3) {
+                                    case 1: {
+                                            message.folder = $root.google.cloud.dataform.v1.Folder.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    case 2: {
+                                            message.repository = $root.google.cloud.dataform.v1.Repository.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a RootContentsEntry message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry} RootContentsEntry
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            RootContentsEntry.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a RootContentsEntry message.
+                             * @function verify
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            RootContentsEntry.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                var properties = {};
+                                if (message.folder != null && message.hasOwnProperty("folder")) {
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.Folder.verify(message.folder);
+                                        if (error)
+                                            return "folder." + error;
+                                    }
+                                }
+                                if (message.repository != null && message.hasOwnProperty("repository")) {
+                                    if (properties.entry === 1)
+                                        return "entry: multiple values";
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.Repository.verify(message.repository);
+                                        if (error)
+                                            return "repository." + error;
+                                    }
+                                }
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a RootContentsEntry message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry} RootContentsEntry
+                             */
+                            RootContentsEntry.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry)
+                                    return object;
+                                var message = new $root.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry();
+                                if (object.folder != null) {
+                                    if (typeof object.folder !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.folder: object expected");
+                                    message.folder = $root.google.cloud.dataform.v1.Folder.fromObject(object.folder);
+                                }
+                                if (object.repository != null) {
+                                    if (typeof object.repository !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.repository: object expected");
+                                    message.repository = $root.google.cloud.dataform.v1.Repository.fromObject(object.repository);
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a RootContentsEntry message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry} message RootContentsEntry
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            RootContentsEntry.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (message.folder != null && message.hasOwnProperty("folder")) {
+                                    object.folder = $root.google.cloud.dataform.v1.Folder.toObject(message.folder, options);
+                                    if (options.oneofs)
+                                        object.entry = "folder";
+                                }
+                                if (message.repository != null && message.hasOwnProperty("repository")) {
+                                    object.repository = $root.google.cloud.dataform.v1.Repository.toObject(message.repository, options);
+                                    if (options.oneofs)
+                                        object.entry = "repository";
+                                }
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this RootContentsEntry to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            RootContentsEntry.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            /**
+                             * Gets the default type url for RootContentsEntry
+                             * @function getTypeUrl
+                             * @memberof google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry
+                             * @static
+                             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                             * @returns {string} The default type url
+                             */
+                            RootContentsEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                if (typeUrlPrefix === undefined) {
+                                    typeUrlPrefix = "type.googleapis.com";
+                                }
+                                return typeUrlPrefix + "/google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry";
+                            };
+    
+                            return RootContentsEntry;
+                        })();
+    
+                        return QueryUserRootContentsResponse;
+                    })();
+    
+                    v1.TeamFolder = (function() {
+    
+                        /**
+                         * Properties of a TeamFolder.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface ITeamFolder
+                         * @property {string|null} [name] TeamFolder name
+                         * @property {string|null} [displayName] TeamFolder displayName
+                         * @property {google.protobuf.ITimestamp|null} [createTime] TeamFolder createTime
+                         * @property {google.protobuf.ITimestamp|null} [updateTime] TeamFolder updateTime
+                         * @property {string|null} [internalMetadata] TeamFolder internalMetadata
+                         * @property {string|null} [creatorIamPrincipal] TeamFolder creatorIamPrincipal
+                         */
+    
+                        /**
+                         * Constructs a new TeamFolder.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a TeamFolder.
+                         * @implements ITeamFolder
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.ITeamFolder=} [properties] Properties to set
+                         */
+                        function TeamFolder(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * TeamFolder name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         */
+                        TeamFolder.prototype.name = "";
+    
+                        /**
+                         * TeamFolder displayName.
+                         * @member {string} displayName
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         */
+                        TeamFolder.prototype.displayName = "";
+    
+                        /**
+                         * TeamFolder createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         */
+                        TeamFolder.prototype.createTime = null;
+    
+                        /**
+                         * TeamFolder updateTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} updateTime
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         */
+                        TeamFolder.prototype.updateTime = null;
+    
+                        /**
+                         * TeamFolder internalMetadata.
+                         * @member {string|null|undefined} internalMetadata
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         */
+                        TeamFolder.prototype.internalMetadata = null;
+    
+                        /**
+                         * TeamFolder creatorIamPrincipal.
+                         * @member {string|null|undefined} creatorIamPrincipal
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         */
+                        TeamFolder.prototype.creatorIamPrincipal = null;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(TeamFolder.prototype, "_internalMetadata", {
+                            get: $util.oneOfGetter($oneOfFields = ["internalMetadata"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        // Virtual OneOf for proto3 optional field
+                        Object.defineProperty(TeamFolder.prototype, "_creatorIamPrincipal", {
+                            get: $util.oneOfGetter($oneOfFields = ["creatorIamPrincipal"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
+                         * Creates a new TeamFolder instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {google.cloud.dataform.v1.ITeamFolder=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.TeamFolder} TeamFolder instance
+                         */
+                        TeamFolder.create = function create(properties) {
+                            return new TeamFolder(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified TeamFolder message. Does not implicitly {@link google.cloud.dataform.v1.TeamFolder.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {google.cloud.dataform.v1.ITeamFolder} message TeamFolder message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TeamFolder.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.displayName != null && Object.hasOwnProperty.call(message, "displayName"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.displayName);
+                            if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            if (message.updateTime != null && Object.hasOwnProperty.call(message, "updateTime"))
+                                $root.google.protobuf.Timestamp.encode(message.updateTime, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                            if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.internalMetadata);
+                            if (message.creatorIamPrincipal != null && Object.hasOwnProperty.call(message, "creatorIamPrincipal"))
+                                writer.uint32(/* id 6, wireType 2 =*/50).string(message.creatorIamPrincipal);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified TeamFolder message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.TeamFolder.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {google.cloud.dataform.v1.ITeamFolder} message TeamFolder message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TeamFolder.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a TeamFolder message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.TeamFolder} TeamFolder
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TeamFolder.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.TeamFolder();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.displayName = reader.string();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 4: {
+                                        message.updateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 5: {
+                                        message.internalMetadata = reader.string();
+                                        break;
+                                    }
+                                case 6: {
+                                        message.creatorIamPrincipal = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a TeamFolder message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.TeamFolder} TeamFolder
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TeamFolder.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a TeamFolder message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        TeamFolder.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            var properties = {};
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                if (!$util.isString(message.displayName))
+                                    return "displayName: string expected";
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.updateTime != null && message.hasOwnProperty("updateTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.updateTime);
+                                if (error)
+                                    return "updateTime." + error;
+                            }
+                            if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
+                                properties._internalMetadata = 1;
+                                if (!$util.isString(message.internalMetadata))
+                                    return "internalMetadata: string expected";
+                            }
+                            if (message.creatorIamPrincipal != null && message.hasOwnProperty("creatorIamPrincipal")) {
+                                properties._creatorIamPrincipal = 1;
+                                if (!$util.isString(message.creatorIamPrincipal))
+                                    return "creatorIamPrincipal: string expected";
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a TeamFolder message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.TeamFolder} TeamFolder
+                         */
+                        TeamFolder.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.TeamFolder)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.TeamFolder();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.displayName != null)
+                                message.displayName = String(object.displayName);
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.TeamFolder.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.updateTime != null) {
+                                if (typeof object.updateTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.TeamFolder.updateTime: object expected");
+                                message.updateTime = $root.google.protobuf.Timestamp.fromObject(object.updateTime);
+                            }
+                            if (object.internalMetadata != null)
+                                message.internalMetadata = String(object.internalMetadata);
+                            if (object.creatorIamPrincipal != null)
+                                message.creatorIamPrincipal = String(object.creatorIamPrincipal);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a TeamFolder message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {google.cloud.dataform.v1.TeamFolder} message TeamFolder
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        TeamFolder.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.displayName = "";
+                                object.createTime = null;
+                                object.updateTime = null;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                object.displayName = message.displayName;
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.updateTime != null && message.hasOwnProperty("updateTime"))
+                                object.updateTime = $root.google.protobuf.Timestamp.toObject(message.updateTime, options);
+                            if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata")) {
+                                object.internalMetadata = message.internalMetadata;
+                                if (options.oneofs)
+                                    object._internalMetadata = "internalMetadata";
+                            }
+                            if (message.creatorIamPrincipal != null && message.hasOwnProperty("creatorIamPrincipal")) {
+                                object.creatorIamPrincipal = message.creatorIamPrincipal;
+                                if (options.oneofs)
+                                    object._creatorIamPrincipal = "creatorIamPrincipal";
+                            }
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this TeamFolder to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        TeamFolder.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for TeamFolder
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.TeamFolder
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        TeamFolder.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.TeamFolder";
+                        };
+    
+                        return TeamFolder;
+                    })();
+    
+                    v1.CreateTeamFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a CreateTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface ICreateTeamFolderRequest
+                         * @property {string|null} [parent] CreateTeamFolderRequest parent
+                         * @property {google.cloud.dataform.v1.ITeamFolder|null} [teamFolder] CreateTeamFolderRequest teamFolder
+                         */
+    
+                        /**
+                         * Constructs a new CreateTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a CreateTeamFolderRequest.
+                         * @implements ICreateTeamFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.ICreateTeamFolderRequest=} [properties] Properties to set
+                         */
+                        function CreateTeamFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * CreateTeamFolderRequest parent.
+                         * @member {string} parent
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @instance
+                         */
+                        CreateTeamFolderRequest.prototype.parent = "";
+    
+                        /**
+                         * CreateTeamFolderRequest teamFolder.
+                         * @member {google.cloud.dataform.v1.ITeamFolder|null|undefined} teamFolder
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @instance
+                         */
+                        CreateTeamFolderRequest.prototype.teamFolder = null;
+    
+                        /**
+                         * Creates a new CreateTeamFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ICreateTeamFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.CreateTeamFolderRequest} CreateTeamFolderRequest instance
+                         */
+                        CreateTeamFolderRequest.create = function create(properties) {
+                            return new CreateTeamFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified CreateTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.CreateTeamFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ICreateTeamFolderRequest} message CreateTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CreateTeamFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.parent != null && Object.hasOwnProperty.call(message, "parent"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.parent);
+                            if (message.teamFolder != null && Object.hasOwnProperty.call(message, "teamFolder"))
+                                $root.google.cloud.dataform.v1.TeamFolder.encode(message.teamFolder, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified CreateTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.CreateTeamFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ICreateTeamFolderRequest} message CreateTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CreateTeamFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a CreateTeamFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.CreateTeamFolderRequest} CreateTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CreateTeamFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.CreateTeamFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.parent = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a CreateTeamFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.CreateTeamFolderRequest} CreateTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CreateTeamFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a CreateTeamFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CreateTeamFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.parent != null && message.hasOwnProperty("parent"))
+                                if (!$util.isString(message.parent))
+                                    return "parent: string expected";
+                            if (message.teamFolder != null && message.hasOwnProperty("teamFolder")) {
+                                var error = $root.google.cloud.dataform.v1.TeamFolder.verify(message.teamFolder);
+                                if (error)
+                                    return "teamFolder." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a CreateTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.CreateTeamFolderRequest} CreateTeamFolderRequest
+                         */
+                        CreateTeamFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.CreateTeamFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.CreateTeamFolderRequest();
+                            if (object.parent != null)
+                                message.parent = String(object.parent);
+                            if (object.teamFolder != null) {
+                                if (typeof object.teamFolder !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.CreateTeamFolderRequest.teamFolder: object expected");
+                                message.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.fromObject(object.teamFolder);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a CreateTeamFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.CreateTeamFolderRequest} message CreateTeamFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CreateTeamFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.parent = "";
+                                object.teamFolder = null;
+                            }
+                            if (message.parent != null && message.hasOwnProperty("parent"))
+                                object.parent = message.parent;
+                            if (message.teamFolder != null && message.hasOwnProperty("teamFolder"))
+                                object.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.toObject(message.teamFolder, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this CreateTeamFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CreateTeamFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for CreateTeamFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.CreateTeamFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        CreateTeamFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.CreateTeamFolderRequest";
+                        };
+    
+                        return CreateTeamFolderRequest;
+                    })();
+    
+                    v1.GetTeamFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a GetTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IGetTeamFolderRequest
+                         * @property {string|null} [name] GetTeamFolderRequest name
+                         */
+    
+                        /**
+                         * Constructs a new GetTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a GetTeamFolderRequest.
+                         * @implements IGetTeamFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IGetTeamFolderRequest=} [properties] Properties to set
+                         */
+                        function GetTeamFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * GetTeamFolderRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @instance
+                         */
+                        GetTeamFolderRequest.prototype.name = "";
+    
+                        /**
+                         * Creates a new GetTeamFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IGetTeamFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.GetTeamFolderRequest} GetTeamFolderRequest instance
+                         */
+                        GetTeamFolderRequest.create = function create(properties) {
+                            return new GetTeamFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified GetTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.GetTeamFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IGetTeamFolderRequest} message GetTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetTeamFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified GetTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.GetTeamFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IGetTeamFolderRequest} message GetTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetTeamFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a GetTeamFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.GetTeamFolderRequest} GetTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetTeamFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.GetTeamFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a GetTeamFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.GetTeamFolderRequest} GetTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetTeamFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a GetTeamFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        GetTeamFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a GetTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.GetTeamFolderRequest} GetTeamFolderRequest
+                         */
+                        GetTeamFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.GetTeamFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.GetTeamFolderRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a GetTeamFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.GetTeamFolderRequest} message GetTeamFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        GetTeamFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.name = "";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this GetTeamFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        GetTeamFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for GetTeamFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.GetTeamFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        GetTeamFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.GetTeamFolderRequest";
+                        };
+    
+                        return GetTeamFolderRequest;
+                    })();
+    
+                    v1.UpdateTeamFolderRequest = (function() {
+    
+                        /**
+                         * Properties of an UpdateTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IUpdateTeamFolderRequest
+                         * @property {google.protobuf.IFieldMask|null} [updateMask] UpdateTeamFolderRequest updateMask
+                         * @property {google.cloud.dataform.v1.ITeamFolder|null} [teamFolder] UpdateTeamFolderRequest teamFolder
+                         */
+    
+                        /**
+                         * Constructs a new UpdateTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents an UpdateTeamFolderRequest.
+                         * @implements IUpdateTeamFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IUpdateTeamFolderRequest=} [properties] Properties to set
+                         */
+                        function UpdateTeamFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * UpdateTeamFolderRequest updateMask.
+                         * @member {google.protobuf.IFieldMask|null|undefined} updateMask
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @instance
+                         */
+                        UpdateTeamFolderRequest.prototype.updateMask = null;
+    
+                        /**
+                         * UpdateTeamFolderRequest teamFolder.
+                         * @member {google.cloud.dataform.v1.ITeamFolder|null|undefined} teamFolder
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @instance
+                         */
+                        UpdateTeamFolderRequest.prototype.teamFolder = null;
+    
+                        /**
+                         * Creates a new UpdateTeamFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IUpdateTeamFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.UpdateTeamFolderRequest} UpdateTeamFolderRequest instance
+                         */
+                        UpdateTeamFolderRequest.create = function create(properties) {
+                            return new UpdateTeamFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified UpdateTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.UpdateTeamFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IUpdateTeamFolderRequest} message UpdateTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        UpdateTeamFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.updateMask != null && Object.hasOwnProperty.call(message, "updateMask"))
+                                $root.google.protobuf.FieldMask.encode(message.updateMask, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.teamFolder != null && Object.hasOwnProperty.call(message, "teamFolder"))
+                                $root.google.cloud.dataform.v1.TeamFolder.encode(message.teamFolder, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified UpdateTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.UpdateTeamFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IUpdateTeamFolderRequest} message UpdateTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        UpdateTeamFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes an UpdateTeamFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.UpdateTeamFolderRequest} UpdateTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        UpdateTeamFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.UpdateTeamFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.updateMask = $root.google.protobuf.FieldMask.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 2: {
+                                        message.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes an UpdateTeamFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.UpdateTeamFolderRequest} UpdateTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        UpdateTeamFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies an UpdateTeamFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        UpdateTeamFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.updateMask != null && message.hasOwnProperty("updateMask")) {
+                                var error = $root.google.protobuf.FieldMask.verify(message.updateMask);
+                                if (error)
+                                    return "updateMask." + error;
+                            }
+                            if (message.teamFolder != null && message.hasOwnProperty("teamFolder")) {
+                                var error = $root.google.cloud.dataform.v1.TeamFolder.verify(message.teamFolder);
+                                if (error)
+                                    return "teamFolder." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates an UpdateTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.UpdateTeamFolderRequest} UpdateTeamFolderRequest
+                         */
+                        UpdateTeamFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.UpdateTeamFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.UpdateTeamFolderRequest();
+                            if (object.updateMask != null) {
+                                if (typeof object.updateMask !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.UpdateTeamFolderRequest.updateMask: object expected");
+                                message.updateMask = $root.google.protobuf.FieldMask.fromObject(object.updateMask);
+                            }
+                            if (object.teamFolder != null) {
+                                if (typeof object.teamFolder !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.UpdateTeamFolderRequest.teamFolder: object expected");
+                                message.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.fromObject(object.teamFolder);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from an UpdateTeamFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.UpdateTeamFolderRequest} message UpdateTeamFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        UpdateTeamFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.updateMask = null;
+                                object.teamFolder = null;
+                            }
+                            if (message.updateMask != null && message.hasOwnProperty("updateMask"))
+                                object.updateMask = $root.google.protobuf.FieldMask.toObject(message.updateMask, options);
+                            if (message.teamFolder != null && message.hasOwnProperty("teamFolder"))
+                                object.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.toObject(message.teamFolder, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this UpdateTeamFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        UpdateTeamFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for UpdateTeamFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.UpdateTeamFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        UpdateTeamFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.UpdateTeamFolderRequest";
+                        };
+    
+                        return UpdateTeamFolderRequest;
+                    })();
+    
+                    v1.DeleteTeamFolderRequest = (function() {
+    
+                        /**
+                         * Properties of a DeleteTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IDeleteTeamFolderRequest
+                         * @property {string|null} [name] DeleteTeamFolderRequest name
+                         */
+    
+                        /**
+                         * Constructs a new DeleteTeamFolderRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a DeleteTeamFolderRequest.
+                         * @implements IDeleteTeamFolderRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderRequest=} [properties] Properties to set
+                         */
+                        function DeleteTeamFolderRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * DeleteTeamFolderRequest name.
+                         * @member {string} name
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @instance
+                         */
+                        DeleteTeamFolderRequest.prototype.name = "";
+    
+                        /**
+                         * Creates a new DeleteTeamFolderRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderRequest} DeleteTeamFolderRequest instance
+                         */
+                        DeleteTeamFolderRequest.create = function create(properties) {
+                            return new DeleteTeamFolderRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderRequest} message DeleteTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteTeamFolderRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified DeleteTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IDeleteTeamFolderRequest} message DeleteTeamFolderRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        DeleteTeamFolderRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a DeleteTeamFolderRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderRequest} DeleteTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteTeamFolderRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.DeleteTeamFolderRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.name = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a DeleteTeamFolderRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderRequest} DeleteTeamFolderRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        DeleteTeamFolderRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a DeleteTeamFolderRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        DeleteTeamFolderRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a DeleteTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.DeleteTeamFolderRequest} DeleteTeamFolderRequest
+                         */
+                        DeleteTeamFolderRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.DeleteTeamFolderRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.DeleteTeamFolderRequest();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a DeleteTeamFolderRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.DeleteTeamFolderRequest} message DeleteTeamFolderRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        DeleteTeamFolderRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.name = "";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this DeleteTeamFolderRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        DeleteTeamFolderRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for DeleteTeamFolderRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.DeleteTeamFolderRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        DeleteTeamFolderRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.DeleteTeamFolderRequest";
+                        };
+    
+                        return DeleteTeamFolderRequest;
+                    })();
+    
+                    v1.QueryTeamFolderContentsRequest = (function() {
+    
+                        /**
+                         * Properties of a QueryTeamFolderContentsRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IQueryTeamFolderContentsRequest
+                         * @property {string|null} [teamFolder] QueryTeamFolderContentsRequest teamFolder
+                         * @property {number|null} [pageSize] QueryTeamFolderContentsRequest pageSize
+                         * @property {string|null} [pageToken] QueryTeamFolderContentsRequest pageToken
+                         * @property {string|null} [orderBy] QueryTeamFolderContentsRequest orderBy
+                         * @property {string|null} [filter] QueryTeamFolderContentsRequest filter
+                         */
+    
+                        /**
+                         * Constructs a new QueryTeamFolderContentsRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a QueryTeamFolderContentsRequest.
+                         * @implements IQueryTeamFolderContentsRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsRequest=} [properties] Properties to set
+                         */
+                        function QueryTeamFolderContentsRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * QueryTeamFolderContentsRequest teamFolder.
+                         * @member {string} teamFolder
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @instance
+                         */
+                        QueryTeamFolderContentsRequest.prototype.teamFolder = "";
+    
+                        /**
+                         * QueryTeamFolderContentsRequest pageSize.
+                         * @member {number} pageSize
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @instance
+                         */
+                        QueryTeamFolderContentsRequest.prototype.pageSize = 0;
+    
+                        /**
+                         * QueryTeamFolderContentsRequest pageToken.
+                         * @member {string} pageToken
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @instance
+                         */
+                        QueryTeamFolderContentsRequest.prototype.pageToken = "";
+    
+                        /**
+                         * QueryTeamFolderContentsRequest orderBy.
+                         * @member {string} orderBy
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @instance
+                         */
+                        QueryTeamFolderContentsRequest.prototype.orderBy = "";
+    
+                        /**
+                         * QueryTeamFolderContentsRequest filter.
+                         * @member {string} filter
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @instance
+                         */
+                        QueryTeamFolderContentsRequest.prototype.filter = "";
+    
+                        /**
+                         * Creates a new QueryTeamFolderContentsRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsRequest} QueryTeamFolderContentsRequest instance
+                         */
+                        QueryTeamFolderContentsRequest.create = function create(properties) {
+                            return new QueryTeamFolderContentsRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified QueryTeamFolderContentsRequest message. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsRequest} message QueryTeamFolderContentsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryTeamFolderContentsRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.teamFolder != null && Object.hasOwnProperty.call(message, "teamFolder"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.teamFolder);
+                            if (message.pageSize != null && Object.hasOwnProperty.call(message, "pageSize"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.pageSize);
+                            if (message.pageToken != null && Object.hasOwnProperty.call(message, "pageToken"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.pageToken);
+                            if (message.orderBy != null && Object.hasOwnProperty.call(message, "orderBy"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.orderBy);
+                            if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.filter);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified QueryTeamFolderContentsRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsRequest} message QueryTeamFolderContentsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryTeamFolderContentsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a QueryTeamFolderContentsRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsRequest} QueryTeamFolderContentsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryTeamFolderContentsRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryTeamFolderContentsRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.teamFolder = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.pageSize = reader.int32();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.pageToken = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.orderBy = reader.string();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.filter = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a QueryTeamFolderContentsRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsRequest} QueryTeamFolderContentsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryTeamFolderContentsRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a QueryTeamFolderContentsRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        QueryTeamFolderContentsRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.teamFolder != null && message.hasOwnProperty("teamFolder"))
+                                if (!$util.isString(message.teamFolder))
+                                    return "teamFolder: string expected";
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                if (!$util.isInteger(message.pageSize))
+                                    return "pageSize: integer expected";
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                if (!$util.isString(message.pageToken))
+                                    return "pageToken: string expected";
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                if (!$util.isString(message.orderBy))
+                                    return "orderBy: string expected";
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                if (!$util.isString(message.filter))
+                                    return "filter: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a QueryTeamFolderContentsRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsRequest} QueryTeamFolderContentsRequest
+                         */
+                        QueryTeamFolderContentsRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.QueryTeamFolderContentsRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.QueryTeamFolderContentsRequest();
+                            if (object.teamFolder != null)
+                                message.teamFolder = String(object.teamFolder);
+                            if (object.pageSize != null)
+                                message.pageSize = object.pageSize | 0;
+                            if (object.pageToken != null)
+                                message.pageToken = String(object.pageToken);
+                            if (object.orderBy != null)
+                                message.orderBy = String(object.orderBy);
+                            if (object.filter != null)
+                                message.filter = String(object.filter);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a QueryTeamFolderContentsRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.QueryTeamFolderContentsRequest} message QueryTeamFolderContentsRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        QueryTeamFolderContentsRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.teamFolder = "";
+                                object.pageSize = 0;
+                                object.pageToken = "";
+                                object.orderBy = "";
+                                object.filter = "";
+                            }
+                            if (message.teamFolder != null && message.hasOwnProperty("teamFolder"))
+                                object.teamFolder = message.teamFolder;
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                object.pageSize = message.pageSize;
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                object.pageToken = message.pageToken;
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                object.orderBy = message.orderBy;
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                object.filter = message.filter;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this QueryTeamFolderContentsRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        QueryTeamFolderContentsRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for QueryTeamFolderContentsRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        QueryTeamFolderContentsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.QueryTeamFolderContentsRequest";
+                        };
+    
+                        return QueryTeamFolderContentsRequest;
+                    })();
+    
+                    v1.QueryTeamFolderContentsResponse = (function() {
+    
+                        /**
+                         * Properties of a QueryTeamFolderContentsResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IQueryTeamFolderContentsResponse
+                         * @property {Array.<google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>|null} [entries] QueryTeamFolderContentsResponse entries
+                         * @property {string|null} [nextPageToken] QueryTeamFolderContentsResponse nextPageToken
+                         */
+    
+                        /**
+                         * Constructs a new QueryTeamFolderContentsResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a QueryTeamFolderContentsResponse.
+                         * @implements IQueryTeamFolderContentsResponse
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsResponse=} [properties] Properties to set
+                         */
+                        function QueryTeamFolderContentsResponse(properties) {
+                            this.entries = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * QueryTeamFolderContentsResponse entries.
+                         * @member {Array.<google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>} entries
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @instance
+                         */
+                        QueryTeamFolderContentsResponse.prototype.entries = $util.emptyArray;
+    
+                        /**
+                         * QueryTeamFolderContentsResponse nextPageToken.
+                         * @member {string} nextPageToken
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @instance
+                         */
+                        QueryTeamFolderContentsResponse.prototype.nextPageToken = "";
+    
+                        /**
+                         * Creates a new QueryTeamFolderContentsResponse instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsResponse=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse} QueryTeamFolderContentsResponse instance
+                         */
+                        QueryTeamFolderContentsResponse.create = function create(properties) {
+                            return new QueryTeamFolderContentsResponse(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified QueryTeamFolderContentsResponse message. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsResponse} message QueryTeamFolderContentsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryTeamFolderContentsResponse.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.entries != null && message.entries.length)
+                                for (var i = 0; i < message.entries.length; ++i)
+                                    $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.encode(message.entries[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.nextPageToken != null && Object.hasOwnProperty.call(message, "nextPageToken"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.nextPageToken);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified QueryTeamFolderContentsResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.IQueryTeamFolderContentsResponse} message QueryTeamFolderContentsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        QueryTeamFolderContentsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a QueryTeamFolderContentsResponse message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse} QueryTeamFolderContentsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryTeamFolderContentsResponse.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        if (!(message.entries && message.entries.length))
+                                            message.entries = [];
+                                        message.entries.push($root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.decode(reader, reader.uint32()));
+                                        break;
+                                    }
+                                case 2: {
+                                        message.nextPageToken = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a QueryTeamFolderContentsResponse message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse} QueryTeamFolderContentsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        QueryTeamFolderContentsResponse.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a QueryTeamFolderContentsResponse message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        QueryTeamFolderContentsResponse.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.entries != null && message.hasOwnProperty("entries")) {
+                                if (!Array.isArray(message.entries))
+                                    return "entries: array expected";
+                                for (var i = 0; i < message.entries.length; ++i) {
+                                    var error = $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.verify(message.entries[i]);
+                                    if (error)
+                                        return "entries." + error;
+                                }
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                if (!$util.isString(message.nextPageToken))
+                                    return "nextPageToken: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a QueryTeamFolderContentsResponse message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse} QueryTeamFolderContentsResponse
+                         */
+                        QueryTeamFolderContentsResponse.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse();
+                            if (object.entries) {
+                                if (!Array.isArray(object.entries))
+                                    throw TypeError(".google.cloud.dataform.v1.QueryTeamFolderContentsResponse.entries: array expected");
+                                message.entries = [];
+                                for (var i = 0; i < object.entries.length; ++i) {
+                                    if (typeof object.entries[i] !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryTeamFolderContentsResponse.entries: object expected");
+                                    message.entries[i] = $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.fromObject(object.entries[i]);
+                                }
+                            }
+                            if (object.nextPageToken != null)
+                                message.nextPageToken = String(object.nextPageToken);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a QueryTeamFolderContentsResponse message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse} message QueryTeamFolderContentsResponse
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        QueryTeamFolderContentsResponse.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.entries = [];
+                            if (options.defaults)
+                                object.nextPageToken = "";
+                            if (message.entries && message.entries.length) {
+                                object.entries = [];
+                                for (var j = 0; j < message.entries.length; ++j)
+                                    object.entries[j] = $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.toObject(message.entries[j], options);
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                object.nextPageToken = message.nextPageToken;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this QueryTeamFolderContentsResponse to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        QueryTeamFolderContentsResponse.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for QueryTeamFolderContentsResponse
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        QueryTeamFolderContentsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.QueryTeamFolderContentsResponse";
+                        };
+    
+                        QueryTeamFolderContentsResponse.TeamFolderContentsEntry = (function() {
+    
+                            /**
+                             * Properties of a TeamFolderContentsEntry.
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                             * @interface ITeamFolderContentsEntry
+                             * @property {google.cloud.dataform.v1.IFolder|null} [folder] TeamFolderContentsEntry folder
+                             * @property {google.cloud.dataform.v1.IRepository|null} [repository] TeamFolderContentsEntry repository
+                             */
+    
+                            /**
+                             * Constructs a new TeamFolderContentsEntry.
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse
+                             * @classdesc Represents a TeamFolderContentsEntry.
+                             * @implements ITeamFolderContentsEntry
+                             * @constructor
+                             * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry=} [properties] Properties to set
+                             */
+                            function TeamFolderContentsEntry(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * TeamFolderContentsEntry folder.
+                             * @member {google.cloud.dataform.v1.IFolder|null|undefined} folder
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @instance
+                             */
+                            TeamFolderContentsEntry.prototype.folder = null;
+    
+                            /**
+                             * TeamFolderContentsEntry repository.
+                             * @member {google.cloud.dataform.v1.IRepository|null|undefined} repository
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @instance
+                             */
+                            TeamFolderContentsEntry.prototype.repository = null;
+    
+                            // OneOf field names bound to virtual getters and setters
+                            var $oneOfFields;
+    
+                            /**
+                             * TeamFolderContentsEntry entry.
+                             * @member {"folder"|"repository"|undefined} entry
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @instance
+                             */
+                            Object.defineProperty(TeamFolderContentsEntry.prototype, "entry", {
+                                get: $util.oneOfGetter($oneOfFields = ["folder", "repository"]),
+                                set: $util.oneOfSetter($oneOfFields)
+                            });
+    
+                            /**
+                             * Creates a new TeamFolderContentsEntry instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry=} [properties] Properties to set
+                             * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry} TeamFolderContentsEntry instance
+                             */
+                            TeamFolderContentsEntry.create = function create(properties) {
+                                return new TeamFolderContentsEntry(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified TeamFolderContentsEntry message. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry} message TeamFolderContentsEntry message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            TeamFolderContentsEntry.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.folder != null && Object.hasOwnProperty.call(message, "folder"))
+                                    $root.google.cloud.dataform.v1.Folder.encode(message.folder, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                if (message.repository != null && Object.hasOwnProperty.call(message, "repository"))
+                                    $root.google.cloud.dataform.v1.Repository.encode(message.repository, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified TeamFolderContentsEntry message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry} message TeamFolderContentsEntry message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            TeamFolderContentsEntry.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a TeamFolderContentsEntry message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry} TeamFolderContentsEntry
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            TeamFolderContentsEntry.decode = function decode(reader, length, error) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    if (tag === error)
+                                        break;
+                                    switch (tag >>> 3) {
+                                    case 1: {
+                                            message.folder = $root.google.cloud.dataform.v1.Folder.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    case 2: {
+                                            message.repository = $root.google.cloud.dataform.v1.Repository.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a TeamFolderContentsEntry message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry} TeamFolderContentsEntry
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            TeamFolderContentsEntry.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a TeamFolderContentsEntry message.
+                             * @function verify
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            TeamFolderContentsEntry.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                var properties = {};
+                                if (message.folder != null && message.hasOwnProperty("folder")) {
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.Folder.verify(message.folder);
+                                        if (error)
+                                            return "folder." + error;
+                                    }
+                                }
+                                if (message.repository != null && message.hasOwnProperty("repository")) {
+                                    if (properties.entry === 1)
+                                        return "entry: multiple values";
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.Repository.verify(message.repository);
+                                        if (error)
+                                            return "repository." + error;
+                                    }
+                                }
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a TeamFolderContentsEntry message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry} TeamFolderContentsEntry
+                             */
+                            TeamFolderContentsEntry.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry)
+                                    return object;
+                                var message = new $root.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry();
+                                if (object.folder != null) {
+                                    if (typeof object.folder !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.folder: object expected");
+                                    message.folder = $root.google.cloud.dataform.v1.Folder.fromObject(object.folder);
+                                }
+                                if (object.repository != null) {
+                                    if (typeof object.repository !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.repository: object expected");
+                                    message.repository = $root.google.cloud.dataform.v1.Repository.fromObject(object.repository);
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a TeamFolderContentsEntry message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry} message TeamFolderContentsEntry
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            TeamFolderContentsEntry.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (message.folder != null && message.hasOwnProperty("folder")) {
+                                    object.folder = $root.google.cloud.dataform.v1.Folder.toObject(message.folder, options);
+                                    if (options.oneofs)
+                                        object.entry = "folder";
+                                }
+                                if (message.repository != null && message.hasOwnProperty("repository")) {
+                                    object.repository = $root.google.cloud.dataform.v1.Repository.toObject(message.repository, options);
+                                    if (options.oneofs)
+                                        object.entry = "repository";
+                                }
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this TeamFolderContentsEntry to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            TeamFolderContentsEntry.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            /**
+                             * Gets the default type url for TeamFolderContentsEntry
+                             * @function getTypeUrl
+                             * @memberof google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry
+                             * @static
+                             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                             * @returns {string} The default type url
+                             */
+                            TeamFolderContentsEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                if (typeUrlPrefix === undefined) {
+                                    typeUrlPrefix = "type.googleapis.com";
+                                }
+                                return typeUrlPrefix + "/google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry";
+                            };
+    
+                            return TeamFolderContentsEntry;
+                        })();
+    
+                        return QueryTeamFolderContentsResponse;
+                    })();
+    
+                    v1.SearchTeamFoldersRequest = (function() {
+    
+                        /**
+                         * Properties of a SearchTeamFoldersRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface ISearchTeamFoldersRequest
+                         * @property {string|null} [location] SearchTeamFoldersRequest location
+                         * @property {number|null} [pageSize] SearchTeamFoldersRequest pageSize
+                         * @property {string|null} [pageToken] SearchTeamFoldersRequest pageToken
+                         * @property {string|null} [orderBy] SearchTeamFoldersRequest orderBy
+                         * @property {string|null} [filter] SearchTeamFoldersRequest filter
+                         */
+    
+                        /**
+                         * Constructs a new SearchTeamFoldersRequest.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a SearchTeamFoldersRequest.
+                         * @implements ISearchTeamFoldersRequest
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersRequest=} [properties] Properties to set
+                         */
+                        function SearchTeamFoldersRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * SearchTeamFoldersRequest location.
+                         * @member {string} location
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @instance
+                         */
+                        SearchTeamFoldersRequest.prototype.location = "";
+    
+                        /**
+                         * SearchTeamFoldersRequest pageSize.
+                         * @member {number} pageSize
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @instance
+                         */
+                        SearchTeamFoldersRequest.prototype.pageSize = 0;
+    
+                        /**
+                         * SearchTeamFoldersRequest pageToken.
+                         * @member {string} pageToken
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @instance
+                         */
+                        SearchTeamFoldersRequest.prototype.pageToken = "";
+    
+                        /**
+                         * SearchTeamFoldersRequest orderBy.
+                         * @member {string} orderBy
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @instance
+                         */
+                        SearchTeamFoldersRequest.prototype.orderBy = "";
+    
+                        /**
+                         * SearchTeamFoldersRequest filter.
+                         * @member {string} filter
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @instance
+                         */
+                        SearchTeamFoldersRequest.prototype.filter = "";
+    
+                        /**
+                         * Creates a new SearchTeamFoldersRequest instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersRequest=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersRequest} SearchTeamFoldersRequest instance
+                         */
+                        SearchTeamFoldersRequest.create = function create(properties) {
+                            return new SearchTeamFoldersRequest(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified SearchTeamFoldersRequest message. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersRequest} message SearchTeamFoldersRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        SearchTeamFoldersRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.location != null && Object.hasOwnProperty.call(message, "location"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.location);
+                            if (message.pageSize != null && Object.hasOwnProperty.call(message, "pageSize"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.pageSize);
+                            if (message.pageToken != null && Object.hasOwnProperty.call(message, "pageToken"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.pageToken);
+                            if (message.orderBy != null && Object.hasOwnProperty.call(message, "orderBy"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.orderBy);
+                            if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.filter);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified SearchTeamFoldersRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersRequest} message SearchTeamFoldersRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        SearchTeamFoldersRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a SearchTeamFoldersRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersRequest} SearchTeamFoldersRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        SearchTeamFoldersRequest.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.SearchTeamFoldersRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.location = reader.string();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.pageSize = reader.int32();
+                                        break;
+                                    }
+                                case 3: {
+                                        message.pageToken = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.orderBy = reader.string();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.filter = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a SearchTeamFoldersRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersRequest} SearchTeamFoldersRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        SearchTeamFoldersRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a SearchTeamFoldersRequest message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        SearchTeamFoldersRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                if (!$util.isString(message.location))
+                                    return "location: string expected";
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                if (!$util.isInteger(message.pageSize))
+                                    return "pageSize: integer expected";
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                if (!$util.isString(message.pageToken))
+                                    return "pageToken: string expected";
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                if (!$util.isString(message.orderBy))
+                                    return "orderBy: string expected";
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                if (!$util.isString(message.filter))
+                                    return "filter: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a SearchTeamFoldersRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersRequest} SearchTeamFoldersRequest
+                         */
+                        SearchTeamFoldersRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.SearchTeamFoldersRequest)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.SearchTeamFoldersRequest();
+                            if (object.location != null)
+                                message.location = String(object.location);
+                            if (object.pageSize != null)
+                                message.pageSize = object.pageSize | 0;
+                            if (object.pageToken != null)
+                                message.pageToken = String(object.pageToken);
+                            if (object.orderBy != null)
+                                message.orderBy = String(object.orderBy);
+                            if (object.filter != null)
+                                message.filter = String(object.filter);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a SearchTeamFoldersRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {google.cloud.dataform.v1.SearchTeamFoldersRequest} message SearchTeamFoldersRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        SearchTeamFoldersRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.location = "";
+                                object.pageSize = 0;
+                                object.pageToken = "";
+                                object.orderBy = "";
+                                object.filter = "";
+                            }
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                object.location = message.location;
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                object.pageSize = message.pageSize;
+                            if (message.pageToken != null && message.hasOwnProperty("pageToken"))
+                                object.pageToken = message.pageToken;
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                object.orderBy = message.orderBy;
+                            if (message.filter != null && message.hasOwnProperty("filter"))
+                                object.filter = message.filter;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this SearchTeamFoldersRequest to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        SearchTeamFoldersRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for SearchTeamFoldersRequest
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersRequest
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        SearchTeamFoldersRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.SearchTeamFoldersRequest";
+                        };
+    
+                        return SearchTeamFoldersRequest;
+                    })();
+    
+                    v1.SearchTeamFoldersResponse = (function() {
+    
+                        /**
+                         * Properties of a SearchTeamFoldersResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface ISearchTeamFoldersResponse
+                         * @property {Array.<google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>|null} [results] SearchTeamFoldersResponse results
+                         * @property {string|null} [nextPageToken] SearchTeamFoldersResponse nextPageToken
+                         */
+    
+                        /**
+                         * Constructs a new SearchTeamFoldersResponse.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a SearchTeamFoldersResponse.
+                         * @implements ISearchTeamFoldersResponse
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersResponse=} [properties] Properties to set
+                         */
+                        function SearchTeamFoldersResponse(properties) {
+                            this.results = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * SearchTeamFoldersResponse results.
+                         * @member {Array.<google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>} results
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @instance
+                         */
+                        SearchTeamFoldersResponse.prototype.results = $util.emptyArray;
+    
+                        /**
+                         * SearchTeamFoldersResponse nextPageToken.
+                         * @member {string} nextPageToken
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @instance
+                         */
+                        SearchTeamFoldersResponse.prototype.nextPageToken = "";
+    
+                        /**
+                         * Creates a new SearchTeamFoldersResponse instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersResponse=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse} SearchTeamFoldersResponse instance
+                         */
+                        SearchTeamFoldersResponse.create = function create(properties) {
+                            return new SearchTeamFoldersResponse(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified SearchTeamFoldersResponse message. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersResponse} message SearchTeamFoldersResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        SearchTeamFoldersResponse.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.results != null && message.results.length)
+                                for (var i = 0; i < message.results.length; ++i)
+                                    $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.encode(message.results[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.nextPageToken != null && Object.hasOwnProperty.call(message, "nextPageToken"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.nextPageToken);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified SearchTeamFoldersResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.ISearchTeamFoldersResponse} message SearchTeamFoldersResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        SearchTeamFoldersResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a SearchTeamFoldersResponse message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse} SearchTeamFoldersResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        SearchTeamFoldersResponse.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.SearchTeamFoldersResponse();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        if (!(message.results && message.results.length))
+                                            message.results = [];
+                                        message.results.push($root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.decode(reader, reader.uint32()));
+                                        break;
+                                    }
+                                case 2: {
+                                        message.nextPageToken = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a SearchTeamFoldersResponse message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse} SearchTeamFoldersResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        SearchTeamFoldersResponse.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a SearchTeamFoldersResponse message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        SearchTeamFoldersResponse.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.results != null && message.hasOwnProperty("results")) {
+                                if (!Array.isArray(message.results))
+                                    return "results: array expected";
+                                for (var i = 0; i < message.results.length; ++i) {
+                                    var error = $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.verify(message.results[i]);
+                                    if (error)
+                                        return "results." + error;
+                                }
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                if (!$util.isString(message.nextPageToken))
+                                    return "nextPageToken: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a SearchTeamFoldersResponse message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse} SearchTeamFoldersResponse
+                         */
+                        SearchTeamFoldersResponse.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.SearchTeamFoldersResponse)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.SearchTeamFoldersResponse();
+                            if (object.results) {
+                                if (!Array.isArray(object.results))
+                                    throw TypeError(".google.cloud.dataform.v1.SearchTeamFoldersResponse.results: array expected");
+                                message.results = [];
+                                for (var i = 0; i < object.results.length; ++i) {
+                                    if (typeof object.results[i] !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.SearchTeamFoldersResponse.results: object expected");
+                                    message.results[i] = $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.fromObject(object.results[i]);
+                                }
+                            }
+                            if (object.nextPageToken != null)
+                                message.nextPageToken = String(object.nextPageToken);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a SearchTeamFoldersResponse message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse} message SearchTeamFoldersResponse
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        SearchTeamFoldersResponse.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.results = [];
+                            if (options.defaults)
+                                object.nextPageToken = "";
+                            if (message.results && message.results.length) {
+                                object.results = [];
+                                for (var j = 0; j < message.results.length; ++j)
+                                    object.results[j] = $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.toObject(message.results[j], options);
+                            }
+                            if (message.nextPageToken != null && message.hasOwnProperty("nextPageToken"))
+                                object.nextPageToken = message.nextPageToken;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this SearchTeamFoldersResponse to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        SearchTeamFoldersResponse.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for SearchTeamFoldersResponse
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        SearchTeamFoldersResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.SearchTeamFoldersResponse";
+                        };
+    
+                        SearchTeamFoldersResponse.TeamFolderSearchResult = (function() {
+    
+                            /**
+                             * Properties of a TeamFolderSearchResult.
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                             * @interface ITeamFolderSearchResult
+                             * @property {google.cloud.dataform.v1.ITeamFolder|null} [teamFolder] TeamFolderSearchResult teamFolder
+                             */
+    
+                            /**
+                             * Constructs a new TeamFolderSearchResult.
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse
+                             * @classdesc Represents a TeamFolderSearchResult.
+                             * @implements ITeamFolderSearchResult
+                             * @constructor
+                             * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult=} [properties] Properties to set
+                             */
+                            function TeamFolderSearchResult(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * TeamFolderSearchResult teamFolder.
+                             * @member {google.cloud.dataform.v1.ITeamFolder|null|undefined} teamFolder
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @instance
+                             */
+                            TeamFolderSearchResult.prototype.teamFolder = null;
+    
+                            // OneOf field names bound to virtual getters and setters
+                            var $oneOfFields;
+    
+                            /**
+                             * TeamFolderSearchResult entry.
+                             * @member {"teamFolder"|undefined} entry
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @instance
+                             */
+                            Object.defineProperty(TeamFolderSearchResult.prototype, "entry", {
+                                get: $util.oneOfGetter($oneOfFields = ["teamFolder"]),
+                                set: $util.oneOfSetter($oneOfFields)
+                            });
+    
+                            /**
+                             * Creates a new TeamFolderSearchResult instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult=} [properties] Properties to set
+                             * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult} TeamFolderSearchResult instance
+                             */
+                            TeamFolderSearchResult.create = function create(properties) {
+                                return new TeamFolderSearchResult(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified TeamFolderSearchResult message. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult} message TeamFolderSearchResult message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            TeamFolderSearchResult.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.teamFolder != null && Object.hasOwnProperty.call(message, "teamFolder"))
+                                    $root.google.cloud.dataform.v1.TeamFolder.encode(message.teamFolder, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified TeamFolderSearchResult message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult} message TeamFolderSearchResult message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            TeamFolderSearchResult.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a TeamFolderSearchResult message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult} TeamFolderSearchResult
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            TeamFolderSearchResult.decode = function decode(reader, length, error) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    if (tag === error)
+                                        break;
+                                    switch (tag >>> 3) {
+                                    case 2: {
+                                            message.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a TeamFolderSearchResult message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult} TeamFolderSearchResult
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            TeamFolderSearchResult.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a TeamFolderSearchResult message.
+                             * @function verify
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            TeamFolderSearchResult.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                var properties = {};
+                                if (message.teamFolder != null && message.hasOwnProperty("teamFolder")) {
+                                    properties.entry = 1;
+                                    {
+                                        var error = $root.google.cloud.dataform.v1.TeamFolder.verify(message.teamFolder);
+                                        if (error)
+                                            return "teamFolder." + error;
+                                    }
+                                }
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a TeamFolderSearchResult message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult} TeamFolderSearchResult
+                             */
+                            TeamFolderSearchResult.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult)
+                                    return object;
+                                var message = new $root.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult();
+                                if (object.teamFolder != null) {
+                                    if (typeof object.teamFolder !== "object")
+                                        throw TypeError(".google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.teamFolder: object expected");
+                                    message.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.fromObject(object.teamFolder);
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a TeamFolderSearchResult message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult} message TeamFolderSearchResult
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            TeamFolderSearchResult.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (message.teamFolder != null && message.hasOwnProperty("teamFolder")) {
+                                    object.teamFolder = $root.google.cloud.dataform.v1.TeamFolder.toObject(message.teamFolder, options);
+                                    if (options.oneofs)
+                                        object.entry = "teamFolder";
+                                }
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this TeamFolderSearchResult to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            TeamFolderSearchResult.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            /**
+                             * Gets the default type url for TeamFolderSearchResult
+                             * @function getTypeUrl
+                             * @memberof google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult
+                             * @static
+                             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                             * @returns {string} The default type url
+                             */
+                            TeamFolderSearchResult.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                if (typeUrlPrefix === undefined) {
+                                    typeUrlPrefix = "type.googleapis.com";
+                                }
+                                return typeUrlPrefix + "/google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult";
+                            };
+    
+                            return TeamFolderSearchResult;
+                        })();
+    
+                        return SearchTeamFoldersResponse;
+                    })();
+    
+                    v1.MoveFolderMetadata = (function() {
+    
+                        /**
+                         * Properties of a MoveFolderMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IMoveFolderMetadata
+                         * @property {google.protobuf.ITimestamp|null} [createTime] MoveFolderMetadata createTime
+                         * @property {google.protobuf.ITimestamp|null} [endTime] MoveFolderMetadata endTime
+                         * @property {string|null} [target] MoveFolderMetadata target
+                         * @property {google.cloud.dataform.v1.MoveFolderMetadata.State|null} [state] MoveFolderMetadata state
+                         * @property {number|null} [percentComplete] MoveFolderMetadata percentComplete
+                         */
+    
+                        /**
+                         * Constructs a new MoveFolderMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a MoveFolderMetadata.
+                         * @implements IMoveFolderMetadata
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IMoveFolderMetadata=} [properties] Properties to set
+                         */
+                        function MoveFolderMetadata(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * MoveFolderMetadata createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @instance
+                         */
+                        MoveFolderMetadata.prototype.createTime = null;
+    
+                        /**
+                         * MoveFolderMetadata endTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} endTime
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @instance
+                         */
+                        MoveFolderMetadata.prototype.endTime = null;
+    
+                        /**
+                         * MoveFolderMetadata target.
+                         * @member {string} target
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @instance
+                         */
+                        MoveFolderMetadata.prototype.target = "";
+    
+                        /**
+                         * MoveFolderMetadata state.
+                         * @member {google.cloud.dataform.v1.MoveFolderMetadata.State} state
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @instance
+                         */
+                        MoveFolderMetadata.prototype.state = 0;
+    
+                        /**
+                         * MoveFolderMetadata percentComplete.
+                         * @member {number} percentComplete
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @instance
+                         */
+                        MoveFolderMetadata.prototype.percentComplete = 0;
+    
+                        /**
+                         * Creates a new MoveFolderMetadata instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveFolderMetadata=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.MoveFolderMetadata} MoveFolderMetadata instance
+                         */
+                        MoveFolderMetadata.create = function create(properties) {
+                            return new MoveFolderMetadata(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified MoveFolderMetadata message. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderMetadata.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveFolderMetadata} message MoveFolderMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveFolderMetadata.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
+                                $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.target != null && Object.hasOwnProperty.call(message, "target"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.target);
+                            if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.state);
+                            if (message.percentComplete != null && Object.hasOwnProperty.call(message, "percentComplete"))
+                                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.percentComplete);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified MoveFolderMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderMetadata.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveFolderMetadata} message MoveFolderMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveFolderMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a MoveFolderMetadata message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.MoveFolderMetadata} MoveFolderMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveFolderMetadata.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.MoveFolderMetadata();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 2: {
+                                        message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 3: {
+                                        message.target = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.state = reader.int32();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.percentComplete = reader.int32();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a MoveFolderMetadata message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.MoveFolderMetadata} MoveFolderMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveFolderMetadata.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a MoveFolderMetadata message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        MoveFolderMetadata.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.endTime != null && message.hasOwnProperty("endTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.endTime);
+                                if (error)
+                                    return "endTime." + error;
+                            }
+                            if (message.target != null && message.hasOwnProperty("target"))
+                                if (!$util.isString(message.target))
+                                    return "target: string expected";
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                switch (message.state) {
+                                default:
+                                    return "state: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    break;
+                                }
+                            if (message.percentComplete != null && message.hasOwnProperty("percentComplete"))
+                                if (!$util.isInteger(message.percentComplete))
+                                    return "percentComplete: integer expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a MoveFolderMetadata message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.MoveFolderMetadata} MoveFolderMetadata
+                         */
+                        MoveFolderMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.MoveFolderMetadata)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.MoveFolderMetadata();
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.MoveFolderMetadata.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.endTime != null) {
+                                if (typeof object.endTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.MoveFolderMetadata.endTime: object expected");
+                                message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
+                            }
+                            if (object.target != null)
+                                message.target = String(object.target);
+                            switch (object.state) {
+                            default:
+                                if (typeof object.state === "number") {
+                                    message.state = object.state;
+                                    break;
+                                }
+                                break;
+                            case "STATE_UNSPECIFIED":
+                            case 0:
+                                message.state = 0;
+                                break;
+                            case "INITIALIZED":
+                            case 1:
+                                message.state = 1;
+                                break;
+                            case "IN_PROGRESS":
+                            case 2:
+                                message.state = 2;
+                                break;
+                            case "SUCCESS":
+                            case 3:
+                                message.state = 3;
+                                break;
+                            case "FAILED":
+                            case 4:
+                                message.state = 4;
+                                break;
+                            }
+                            if (object.percentComplete != null)
+                                message.percentComplete = object.percentComplete | 0;
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a MoveFolderMetadata message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.MoveFolderMetadata} message MoveFolderMetadata
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        MoveFolderMetadata.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.createTime = null;
+                                object.endTime = null;
+                                object.target = "";
+                                object.state = options.enums === String ? "STATE_UNSPECIFIED" : 0;
+                                object.percentComplete = 0;
+                            }
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.endTime != null && message.hasOwnProperty("endTime"))
+                                object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
+                            if (message.target != null && message.hasOwnProperty("target"))
+                                object.target = message.target;
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                object.state = options.enums === String ? $root.google.cloud.dataform.v1.MoveFolderMetadata.State[message.state] === undefined ? message.state : $root.google.cloud.dataform.v1.MoveFolderMetadata.State[message.state] : message.state;
+                            if (message.percentComplete != null && message.hasOwnProperty("percentComplete"))
+                                object.percentComplete = message.percentComplete;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this MoveFolderMetadata to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        MoveFolderMetadata.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for MoveFolderMetadata
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.MoveFolderMetadata
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        MoveFolderMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.MoveFolderMetadata";
+                        };
+    
+                        /**
+                         * State enum.
+                         * @name google.cloud.dataform.v1.MoveFolderMetadata.State
+                         * @enum {number}
+                         * @property {number} STATE_UNSPECIFIED=0 STATE_UNSPECIFIED value
+                         * @property {number} INITIALIZED=1 INITIALIZED value
+                         * @property {number} IN_PROGRESS=2 IN_PROGRESS value
+                         * @property {number} SUCCESS=3 SUCCESS value
+                         * @property {number} FAILED=4 FAILED value
+                         */
+                        MoveFolderMetadata.State = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "STATE_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "INITIALIZED"] = 1;
+                            values[valuesById[2] = "IN_PROGRESS"] = 2;
+                            values[valuesById[3] = "SUCCESS"] = 3;
+                            values[valuesById[4] = "FAILED"] = 4;
+                            return values;
+                        })();
+    
+                        return MoveFolderMetadata;
+                    })();
+    
+                    v1.MoveRepositoryMetadata = (function() {
+    
+                        /**
+                         * Properties of a MoveRepositoryMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @interface IMoveRepositoryMetadata
+                         * @property {google.protobuf.ITimestamp|null} [createTime] MoveRepositoryMetadata createTime
+                         * @property {google.protobuf.ITimestamp|null} [endTime] MoveRepositoryMetadata endTime
+                         * @property {string|null} [target] MoveRepositoryMetadata target
+                         * @property {google.cloud.dataform.v1.MoveRepositoryMetadata.State|null} [state] MoveRepositoryMetadata state
+                         * @property {number|null} [percentComplete] MoveRepositoryMetadata percentComplete
+                         */
+    
+                        /**
+                         * Constructs a new MoveRepositoryMetadata.
+                         * @memberof google.cloud.dataform.v1
+                         * @classdesc Represents a MoveRepositoryMetadata.
+                         * @implements IMoveRepositoryMetadata
+                         * @constructor
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryMetadata=} [properties] Properties to set
+                         */
+                        function MoveRepositoryMetadata(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * MoveRepositoryMetadata createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @instance
+                         */
+                        MoveRepositoryMetadata.prototype.createTime = null;
+    
+                        /**
+                         * MoveRepositoryMetadata endTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} endTime
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @instance
+                         */
+                        MoveRepositoryMetadata.prototype.endTime = null;
+    
+                        /**
+                         * MoveRepositoryMetadata target.
+                         * @member {string} target
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @instance
+                         */
+                        MoveRepositoryMetadata.prototype.target = "";
+    
+                        /**
+                         * MoveRepositoryMetadata state.
+                         * @member {google.cloud.dataform.v1.MoveRepositoryMetadata.State} state
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @instance
+                         */
+                        MoveRepositoryMetadata.prototype.state = 0;
+    
+                        /**
+                         * MoveRepositoryMetadata percentComplete.
+                         * @member {number} percentComplete
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @instance
+                         */
+                        MoveRepositoryMetadata.prototype.percentComplete = 0;
+    
+                        /**
+                         * Creates a new MoveRepositoryMetadata instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryMetadata=} [properties] Properties to set
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryMetadata} MoveRepositoryMetadata instance
+                         */
+                        MoveRepositoryMetadata.create = function create(properties) {
+                            return new MoveRepositoryMetadata(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified MoveRepositoryMetadata message. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryMetadata.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryMetadata} message MoveRepositoryMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveRepositoryMetadata.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
+                                $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.target != null && Object.hasOwnProperty.call(message, "target"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.target);
+                            if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.state);
+                            if (message.percentComplete != null && Object.hasOwnProperty.call(message, "percentComplete"))
+                                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.percentComplete);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified MoveRepositoryMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryMetadata.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.IMoveRepositoryMetadata} message MoveRepositoryMetadata message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MoveRepositoryMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a MoveRepositoryMetadata message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryMetadata} MoveRepositoryMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveRepositoryMetadata.decode = function decode(reader, length, error) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.dataform.v1.MoveRepositoryMetadata();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                if (tag === error)
+                                    break;
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 2: {
+                                        message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 3: {
+                                        message.target = reader.string();
+                                        break;
+                                    }
+                                case 4: {
+                                        message.state = reader.int32();
+                                        break;
+                                    }
+                                case 5: {
+                                        message.percentComplete = reader.int32();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a MoveRepositoryMetadata message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryMetadata} MoveRepositoryMetadata
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MoveRepositoryMetadata.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a MoveRepositoryMetadata message.
+                         * @function verify
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        MoveRepositoryMetadata.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.endTime != null && message.hasOwnProperty("endTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.endTime);
+                                if (error)
+                                    return "endTime." + error;
+                            }
+                            if (message.target != null && message.hasOwnProperty("target"))
+                                if (!$util.isString(message.target))
+                                    return "target: string expected";
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                switch (message.state) {
+                                default:
+                                    return "state: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    break;
+                                }
+                            if (message.percentComplete != null && message.hasOwnProperty("percentComplete"))
+                                if (!$util.isInteger(message.percentComplete))
+                                    return "percentComplete: integer expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a MoveRepositoryMetadata message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.dataform.v1.MoveRepositoryMetadata} MoveRepositoryMetadata
+                         */
+                        MoveRepositoryMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.dataform.v1.MoveRepositoryMetadata)
+                                return object;
+                            var message = new $root.google.cloud.dataform.v1.MoveRepositoryMetadata();
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.MoveRepositoryMetadata.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.endTime != null) {
+                                if (typeof object.endTime !== "object")
+                                    throw TypeError(".google.cloud.dataform.v1.MoveRepositoryMetadata.endTime: object expected");
+                                message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
+                            }
+                            if (object.target != null)
+                                message.target = String(object.target);
+                            switch (object.state) {
+                            default:
+                                if (typeof object.state === "number") {
+                                    message.state = object.state;
+                                    break;
+                                }
+                                break;
+                            case "STATE_UNSPECIFIED":
+                            case 0:
+                                message.state = 0;
+                                break;
+                            case "INITIALIZED":
+                            case 1:
+                                message.state = 1;
+                                break;
+                            case "IN_PROGRESS":
+                            case 2:
+                                message.state = 2;
+                                break;
+                            case "SUCCESS":
+                            case 3:
+                                message.state = 3;
+                                break;
+                            case "FAILED":
+                            case 4:
+                                message.state = 4;
+                                break;
+                            }
+                            if (object.percentComplete != null)
+                                message.percentComplete = object.percentComplete | 0;
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a MoveRepositoryMetadata message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {google.cloud.dataform.v1.MoveRepositoryMetadata} message MoveRepositoryMetadata
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        MoveRepositoryMetadata.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.createTime = null;
+                                object.endTime = null;
+                                object.target = "";
+                                object.state = options.enums === String ? "STATE_UNSPECIFIED" : 0;
+                                object.percentComplete = 0;
+                            }
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.endTime != null && message.hasOwnProperty("endTime"))
+                                object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
+                            if (message.target != null && message.hasOwnProperty("target"))
+                                object.target = message.target;
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                object.state = options.enums === String ? $root.google.cloud.dataform.v1.MoveRepositoryMetadata.State[message.state] === undefined ? message.state : $root.google.cloud.dataform.v1.MoveRepositoryMetadata.State[message.state] : message.state;
+                            if (message.percentComplete != null && message.hasOwnProperty("percentComplete"))
+                                object.percentComplete = message.percentComplete;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this MoveRepositoryMetadata to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        MoveRepositoryMetadata.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for MoveRepositoryMetadata
+                         * @function getTypeUrl
+                         * @memberof google.cloud.dataform.v1.MoveRepositoryMetadata
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        MoveRepositoryMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.dataform.v1.MoveRepositoryMetadata";
+                        };
+    
+                        /**
+                         * State enum.
+                         * @name google.cloud.dataform.v1.MoveRepositoryMetadata.State
+                         * @enum {number}
+                         * @property {number} STATE_UNSPECIFIED=0 STATE_UNSPECIFIED value
+                         * @property {number} INITIALIZED=1 INITIALIZED value
+                         * @property {number} IN_PROGRESS=2 IN_PROGRESS value
+                         * @property {number} SUCCESS=3 SUCCESS value
+                         * @property {number} FAILED=4 FAILED value
+                         */
+                        MoveRepositoryMetadata.State = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "STATE_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "INITIALIZED"] = 1;
+                            values[valuesById[2] = "IN_PROGRESS"] = 2;
+                            values[valuesById[3] = "SUCCESS"] = 3;
+                            values[valuesById[4] = "FAILED"] = 4;
+                            return values;
+                        })();
+    
+                        return MoveRepositoryMetadata;
                     })();
     
                     return v1;
@@ -103002,183 +112399,6 @@
                 return Duration;
             })();
     
-            protobuf.Empty = (function() {
-    
-                /**
-                 * Properties of an Empty.
-                 * @memberof google.protobuf
-                 * @interface IEmpty
-                 */
-    
-                /**
-                 * Constructs a new Empty.
-                 * @memberof google.protobuf
-                 * @classdesc Represents an Empty.
-                 * @implements IEmpty
-                 * @constructor
-                 * @param {google.protobuf.IEmpty=} [properties] Properties to set
-                 */
-                function Empty(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-    
-                /**
-                 * Creates a new Empty instance using the specified properties.
-                 * @function create
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {google.protobuf.IEmpty=} [properties] Properties to set
-                 * @returns {google.protobuf.Empty} Empty instance
-                 */
-                Empty.create = function create(properties) {
-                    return new Empty(properties);
-                };
-    
-                /**
-                 * Encodes the specified Empty message. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
-                 * @function encode
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {google.protobuf.IEmpty} message Empty message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Empty.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    return writer;
-                };
-    
-                /**
-                 * Encodes the specified Empty message, length delimited. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {google.protobuf.IEmpty} message Empty message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Empty.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-    
-                /**
-                 * Decodes an Empty message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {google.protobuf.Empty} Empty
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Empty.decode = function decode(reader, length, error) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Empty();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Decodes an Empty message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {google.protobuf.Empty} Empty
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Empty.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-    
-                /**
-                 * Verifies an Empty message.
-                 * @function verify
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Empty.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    return null;
-                };
-    
-                /**
-                 * Creates an Empty message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {google.protobuf.Empty} Empty
-                 */
-                Empty.fromObject = function fromObject(object) {
-                    if (object instanceof $root.google.protobuf.Empty)
-                        return object;
-                    return new $root.google.protobuf.Empty();
-                };
-    
-                /**
-                 * Creates a plain object from an Empty message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {google.protobuf.Empty} message Empty
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Empty.toObject = function toObject() {
-                    return {};
-                };
-    
-                /**
-                 * Converts this Empty to JSON.
-                 * @function toJSON
-                 * @memberof google.protobuf.Empty
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Empty.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-    
-                /**
-                 * Gets the default type url for Empty
-                 * @function getTypeUrl
-                 * @memberof google.protobuf.Empty
-                 * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
-                 */
-                Empty.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/google.protobuf.Empty";
-                };
-    
-                return Empty;
-            })();
-    
             protobuf.FieldMask = (function() {
     
                 /**
@@ -103398,6 +112618,421 @@
                 };
     
                 return FieldMask;
+            })();
+    
+            protobuf.Any = (function() {
+    
+                /**
+                 * Properties of an Any.
+                 * @memberof google.protobuf
+                 * @interface IAny
+                 * @property {string|null} [type_url] Any type_url
+                 * @property {Uint8Array|null} [value] Any value
+                 */
+    
+                /**
+                 * Constructs a new Any.
+                 * @memberof google.protobuf
+                 * @classdesc Represents an Any.
+                 * @implements IAny
+                 * @constructor
+                 * @param {google.protobuf.IAny=} [properties] Properties to set
+                 */
+                function Any(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * Any type_url.
+                 * @member {string} type_url
+                 * @memberof google.protobuf.Any
+                 * @instance
+                 */
+                Any.prototype.type_url = "";
+    
+                /**
+                 * Any value.
+                 * @member {Uint8Array} value
+                 * @memberof google.protobuf.Any
+                 * @instance
+                 */
+                Any.prototype.value = $util.newBuffer([]);
+    
+                /**
+                 * Creates a new Any instance using the specified properties.
+                 * @function create
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {google.protobuf.IAny=} [properties] Properties to set
+                 * @returns {google.protobuf.Any} Any instance
+                 */
+                Any.create = function create(properties) {
+                    return new Any(properties);
+                };
+    
+                /**
+                 * Encodes the specified Any message. Does not implicitly {@link google.protobuf.Any.verify|verify} messages.
+                 * @function encode
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {google.protobuf.IAny} message Any message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Any.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.type_url != null && Object.hasOwnProperty.call(message, "type_url"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.type_url);
+                    if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified Any message, length delimited. Does not implicitly {@link google.protobuf.Any.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {google.protobuf.IAny} message Any message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Any.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes an Any message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {google.protobuf.Any} Any
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Any.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Any();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.type_url = reader.string();
+                                break;
+                            }
+                        case 2: {
+                                message.value = reader.bytes();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes an Any message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {google.protobuf.Any} Any
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Any.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies an Any message.
+                 * @function verify
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Any.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.type_url != null && message.hasOwnProperty("type_url"))
+                        if (!$util.isString(message.type_url))
+                            return "type_url: string expected";
+                    if (message.value != null && message.hasOwnProperty("value"))
+                        if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                            return "value: buffer expected";
+                    return null;
+                };
+    
+                /**
+                 * Creates an Any message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {google.protobuf.Any} Any
+                 */
+                Any.fromObject = function fromObject(object) {
+                    if (object instanceof $root.google.protobuf.Any)
+                        return object;
+                    var message = new $root.google.protobuf.Any();
+                    if (object.type_url != null)
+                        message.type_url = String(object.type_url);
+                    if (object.value != null)
+                        if (typeof object.value === "string")
+                            $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                        else if (object.value.length >= 0)
+                            message.value = object.value;
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from an Any message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {google.protobuf.Any} message Any
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Any.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.type_url = "";
+                        if (options.bytes === String)
+                            object.value = "";
+                        else {
+                            object.value = [];
+                            if (options.bytes !== Array)
+                                object.value = $util.newBuffer(object.value);
+                        }
+                    }
+                    if (message.type_url != null && message.hasOwnProperty("type_url"))
+                        object.type_url = message.type_url;
+                    if (message.value != null && message.hasOwnProperty("value"))
+                        object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                    return object;
+                };
+    
+                /**
+                 * Converts this Any to JSON.
+                 * @function toJSON
+                 * @memberof google.protobuf.Any
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Any.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for Any
+                 * @function getTypeUrl
+                 * @memberof google.protobuf.Any
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Any.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/google.protobuf.Any";
+                };
+    
+                return Any;
+            })();
+    
+            protobuf.Empty = (function() {
+    
+                /**
+                 * Properties of an Empty.
+                 * @memberof google.protobuf
+                 * @interface IEmpty
+                 */
+    
+                /**
+                 * Constructs a new Empty.
+                 * @memberof google.protobuf
+                 * @classdesc Represents an Empty.
+                 * @implements IEmpty
+                 * @constructor
+                 * @param {google.protobuf.IEmpty=} [properties] Properties to set
+                 */
+                function Empty(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * Creates a new Empty instance using the specified properties.
+                 * @function create
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {google.protobuf.IEmpty=} [properties] Properties to set
+                 * @returns {google.protobuf.Empty} Empty instance
+                 */
+                Empty.create = function create(properties) {
+                    return new Empty(properties);
+                };
+    
+                /**
+                 * Encodes the specified Empty message. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
+                 * @function encode
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {google.protobuf.IEmpty} message Empty message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Empty.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified Empty message, length delimited. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {google.protobuf.IEmpty} message Empty message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Empty.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes an Empty message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {google.protobuf.Empty} Empty
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Empty.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Empty();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes an Empty message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {google.protobuf.Empty} Empty
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Empty.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies an Empty message.
+                 * @function verify
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Empty.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    return null;
+                };
+    
+                /**
+                 * Creates an Empty message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {google.protobuf.Empty} Empty
+                 */
+                Empty.fromObject = function fromObject(object) {
+                    if (object instanceof $root.google.protobuf.Empty)
+                        return object;
+                    return new $root.google.protobuf.Empty();
+                };
+    
+                /**
+                 * Creates a plain object from an Empty message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {google.protobuf.Empty} message Empty
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Empty.toObject = function toObject() {
+                    return {};
+                };
+    
+                /**
+                 * Converts this Empty to JSON.
+                 * @function toJSON
+                 * @memberof google.protobuf.Empty
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Empty.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for Empty
+                 * @function getTypeUrl
+                 * @memberof google.protobuf.Empty
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Empty.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/google.protobuf.Empty";
+                };
+    
+                return Empty;
             })();
     
             protobuf.Timestamp = (function() {
@@ -103643,1057 +113278,7 @@
                 return Timestamp;
             })();
     
-            protobuf.Any = (function() {
-    
-                /**
-                 * Properties of an Any.
-                 * @memberof google.protobuf
-                 * @interface IAny
-                 * @property {string|null} [type_url] Any type_url
-                 * @property {Uint8Array|null} [value] Any value
-                 */
-    
-                /**
-                 * Constructs a new Any.
-                 * @memberof google.protobuf
-                 * @classdesc Represents an Any.
-                 * @implements IAny
-                 * @constructor
-                 * @param {google.protobuf.IAny=} [properties] Properties to set
-                 */
-                function Any(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-    
-                /**
-                 * Any type_url.
-                 * @member {string} type_url
-                 * @memberof google.protobuf.Any
-                 * @instance
-                 */
-                Any.prototype.type_url = "";
-    
-                /**
-                 * Any value.
-                 * @member {Uint8Array} value
-                 * @memberof google.protobuf.Any
-                 * @instance
-                 */
-                Any.prototype.value = $util.newBuffer([]);
-    
-                /**
-                 * Creates a new Any instance using the specified properties.
-                 * @function create
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {google.protobuf.IAny=} [properties] Properties to set
-                 * @returns {google.protobuf.Any} Any instance
-                 */
-                Any.create = function create(properties) {
-                    return new Any(properties);
-                };
-    
-                /**
-                 * Encodes the specified Any message. Does not implicitly {@link google.protobuf.Any.verify|verify} messages.
-                 * @function encode
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {google.protobuf.IAny} message Any message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Any.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.type_url != null && Object.hasOwnProperty.call(message, "type_url"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.type_url);
-                    if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
-                    return writer;
-                };
-    
-                /**
-                 * Encodes the specified Any message, length delimited. Does not implicitly {@link google.protobuf.Any.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {google.protobuf.IAny} message Any message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Any.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-    
-                /**
-                 * Decodes an Any message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {google.protobuf.Any} Any
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Any.decode = function decode(reader, length, error) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Any();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.type_url = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.value = reader.bytes();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Decodes an Any message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {google.protobuf.Any} Any
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Any.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-    
-                /**
-                 * Verifies an Any message.
-                 * @function verify
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Any.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.type_url != null && message.hasOwnProperty("type_url"))
-                        if (!$util.isString(message.type_url))
-                            return "type_url: string expected";
-                    if (message.value != null && message.hasOwnProperty("value"))
-                        if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
-                            return "value: buffer expected";
-                    return null;
-                };
-    
-                /**
-                 * Creates an Any message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {google.protobuf.Any} Any
-                 */
-                Any.fromObject = function fromObject(object) {
-                    if (object instanceof $root.google.protobuf.Any)
-                        return object;
-                    var message = new $root.google.protobuf.Any();
-                    if (object.type_url != null)
-                        message.type_url = String(object.type_url);
-                    if (object.value != null)
-                        if (typeof object.value === "string")
-                            $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
-                        else if (object.value.length >= 0)
-                            message.value = object.value;
-                    return message;
-                };
-    
-                /**
-                 * Creates a plain object from an Any message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {google.protobuf.Any} message Any
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Any.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.type_url = "";
-                        if (options.bytes === String)
-                            object.value = "";
-                        else {
-                            object.value = [];
-                            if (options.bytes !== Array)
-                                object.value = $util.newBuffer(object.value);
-                        }
-                    }
-                    if (message.type_url != null && message.hasOwnProperty("type_url"))
-                        object.type_url = message.type_url;
-                    if (message.value != null && message.hasOwnProperty("value"))
-                        object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
-                    return object;
-                };
-    
-                /**
-                 * Converts this Any to JSON.
-                 * @function toJSON
-                 * @memberof google.protobuf.Any
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Any.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-    
-                /**
-                 * Gets the default type url for Any
-                 * @function getTypeUrl
-                 * @memberof google.protobuf.Any
-                 * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
-                 */
-                Any.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/google.protobuf.Any";
-                };
-    
-                return Any;
-            })();
-    
             return protobuf;
-        })();
-    
-        google.rpc = (function() {
-    
-            /**
-             * Namespace rpc.
-             * @memberof google
-             * @namespace
-             */
-            var rpc = {};
-    
-            rpc.Status = (function() {
-    
-                /**
-                 * Properties of a Status.
-                 * @memberof google.rpc
-                 * @interface IStatus
-                 * @property {number|null} [code] Status code
-                 * @property {string|null} [message] Status message
-                 * @property {Array.<google.protobuf.IAny>|null} [details] Status details
-                 */
-    
-                /**
-                 * Constructs a new Status.
-                 * @memberof google.rpc
-                 * @classdesc Represents a Status.
-                 * @implements IStatus
-                 * @constructor
-                 * @param {google.rpc.IStatus=} [properties] Properties to set
-                 */
-                function Status(properties) {
-                    this.details = [];
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-    
-                /**
-                 * Status code.
-                 * @member {number} code
-                 * @memberof google.rpc.Status
-                 * @instance
-                 */
-                Status.prototype.code = 0;
-    
-                /**
-                 * Status message.
-                 * @member {string} message
-                 * @memberof google.rpc.Status
-                 * @instance
-                 */
-                Status.prototype.message = "";
-    
-                /**
-                 * Status details.
-                 * @member {Array.<google.protobuf.IAny>} details
-                 * @memberof google.rpc.Status
-                 * @instance
-                 */
-                Status.prototype.details = $util.emptyArray;
-    
-                /**
-                 * Creates a new Status instance using the specified properties.
-                 * @function create
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {google.rpc.IStatus=} [properties] Properties to set
-                 * @returns {google.rpc.Status} Status instance
-                 */
-                Status.create = function create(properties) {
-                    return new Status(properties);
-                };
-    
-                /**
-                 * Encodes the specified Status message. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
-                 * @function encode
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {google.rpc.IStatus} message Status message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Status.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.code != null && Object.hasOwnProperty.call(message, "code"))
-                        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.code);
-                    if (message.message != null && Object.hasOwnProperty.call(message, "message"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.message);
-                    if (message.details != null && message.details.length)
-                        for (var i = 0; i < message.details.length; ++i)
-                            $root.google.protobuf.Any.encode(message.details[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                    return writer;
-                };
-    
-                /**
-                 * Encodes the specified Status message, length delimited. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {google.rpc.IStatus} message Status message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Status.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-    
-                /**
-                 * Decodes a Status message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {google.rpc.Status} Status
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Status.decode = function decode(reader, length, error) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.rpc.Status();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.code = reader.int32();
-                                break;
-                            }
-                        case 2: {
-                                message.message = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                if (!(message.details && message.details.length))
-                                    message.details = [];
-                                message.details.push($root.google.protobuf.Any.decode(reader, reader.uint32()));
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Decodes a Status message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {google.rpc.Status} Status
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Status.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-    
-                /**
-                 * Verifies a Status message.
-                 * @function verify
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Status.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.code != null && message.hasOwnProperty("code"))
-                        if (!$util.isInteger(message.code))
-                            return "code: integer expected";
-                    if (message.message != null && message.hasOwnProperty("message"))
-                        if (!$util.isString(message.message))
-                            return "message: string expected";
-                    if (message.details != null && message.hasOwnProperty("details")) {
-                        if (!Array.isArray(message.details))
-                            return "details: array expected";
-                        for (var i = 0; i < message.details.length; ++i) {
-                            var error = $root.google.protobuf.Any.verify(message.details[i]);
-                            if (error)
-                                return "details." + error;
-                        }
-                    }
-                    return null;
-                };
-    
-                /**
-                 * Creates a Status message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {google.rpc.Status} Status
-                 */
-                Status.fromObject = function fromObject(object) {
-                    if (object instanceof $root.google.rpc.Status)
-                        return object;
-                    var message = new $root.google.rpc.Status();
-                    if (object.code != null)
-                        message.code = object.code | 0;
-                    if (object.message != null)
-                        message.message = String(object.message);
-                    if (object.details) {
-                        if (!Array.isArray(object.details))
-                            throw TypeError(".google.rpc.Status.details: array expected");
-                        message.details = [];
-                        for (var i = 0; i < object.details.length; ++i) {
-                            if (typeof object.details[i] !== "object")
-                                throw TypeError(".google.rpc.Status.details: object expected");
-                            message.details[i] = $root.google.protobuf.Any.fromObject(object.details[i]);
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Creates a plain object from a Status message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {google.rpc.Status} message Status
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Status.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.arrays || options.defaults)
-                        object.details = [];
-                    if (options.defaults) {
-                        object.code = 0;
-                        object.message = "";
-                    }
-                    if (message.code != null && message.hasOwnProperty("code"))
-                        object.code = message.code;
-                    if (message.message != null && message.hasOwnProperty("message"))
-                        object.message = message.message;
-                    if (message.details && message.details.length) {
-                        object.details = [];
-                        for (var j = 0; j < message.details.length; ++j)
-                            object.details[j] = $root.google.protobuf.Any.toObject(message.details[j], options);
-                    }
-                    return object;
-                };
-    
-                /**
-                 * Converts this Status to JSON.
-                 * @function toJSON
-                 * @memberof google.rpc.Status
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Status.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-    
-                /**
-                 * Gets the default type url for Status
-                 * @function getTypeUrl
-                 * @memberof google.rpc.Status
-                 * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
-                 */
-                Status.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/google.rpc.Status";
-                };
-    
-                return Status;
-            })();
-    
-            return rpc;
-        })();
-    
-        google.type = (function() {
-    
-            /**
-             * Namespace type.
-             * @memberof google
-             * @namespace
-             */
-            var type = {};
-    
-            type.Interval = (function() {
-    
-                /**
-                 * Properties of an Interval.
-                 * @memberof google.type
-                 * @interface IInterval
-                 * @property {google.protobuf.ITimestamp|null} [startTime] Interval startTime
-                 * @property {google.protobuf.ITimestamp|null} [endTime] Interval endTime
-                 */
-    
-                /**
-                 * Constructs a new Interval.
-                 * @memberof google.type
-                 * @classdesc Represents an Interval.
-                 * @implements IInterval
-                 * @constructor
-                 * @param {google.type.IInterval=} [properties] Properties to set
-                 */
-                function Interval(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-    
-                /**
-                 * Interval startTime.
-                 * @member {google.protobuf.ITimestamp|null|undefined} startTime
-                 * @memberof google.type.Interval
-                 * @instance
-                 */
-                Interval.prototype.startTime = null;
-    
-                /**
-                 * Interval endTime.
-                 * @member {google.protobuf.ITimestamp|null|undefined} endTime
-                 * @memberof google.type.Interval
-                 * @instance
-                 */
-                Interval.prototype.endTime = null;
-    
-                /**
-                 * Creates a new Interval instance using the specified properties.
-                 * @function create
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {google.type.IInterval=} [properties] Properties to set
-                 * @returns {google.type.Interval} Interval instance
-                 */
-                Interval.create = function create(properties) {
-                    return new Interval(properties);
-                };
-    
-                /**
-                 * Encodes the specified Interval message. Does not implicitly {@link google.type.Interval.verify|verify} messages.
-                 * @function encode
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {google.type.IInterval} message Interval message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Interval.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.startTime != null && Object.hasOwnProperty.call(message, "startTime"))
-                        $root.google.protobuf.Timestamp.encode(message.startTime, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
-                        $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                    return writer;
-                };
-    
-                /**
-                 * Encodes the specified Interval message, length delimited. Does not implicitly {@link google.type.Interval.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {google.type.IInterval} message Interval message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Interval.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-    
-                /**
-                 * Decodes an Interval message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {google.type.Interval} Interval
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Interval.decode = function decode(reader, length, error) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.type.Interval();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.startTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                break;
-                            }
-                        case 2: {
-                                message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Decodes an Interval message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {google.type.Interval} Interval
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Interval.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-    
-                /**
-                 * Verifies an Interval message.
-                 * @function verify
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Interval.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.startTime != null && message.hasOwnProperty("startTime")) {
-                        var error = $root.google.protobuf.Timestamp.verify(message.startTime);
-                        if (error)
-                            return "startTime." + error;
-                    }
-                    if (message.endTime != null && message.hasOwnProperty("endTime")) {
-                        var error = $root.google.protobuf.Timestamp.verify(message.endTime);
-                        if (error)
-                            return "endTime." + error;
-                    }
-                    return null;
-                };
-    
-                /**
-                 * Creates an Interval message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {google.type.Interval} Interval
-                 */
-                Interval.fromObject = function fromObject(object) {
-                    if (object instanceof $root.google.type.Interval)
-                        return object;
-                    var message = new $root.google.type.Interval();
-                    if (object.startTime != null) {
-                        if (typeof object.startTime !== "object")
-                            throw TypeError(".google.type.Interval.startTime: object expected");
-                        message.startTime = $root.google.protobuf.Timestamp.fromObject(object.startTime);
-                    }
-                    if (object.endTime != null) {
-                        if (typeof object.endTime !== "object")
-                            throw TypeError(".google.type.Interval.endTime: object expected");
-                        message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Creates a plain object from an Interval message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {google.type.Interval} message Interval
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Interval.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.startTime = null;
-                        object.endTime = null;
-                    }
-                    if (message.startTime != null && message.hasOwnProperty("startTime"))
-                        object.startTime = $root.google.protobuf.Timestamp.toObject(message.startTime, options);
-                    if (message.endTime != null && message.hasOwnProperty("endTime"))
-                        object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
-                    return object;
-                };
-    
-                /**
-                 * Converts this Interval to JSON.
-                 * @function toJSON
-                 * @memberof google.type.Interval
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Interval.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-    
-                /**
-                 * Gets the default type url for Interval
-                 * @function getTypeUrl
-                 * @memberof google.type.Interval
-                 * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
-                 */
-                Interval.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/google.type.Interval";
-                };
-    
-                return Interval;
-            })();
-    
-            type.Expr = (function() {
-    
-                /**
-                 * Properties of an Expr.
-                 * @memberof google.type
-                 * @interface IExpr
-                 * @property {string|null} [expression] Expr expression
-                 * @property {string|null} [title] Expr title
-                 * @property {string|null} [description] Expr description
-                 * @property {string|null} [location] Expr location
-                 */
-    
-                /**
-                 * Constructs a new Expr.
-                 * @memberof google.type
-                 * @classdesc Represents an Expr.
-                 * @implements IExpr
-                 * @constructor
-                 * @param {google.type.IExpr=} [properties] Properties to set
-                 */
-                function Expr(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-    
-                /**
-                 * Expr expression.
-                 * @member {string} expression
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.expression = "";
-    
-                /**
-                 * Expr title.
-                 * @member {string} title
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.title = "";
-    
-                /**
-                 * Expr description.
-                 * @member {string} description
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.description = "";
-    
-                /**
-                 * Expr location.
-                 * @member {string} location
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.location = "";
-    
-                /**
-                 * Creates a new Expr instance using the specified properties.
-                 * @function create
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.IExpr=} [properties] Properties to set
-                 * @returns {google.type.Expr} Expr instance
-                 */
-                Expr.create = function create(properties) {
-                    return new Expr(properties);
-                };
-    
-                /**
-                 * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-                 * @function encode
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.IExpr} message Expr message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Expr.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.expression != null && Object.hasOwnProperty.call(message, "expression"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.expression);
-                    if (message.title != null && Object.hasOwnProperty.call(message, "title"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
-                    if (message.description != null && Object.hasOwnProperty.call(message, "description"))
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
-                    if (message.location != null && Object.hasOwnProperty.call(message, "location"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.location);
-                    return writer;
-                };
-    
-                /**
-                 * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.IExpr} message Expr message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Expr.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-    
-                /**
-                 * Decodes an Expr message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {google.type.Expr} Expr
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Expr.decode = function decode(reader, length, error) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.type.Expr();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        if (tag === error)
-                            break;
-                        switch (tag >>> 3) {
-                        case 1: {
-                                message.expression = reader.string();
-                                break;
-                            }
-                        case 2: {
-                                message.title = reader.string();
-                                break;
-                            }
-                        case 3: {
-                                message.description = reader.string();
-                                break;
-                            }
-                        case 4: {
-                                message.location = reader.string();
-                                break;
-                            }
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Decodes an Expr message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {google.type.Expr} Expr
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Expr.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-    
-                /**
-                 * Verifies an Expr message.
-                 * @function verify
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Expr.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.expression != null && message.hasOwnProperty("expression"))
-                        if (!$util.isString(message.expression))
-                            return "expression: string expected";
-                    if (message.title != null && message.hasOwnProperty("title"))
-                        if (!$util.isString(message.title))
-                            return "title: string expected";
-                    if (message.description != null && message.hasOwnProperty("description"))
-                        if (!$util.isString(message.description))
-                            return "description: string expected";
-                    if (message.location != null && message.hasOwnProperty("location"))
-                        if (!$util.isString(message.location))
-                            return "location: string expected";
-                    return null;
-                };
-    
-                /**
-                 * Creates an Expr message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {google.type.Expr} Expr
-                 */
-                Expr.fromObject = function fromObject(object) {
-                    if (object instanceof $root.google.type.Expr)
-                        return object;
-                    var message = new $root.google.type.Expr();
-                    if (object.expression != null)
-                        message.expression = String(object.expression);
-                    if (object.title != null)
-                        message.title = String(object.title);
-                    if (object.description != null)
-                        message.description = String(object.description);
-                    if (object.location != null)
-                        message.location = String(object.location);
-                    return message;
-                };
-    
-                /**
-                 * Creates a plain object from an Expr message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.Expr} message Expr
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Expr.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.expression = "";
-                        object.title = "";
-                        object.description = "";
-                        object.location = "";
-                    }
-                    if (message.expression != null && message.hasOwnProperty("expression"))
-                        object.expression = message.expression;
-                    if (message.title != null && message.hasOwnProperty("title"))
-                        object.title = message.title;
-                    if (message.description != null && message.hasOwnProperty("description"))
-                        object.description = message.description;
-                    if (message.location != null && message.hasOwnProperty("location"))
-                        object.location = message.location;
-                    return object;
-                };
-    
-                /**
-                 * Converts this Expr to JSON.
-                 * @function toJSON
-                 * @memberof google.type.Expr
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Expr.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-    
-                /**
-                 * Gets the default type url for Expr
-                 * @function getTypeUrl
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-                 * @returns {string} The default type url
-                 */
-                Expr.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                    if (typeUrlPrefix === undefined) {
-                        typeUrlPrefix = "type.googleapis.com";
-                    }
-                    return typeUrlPrefix + "/google.type.Expr";
-                };
-    
-                return Expr;
-            })();
-    
-            return type;
         })();
     
         google.iam = (function() {
@@ -108071,6 +116656,532 @@
             return iam;
         })();
     
+        google.type = (function() {
+    
+            /**
+             * Namespace type.
+             * @memberof google
+             * @namespace
+             */
+            var type = {};
+    
+            type.Expr = (function() {
+    
+                /**
+                 * Properties of an Expr.
+                 * @memberof google.type
+                 * @interface IExpr
+                 * @property {string|null} [expression] Expr expression
+                 * @property {string|null} [title] Expr title
+                 * @property {string|null} [description] Expr description
+                 * @property {string|null} [location] Expr location
+                 */
+    
+                /**
+                 * Constructs a new Expr.
+                 * @memberof google.type
+                 * @classdesc Represents an Expr.
+                 * @implements IExpr
+                 * @constructor
+                 * @param {google.type.IExpr=} [properties] Properties to set
+                 */
+                function Expr(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * Expr expression.
+                 * @member {string} expression
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.expression = "";
+    
+                /**
+                 * Expr title.
+                 * @member {string} title
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.title = "";
+    
+                /**
+                 * Expr description.
+                 * @member {string} description
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.description = "";
+    
+                /**
+                 * Expr location.
+                 * @member {string} location
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.location = "";
+    
+                /**
+                 * Creates a new Expr instance using the specified properties.
+                 * @function create
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.IExpr=} [properties] Properties to set
+                 * @returns {google.type.Expr} Expr instance
+                 */
+                Expr.create = function create(properties) {
+                    return new Expr(properties);
+                };
+    
+                /**
+                 * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
+                 * @function encode
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.IExpr} message Expr message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Expr.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.expression != null && Object.hasOwnProperty.call(message, "expression"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.expression);
+                    if (message.title != null && Object.hasOwnProperty.call(message, "title"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
+                    if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
+                    if (message.location != null && Object.hasOwnProperty.call(message, "location"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.location);
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.IExpr} message Expr message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Expr.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes an Expr message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {google.type.Expr} Expr
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Expr.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.type.Expr();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.expression = reader.string();
+                                break;
+                            }
+                        case 2: {
+                                message.title = reader.string();
+                                break;
+                            }
+                        case 3: {
+                                message.description = reader.string();
+                                break;
+                            }
+                        case 4: {
+                                message.location = reader.string();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes an Expr message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {google.type.Expr} Expr
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Expr.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies an Expr message.
+                 * @function verify
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Expr.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.expression != null && message.hasOwnProperty("expression"))
+                        if (!$util.isString(message.expression))
+                            return "expression: string expected";
+                    if (message.title != null && message.hasOwnProperty("title"))
+                        if (!$util.isString(message.title))
+                            return "title: string expected";
+                    if (message.description != null && message.hasOwnProperty("description"))
+                        if (!$util.isString(message.description))
+                            return "description: string expected";
+                    if (message.location != null && message.hasOwnProperty("location"))
+                        if (!$util.isString(message.location))
+                            return "location: string expected";
+                    return null;
+                };
+    
+                /**
+                 * Creates an Expr message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {google.type.Expr} Expr
+                 */
+                Expr.fromObject = function fromObject(object) {
+                    if (object instanceof $root.google.type.Expr)
+                        return object;
+                    var message = new $root.google.type.Expr();
+                    if (object.expression != null)
+                        message.expression = String(object.expression);
+                    if (object.title != null)
+                        message.title = String(object.title);
+                    if (object.description != null)
+                        message.description = String(object.description);
+                    if (object.location != null)
+                        message.location = String(object.location);
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from an Expr message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.Expr} message Expr
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Expr.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.expression = "";
+                        object.title = "";
+                        object.description = "";
+                        object.location = "";
+                    }
+                    if (message.expression != null && message.hasOwnProperty("expression"))
+                        object.expression = message.expression;
+                    if (message.title != null && message.hasOwnProperty("title"))
+                        object.title = message.title;
+                    if (message.description != null && message.hasOwnProperty("description"))
+                        object.description = message.description;
+                    if (message.location != null && message.hasOwnProperty("location"))
+                        object.location = message.location;
+                    return object;
+                };
+    
+                /**
+                 * Converts this Expr to JSON.
+                 * @function toJSON
+                 * @memberof google.type.Expr
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Expr.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for Expr
+                 * @function getTypeUrl
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Expr.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/google.type.Expr";
+                };
+    
+                return Expr;
+            })();
+    
+            type.Interval = (function() {
+    
+                /**
+                 * Properties of an Interval.
+                 * @memberof google.type
+                 * @interface IInterval
+                 * @property {google.protobuf.ITimestamp|null} [startTime] Interval startTime
+                 * @property {google.protobuf.ITimestamp|null} [endTime] Interval endTime
+                 */
+    
+                /**
+                 * Constructs a new Interval.
+                 * @memberof google.type
+                 * @classdesc Represents an Interval.
+                 * @implements IInterval
+                 * @constructor
+                 * @param {google.type.IInterval=} [properties] Properties to set
+                 */
+                function Interval(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * Interval startTime.
+                 * @member {google.protobuf.ITimestamp|null|undefined} startTime
+                 * @memberof google.type.Interval
+                 * @instance
+                 */
+                Interval.prototype.startTime = null;
+    
+                /**
+                 * Interval endTime.
+                 * @member {google.protobuf.ITimestamp|null|undefined} endTime
+                 * @memberof google.type.Interval
+                 * @instance
+                 */
+                Interval.prototype.endTime = null;
+    
+                /**
+                 * Creates a new Interval instance using the specified properties.
+                 * @function create
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {google.type.IInterval=} [properties] Properties to set
+                 * @returns {google.type.Interval} Interval instance
+                 */
+                Interval.create = function create(properties) {
+                    return new Interval(properties);
+                };
+    
+                /**
+                 * Encodes the specified Interval message. Does not implicitly {@link google.type.Interval.verify|verify} messages.
+                 * @function encode
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {google.type.IInterval} message Interval message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Interval.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.startTime != null && Object.hasOwnProperty.call(message, "startTime"))
+                        $root.google.protobuf.Timestamp.encode(message.startTime, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
+                        $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified Interval message, length delimited. Does not implicitly {@link google.type.Interval.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {google.type.IInterval} message Interval message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Interval.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes an Interval message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {google.type.Interval} Interval
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Interval.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.type.Interval();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.startTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 2: {
+                                message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes an Interval message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {google.type.Interval} Interval
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Interval.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies an Interval message.
+                 * @function verify
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Interval.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.startTime != null && message.hasOwnProperty("startTime")) {
+                        var error = $root.google.protobuf.Timestamp.verify(message.startTime);
+                        if (error)
+                            return "startTime." + error;
+                    }
+                    if (message.endTime != null && message.hasOwnProperty("endTime")) {
+                        var error = $root.google.protobuf.Timestamp.verify(message.endTime);
+                        if (error)
+                            return "endTime." + error;
+                    }
+                    return null;
+                };
+    
+                /**
+                 * Creates an Interval message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {google.type.Interval} Interval
+                 */
+                Interval.fromObject = function fromObject(object) {
+                    if (object instanceof $root.google.type.Interval)
+                        return object;
+                    var message = new $root.google.type.Interval();
+                    if (object.startTime != null) {
+                        if (typeof object.startTime !== "object")
+                            throw TypeError(".google.type.Interval.startTime: object expected");
+                        message.startTime = $root.google.protobuf.Timestamp.fromObject(object.startTime);
+                    }
+                    if (object.endTime != null) {
+                        if (typeof object.endTime !== "object")
+                            throw TypeError(".google.type.Interval.endTime: object expected");
+                        message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from an Interval message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {google.type.Interval} message Interval
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Interval.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.startTime = null;
+                        object.endTime = null;
+                    }
+                    if (message.startTime != null && message.hasOwnProperty("startTime"))
+                        object.startTime = $root.google.protobuf.Timestamp.toObject(message.startTime, options);
+                    if (message.endTime != null && message.hasOwnProperty("endTime"))
+                        object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
+                    return object;
+                };
+    
+                /**
+                 * Converts this Interval to JSON.
+                 * @function toJSON
+                 * @memberof google.type.Interval
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Interval.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for Interval
+                 * @function getTypeUrl
+                 * @memberof google.type.Interval
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Interval.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/google.type.Interval";
+                };
+    
+                return Interval;
+            })();
+    
+            return type;
+        })();
+    
         google.longrunning = (function() {
     
             /**
@@ -110224,6 +119335,292 @@
             })();
     
             return longrunning;
+        })();
+    
+        google.rpc = (function() {
+    
+            /**
+             * Namespace rpc.
+             * @memberof google
+             * @namespace
+             */
+            var rpc = {};
+    
+            rpc.Status = (function() {
+    
+                /**
+                 * Properties of a Status.
+                 * @memberof google.rpc
+                 * @interface IStatus
+                 * @property {number|null} [code] Status code
+                 * @property {string|null} [message] Status message
+                 * @property {Array.<google.protobuf.IAny>|null} [details] Status details
+                 */
+    
+                /**
+                 * Constructs a new Status.
+                 * @memberof google.rpc
+                 * @classdesc Represents a Status.
+                 * @implements IStatus
+                 * @constructor
+                 * @param {google.rpc.IStatus=} [properties] Properties to set
+                 */
+                function Status(properties) {
+                    this.details = [];
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * Status code.
+                 * @member {number} code
+                 * @memberof google.rpc.Status
+                 * @instance
+                 */
+                Status.prototype.code = 0;
+    
+                /**
+                 * Status message.
+                 * @member {string} message
+                 * @memberof google.rpc.Status
+                 * @instance
+                 */
+                Status.prototype.message = "";
+    
+                /**
+                 * Status details.
+                 * @member {Array.<google.protobuf.IAny>} details
+                 * @memberof google.rpc.Status
+                 * @instance
+                 */
+                Status.prototype.details = $util.emptyArray;
+    
+                /**
+                 * Creates a new Status instance using the specified properties.
+                 * @function create
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {google.rpc.IStatus=} [properties] Properties to set
+                 * @returns {google.rpc.Status} Status instance
+                 */
+                Status.create = function create(properties) {
+                    return new Status(properties);
+                };
+    
+                /**
+                 * Encodes the specified Status message. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
+                 * @function encode
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {google.rpc.IStatus} message Status message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Status.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+                        writer.uint32(/* id 1, wireType 0 =*/8).int32(message.code);
+                    if (message.message != null && Object.hasOwnProperty.call(message, "message"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.message);
+                    if (message.details != null && message.details.length)
+                        for (var i = 0; i < message.details.length; ++i)
+                            $root.google.protobuf.Any.encode(message.details[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified Status message, length delimited. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {google.rpc.IStatus} message Status message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Status.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes a Status message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {google.rpc.Status} Status
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Status.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.rpc.Status();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.code = reader.int32();
+                                break;
+                            }
+                        case 2: {
+                                message.message = reader.string();
+                                break;
+                            }
+                        case 3: {
+                                if (!(message.details && message.details.length))
+                                    message.details = [];
+                                message.details.push($root.google.protobuf.Any.decode(reader, reader.uint32()));
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes a Status message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {google.rpc.Status} Status
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Status.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies a Status message.
+                 * @function verify
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Status.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.code != null && message.hasOwnProperty("code"))
+                        if (!$util.isInteger(message.code))
+                            return "code: integer expected";
+                    if (message.message != null && message.hasOwnProperty("message"))
+                        if (!$util.isString(message.message))
+                            return "message: string expected";
+                    if (message.details != null && message.hasOwnProperty("details")) {
+                        if (!Array.isArray(message.details))
+                            return "details: array expected";
+                        for (var i = 0; i < message.details.length; ++i) {
+                            var error = $root.google.protobuf.Any.verify(message.details[i]);
+                            if (error)
+                                return "details." + error;
+                        }
+                    }
+                    return null;
+                };
+    
+                /**
+                 * Creates a Status message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {google.rpc.Status} Status
+                 */
+                Status.fromObject = function fromObject(object) {
+                    if (object instanceof $root.google.rpc.Status)
+                        return object;
+                    var message = new $root.google.rpc.Status();
+                    if (object.code != null)
+                        message.code = object.code | 0;
+                    if (object.message != null)
+                        message.message = String(object.message);
+                    if (object.details) {
+                        if (!Array.isArray(object.details))
+                            throw TypeError(".google.rpc.Status.details: array expected");
+                        message.details = [];
+                        for (var i = 0; i < object.details.length; ++i) {
+                            if (typeof object.details[i] !== "object")
+                                throw TypeError(".google.rpc.Status.details: object expected");
+                            message.details[i] = $root.google.protobuf.Any.fromObject(object.details[i]);
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from a Status message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {google.rpc.Status} message Status
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Status.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.arrays || options.defaults)
+                        object.details = [];
+                    if (options.defaults) {
+                        object.code = 0;
+                        object.message = "";
+                    }
+                    if (message.code != null && message.hasOwnProperty("code"))
+                        object.code = message.code;
+                    if (message.message != null && message.hasOwnProperty("message"))
+                        object.message = message.message;
+                    if (message.details && message.details.length) {
+                        object.details = [];
+                        for (var j = 0; j < message.details.length; ++j)
+                            object.details[j] = $root.google.protobuf.Any.toObject(message.details[j], options);
+                    }
+                    return object;
+                };
+    
+                /**
+                 * Converts this Status to JSON.
+                 * @function toJSON
+                 * @memberof google.rpc.Status
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Status.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for Status
+                 * @function getTypeUrl
+                 * @memberof google.rpc.Status
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Status.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/google.rpc.Status";
+                };
+    
+                return Status;
+            })();
+    
+            return rpc;
         })();
     
         return google;

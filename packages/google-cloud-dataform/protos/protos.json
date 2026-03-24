@@ -25,6 +25,310 @@
                         "(google.api.oauth_scopes)": "https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platform"
                       },
                       "methods": {
+                        "GetTeamFolder": {
+                          "requestType": "GetTeamFolderRequest",
+                          "responseType": "TeamFolder",
+                          "options": {
+                            "(google.api.http).get": "/v1/{name=projects/*/locations/*/teamFolders/*}",
+                            "(google.api.method_signature)": "name"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{name=projects/*/locations/*/teamFolders/*}"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name"
+                            }
+                          ]
+                        },
+                        "CreateTeamFolder": {
+                          "requestType": "CreateTeamFolderRequest",
+                          "responseType": "TeamFolder",
+                          "options": {
+                            "(google.api.http).post": "/v1/{parent=projects/*/locations/*}/teamFolders",
+                            "(google.api.http).body": "team_folder",
+                            "(google.api.method_signature)": "parent,team_folder"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{parent=projects/*/locations/*}/teamFolders",
+                                "body": "team_folder"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "parent,team_folder"
+                            }
+                          ]
+                        },
+                        "UpdateTeamFolder": {
+                          "requestType": "UpdateTeamFolderRequest",
+                          "responseType": "TeamFolder",
+                          "options": {
+                            "(google.api.http).patch": "/v1/{team_folder.name=projects/*/locations/*/teamFolders/*}",
+                            "(google.api.http).body": "team_folder",
+                            "(google.api.method_signature)": "team_folder,update_mask"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "patch": "/v1/{team_folder.name=projects/*/locations/*/teamFolders/*}",
+                                "body": "team_folder"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "team_folder,update_mask"
+                            }
+                          ]
+                        },
+                        "DeleteTeamFolder": {
+                          "requestType": "DeleteTeamFolderRequest",
+                          "responseType": "google.protobuf.Empty",
+                          "options": {
+                            "(google.api.http).delete": "/v1/{name=projects/*/locations/*/teamFolders/*}",
+                            "(google.api.method_signature)": "name"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "delete": "/v1/{name=projects/*/locations/*/teamFolders/*}"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name"
+                            }
+                          ]
+                        },
+                        "DeleteTeamFolderTree": {
+                          "requestType": "DeleteTeamFolderTreeRequest",
+                          "responseType": "google.longrunning.Operation",
+                          "options": {
+                            "(google.api.http).post": "/v1/{name=projects/*/locations/*/teamFolders/*}:deleteTree",
+                            "(google.api.http).body": "*",
+                            "(google.api.method_signature)": "name,force",
+                            "(google.longrunning.operation_info).response_type": "google.protobuf.Empty",
+                            "(google.longrunning.operation_info).metadata_type": "DeleteFolderTreeMetadata"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{name=projects/*/locations/*/teamFolders/*}:deleteTree",
+                                "body": "*"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name,force"
+                            },
+                            {
+                              "(google.longrunning.operation_info)": {
+                                "response_type": "google.protobuf.Empty",
+                                "metadata_type": "DeleteFolderTreeMetadata"
+                              }
+                            }
+                          ]
+                        },
+                        "QueryTeamFolderContents": {
+                          "requestType": "QueryTeamFolderContentsRequest",
+                          "responseType": "QueryTeamFolderContentsResponse",
+                          "options": {
+                            "(google.api.http).get": "/v1/{team_folder=projects/*/locations/*/teamFolders/*}:queryContents",
+                            "(google.api.method_signature)": "team_folder"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{team_folder=projects/*/locations/*/teamFolders/*}:queryContents"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "team_folder"
+                            }
+                          ]
+                        },
+                        "SearchTeamFolders": {
+                          "requestType": "SearchTeamFoldersRequest",
+                          "responseType": "SearchTeamFoldersResponse",
+                          "options": {
+                            "(google.api.http).get": "/v1/{location=projects/*/locations/*}/teamFolders:search"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{location=projects/*/locations/*}/teamFolders:search"
+                              }
+                            }
+                          ]
+                        },
+                        "GetFolder": {
+                          "requestType": "GetFolderRequest",
+                          "responseType": "Folder",
+                          "options": {
+                            "(google.api.http).get": "/v1/{name=projects/*/locations/*/folders/*}",
+                            "(google.api.method_signature)": "name"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{name=projects/*/locations/*/folders/*}"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name"
+                            }
+                          ]
+                        },
+                        "CreateFolder": {
+                          "requestType": "CreateFolderRequest",
+                          "responseType": "Folder",
+                          "options": {
+                            "(google.api.http).post": "/v1/{parent=projects/*/locations/*}/folders",
+                            "(google.api.http).body": "folder",
+                            "(google.api.method_signature)": "parent,folder"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{parent=projects/*/locations/*}/folders",
+                                "body": "folder"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "parent,folder"
+                            }
+                          ]
+                        },
+                        "UpdateFolder": {
+                          "requestType": "UpdateFolderRequest",
+                          "responseType": "Folder",
+                          "options": {
+                            "(google.api.http).patch": "/v1/{folder.name=projects/*/locations/*/folders/*}",
+                            "(google.api.http).body": "folder",
+                            "(google.api.method_signature)": "folder,update_mask"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "patch": "/v1/{folder.name=projects/*/locations/*/folders/*}",
+                                "body": "folder"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "folder,update_mask"
+                            }
+                          ]
+                        },
+                        "DeleteFolder": {
+                          "requestType": "DeleteFolderRequest",
+                          "responseType": "google.protobuf.Empty",
+                          "options": {
+                            "(google.api.http).delete": "/v1/{name=projects/*/locations/*/folders/*}",
+                            "(google.api.method_signature)": "name"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "delete": "/v1/{name=projects/*/locations/*/folders/*}"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name"
+                            }
+                          ]
+                        },
+                        "DeleteFolderTree": {
+                          "requestType": "DeleteFolderTreeRequest",
+                          "responseType": "google.longrunning.Operation",
+                          "options": {
+                            "(google.api.http).post": "/v1/{name=projects/*/locations/*/folders/*}:deleteTree",
+                            "(google.api.http).body": "*",
+                            "(google.api.method_signature)": "name,force",
+                            "(google.longrunning.operation_info).response_type": "google.protobuf.Empty",
+                            "(google.longrunning.operation_info).metadata_type": "DeleteFolderTreeMetadata"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{name=projects/*/locations/*/folders/*}:deleteTree",
+                                "body": "*"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name,force"
+                            },
+                            {
+                              "(google.longrunning.operation_info)": {
+                                "response_type": "google.protobuf.Empty",
+                                "metadata_type": "DeleteFolderTreeMetadata"
+                              }
+                            }
+                          ]
+                        },
+                        "QueryFolderContents": {
+                          "requestType": "QueryFolderContentsRequest",
+                          "responseType": "QueryFolderContentsResponse",
+                          "options": {
+                            "(google.api.http).get": "/v1/{folder=projects/*/locations/*/folders/*}:queryFolderContents",
+                            "(google.api.method_signature)": "folder"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{folder=projects/*/locations/*/folders/*}:queryFolderContents"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "folder"
+                            }
+                          ]
+                        },
+                        "QueryUserRootContents": {
+                          "requestType": "QueryUserRootContentsRequest",
+                          "responseType": "QueryUserRootContentsResponse",
+                          "options": {
+                            "(google.api.http).get": "/v1/{location=projects/*/locations/*}:queryUserRootContents",
+                            "(google.api.method_signature)": "location"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{location=projects/*/locations/*}:queryUserRootContents"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "location"
+                            }
+                          ]
+                        },
+                        "MoveFolder": {
+                          "requestType": "MoveFolderRequest",
+                          "responseType": "google.longrunning.Operation",
+                          "options": {
+                            "(google.api.http).post": "/v1/{name=projects/*/locations/*/folders/*}:move",
+                            "(google.api.http).body": "*",
+                            "(google.api.method_signature)": "name,destination_containing_folder",
+                            "(google.longrunning.operation_info).response_type": "google.protobuf.Empty",
+                            "(google.longrunning.operation_info).metadata_type": "MoveFolderMetadata"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{name=projects/*/locations/*/folders/*}:move",
+                                "body": "*"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name,destination_containing_folder"
+                            },
+                            {
+                              "(google.longrunning.operation_info)": {
+                                "response_type": "google.protobuf.Empty",
+                                "metadata_type": "MoveFolderMetadata"
+                              }
+                            }
+                          ]
+                        },
                         "ListRepositories": {
                           "requestType": "ListRepositoriesRequest",
                           "responseType": "ListRepositoriesResponse",
@@ -116,6 +420,34 @@
                             },
                             {
                               "(google.api.method_signature)": "name"
+                            }
+                          ]
+                        },
+                        "MoveRepository": {
+                          "requestType": "MoveRepositoryRequest",
+                          "responseType": "google.longrunning.Operation",
+                          "options": {
+                            "(google.api.http).post": "/v1/{name=projects/*/locations/*/repositories/*}:move",
+                            "(google.api.http).body": "*",
+                            "(google.api.method_signature)": "name,destination_containing_folder",
+                            "(google.longrunning.operation_info).response_type": "google.protobuf.Empty",
+                            "(google.longrunning.operation_info).metadata_type": "MoveRepositoryMetadata"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{name=projects/*/locations/*/repositories/*}:move",
+                                "body": "*"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name,destination_containing_folder"
+                            },
+                            {
+                              "(google.longrunning.operation_info)": {
+                                "response_type": "google.protobuf.Empty",
+                                "metadata_type": "MoveRepositoryMetadata"
+                              }
                             }
                           ]
                         },
@@ -938,7 +1270,108 @@
                               "(google.api.method_signature)": "config,update_mask"
                             }
                           ]
+                        },
+                        "GetIamPolicy": {
+                          "requestType": "google.iam.v1.GetIamPolicyRequest",
+                          "responseType": "google.iam.v1.Policy",
+                          "options": {
+                            "(google.api.http).get": "/v1/{resource=projects/*/locations/*/repositories/*}:getIamPolicy",
+                            "(google.api.http).additional_bindings.get": "/v1/{resource=projects/*/locations/*/teamFolders/*}:getIamPolicy",
+                            "(google.api.method_signature)": "resource"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{resource=projects/*/locations/*/repositories/*}:getIamPolicy",
+                                "additional_bindings": [
+                                  {
+                                    "get": "/v1/{resource=projects/*/locations/*/repositories/*/workspaces/*}:getIamPolicy"
+                                  },
+                                  {
+                                    "get": "/v1/{resource=projects/*/locations/*/folders/*}:getIamPolicy"
+                                  },
+                                  {
+                                    "get": "/v1/{resource=projects/*/locations/*/teamFolders/*}:getIamPolicy"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "resource"
+                            }
+                          ]
+                        },
+                        "SetIamPolicy": {
+                          "requestType": "google.iam.v1.SetIamPolicyRequest",
+                          "responseType": "google.iam.v1.Policy",
+                          "options": {
+                            "(google.api.http).post": "/v1/{resource=projects/*/locations/*/repositories/*}:setIamPolicy",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/locations/*/teamFolders/*}:setIamPolicy",
+                            "(google.api.http).additional_bindings.body": "*"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{resource=projects/*/locations/*/repositories/*}:setIamPolicy",
+                                "body": "*",
+                                "additional_bindings": [
+                                  {
+                                    "post": "/v1/{resource=projects/*/locations/*/repositories/*/workspaces/*}:setIamPolicy",
+                                    "body": "*"
+                                  },
+                                  {
+                                    "post": "/v1/{resource=projects/*/locations/*/folders/*}:setIamPolicy",
+                                    "body": "*"
+                                  },
+                                  {
+                                    "post": "/v1/{resource=projects/*/locations/*/teamFolders/*}:setIamPolicy",
+                                    "body": "*"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "TestIamPermissions": {
+                          "requestType": "google.iam.v1.TestIamPermissionsRequest",
+                          "responseType": "google.iam.v1.TestIamPermissionsResponse",
+                          "options": {
+                            "(google.api.http).post": "/v1/{resource=projects/*/locations/*/repositories/*}:testIamPermissions",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/locations/*/teamFolders/*}:testIamPermissions",
+                            "(google.api.http).additional_bindings.body": "*"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "post": "/v1/{resource=projects/*/locations/*/repositories/*}:testIamPermissions",
+                                "body": "*",
+                                "additional_bindings": [
+                                  {
+                                    "post": "/v1/{resource=projects/*/locations/*/repositories/*/workspaces/*}:testIamPermissions",
+                                    "body": "*"
+                                  },
+                                  {
+                                    "post": "/v1/{resource=projects/*/locations/*/folders/*}:testIamPermissions",
+                                    "body": "*"
+                                  },
+                                  {
+                                    "post": "/v1/{resource=projects/*/locations/*/teamFolders/*}:testIamPermissions",
+                                    "body": "*"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
                         }
+                      }
+                    },
+                    "DirectoryContentsView": {
+                      "values": {
+                        "DIRECTORY_CONTENTS_VIEW_UNSPECIFIED": 0,
+                        "DIRECTORY_CONTENTS_VIEW_BASIC": 1,
+                        "DIRECTORY_CONTENTS_VIEW_METADATA": 2
                       }
                     },
                     "DataEncryptionState": {
@@ -961,6 +1394,16 @@
                         "(google.api.resource).singular": "repository"
                       },
                       "oneofs": {
+                        "_containingFolder": {
+                          "oneof": [
+                            "containingFolder"
+                          ]
+                        },
+                        "_teamFolderName": {
+                          "oneof": [
+                            "teamFolderName"
+                          ]
+                        },
                         "_internalMetadata": {
                           "oneof": [
                             "internalMetadata"
@@ -973,6 +1416,22 @@
                           "id": 1,
                           "options": {
                             "(google.api.field_behavior)": "IDENTIFIER"
+                          }
+                        },
+                        "containingFolder": {
+                          "type": "string",
+                          "id": 16,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL",
+                            "proto3_optional": true
+                          }
+                        },
+                        "teamFolderName": {
+                          "type": "string",
+                          "id": 18,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY",
+                            "proto3_optional": true
                           }
                         },
                         "createTime": {
@@ -1155,6 +1614,17 @@
                         }
                       }
                     },
+                    "PrivateResourceMetadata": {
+                      "fields": {
+                        "userScoped": {
+                          "type": "bool",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        }
+                      }
+                    },
                     "ListRepositoriesRequest": {
                       "fields": {
                         "parent": {
@@ -1210,6 +1680,33 @@
                           "rule": "repeated",
                           "type": "string",
                           "id": 3
+                        }
+                      }
+                    },
+                    "MoveRepositoryRequest": {
+                      "oneofs": {
+                        "_destinationContainingFolder": {
+                          "oneof": [
+                            "destinationContainingFolder"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/Repository"
+                          }
+                        },
+                        "destinationContainingFolder": {
+                          "type": "string",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL",
+                            "proto3_optional": true
+                          }
                         }
                       }
                     },
@@ -1554,7 +2051,8 @@
                             "TOKEN_STATUS_UNSPECIFIED": 0,
                             "NOT_FOUND": 1,
                             "INVALID": 2,
-                            "VALID": 3
+                            "VALID": 3,
+                            "PERMISSION_DENIED": 4
                           }
                         }
                       }
@@ -1592,6 +2090,11 @@
                           "oneof": [
                             "internalMetadata"
                           ]
+                        },
+                        "_disableMoves": {
+                          "oneof": [
+                            "disableMoves"
+                          ]
                         }
                       },
                       "fields": {
@@ -1622,6 +2125,21 @@
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY",
                             "proto3_optional": true
+                          }
+                        },
+                        "disableMoves": {
+                          "type": "bool",
+                          "id": 6,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL",
+                            "proto3_optional": true
+                          }
+                        },
+                        "privateResourceMetadata": {
+                          "type": "PrivateResourceMetadata",
+                          "id": 8,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
                           }
                         }
                       }
@@ -2007,6 +2525,13 @@
                           "options": {
                             "(google.api.field_behavior)": "OPTIONAL"
                           }
+                        },
+                        "view": {
+                          "type": "DirectoryContentsView",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
                         }
                       }
                     },
@@ -2040,6 +2565,28 @@
                         "directory": {
                           "type": "string",
                           "id": 2
+                        },
+                        "metadata": {
+                          "type": "FilesystemEntryMetadata",
+                          "id": 3
+                        }
+                      }
+                    },
+                    "FilesystemEntryMetadata": {
+                      "fields": {
+                        "sizeBytes": {
+                          "type": "int64",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "updateTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
                         }
                       }
                     },
@@ -2659,6 +3206,13 @@
                             "(google.api.field_behavior)": "OUTPUT_ONLY",
                             "proto3_optional": true
                           }
+                        },
+                        "privateResourceMetadata": {
+                          "type": "PrivateResourceMetadata",
+                          "id": 12,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
                         }
                       },
                       "nested": {
@@ -3077,6 +3631,34 @@
                               "keyType": "string",
                               "type": "string",
                               "id": 14
+                            },
+                            "connection": {
+                              "type": "string",
+                              "id": 15,
+                              "options": {
+                                "(google.api.field_behavior)": "OPTIONAL"
+                              }
+                            },
+                            "tableFormat": {
+                              "type": "TableFormat",
+                              "id": 16,
+                              "options": {
+                                "(google.api.field_behavior)": "OPTIONAL"
+                              }
+                            },
+                            "fileFormat": {
+                              "type": "FileFormat",
+                              "id": 17,
+                              "options": {
+                                "(google.api.field_behavior)": "OPTIONAL"
+                              }
+                            },
+                            "storageUri": {
+                              "type": "string",
+                              "id": 18,
+                              "options": {
+                                "(google.api.field_behavior)": "OPTIONAL"
+                              }
                             }
                           },
                           "nested": {
@@ -3118,6 +3700,18 @@
                                 "VIEW": 2,
                                 "INCREMENTAL_TABLE": 3,
                                 "MATERIALIZED_VIEW": 4
+                              }
+                            },
+                            "TableFormat": {
+                              "values": {
+                                "TABLE_FORMAT_UNSPECIFIED": 0,
+                                "ICEBERG": 1
+                              }
+                            },
+                            "FileFormat": {
+                              "values": {
+                                "FILE_FORMAT_UNSPECIFIED": 0,
+                                "PARQUET": 1
                               }
                             }
                           }
@@ -3489,6 +4083,13 @@
                       }
                     },
                     "InvocationConfig": {
+                      "oneofs": {
+                        "_queryPriority": {
+                          "oneof": [
+                            "queryPriority"
+                          ]
+                        }
+                      },
                       "fields": {
                         "includedTargets": {
                           "rule": "repeated",
@@ -3532,6 +4133,23 @@
                           "id": 6,
                           "options": {
                             "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "queryPriority": {
+                          "type": "QueryPriority",
+                          "id": 9,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL",
+                            "proto3_optional": true
+                          }
+                        }
+                      },
+                      "nested": {
+                        "QueryPriority": {
+                          "values": {
+                            "QUERY_PRIORITY_UNSPECIFIED": 0,
+                            "INTERACTIVE": 1,
+                            "BATCH": 2
                           }
                         }
                       }
@@ -3734,6 +4352,13 @@
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY",
                             "proto3_optional": true
+                          }
+                        },
+                        "privateResourceMetadata": {
+                          "type": "PrivateResourceMetadata",
+                          "id": 10,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
                           }
                         }
                       },
@@ -4151,6 +4776,13 @@
                         "(google.api.resource).plural": "configs",
                         "(google.api.resource).singular": "config"
                       },
+                      "oneofs": {
+                        "_internalMetadata": {
+                          "oneof": [
+                            "internalMetadata"
+                          ]
+                        }
+                      },
                       "fields": {
                         "name": {
                           "type": "string",
@@ -4165,6 +4797,14 @@
                           "options": {
                             "(google.api.field_behavior)": "OPTIONAL",
                             "(google.api.resource_reference).type": "cloudkms.googleapis.com/CryptoKey"
+                          }
+                        },
+                        "internalMetadata": {
+                          "type": "string",
+                          "id": 7,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY",
+                            "proto3_optional": true
                           }
                         }
                       }
@@ -4195,6 +4835,772 @@
                           "id": 2,
                           "options": {
                             "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "Folder": {
+                      "options": {
+                        "(google.api.resource).type": "dataform.googleapis.com/Folder",
+                        "(google.api.resource).pattern": "projects/{project}/locations/{location}/folders/{folder}",
+                        "(google.api.resource).plural": "folders",
+                        "(google.api.resource).singular": "folder"
+                      },
+                      "oneofs": {
+                        "_internalMetadata": {
+                          "oneof": [
+                            "internalMetadata"
+                          ]
+                        },
+                        "_creatorIamPrincipal": {
+                          "oneof": [
+                            "creatorIamPrincipal"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "IDENTIFIER"
+                          }
+                        },
+                        "displayName": {
+                          "type": "string",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "containingFolder": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "teamFolderName": {
+                          "type": "string",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "updateTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 6,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "internalMetadata": {
+                          "type": "string",
+                          "id": 7,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY",
+                            "proto3_optional": true
+                          }
+                        },
+                        "creatorIamPrincipal": {
+                          "type": "string",
+                          "id": 8,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY",
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "CreateFolderRequest": {
+                      "fields": {
+                        "parent": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "locations.googleapis.com/Location"
+                          }
+                        },
+                        "folder": {
+                          "type": "Folder",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "MoveFolderRequest": {
+                      "oneofs": {
+                        "_destinationContainingFolder": {
+                          "oneof": [
+                            "destinationContainingFolder"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/Folder"
+                          }
+                        },
+                        "destinationContainingFolder": {
+                          "type": "string",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL",
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "GetFolderRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/Folder"
+                          }
+                        }
+                      }
+                    },
+                    "UpdateFolderRequest": {
+                      "fields": {
+                        "updateMask": {
+                          "type": "google.protobuf.FieldMask",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "folder": {
+                          "type": "Folder",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "DeleteFolderRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/Folder"
+                          }
+                        }
+                      }
+                    },
+                    "DeleteFolderTreeRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/Folder"
+                          }
+                        },
+                        "force": {
+                          "type": "bool",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "DeleteTeamFolderTreeRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/TeamFolder"
+                          }
+                        },
+                        "force": {
+                          "type": "bool",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "DeleteFolderTreeMetadata": {
+                      "fields": {
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "endTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "target": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "state": {
+                          "type": "State",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "percentComplete": {
+                          "type": "int32",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        }
+                      },
+                      "nested": {
+                        "State": {
+                          "values": {
+                            "STATE_UNSPECIFIED": 0,
+                            "INITIALIZED": 1,
+                            "IN_PROGRESS": 2,
+                            "SUCCEEDED": 3,
+                            "FAILED": 4
+                          }
+                        }
+                      }
+                    },
+                    "QueryFolderContentsRequest": {
+                      "fields": {
+                        "folder": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/Folder"
+                          }
+                        },
+                        "pageSize": {
+                          "type": "int32",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "pageToken": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "orderBy": {
+                          "type": "string",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "filter": {
+                          "type": "string",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "QueryFolderContentsResponse": {
+                      "fields": {
+                        "entries": {
+                          "rule": "repeated",
+                          "type": "FolderContentsEntry",
+                          "id": 1
+                        },
+                        "nextPageToken": {
+                          "type": "string",
+                          "id": 2
+                        }
+                      },
+                      "nested": {
+                        "FolderContentsEntry": {
+                          "oneofs": {
+                            "entry": {
+                              "oneof": [
+                                "folder",
+                                "repository"
+                              ]
+                            }
+                          },
+                          "fields": {
+                            "folder": {
+                              "type": "Folder",
+                              "id": 1
+                            },
+                            "repository": {
+                              "type": "Repository",
+                              "id": 2
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "QueryUserRootContentsRequest": {
+                      "fields": {
+                        "location": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "locations.googleapis.com/Location"
+                          }
+                        },
+                        "pageSize": {
+                          "type": "int32",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "pageToken": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "orderBy": {
+                          "type": "string",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "filter": {
+                          "type": "string",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "QueryUserRootContentsResponse": {
+                      "fields": {
+                        "entries": {
+                          "rule": "repeated",
+                          "type": "RootContentsEntry",
+                          "id": 1
+                        },
+                        "nextPageToken": {
+                          "type": "string",
+                          "id": 2
+                        }
+                      },
+                      "nested": {
+                        "RootContentsEntry": {
+                          "oneofs": {
+                            "entry": {
+                              "oneof": [
+                                "folder",
+                                "repository"
+                              ]
+                            }
+                          },
+                          "fields": {
+                            "folder": {
+                              "type": "Folder",
+                              "id": 1
+                            },
+                            "repository": {
+                              "type": "Repository",
+                              "id": 2
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "TeamFolder": {
+                      "options": {
+                        "(google.api.resource).type": "dataform.googleapis.com/TeamFolder",
+                        "(google.api.resource).pattern": "projects/{project}/locations/{location}/teamFolders/{team_folder}",
+                        "(google.api.resource).plural": "teamFolders",
+                        "(google.api.resource).singular": "teamFolder"
+                      },
+                      "oneofs": {
+                        "_internalMetadata": {
+                          "oneof": [
+                            "internalMetadata"
+                          ]
+                        },
+                        "_creatorIamPrincipal": {
+                          "oneof": [
+                            "creatorIamPrincipal"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "IDENTIFIER"
+                          }
+                        },
+                        "displayName": {
+                          "type": "string",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "updateTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "internalMetadata": {
+                          "type": "string",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY",
+                            "proto3_optional": true
+                          }
+                        },
+                        "creatorIamPrincipal": {
+                          "type": "string",
+                          "id": 6,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY",
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "CreateTeamFolderRequest": {
+                      "fields": {
+                        "parent": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "locations.googleapis.com/Location"
+                          }
+                        },
+                        "teamFolder": {
+                          "type": "TeamFolder",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "GetTeamFolderRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/TeamFolder"
+                          }
+                        }
+                      }
+                    },
+                    "UpdateTeamFolderRequest": {
+                      "fields": {
+                        "updateMask": {
+                          "type": "google.protobuf.FieldMask",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "teamFolder": {
+                          "type": "TeamFolder",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "DeleteTeamFolderRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/TeamFolder"
+                          }
+                        }
+                      }
+                    },
+                    "QueryTeamFolderContentsRequest": {
+                      "fields": {
+                        "teamFolder": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "dataform.googleapis.com/TeamFolder"
+                          }
+                        },
+                        "pageSize": {
+                          "type": "int32",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "pageToken": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "orderBy": {
+                          "type": "string",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "filter": {
+                          "type": "string",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "QueryTeamFolderContentsResponse": {
+                      "fields": {
+                        "entries": {
+                          "rule": "repeated",
+                          "type": "TeamFolderContentsEntry",
+                          "id": 1
+                        },
+                        "nextPageToken": {
+                          "type": "string",
+                          "id": 2
+                        }
+                      },
+                      "nested": {
+                        "TeamFolderContentsEntry": {
+                          "oneofs": {
+                            "entry": {
+                              "oneof": [
+                                "folder",
+                                "repository"
+                              ]
+                            }
+                          },
+                          "fields": {
+                            "folder": {
+                              "type": "Folder",
+                              "id": 1
+                            },
+                            "repository": {
+                              "type": "Repository",
+                              "id": 2
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "SearchTeamFoldersRequest": {
+                      "fields": {
+                        "location": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "locations.googleapis.com/Location"
+                          }
+                        },
+                        "pageSize": {
+                          "type": "int32",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "pageToken": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "orderBy": {
+                          "type": "string",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "filter": {
+                          "type": "string",
+                          "id": 5,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        }
+                      }
+                    },
+                    "SearchTeamFoldersResponse": {
+                      "fields": {
+                        "results": {
+                          "rule": "repeated",
+                          "type": "TeamFolderSearchResult",
+                          "id": 1
+                        },
+                        "nextPageToken": {
+                          "type": "string",
+                          "id": 2
+                        }
+                      },
+                      "nested": {
+                        "TeamFolderSearchResult": {
+                          "oneofs": {
+                            "entry": {
+                              "oneof": [
+                                "teamFolder"
+                              ]
+                            }
+                          },
+                          "fields": {
+                            "teamFolder": {
+                              "type": "TeamFolder",
+                              "id": 2
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "MoveFolderMetadata": {
+                      "fields": {
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "endTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "target": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "state": {
+                          "type": "State",
+                          "id": 4
+                        },
+                        "percentComplete": {
+                          "type": "int32",
+                          "id": 5
+                        }
+                      },
+                      "nested": {
+                        "State": {
+                          "values": {
+                            "STATE_UNSPECIFIED": 0,
+                            "INITIALIZED": 1,
+                            "IN_PROGRESS": 2,
+                            "SUCCESS": 3,
+                            "FAILED": 4
+                          }
+                        }
+                      }
+                    },
+                    "MoveRepositoryMetadata": {
+                      "fields": {
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "endTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "target": {
+                          "type": "string",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "state": {
+                          "type": "State",
+                          "id": 4
+                        },
+                        "percentComplete": {
+                          "type": "int32",
+                          "id": 5
+                        }
+                      },
+                      "nested": {
+                        "State": {
+                          "values": {
+                            "STATE_UNSPECIFIED": 0,
+                            "INITIALIZED": 1,
+                            "IN_PROGRESS": 2,
+                            "SUCCESS": 3,
+                            "FAILED": 4
                           }
                         }
                       }
@@ -11458,27 +12864,12 @@
                 }
               }
             },
-            "Empty": {
-              "fields": {}
-            },
             "FieldMask": {
               "fields": {
                 "paths": {
                   "rule": "repeated",
                   "type": "string",
                   "id": 1
-                }
-              }
-            },
-            "Timestamp": {
-              "fields": {
-                "seconds": {
-                  "type": "int64",
-                  "id": 1
-                },
-                "nanos": {
-                  "type": "int32",
-                  "id": 2
                 }
               }
             },
@@ -11493,77 +12884,19 @@
                   "id": 2
                 }
               }
-            }
-          }
-        },
-        "rpc": {
-          "options": {
-            "cc_enable_arenas": true,
-            "go_package": "google.golang.org/genproto/googleapis/rpc/status;status",
-            "java_multiple_files": true,
-            "java_outer_classname": "StatusProto",
-            "java_package": "com.google.rpc",
-            "objc_class_prefix": "RPC"
-          },
-          "nested": {
-            "Status": {
-              "fields": {
-                "code": {
-                  "type": "int32",
-                  "id": 1
-                },
-                "message": {
-                  "type": "string",
-                  "id": 2
-                },
-                "details": {
-                  "rule": "repeated",
-                  "type": "google.protobuf.Any",
-                  "id": 3
-                }
-              }
-            }
-          }
-        },
-        "type": {
-          "options": {
-            "cc_enable_arenas": true,
-            "go_package": "google.golang.org/genproto/googleapis/type/expr;expr",
-            "java_multiple_files": true,
-            "java_outer_classname": "ExprProto",
-            "java_package": "com.google.type",
-            "objc_class_prefix": "GTP"
-          },
-          "nested": {
-            "Interval": {
-              "fields": {
-                "startTime": {
-                  "type": "google.protobuf.Timestamp",
-                  "id": 1
-                },
-                "endTime": {
-                  "type": "google.protobuf.Timestamp",
-                  "id": 2
-                }
-              }
             },
-            "Expr": {
+            "Empty": {
+              "fields": {}
+            },
+            "Timestamp": {
               "fields": {
-                "expression": {
-                  "type": "string",
+                "seconds": {
+                  "type": "int64",
                   "id": 1
                 },
-                "title": {
-                  "type": "string",
+                "nanos": {
+                  "type": "int32",
                   "id": 2
-                },
-                "description": {
-                  "type": "string",
-                  "id": 3
-                },
-                "location": {
-                  "type": "string",
-                  "id": 4
                 }
               }
             }
@@ -11864,6 +13197,50 @@
             }
           }
         },
+        "type": {
+          "options": {
+            "go_package": "google.golang.org/genproto/googleapis/type/interval;interval",
+            "java_multiple_files": true,
+            "java_outer_classname": "IntervalProto",
+            "java_package": "com.google.type",
+            "objc_class_prefix": "GTP",
+            "cc_enable_arenas": true
+          },
+          "nested": {
+            "Expr": {
+              "fields": {
+                "expression": {
+                  "type": "string",
+                  "id": 1
+                },
+                "title": {
+                  "type": "string",
+                  "id": 2
+                },
+                "description": {
+                  "type": "string",
+                  "id": 3
+                },
+                "location": {
+                  "type": "string",
+                  "id": 4
+                }
+              }
+            },
+            "Interval": {
+              "fields": {
+                "startTime": {
+                  "type": "google.protobuf.Timestamp",
+                  "id": 1
+                },
+                "endTime": {
+                  "type": "google.protobuf.Timestamp",
+                  "id": 2
+                }
+              }
+            }
+          }
+        },
         "longrunning": {
           "options": {
             "cc_enable_arenas": true,
@@ -12075,6 +13452,35 @@
                 "metadataType": {
                   "type": "string",
                   "id": 2
+                }
+              }
+            }
+          }
+        },
+        "rpc": {
+          "options": {
+            "cc_enable_arenas": true,
+            "go_package": "google.golang.org/genproto/googleapis/rpc/status;status",
+            "java_multiple_files": true,
+            "java_outer_classname": "StatusProto",
+            "java_package": "com.google.rpc",
+            "objc_class_prefix": "RPC"
+          },
+          "nested": {
+            "Status": {
+              "fields": {
+                "code": {
+                  "type": "int32",
+                  "id": 1
+                },
+                "message": {
+                  "type": "string",
+                  "id": 2
+                },
+                "details": {
+                  "rule": "repeated",
+                  "type": "google.protobuf.Any",
+                  "id": 3
                 }
               }
             }

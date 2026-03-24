@@ -18,7 +18,7 @@
 
 /* global window */
 import type * as gax from 'google-gax';
-import type {Callback, CallOptions, Descriptors, ClientOptions, PaginationCallback, GaxCall, IamClient, IamProtos, LocationsClient, LocationProtos} from 'google-gax';
+import type {Callback, CallOptions, Descriptors, ClientOptions, GrpcClientOptions, LROperation, PaginationCallback, GaxCall, IamClient, IamProtos, LocationsClient, LocationProtos} from 'google-gax';
 import {Transform} from 'stream';
 import * as protos from '../../protos/protos';
 import jsonProtos = require('../../protos/protos.json');
@@ -62,6 +62,7 @@ export class DataformClient {
   iamClient: IamClient;
   locationsClient: LocationsClient;
   pathTemplates: {[name: string]: gax.PathTemplate};
+  operationsClient: gax.OperationsClient;
   dataformStub?: Promise<{[name: string]: Function}>;
 
   /**
@@ -199,6 +200,9 @@ export class DataformClient {
       cryptoKeyVersionPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}'
       ),
+      folderPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/folders/{folder}'
+      ),
       locationPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}'
       ),
@@ -213,6 +217,9 @@ export class DataformClient {
       ),
       secretVersionPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/secrets/{secret}/versions/{version}'
+      ),
+      teamFolderPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/teamFolders/{team_folder}'
       ),
       workflowConfigPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/repositories/{repository}/workflowConfigs/{workflow_config}'
@@ -229,6 +236,14 @@ export class DataformClient {
     // (e.g. 50 results at a time, with tokens to get subsequent
     // pages). Denote the keys used for pagination and results.
     this.descriptors.page = {
+      queryTeamFolderContents:
+          new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'entries'),
+      searchTeamFolders:
+          new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'results'),
+      queryFolderContents:
+          new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'entries'),
+      queryUserRootContents:
+          new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'entries'),
       listRepositories:
           new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'repositories'),
       queryRepositoryDirectoryContents:
@@ -253,6 +268,55 @@ export class DataformClient {
           new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'workflowInvocations'),
       queryWorkflowInvocationActions:
           new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'workflowInvocationActions')
+    };
+
+    const protoFilesRoot = this._gaxModule.protobufFromJSON(jsonProtos);
+    // This API contains "long-running operations", which return a
+    // an Operation object that allows for tracking of the operation,
+    // rather than holding a request open.
+    const lroOptions: GrpcClientOptions = {
+      auth: this.auth,
+      grpc: 'grpc' in this._gaxGrpc ? this._gaxGrpc.grpc : undefined
+    };
+    if (opts.fallback) {
+      lroOptions.protoJson = protoFilesRoot;
+      lroOptions.httpRules = [{selector: 'google.cloud.location.Locations.GetLocation',get: '/v1/{name=projects/*/locations/*}',},{selector: 'google.cloud.location.Locations.ListLocations',get: '/v1/{name=projects/*}/locations',},{selector: 'google.longrunning.Operations.CancelOperation',post: '/v1/{name=projects/*/locations/*/operations/*}:cancel',body: '*',},{selector: 'google.longrunning.Operations.DeleteOperation',delete: '/v1/{name=projects/*/locations/*/operations/*}',},{selector: 'google.longrunning.Operations.GetOperation',get: '/v1/{name=projects/*/locations/*/operations/*}',},{selector: 'google.longrunning.Operations.ListOperations',get: '/v1/{name=projects/*/locations/*}/operations',}];
+    }
+    this.operationsClient = this._gaxModule.lro(lroOptions).operationsClient(opts);
+    const deleteTeamFolderTreeResponse = protoFilesRoot.lookup(
+      '.google.protobuf.Empty') as gax.protobuf.Type;
+    const deleteTeamFolderTreeMetadata = protoFilesRoot.lookup(
+      '.google.cloud.dataform.v1.DeleteFolderTreeMetadata') as gax.protobuf.Type;
+    const deleteFolderTreeResponse = protoFilesRoot.lookup(
+      '.google.protobuf.Empty') as gax.protobuf.Type;
+    const deleteFolderTreeMetadata = protoFilesRoot.lookup(
+      '.google.cloud.dataform.v1.DeleteFolderTreeMetadata') as gax.protobuf.Type;
+    const moveFolderResponse = protoFilesRoot.lookup(
+      '.google.protobuf.Empty') as gax.protobuf.Type;
+    const moveFolderMetadata = protoFilesRoot.lookup(
+      '.google.cloud.dataform.v1.MoveFolderMetadata') as gax.protobuf.Type;
+    const moveRepositoryResponse = protoFilesRoot.lookup(
+      '.google.protobuf.Empty') as gax.protobuf.Type;
+    const moveRepositoryMetadata = protoFilesRoot.lookup(
+      '.google.cloud.dataform.v1.MoveRepositoryMetadata') as gax.protobuf.Type;
+
+    this.descriptors.longrunning = {
+      deleteTeamFolderTree: new this._gaxModule.LongrunningDescriptor(
+        this.operationsClient,
+        deleteTeamFolderTreeResponse.decode.bind(deleteTeamFolderTreeResponse),
+        deleteTeamFolderTreeMetadata.decode.bind(deleteTeamFolderTreeMetadata)),
+      deleteFolderTree: new this._gaxModule.LongrunningDescriptor(
+        this.operationsClient,
+        deleteFolderTreeResponse.decode.bind(deleteFolderTreeResponse),
+        deleteFolderTreeMetadata.decode.bind(deleteFolderTreeMetadata)),
+      moveFolder: new this._gaxModule.LongrunningDescriptor(
+        this.operationsClient,
+        moveFolderResponse.decode.bind(moveFolderResponse),
+        moveFolderMetadata.decode.bind(moveFolderMetadata)),
+      moveRepository: new this._gaxModule.LongrunningDescriptor(
+        this.operationsClient,
+        moveRepositoryResponse.decode.bind(moveRepositoryResponse),
+        moveRepositoryMetadata.decode.bind(moveRepositoryMetadata))
     };
 
     // Put together the default options sent with requests.
@@ -298,7 +362,7 @@ export class DataformClient {
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
     const dataformStubMethods =
-        ['listRepositories', 'getRepository', 'createRepository', 'updateRepository', 'deleteRepository', 'commitRepositoryChanges', 'readRepositoryFile', 'queryRepositoryDirectoryContents', 'fetchRepositoryHistory', 'computeRepositoryAccessTokenStatus', 'fetchRemoteBranches', 'listWorkspaces', 'getWorkspace', 'createWorkspace', 'deleteWorkspace', 'installNpmPackages', 'pullGitCommits', 'pushGitCommits', 'fetchFileGitStatuses', 'fetchGitAheadBehind', 'commitWorkspaceChanges', 'resetWorkspaceChanges', 'fetchFileDiff', 'queryDirectoryContents', 'searchFiles', 'makeDirectory', 'removeDirectory', 'moveDirectory', 'readFile', 'removeFile', 'moveFile', 'writeFile', 'listReleaseConfigs', 'getReleaseConfig', 'createReleaseConfig', 'updateReleaseConfig', 'deleteReleaseConfig', 'listCompilationResults', 'getCompilationResult', 'createCompilationResult', 'queryCompilationResultActions', 'listWorkflowConfigs', 'getWorkflowConfig', 'createWorkflowConfig', 'updateWorkflowConfig', 'deleteWorkflowConfig', 'listWorkflowInvocations', 'getWorkflowInvocation', 'createWorkflowInvocation', 'deleteWorkflowInvocation', 'cancelWorkflowInvocation', 'queryWorkflowInvocationActions', 'getConfig', 'updateConfig'];
+        ['getTeamFolder', 'createTeamFolder', 'updateTeamFolder', 'deleteTeamFolder', 'deleteTeamFolderTree', 'queryTeamFolderContents', 'searchTeamFolders', 'getFolder', 'createFolder', 'updateFolder', 'deleteFolder', 'deleteFolderTree', 'queryFolderContents', 'queryUserRootContents', 'moveFolder', 'listRepositories', 'getRepository', 'createRepository', 'updateRepository', 'deleteRepository', 'moveRepository', 'commitRepositoryChanges', 'readRepositoryFile', 'queryRepositoryDirectoryContents', 'fetchRepositoryHistory', 'computeRepositoryAccessTokenStatus', 'fetchRemoteBranches', 'listWorkspaces', 'getWorkspace', 'createWorkspace', 'deleteWorkspace', 'installNpmPackages', 'pullGitCommits', 'pushGitCommits', 'fetchFileGitStatuses', 'fetchGitAheadBehind', 'commitWorkspaceChanges', 'resetWorkspaceChanges', 'fetchFileDiff', 'queryDirectoryContents', 'searchFiles', 'makeDirectory', 'removeDirectory', 'moveDirectory', 'readFile', 'removeFile', 'moveFile', 'writeFile', 'listReleaseConfigs', 'getReleaseConfig', 'createReleaseConfig', 'updateReleaseConfig', 'deleteReleaseConfig', 'listCompilationResults', 'getCompilationResult', 'createCompilationResult', 'queryCompilationResultActions', 'listWorkflowConfigs', 'getWorkflowConfig', 'createWorkflowConfig', 'updateWorkflowConfig', 'deleteWorkflowConfig', 'listWorkflowInvocations', 'getWorkflowInvocation', 'createWorkflowInvocation', 'deleteWorkflowInvocation', 'cancelWorkflowInvocation', 'queryWorkflowInvocationActions', 'getConfig', 'updateConfig', 'getIamPolicy', 'setIamPolicy', 'testIamPermissions'];
     for (const methodName of dataformStubMethods) {
       const callPromise = this.dataformStub.then(
         stub => (...args: Array<{}>) => {
@@ -314,6 +378,7 @@ export class DataformClient {
 
       const descriptor =
         this.descriptors.page[methodName] ||
+        this.descriptors.longrunning[methodName] ||
         undefined;
       const apiCall = this._gaxModule.createApiCall(
         callPromise,
@@ -402,6 +467,772 @@ export class DataformClient {
   // -------------------
   // -- Service calls --
   // -------------------
+/**
+ * Fetches a single TeamFolder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The TeamFolder's name.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.cloud.dataform.v1.TeamFolder|TeamFolder}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.get_team_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_GetTeamFolder_async
+ */
+  getTeamFolder(
+      request?: protos.google.cloud.dataform.v1.IGetTeamFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IGetTeamFolderRequest|undefined, {}|undefined
+      ]>;
+  getTeamFolder(
+      request: protos.google.cloud.dataform.v1.IGetTeamFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IGetTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  getTeamFolder(
+      request: protos.google.cloud.dataform.v1.IGetTeamFolderRequest,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IGetTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  getTeamFolder(
+      request?: protos.google.cloud.dataform.v1.IGetTeamFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IGetTeamFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IGetTeamFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IGetTeamFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('getTeamFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IGetTeamFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('getTeamFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.getTeamFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IGetTeamFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('getTeamFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Creates a new TeamFolder in a given project and location.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.parent
+ *   Required. The location in which to create the TeamFolder. Must be in the
+ *   format `projects/* /locations/*`.
+ * @param {google.cloud.dataform.v1.TeamFolder} request.teamFolder
+ *   Required. The TeamFolder to create.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.cloud.dataform.v1.TeamFolder|TeamFolder}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.create_team_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_CreateTeamFolder_async
+ */
+  createTeamFolder(
+      request?: protos.google.cloud.dataform.v1.ICreateTeamFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|undefined, {}|undefined
+      ]>;
+  createTeamFolder(
+      request: protos.google.cloud.dataform.v1.ICreateTeamFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  createTeamFolder(
+      request: protos.google.cloud.dataform.v1.ICreateTeamFolderRequest,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  createTeamFolder(
+      request?: protos.google.cloud.dataform.v1.ICreateTeamFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'parent': request.parent ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('createTeamFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('createTeamFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.createTeamFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.ICreateTeamFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('createTeamFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Updates a single TeamFolder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {google.protobuf.FieldMask} [request.updateMask]
+ *   Optional. Specifies the fields to be updated in the Folder. If left unset,
+ *   all fields will be updated.
+ * @param {google.cloud.dataform.v1.TeamFolder} request.teamFolder
+ *   Required. The updated TeamFolder.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.cloud.dataform.v1.TeamFolder|TeamFolder}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.update_team_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_UpdateTeamFolder_async
+ */
+  updateTeamFolder(
+      request?: protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|undefined, {}|undefined
+      ]>;
+  updateTeamFolder(
+      request: protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  updateTeamFolder(
+      request: protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  updateTeamFolder(
+      request?: protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.cloud.dataform.v1.ITeamFolder,
+          protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'team_folder.name': request.teamFolder!.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('updateTeamFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('updateTeamFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.updateTeamFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.cloud.dataform.v1.ITeamFolder,
+        protos.google.cloud.dataform.v1.IUpdateTeamFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('updateTeamFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Deletes a single TeamFolder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The TeamFolder's name.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.protobuf.Empty|Empty}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.delete_team_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_DeleteTeamFolder_async
+ */
+  deleteTeamFolder(
+      request?: protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|undefined, {}|undefined
+      ]>;
+  deleteTeamFolder(
+      request: protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  deleteTeamFolder(
+      request: protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest,
+      callback: Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  deleteTeamFolder(
+      request?: protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('deleteTeamFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('deleteTeamFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.deleteTeamFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteTeamFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('deleteTeamFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Fetches a single Folder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The Folder's name.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.cloud.dataform.v1.Folder|Folder}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.get_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_GetFolder_async
+ */
+  getFolder(
+      request?: protos.google.cloud.dataform.v1.IGetFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IGetFolderRequest|undefined, {}|undefined
+      ]>;
+  getFolder(
+      request: protos.google.cloud.dataform.v1.IGetFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IGetFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  getFolder(
+      request: protos.google.cloud.dataform.v1.IGetFolderRequest,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IGetFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  getFolder(
+      request?: protos.google.cloud.dataform.v1.IGetFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IGetFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IGetFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IGetFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('getFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IGetFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('getFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.getFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IGetFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('getFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Creates a new Folder in a given project and location.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.parent
+ *   Required. The location in which to create the Folder. Must be in the format
+ *   `projects/* /locations/*`.
+ * @param {google.cloud.dataform.v1.Folder} request.folder
+ *   Required. The Folder to create.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.cloud.dataform.v1.Folder|Folder}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.create_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_CreateFolder_async
+ */
+  createFolder(
+      request?: protos.google.cloud.dataform.v1.ICreateFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.ICreateFolderRequest|undefined, {}|undefined
+      ]>;
+  createFolder(
+      request: protos.google.cloud.dataform.v1.ICreateFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.ICreateFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  createFolder(
+      request: protos.google.cloud.dataform.v1.ICreateFolderRequest,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.ICreateFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  createFolder(
+      request?: protos.google.cloud.dataform.v1.ICreateFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.ICreateFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.ICreateFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.ICreateFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'parent': request.parent ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('createFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.ICreateFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('createFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.createFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.ICreateFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('createFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Updates a single Folder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {google.protobuf.FieldMask} [request.updateMask]
+ *   Optional. Specifies the fields to be updated in the Folder. If left unset,
+ *   all fields that can be updated, will be updated. A few fields cannot be
+ *   updated and will be ignored if specified in the update_mask (e.g.
+ *   parent_name, team_folder_name).
+ * @param {google.cloud.dataform.v1.Folder} request.folder
+ *   Required. The updated Folder.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.cloud.dataform.v1.Folder|Folder}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.update_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_UpdateFolder_async
+ */
+  updateFolder(
+      request?: protos.google.cloud.dataform.v1.IUpdateFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IUpdateFolderRequest|undefined, {}|undefined
+      ]>;
+  updateFolder(
+      request: protos.google.cloud.dataform.v1.IUpdateFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IUpdateFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  updateFolder(
+      request: protos.google.cloud.dataform.v1.IUpdateFolderRequest,
+      callback: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IUpdateFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  updateFolder(
+      request?: protos.google.cloud.dataform.v1.IUpdateFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IUpdateFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.cloud.dataform.v1.IFolder,
+          protos.google.cloud.dataform.v1.IUpdateFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IUpdateFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'folder.name': request.folder!.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('updateFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IUpdateFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('updateFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.updateFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.cloud.dataform.v1.IFolder,
+        protos.google.cloud.dataform.v1.IUpdateFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('updateFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Deletes a single Folder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The Folder's name.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.protobuf.Empty|Empty}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.delete_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_DeleteFolder_async
+ */
+  deleteFolder(
+      request?: protos.google.cloud.dataform.v1.IDeleteFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteFolderRequest|undefined, {}|undefined
+      ]>;
+  deleteFolder(
+      request: protos.google.cloud.dataform.v1.IDeleteFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  deleteFolder(
+      request: protos.google.cloud.dataform.v1.IDeleteFolderRequest,
+      callback: Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteFolderRequest|null|undefined,
+          {}|null|undefined>): void;
+  deleteFolder(
+      request?: protos.google.cloud.dataform.v1.IDeleteFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteFolderRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.protobuf.IEmpty,
+          protos.google.cloud.dataform.v1.IDeleteFolderRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteFolderRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('deleteFolder request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteFolderRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('deleteFolder response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.deleteFolder(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.protobuf.IEmpty,
+        protos.google.cloud.dataform.v1.IDeleteFolderRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('deleteFolder response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
 /**
  * Fetches a single Repository.
  *
@@ -706,9 +1537,13 @@ export class DataformClient {
  * @param {string} request.name
  *   Required. The repository's name.
  * @param {boolean} [request.force]
- *   Optional. If set to true, any child resources of this repository will also
- *   be deleted. (Otherwise, the request will only succeed if the repository has
- *   no child resources.)
+ *   Optional. If set to true, child resources of this repository (compilation
+ *   results and workflow invocations) will also be deleted. Otherwise, the
+ *   request will only succeed if the repository has no child resources.
+ *
+ *   **Note:** *This flag doesn't support deletion of workspaces, release
+ *   configs or workflow configs. If any of such resources exists in the
+ *   repository, the request will fail.*.
  * @param {object} [options]
  *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
  * @returns {Promise} - The promise which resolves to an array.
@@ -4492,7 +5327,1801 @@ export class DataformClient {
         throw error;
       });
   }
+/**
+ * Gets the access control policy for a resource.
+ * Returns an empty policy if the resource exists and does not have a policy
+ * set.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.resource
+ *   REQUIRED: The resource for which the policy is being requested.
+ *   See the operation documentation for the appropriate value for this field.
+ * @param {google.iam.v1.GetPolicyOptions} request.options
+ *   OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *   `GetIamPolicy`.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.iam.v1.Policy|Policy}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.get_iam_policy.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_GetIamPolicy_async
+ */
+  getIamPolicy(
+      request?: protos.google.iam.v1.IGetIamPolicyRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.IGetIamPolicyRequest|undefined, {}|undefined
+      ]>;
+  getIamPolicy(
+      request: protos.google.iam.v1.IGetIamPolicyRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
+          {}|null|undefined>): void;
+  getIamPolicy(
+      request: protos.google.iam.v1.IGetIamPolicyRequest,
+      callback: Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
+          {}|null|undefined>): void;
+  getIamPolicy(
+      request?: protos.google.iam.v1.IGetIamPolicyRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.IGetIamPolicyRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'resource': request.resource ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('getIamPolicy request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('getIamPolicy response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.getIamPolicy(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.IGetIamPolicyRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('getIamPolicy response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Sets the access control policy on the specified resource. Replaces any
+ * existing policy.
+ *
+ * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.resource
+ *   REQUIRED: The resource for which the policy is being specified.
+ *   See the operation documentation for the appropriate value for this field.
+ * @param {google.iam.v1.Policy} request.policy
+ *   REQUIRED: The complete policy to be applied to the `resource`. The size of
+ *   the policy is limited to a few 10s of KB. An empty policy is a
+ *   valid policy but certain Cloud Platform services (such as Projects)
+ *   might reject them.
+ * @param {google.protobuf.FieldMask} request.updateMask
+ *   OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+ *   the fields in the mask will be modified. If no mask is provided, the
+ *   following default mask is used:
+ *
+ *   `paths: "bindings, etag"`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.iam.v1.Policy|Policy}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.set_iam_policy.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_SetIamPolicy_async
+ */
+  setIamPolicy(
+      request?: protos.google.iam.v1.ISetIamPolicyRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.ISetIamPolicyRequest|undefined, {}|undefined
+      ]>;
+  setIamPolicy(
+      request: protos.google.iam.v1.ISetIamPolicyRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
+          {}|null|undefined>): void;
+  setIamPolicy(
+      request: protos.google.iam.v1.ISetIamPolicyRequest,
+      callback: Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
+          {}|null|undefined>): void;
+  setIamPolicy(
+      request?: protos.google.iam.v1.ISetIamPolicyRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.iam.v1.IPolicy,
+          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.ISetIamPolicyRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'resource': request.resource ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('setIamPolicy request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('setIamPolicy response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.setIamPolicy(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.iam.v1.IPolicy,
+        protos.google.iam.v1.ISetIamPolicyRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('setIamPolicy response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
+/**
+ * Returns permissions that a caller has on the specified resource.
+ * If the resource does not exist, this will return an empty set of
+ * permissions, not a `NOT_FOUND` error.
+ *
+ * Note: This operation is designed to be used for building permission-aware
+ * UIs and command-line tools, not for authorization checking. This operation
+ * may "fail open" without warning.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.resource
+ *   REQUIRED: The resource for which the policy detail is being requested.
+ *   See the operation documentation for the appropriate value for this field.
+ * @param {string[]} request.permissions
+ *   The set of permissions to check for the `resource`. Permissions with
+ *   wildcards (such as '*' or 'storage.*') are not allowed. For more
+ *   information see
+ *   [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing {@link protos.google.iam.v1.TestIamPermissionsResponse|TestIamPermissionsResponse}.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.test_iam_permissions.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_TestIamPermissions_async
+ */
+  testIamPermissions(
+      request?: protos.google.iam.v1.ITestIamPermissionsRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.iam.v1.ITestIamPermissionsResponse,
+        protos.google.iam.v1.ITestIamPermissionsRequest|undefined, {}|undefined
+      ]>;
+  testIamPermissions(
+      request: protos.google.iam.v1.ITestIamPermissionsRequest,
+      options: CallOptions,
+      callback: Callback<
+          protos.google.iam.v1.ITestIamPermissionsResponse,
+          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
+          {}|null|undefined>): void;
+  testIamPermissions(
+      request: protos.google.iam.v1.ITestIamPermissionsRequest,
+      callback: Callback<
+          protos.google.iam.v1.ITestIamPermissionsResponse,
+          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
+          {}|null|undefined>): void;
+  testIamPermissions(
+      request?: protos.google.iam.v1.ITestIamPermissionsRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          protos.google.iam.v1.ITestIamPermissionsResponse,
+          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          protos.google.iam.v1.ITestIamPermissionsResponse,
+          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        protos.google.iam.v1.ITestIamPermissionsResponse,
+        protos.google.iam.v1.ITestIamPermissionsRequest|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'resource': request.resource ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    this._log.info('testIamPermissions request %j', request);
+    const wrappedCallback: Callback<
+        protos.google.iam.v1.ITestIamPermissionsResponse,
+        protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
+        {}|null|undefined>|undefined = callback
+      ? (error, response, options, rawResponse) => {
+          this._log.info('testIamPermissions response %j', response);
+          callback!(error, response, options, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    return this.innerApiCalls.testIamPermissions(request, options, wrappedCallback)
+      ?.then(([response, options, rawResponse]: [
+        protos.google.iam.v1.ITestIamPermissionsResponse,
+        protos.google.iam.v1.ITestIamPermissionsRequest|undefined,
+        {}|undefined
+      ]) => {
+        this._log.info('testIamPermissions response %j', response);
+        return [response, options, rawResponse];
+      }).catch((error: any) => {
+        if (error && 'statusDetails' in error && error.statusDetails instanceof Array) {
+          const protos = this._gaxModule.protobuf.Root.fromJSON(jsonProtos) as unknown as gax.protobuf.Type;
+          error.statusDetails = decodeAnyProtosInArray(error.statusDetails, protos);
+        }
+        throw error;
+      });
+  }
 
+/**
+ * Deletes a TeamFolder with its contents (Folders, Repositories, Workspaces,
+ * ReleaseConfigs, and WorkflowConfigs).
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The TeamFolder's name.
+ *   Format: projects/{project}/locations/{location}/teamFolders/{team_folder}
+ * @param {boolean} [request.force]
+ *   Optional. If `false` (default): The operation will fail if any
+ *   Repository within the folder hierarchy has associated Release Configs or
+ *   Workflow Configs.
+ *
+ *   If `true`: The operation will attempt to delete everything, including any
+ *   Release Configs and Workflow Configs linked to Repositories within the
+ *   folder hierarchy. This permanently removes schedules and resources.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing
+ *   a long running operation. Its `promise()` method returns a promise
+ *   you can `await` for.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.delete_team_folder_tree.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_DeleteTeamFolderTree_async
+ */
+  deleteTeamFolderTree(
+      request?: protos.google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest,
+      options?: CallOptions):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>;
+  deleteTeamFolderTree(
+      request: protos.google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest,
+      options: CallOptions,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  deleteTeamFolderTree(
+      request: protos.google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  deleteTeamFolderTree(
+      request?: protos.google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>|undefined = callback
+      ? (error, response, rawResponse, _) => {
+          this._log.info('deleteTeamFolderTree response %j', rawResponse);
+          callback!(error, response, rawResponse, _); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('deleteTeamFolderTree request %j', request);
+    return this.innerApiCalls.deleteTeamFolderTree(request, options, wrappedCallback)
+    ?.then(([response, rawResponse, _]: [
+      LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+      protos.google.longrunning.IOperation|undefined, {}|undefined
+    ]) => {
+      this._log.info('deleteTeamFolderTree response %j', rawResponse);
+      return [response, rawResponse, _];
+    });
+  }
+/**
+ * Check the status of the long running operation returned by `deleteTeamFolderTree()`.
+ * @param {String} name
+ *   The operation name that will be passed.
+ * @returns {Promise} - The promise which resolves to an object.
+ *   The decoded operation object has result and metadata field to get information from.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.delete_team_folder_tree.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_DeleteTeamFolderTree_async
+ */
+  async checkDeleteTeamFolderTreeProgress(name: string): Promise<LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.DeleteFolderTreeMetadata>>{
+    this._log.info('deleteTeamFolderTree long-running');
+    const request = new this._gaxModule.operationsProtos.google.longrunning.GetOperationRequest({name});
+    const [operation] = await this.operationsClient.getOperation(request);
+    const decodeOperation = new this._gaxModule.Operation(operation, this.descriptors.longrunning.deleteTeamFolderTree, this._gaxModule.createDefaultBackoffSettings());
+    return decodeOperation as LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.DeleteFolderTreeMetadata>;
+  }
+/**
+ * Deletes a Folder with its contents (Folders, Repositories, Workspaces,
+ * ReleaseConfigs, and WorkflowConfigs).
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The Folder's name.
+ *   Format: projects/{project}/locations/{location}/folders/{folder}
+ * @param {boolean} [request.force]
+ *   Optional. If `false` (default): The operation will fail if any
+ *   Repository within the folder hierarchy has associated Release Configs or
+ *   Workflow Configs.
+ *
+ *   If `true`: The operation will attempt to delete everything, including any
+ *   Release Configs and Workflow Configs linked to Repositories within the
+ *   folder hierarchy. This permanently removes schedules and resources.
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing
+ *   a long running operation. Its `promise()` method returns a promise
+ *   you can `await` for.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.delete_folder_tree.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_DeleteFolderTree_async
+ */
+  deleteFolderTree(
+      request?: protos.google.cloud.dataform.v1.IDeleteFolderTreeRequest,
+      options?: CallOptions):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>;
+  deleteFolderTree(
+      request: protos.google.cloud.dataform.v1.IDeleteFolderTreeRequest,
+      options: CallOptions,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  deleteFolderTree(
+      request: protos.google.cloud.dataform.v1.IDeleteFolderTreeRequest,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  deleteFolderTree(
+      request?: protos.google.cloud.dataform.v1.IDeleteFolderTreeRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>|undefined = callback
+      ? (error, response, rawResponse, _) => {
+          this._log.info('deleteFolderTree response %j', rawResponse);
+          callback!(error, response, rawResponse, _); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('deleteFolderTree request %j', request);
+    return this.innerApiCalls.deleteFolderTree(request, options, wrappedCallback)
+    ?.then(([response, rawResponse, _]: [
+      LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IDeleteFolderTreeMetadata>,
+      protos.google.longrunning.IOperation|undefined, {}|undefined
+    ]) => {
+      this._log.info('deleteFolderTree response %j', rawResponse);
+      return [response, rawResponse, _];
+    });
+  }
+/**
+ * Check the status of the long running operation returned by `deleteFolderTree()`.
+ * @param {String} name
+ *   The operation name that will be passed.
+ * @returns {Promise} - The promise which resolves to an object.
+ *   The decoded operation object has result and metadata field to get information from.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.delete_folder_tree.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_DeleteFolderTree_async
+ */
+  async checkDeleteFolderTreeProgress(name: string): Promise<LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.DeleteFolderTreeMetadata>>{
+    this._log.info('deleteFolderTree long-running');
+    const request = new this._gaxModule.operationsProtos.google.longrunning.GetOperationRequest({name});
+    const [operation] = await this.operationsClient.getOperation(request);
+    const decodeOperation = new this._gaxModule.Operation(operation, this.descriptors.longrunning.deleteFolderTree, this._gaxModule.createDefaultBackoffSettings());
+    return decodeOperation as LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.DeleteFolderTreeMetadata>;
+  }
+/**
+ * Moves a Folder to a new Folder, TeamFolder, or the root location.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The full resource name of the Folder to move.
+ * @param {string} [request.destinationContainingFolder]
+ *   Optional. The name of the Folder, TeamFolder, or root location to move the
+ *   Folder to. Can be in the format of: "" to move into the root User folder,
+ *   `projects/* /locations/* /folders/*`, `projects/* /locations/* /teamFolders/*`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing
+ *   a long running operation. Its `promise()` method returns a promise
+ *   you can `await` for.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.move_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_MoveFolder_async
+ */
+  moveFolder(
+      request?: protos.google.cloud.dataform.v1.IMoveFolderRequest,
+      options?: CallOptions):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>;
+  moveFolder(
+      request: protos.google.cloud.dataform.v1.IMoveFolderRequest,
+      options: CallOptions,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  moveFolder(
+      request: protos.google.cloud.dataform.v1.IMoveFolderRequest,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  moveFolder(
+      request?: protos.google.cloud.dataform.v1.IMoveFolderRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>|undefined = callback
+      ? (error, response, rawResponse, _) => {
+          this._log.info('moveFolder response %j', rawResponse);
+          callback!(error, response, rawResponse, _); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('moveFolder request %j', request);
+    return this.innerApiCalls.moveFolder(request, options, wrappedCallback)
+    ?.then(([response, rawResponse, _]: [
+      LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveFolderMetadata>,
+      protos.google.longrunning.IOperation|undefined, {}|undefined
+    ]) => {
+      this._log.info('moveFolder response %j', rawResponse);
+      return [response, rawResponse, _];
+    });
+  }
+/**
+ * Check the status of the long running operation returned by `moveFolder()`.
+ * @param {String} name
+ *   The operation name that will be passed.
+ * @returns {Promise} - The promise which resolves to an object.
+ *   The decoded operation object has result and metadata field to get information from.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.move_folder.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_MoveFolder_async
+ */
+  async checkMoveFolderProgress(name: string): Promise<LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.MoveFolderMetadata>>{
+    this._log.info('moveFolder long-running');
+    const request = new this._gaxModule.operationsProtos.google.longrunning.GetOperationRequest({name});
+    const [operation] = await this.operationsClient.getOperation(request);
+    const decodeOperation = new this._gaxModule.Operation(operation, this.descriptors.longrunning.moveFolder, this._gaxModule.createDefaultBackoffSettings());
+    return decodeOperation as LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.MoveFolderMetadata>;
+  }
+/**
+ * Moves a Repository to a new location.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.name
+ *   Required. The full resource name of the repository to move.
+ * @param {string} [request.destinationContainingFolder]
+ *   Optional. The name of the Folder, TeamFolder, or root location to move the
+ *   repository to. Can be in the format of: "" to move into the root User
+ *   folder, `projects/* /locations/* /folders/*`,
+ *   `projects/* /locations/* /teamFolders/*`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is an object representing
+ *   a long running operation. Its `promise()` method returns a promise
+ *   you can `await` for.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.move_repository.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_MoveRepository_async
+ */
+  moveRepository(
+      request?: protos.google.cloud.dataform.v1.IMoveRepositoryRequest,
+      options?: CallOptions):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>;
+  moveRepository(
+      request: protos.google.cloud.dataform.v1.IMoveRepositoryRequest,
+      options: CallOptions,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  moveRepository(
+      request: protos.google.cloud.dataform.v1.IMoveRepositoryRequest,
+      callback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>): void;
+  moveRepository(
+      request?: protos.google.cloud.dataform.v1.IMoveRepositoryRequest,
+      optionsOrCallback?: CallOptions|Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>,
+      callback?: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>):
+      Promise<[
+        LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+        protos.google.longrunning.IOperation|undefined, {}|undefined
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'name': request.name ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: Callback<
+          LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+          protos.google.longrunning.IOperation|null|undefined,
+          {}|null|undefined>|undefined = callback
+      ? (error, response, rawResponse, _) => {
+          this._log.info('moveRepository response %j', rawResponse);
+          callback!(error, response, rawResponse, _); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('moveRepository request %j', request);
+    return this.innerApiCalls.moveRepository(request, options, wrappedCallback)
+    ?.then(([response, rawResponse, _]: [
+      LROperation<protos.google.protobuf.IEmpty, protos.google.cloud.dataform.v1.IMoveRepositoryMetadata>,
+      protos.google.longrunning.IOperation|undefined, {}|undefined
+    ]) => {
+      this._log.info('moveRepository response %j', rawResponse);
+      return [response, rawResponse, _];
+    });
+  }
+/**
+ * Check the status of the long running operation returned by `moveRepository()`.
+ * @param {String} name
+ *   The operation name that will be passed.
+ * @returns {Promise} - The promise which resolves to an object.
+ *   The decoded operation object has result and metadata field to get information from.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.move_repository.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_MoveRepository_async
+ */
+  async checkMoveRepositoryProgress(name: string): Promise<LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.MoveRepositoryMetadata>>{
+    this._log.info('moveRepository long-running');
+    const request = new this._gaxModule.operationsProtos.google.longrunning.GetOperationRequest({name});
+    const [operation] = await this.operationsClient.getOperation(request);
+    const decodeOperation = new this._gaxModule.Operation(operation, this.descriptors.longrunning.moveRepository, this._gaxModule.createDefaultBackoffSettings());
+    return decodeOperation as LROperation<protos.google.protobuf.Empty, protos.google.cloud.dataform.v1.MoveRepositoryMetadata>;
+  }
+ /**
+ * Returns the contents of a given TeamFolder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.teamFolder
+ *   Required. Name of the team_folder whose contents to list.
+ *   Format: `projects/* /locations/* /teamFolders/*`.
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryTeamFolderContents`
+ *   call. Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryTeamFolderContents`, with the exception of `page_size`, must match
+ *   the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: `display_name` (default), `create_time`,
+ *   last_modified_time.
+ *   Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is Array of {@link protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry|TeamFolderContentsEntry}.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed and will merge results from all the pages into this array.
+ *   Note that it can affect your quota.
+ *   We recommend using `queryTeamFolderContentsAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  queryTeamFolderContents(
+      request?: protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse
+      ]>;
+  queryTeamFolderContents(
+      request: protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      options: CallOptions,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>): void;
+  queryTeamFolderContents(
+      request: protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>): void;
+  queryTeamFolderContents(
+      request?: protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      optionsOrCallback?: CallOptions|PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>,
+      callback?: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>):
+      Promise<[
+        protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'team_folder': request.teamFolder ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: PaginationCallback<
+      protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse|null|undefined,
+      protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>|undefined = callback
+      ? (error, values, nextPageRequest, rawResponse) => {
+          this._log.info('queryTeamFolderContents values %j', values);
+          callback!(error, values, nextPageRequest, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('queryTeamFolderContents request %j', request);
+    return this.innerApiCalls
+      .queryTeamFolderContents(request, options, wrappedCallback)
+      ?.then(([response, input, output]: [
+        protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryTeamFolderContentsResponse
+      ]) => {
+        this._log.info('queryTeamFolderContents values %j', response);
+        return [response, input, output];
+      });
+  }
+
+/**
+ * Equivalent to `queryTeamFolderContents`, but returns a NodeJS Stream object.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.teamFolder
+ *   Required. Name of the team_folder whose contents to list.
+ *   Format: `projects/* /locations/* /teamFolders/*`.
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryTeamFolderContents`
+ *   call. Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryTeamFolderContents`, with the exception of `page_size`, must match
+ *   the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: `display_name` (default), `create_time`,
+ *   last_modified_time.
+ *   Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Stream}
+ *   An object stream which emits an object representing {@link protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry|TeamFolderContentsEntry} on 'data' event.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed. Note that it can affect your quota.
+ *   We recommend using `queryTeamFolderContentsAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  queryTeamFolderContentsStream(
+      request?: protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      options?: CallOptions):
+    Transform{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'team_folder': request.teamFolder ?? '',
+    });
+    const defaultCallSettings = this._defaults['queryTeamFolderContents'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('queryTeamFolderContents stream %j', request);
+    return this.descriptors.page.queryTeamFolderContents.createStream(
+      this.innerApiCalls.queryTeamFolderContents as GaxCall,
+      request,
+      callSettings
+    );
+  }
+
+/**
+ * Equivalent to `queryTeamFolderContents`, but returns an iterable object.
+ *
+ * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.teamFolder
+ *   Required. Name of the team_folder whose contents to list.
+ *   Format: `projects/* /locations/* /teamFolders/*`.
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryTeamFolderContents`
+ *   call. Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryTeamFolderContents`, with the exception of `page_size`, must match
+ *   the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: `display_name` (default), `create_time`,
+ *   last_modified_time.
+ *   Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Object}
+ *   An iterable Object that allows {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols | async iteration }.
+ *   When you iterate the returned iterable, each element will be an object representing
+ *   {@link protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry|TeamFolderContentsEntry}. The API will be called under the hood as needed, once per the page,
+ *   so you can stop the iteration when you don't need more results.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.query_team_folder_contents.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_QueryTeamFolderContents_async
+ */
+  queryTeamFolderContentsAsync(
+      request?: protos.google.cloud.dataform.v1.IQueryTeamFolderContentsRequest,
+      options?: CallOptions):
+    AsyncIterable<protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'team_folder': request.teamFolder ?? '',
+    });
+    const defaultCallSettings = this._defaults['queryTeamFolderContents'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('queryTeamFolderContents iterate %j', request);
+    return this.descriptors.page.queryTeamFolderContents.asyncIterate(
+      this.innerApiCalls['queryTeamFolderContents'] as GaxCall,
+      request as {},
+      callSettings
+    ) as AsyncIterable<protos.google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry>;
+  }
+ /**
+ * Returns all TeamFolders in a given location that the caller has access to
+ * and match the provided filter.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.location
+ *   Required. Location in which to query TeamFolders.
+ *   Format: `projects/* /locations/*`.
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of TeamFolders to return. The server may return
+ *   fewer items than requested. If unspecified, the server will pick an
+ *   appropriate default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `SearchTeamFolders` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `SearchTeamFolders`, with the exception of `page_size`, must
+ *   match the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Supported keywords: `display_name` (default), `create_time`,
+ *   `last_modified_time`. Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is Array of {@link protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult|TeamFolderSearchResult}.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed and will merge results from all the pages into this array.
+ *   Note that it can affect your quota.
+ *   We recommend using `searchTeamFoldersAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  searchTeamFolders(
+      request?: protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult[],
+        protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest|null,
+        protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse
+      ]>;
+  searchTeamFolders(
+      request: protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      options: CallOptions,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse|null|undefined,
+          protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>): void;
+  searchTeamFolders(
+      request: protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse|null|undefined,
+          protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>): void;
+  searchTeamFolders(
+      request?: protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      optionsOrCallback?: CallOptions|PaginationCallback<
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse|null|undefined,
+          protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>,
+      callback?: PaginationCallback<
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+          protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse|null|undefined,
+          protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>):
+      Promise<[
+        protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult[],
+        protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest|null,
+        protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'location': request.location ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: PaginationCallback<
+      protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse|null|undefined,
+      protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>|undefined = callback
+      ? (error, values, nextPageRequest, rawResponse) => {
+          this._log.info('searchTeamFolders values %j', values);
+          callback!(error, values, nextPageRequest, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('searchTeamFolders request %j', request);
+    return this.innerApiCalls
+      .searchTeamFolders(request, options, wrappedCallback)
+      ?.then(([response, input, output]: [
+        protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult[],
+        protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest|null,
+        protos.google.cloud.dataform.v1.ISearchTeamFoldersResponse
+      ]) => {
+        this._log.info('searchTeamFolders values %j', response);
+        return [response, input, output];
+      });
+  }
+
+/**
+ * Equivalent to `searchTeamFolders`, but returns a NodeJS Stream object.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.location
+ *   Required. Location in which to query TeamFolders.
+ *   Format: `projects/* /locations/*`.
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of TeamFolders to return. The server may return
+ *   fewer items than requested. If unspecified, the server will pick an
+ *   appropriate default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `SearchTeamFolders` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `SearchTeamFolders`, with the exception of `page_size`, must
+ *   match the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Supported keywords: `display_name` (default), `create_time`,
+ *   `last_modified_time`. Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Stream}
+ *   An object stream which emits an object representing {@link protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult|TeamFolderSearchResult} on 'data' event.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed. Note that it can affect your quota.
+ *   We recommend using `searchTeamFoldersAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  searchTeamFoldersStream(
+      request?: protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      options?: CallOptions):
+    Transform{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'location': request.location ?? '',
+    });
+    const defaultCallSettings = this._defaults['searchTeamFolders'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('searchTeamFolders stream %j', request);
+    return this.descriptors.page.searchTeamFolders.createStream(
+      this.innerApiCalls.searchTeamFolders as GaxCall,
+      request,
+      callSettings
+    );
+  }
+
+/**
+ * Equivalent to `searchTeamFolders`, but returns an iterable object.
+ *
+ * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.location
+ *   Required. Location in which to query TeamFolders.
+ *   Format: `projects/* /locations/*`.
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of TeamFolders to return. The server may return
+ *   fewer items than requested. If unspecified, the server will pick an
+ *   appropriate default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `SearchTeamFolders` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `SearchTeamFolders`, with the exception of `page_size`, must
+ *   match the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Supported keywords: `display_name` (default), `create_time`,
+ *   `last_modified_time`. Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Object}
+ *   An iterable Object that allows {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols | async iteration }.
+ *   When you iterate the returned iterable, each element will be an object representing
+ *   {@link protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult|TeamFolderSearchResult}. The API will be called under the hood as needed, once per the page,
+ *   so you can stop the iteration when you don't need more results.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.search_team_folders.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_SearchTeamFolders_async
+ */
+  searchTeamFoldersAsync(
+      request?: protos.google.cloud.dataform.v1.ISearchTeamFoldersRequest,
+      options?: CallOptions):
+    AsyncIterable<protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'location': request.location ?? '',
+    });
+    const defaultCallSettings = this._defaults['searchTeamFolders'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('searchTeamFolders iterate %j', request);
+    return this.descriptors.page.searchTeamFolders.asyncIterate(
+      this.innerApiCalls['searchTeamFolders'] as GaxCall,
+      request as {},
+      callSettings
+    ) as AsyncIterable<protos.google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult>;
+  }
+ /**
+ * Returns the contents of a given Folder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.folder
+ *   Required. Name of the folder whose contents to list.
+ *   Format: projects/* /locations/* /folders/*
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryFolderContents` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryFolderContents`, with the exception of `page_size`, must match the
+ *   call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: display_name (default), create_time,
+ *   last_modified_time.
+ *   Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is Array of {@link protos.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry|FolderContentsEntry}.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed and will merge results from all the pages into this array.
+ *   Note that it can affect your quota.
+ *   We recommend using `queryFolderContentsAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  queryFolderContents(
+      request?: protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryFolderContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryFolderContentsResponse
+      ]>;
+  queryFolderContents(
+      request: protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      options: CallOptions,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>): void;
+  queryFolderContents(
+      request: protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>): void;
+  queryFolderContents(
+      request?: protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      optionsOrCallback?: CallOptions|PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>,
+      callback?: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryFolderContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>):
+      Promise<[
+        protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryFolderContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryFolderContentsResponse
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'folder': request.folder ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: PaginationCallback<
+      protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      protos.google.cloud.dataform.v1.IQueryFolderContentsResponse|null|undefined,
+      protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>|undefined = callback
+      ? (error, values, nextPageRequest, rawResponse) => {
+          this._log.info('queryFolderContents values %j', values);
+          callback!(error, values, nextPageRequest, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('queryFolderContents request %j', request);
+    return this.innerApiCalls
+      .queryFolderContents(request, options, wrappedCallback)
+      ?.then(([response, input, output]: [
+        protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryFolderContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryFolderContentsResponse
+      ]) => {
+        this._log.info('queryFolderContents values %j', response);
+        return [response, input, output];
+      });
+  }
+
+/**
+ * Equivalent to `queryFolderContents`, but returns a NodeJS Stream object.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.folder
+ *   Required. Name of the folder whose contents to list.
+ *   Format: projects/* /locations/* /folders/*
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryFolderContents` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryFolderContents`, with the exception of `page_size`, must match the
+ *   call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: display_name (default), create_time,
+ *   last_modified_time.
+ *   Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Stream}
+ *   An object stream which emits an object representing {@link protos.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry|FolderContentsEntry} on 'data' event.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed. Note that it can affect your quota.
+ *   We recommend using `queryFolderContentsAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  queryFolderContentsStream(
+      request?: protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      options?: CallOptions):
+    Transform{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'folder': request.folder ?? '',
+    });
+    const defaultCallSettings = this._defaults['queryFolderContents'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('queryFolderContents stream %j', request);
+    return this.descriptors.page.queryFolderContents.createStream(
+      this.innerApiCalls.queryFolderContents as GaxCall,
+      request,
+      callSettings
+    );
+  }
+
+/**
+ * Equivalent to `queryFolderContents`, but returns an iterable object.
+ *
+ * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.folder
+ *   Required. Name of the folder whose contents to list.
+ *   Format: projects/* /locations/* /folders/*
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryFolderContents` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryFolderContents`, with the exception of `page_size`, must match the
+ *   call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: display_name (default), create_time,
+ *   last_modified_time.
+ *   Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Object}
+ *   An iterable Object that allows {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols | async iteration }.
+ *   When you iterate the returned iterable, each element will be an object representing
+ *   {@link protos.google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry|FolderContentsEntry}. The API will be called under the hood as needed, once per the page,
+ *   so you can stop the iteration when you don't need more results.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.query_folder_contents.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_QueryFolderContents_async
+ */
+  queryFolderContentsAsync(
+      request?: protos.google.cloud.dataform.v1.IQueryFolderContentsRequest,
+      options?: CallOptions):
+    AsyncIterable<protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'folder': request.folder ?? '',
+    });
+    const defaultCallSettings = this._defaults['queryFolderContents'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('queryFolderContents iterate %j', request);
+    return this.descriptors.page.queryFolderContents.asyncIterate(
+      this.innerApiCalls['queryFolderContents'] as GaxCall,
+      request as {},
+      callSettings
+    ) as AsyncIterable<protos.google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry>;
+  }
+ /**
+ * Returns the contents of a caller's root folder in a given location.
+ * The root folder contains all resources that are created by the user and not
+ * contained in any other folder.
+ *
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.location
+ *   Required. Location of the user root folder whose contents to list.
+ *   Format: projects/* /locations/*
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryUserRootContents` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryUserRootFolderContents`, with the exception of `page_size`, must
+ *   match the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: display_name (default), created_at,
+ *   last_modified_at. Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Promise} - The promise which resolves to an array.
+ *   The first element of the array is Array of {@link protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry|RootContentsEntry}.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed and will merge results from all the pages into this array.
+ *   Note that it can affect your quota.
+ *   We recommend using `queryUserRootContentsAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  queryUserRootContents(
+      request?: protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      options?: CallOptions):
+      Promise<[
+        protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse
+      ]>;
+  queryUserRootContents(
+      request: protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      options: CallOptions,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>): void;
+  queryUserRootContents(
+      request: protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      callback: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>): void;
+  queryUserRootContents(
+      request?: protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      optionsOrCallback?: CallOptions|PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>,
+      callback?: PaginationCallback<
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+          protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse|null|undefined,
+          protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>):
+      Promise<[
+        protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse
+      ]>|void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    }
+    else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'location': request.location ?? '',
+    });
+    this.initialize().catch(err => {throw err});
+    const wrappedCallback: PaginationCallback<
+      protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse|null|undefined,
+      protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>|undefined = callback
+      ? (error, values, nextPageRequest, rawResponse) => {
+          this._log.info('queryUserRootContents values %j', values);
+          callback!(error, values, nextPageRequest, rawResponse); // We verified callback above.
+        }
+      : undefined;
+    this._log.info('queryUserRootContents request %j', request);
+    return this.innerApiCalls
+      .queryUserRootContents(request, options, wrappedCallback)
+      ?.then(([response, input, output]: [
+        protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry[],
+        protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest|null,
+        protos.google.cloud.dataform.v1.IQueryUserRootContentsResponse
+      ]) => {
+        this._log.info('queryUserRootContents values %j', response);
+        return [response, input, output];
+      });
+  }
+
+/**
+ * Equivalent to `queryUserRootContents`, but returns a NodeJS Stream object.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.location
+ *   Required. Location of the user root folder whose contents to list.
+ *   Format: projects/* /locations/*
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryUserRootContents` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryUserRootFolderContents`, with the exception of `page_size`, must
+ *   match the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: display_name (default), created_at,
+ *   last_modified_at. Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Stream}
+ *   An object stream which emits an object representing {@link protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry|RootContentsEntry} on 'data' event.
+ *   The client library will perform auto-pagination by default: it will call the API as many
+ *   times as needed. Note that it can affect your quota.
+ *   We recommend using `queryUserRootContentsAsync()`
+ *   method described below for async iteration which you can stop as needed.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ */
+  queryUserRootContentsStream(
+      request?: protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      options?: CallOptions):
+    Transform{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'location': request.location ?? '',
+    });
+    const defaultCallSettings = this._defaults['queryUserRootContents'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('queryUserRootContents stream %j', request);
+    return this.descriptors.page.queryUserRootContents.createStream(
+      this.innerApiCalls.queryUserRootContents as GaxCall,
+      request,
+      callSettings
+    );
+  }
+
+/**
+ * Equivalent to `queryUserRootContents`, but returns an iterable object.
+ *
+ * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
+ * @param {Object} request
+ *   The request object that will be sent.
+ * @param {string} request.location
+ *   Required. Location of the user root folder whose contents to list.
+ *   Format: projects/* /locations/*
+ * @param {number} [request.pageSize]
+ *   Optional. Maximum number of paths to return. The server may return fewer
+ *   items than requested. If unspecified, the server will pick an appropriate
+ *   default.
+ * @param {string} [request.pageToken]
+ *   Optional. Page token received from a previous `QueryUserRootContents` call.
+ *   Provide this to retrieve the subsequent page.
+ *
+ *   When paginating, all other parameters provided to
+ *   `QueryUserRootFolderContents`, with the exception of `page_size`, must
+ *   match the call that provided the page token.
+ * @param {string} [request.orderBy]
+ *   Optional. Field to additionally sort results by.
+ *   Will order Folders before Repositories, and then by `order_by` in ascending
+ *   order. Supported keywords: display_name (default), created_at,
+ *   last_modified_at. Examples:
+ *     - `orderBy="display_name"`
+ *     - `orderBy="display_name desc"`
+ * @param {string} [request.filter]
+ *   Optional. Optional filtering for the returned list. Filtering is currently
+ *   only supported on the `display_name` field.
+ *
+ *   Example:
+ *    - `filter="display_name="MyFolder""`
+ * @param {object} [options]
+ *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+ * @returns {Object}
+ *   An iterable Object that allows {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols | async iteration }.
+ *   When you iterate the returned iterable, each element will be an object representing
+ *   {@link protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry|RootContentsEntry}. The API will be called under the hood as needed, once per the page,
+ *   so you can stop the iteration when you don't need more results.
+ *   Please see the {@link https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination | documentation }
+ *   for more details and examples.
+ * @example <caption>include:samples/generated/v1/dataform.query_user_root_contents.js</caption>
+ * region_tag:dataform_v1_generated_Dataform_QueryUserRootContents_async
+ */
+  queryUserRootContentsAsync(
+      request?: protos.google.cloud.dataform.v1.IQueryUserRootContentsRequest,
+      options?: CallOptions):
+    AsyncIterable<protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>{
+    request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = this._gaxModule.routingHeader.fromParams({
+      'location': request.location ?? '',
+    });
+    const defaultCallSettings = this._defaults['queryUserRootContents'];
+    const callSettings = defaultCallSettings.merge(options);
+    this.initialize().catch(err => {throw err});
+    this._log.info('queryUserRootContents iterate %j', request);
+    return this.descriptors.page.queryUserRootContents.asyncIterate(
+      this.innerApiCalls['queryUserRootContents'] as GaxCall,
+      request as {},
+      callSettings
+    ) as AsyncIterable<protos.google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry>;
+  }
  /**
  * Lists Repositories in a given project and location.
  *
@@ -5430,6 +8059,11 @@ export class DataformClient {
  *   When paginating, all other parameters provided to
  *   `QueryDirectoryContents`, with the exception of `page_size`, must match the
  *   call that provided the page token.
+ * @param {google.cloud.dataform.v1.DirectoryContentsView} [request.view]
+ *   Optional. Specifies the metadata to return for each directory entry.
+ *   If unspecified, the default is `DIRECTORY_CONTENTS_VIEW_BASIC`.
+ *   Currently the `DIRECTORY_CONTENTS_VIEW_METADATA` view is not supported by
+ *   CMEK-protected workspaces.
  * @param {object} [options]
  *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
  * @returns {Promise} - The promise which resolves to an array.
@@ -5538,6 +8172,11 @@ export class DataformClient {
  *   When paginating, all other parameters provided to
  *   `QueryDirectoryContents`, with the exception of `page_size`, must match the
  *   call that provided the page token.
+ * @param {google.cloud.dataform.v1.DirectoryContentsView} [request.view]
+ *   Optional. Specifies the metadata to return for each directory entry.
+ *   If unspecified, the default is `DIRECTORY_CONTENTS_VIEW_BASIC`.
+ *   Currently the `DIRECTORY_CONTENTS_VIEW_METADATA` view is not supported by
+ *   CMEK-protected workspaces.
  * @param {object} [options]
  *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
  * @returns {Stream}
@@ -5595,6 +8234,11 @@ export class DataformClient {
  *   When paginating, all other parameters provided to
  *   `QueryDirectoryContents`, with the exception of `page_size`, must match the
  *   call that provided the page token.
+ * @param {google.cloud.dataform.v1.DirectoryContentsView} [request.view]
+ *   Optional. Specifies the metadata to return for each directory entry.
+ *   If unspecified, the default is `DIRECTORY_CONTENTS_VIEW_BASIC`.
+ *   Currently the `DIRECTORY_CONTENTS_VIEW_METADATA` view is not supported by
+ *   CMEK-protected workspaces.
  * @param {object} [options]
  *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
  * @returns {Object}
@@ -7405,6 +10049,230 @@ export class DataformClient {
     return this.locationsClient.listLocationsAsync(request, options);
   }
 
+/**
+   * Gets the latest state of a long-running operation.  Clients can use this
+   * method to poll the operation result at intervals as recommended by the API
+   * service.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation resource.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   *   e.g, timeout, retries, paginations, etc. See {@link
+   *   https://googleapis.github.io/gax-nodejs/global.html#CallOptions | gax.CallOptions}
+   *   for the details.
+   * @param {function(?Error, ?Object)=} callback
+   *   The function which will be called with the result of the API call.
+   *
+   *   The second parameter to the callback is an object representing
+   *   {@link google.longrunning.Operation | google.longrunning.Operation}.
+   * @return {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing
+   * {@link google.longrunning.Operation | google.longrunning.Operation}.
+   * The promise has a method named "cancel" which cancels the ongoing API call.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * const name = '';
+   * const [response] = await client.getOperation({name});
+   * // doThingsWith(response)
+   * ```
+   */
+  getOperation(
+    request: protos.google.longrunning.GetOperationRequest,
+    optionsOrCallback?:
+      | gax.CallOptions
+      | Callback<
+          protos.google.longrunning.Operation,
+          protos.google.longrunning.GetOperationRequest,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.longrunning.Operation,
+      protos.google.longrunning.GetOperationRequest,
+      {} | null | undefined
+    >
+  ): Promise<[protos.google.longrunning.Operation]> {
+     let options: gax.CallOptions;
+     if (typeof optionsOrCallback === 'function' && callback === undefined) {
+       callback = optionsOrCallback;
+       options = {};
+     } else {
+       options = optionsOrCallback as gax.CallOptions;
+     }
+     options = options || {};
+     options.otherArgs = options.otherArgs || {};
+     options.otherArgs.headers = options.otherArgs.headers || {};
+     options.otherArgs.headers['x-goog-request-params'] =
+       this._gaxModule.routingHeader.fromParams({
+         name: request.name ?? '',
+       });
+    return this.operationsClient.getOperation(request, options, callback);
+  }
+  /**
+   * Lists operations that match the specified filter in the request. If the
+   * server doesn't support this method, it returns `UNIMPLEMENTED`. Returns an iterable object.
+   *
+   * For-await-of syntax is used with the iterable to recursively get response element on-demand.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation collection.
+   * @param {string} request.filter - The standard list filter.
+   * @param {number=} request.pageSize -
+   *   The maximum number of resources contained in the underlying API
+   *   response. If page streaming is performed per-resource, this
+   *   parameter does not affect the return value. If page streaming is
+   *   performed per-page, this determines the maximum number of
+   *   resources in a page.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   *   e.g, timeout, retries, paginations, etc. See {@link
+   *   https://googleapis.github.io/gax-nodejs/global.html#CallOptions | gax.CallOptions} for the
+   *   details.
+   * @returns {Object}
+   *   An iterable Object that conforms to {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols | iteration protocols}.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * for await (const response of client.listOperationsAsync(request));
+   * // doThingsWith(response)
+   * ```
+   */
+  listOperationsAsync(
+    request: protos.google.longrunning.ListOperationsRequest,
+    options?: gax.CallOptions
+  ): AsyncIterable<protos.google.longrunning.IOperation> {
+     options = options || {};
+     options.otherArgs = options.otherArgs || {};
+     options.otherArgs.headers = options.otherArgs.headers || {};
+     options.otherArgs.headers['x-goog-request-params'] =
+       this._gaxModule.routingHeader.fromParams({
+         name: request.name ?? '',
+       });
+    return this.operationsClient.listOperationsAsync(request, options);
+  }
+  /**
+   * Starts asynchronous cancellation on a long-running operation.  The server
+   * makes a best effort to cancel the operation, but success is not
+   * guaranteed.  If the server doesn't support this method, it returns
+   * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+   * {@link Operations.GetOperation} or
+   * other methods to check whether the cancellation succeeded or whether the
+   * operation completed despite cancellation. On successful cancellation,
+   * the operation is not deleted; instead, it becomes an operation with
+   * an {@link Operation.error} value with a {@link google.rpc.Status.code} of
+   * 1, corresponding to `Code.CANCELLED`.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation resource to be cancelled.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   * e.g, timeout, retries, paginations, etc. See {@link
+   * https://googleapis.github.io/gax-nodejs/global.html#CallOptions | gax.CallOptions} for the
+   * details.
+   * @param {function(?Error)=} callback
+   *   The function which will be called with the result of the API call.
+   * @return {Promise} - The promise which resolves when API call finishes.
+   *   The promise has a method named "cancel" which cancels the ongoing API
+   * call.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * await client.cancelOperation({name: ''});
+   * ```
+   */
+   cancelOperation(
+    request: protos.google.longrunning.CancelOperationRequest,
+    optionsOrCallback?:
+      | gax.CallOptions
+      | Callback<
+          protos.google.longrunning.CancelOperationRequest,
+          protos.google.protobuf.Empty,
+          {} | undefined | null
+        >,
+    callback?: Callback<
+      protos.google.longrunning.CancelOperationRequest,
+      protos.google.protobuf.Empty,
+      {} | undefined | null
+    >
+  ): Promise<protos.google.protobuf.Empty> {
+     let options: gax.CallOptions;
+     if (typeof optionsOrCallback === 'function' && callback === undefined) {
+       callback = optionsOrCallback;
+       options = {};
+     } else {
+       options = optionsOrCallback as gax.CallOptions;
+     }
+     options = options || {};
+     options.otherArgs = options.otherArgs || {};
+     options.otherArgs.headers = options.otherArgs.headers || {};
+     options.otherArgs.headers['x-goog-request-params'] =
+       this._gaxModule.routingHeader.fromParams({
+         name: request.name ?? '',
+       });
+    return this.operationsClient.cancelOperation(request, options, callback);
+  }
+
+  /**
+   * Deletes a long-running operation. This method indicates that the client is
+   * no longer interested in the operation result. It does not cancel the
+   * operation. If the server doesn't support this method, it returns
+   * `google.rpc.Code.UNIMPLEMENTED`.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation resource to be deleted.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   * e.g, timeout, retries, paginations, etc. See {@link
+   * https://googleapis.github.io/gax-nodejs/global.html#CallOptions | gax.CallOptions}
+   * for the details.
+   * @param {function(?Error)=} callback
+   *   The function which will be called with the result of the API call.
+   * @return {Promise} - The promise which resolves when API call finishes.
+   *   The promise has a method named "cancel" which cancels the ongoing API
+   * call.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * await client.deleteOperation({name: ''});
+   * ```
+   */
+  deleteOperation(
+    request: protos.google.longrunning.DeleteOperationRequest,
+    optionsOrCallback?:
+      | gax.CallOptions
+      | Callback<
+          protos.google.protobuf.Empty,
+          protos.google.longrunning.DeleteOperationRequest,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.protobuf.Empty,
+      protos.google.longrunning.DeleteOperationRequest,
+      {} | null | undefined
+    >
+  ): Promise<protos.google.protobuf.Empty> {
+     let options: gax.CallOptions;
+     if (typeof optionsOrCallback === 'function' && callback === undefined) {
+       callback = optionsOrCallback;
+       options = {};
+     } else {
+       options = optionsOrCallback as gax.CallOptions;
+     }
+     options = options || {};
+     options.otherArgs = options.otherArgs || {};
+     options.otherArgs.headers = options.otherArgs.headers || {};
+     options.otherArgs.headers['x-goog-request-params'] =
+       this._gaxModule.routingHeader.fromParams({
+         name: request.name ?? '',
+       });
+    return this.operationsClient.deleteOperation(request, options, callback);
+  }
+
   // --------------------
   // -- Path templates --
   // --------------------
@@ -7642,6 +10510,55 @@ export class DataformClient {
    */
   matchCryptoKeyVersionFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
     return this.pathTemplates.cryptoKeyVersionPathTemplate.match(cryptoKeyVersionName).crypto_key_version;
+  }
+
+  /**
+   * Return a fully-qualified folder resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} folder
+   * @returns {string} Resource name string.
+   */
+  folderPath(project:string,location:string,folder:string) {
+    return this.pathTemplates.folderPathTemplate.render({
+      project: project,
+      location: location,
+      folder: folder,
+    });
+  }
+
+  /**
+   * Parse the project from Folder resource.
+   *
+   * @param {string} folderName
+   *   A fully-qualified path representing Folder resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromFolderName(folderName: string) {
+    return this.pathTemplates.folderPathTemplate.match(folderName).project;
+  }
+
+  /**
+   * Parse the location from Folder resource.
+   *
+   * @param {string} folderName
+   *   A fully-qualified path representing Folder resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromFolderName(folderName: string) {
+    return this.pathTemplates.folderPathTemplate.match(folderName).location;
+  }
+
+  /**
+   * Parse the folder from Folder resource.
+   *
+   * @param {string} folderName
+   *   A fully-qualified path representing Folder resource.
+   * @returns {string} A string representing the folder.
+   */
+  matchFolderFromFolderName(folderName: string) {
+    return this.pathTemplates.folderPathTemplate.match(folderName).folder;
   }
 
   /**
@@ -7890,6 +10807,55 @@ export class DataformClient {
   }
 
   /**
+   * Return a fully-qualified teamFolder resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} team_folder
+   * @returns {string} Resource name string.
+   */
+  teamFolderPath(project:string,location:string,teamFolder:string) {
+    return this.pathTemplates.teamFolderPathTemplate.render({
+      project: project,
+      location: location,
+      team_folder: teamFolder,
+    });
+  }
+
+  /**
+   * Parse the project from TeamFolder resource.
+   *
+   * @param {string} teamFolderName
+   *   A fully-qualified path representing TeamFolder resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromTeamFolderName(teamFolderName: string) {
+    return this.pathTemplates.teamFolderPathTemplate.match(teamFolderName).project;
+  }
+
+  /**
+   * Parse the location from TeamFolder resource.
+   *
+   * @param {string} teamFolderName
+   *   A fully-qualified path representing TeamFolder resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromTeamFolderName(teamFolderName: string) {
+    return this.pathTemplates.teamFolderPathTemplate.match(teamFolderName).location;
+  }
+
+  /**
+   * Parse the team_folder from TeamFolder resource.
+   *
+   * @param {string} teamFolderName
+   *   A fully-qualified path representing TeamFolder resource.
+   * @returns {string} A string representing the team_folder.
+   */
+  matchTeamFolderFromTeamFolderName(teamFolderName: string) {
+    return this.pathTemplates.teamFolderPathTemplate.match(teamFolderName).team_folder;
+  }
+
+  /**
    * Return a fully-qualified workflowConfig resource name string.
    *
    * @param {string} project
@@ -8089,6 +11055,7 @@ export class DataformClient {
         stub.close();
         this.iamClient.close().catch(err => {throw err});
         this.locationsClient.close().catch(err => {throw err});
+        void this.operationsClient.close();
       });
     }
     return Promise.resolve();

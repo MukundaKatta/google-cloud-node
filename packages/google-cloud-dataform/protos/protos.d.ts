@@ -47,6 +47,216 @@ export namespace google {
                     public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): Dataform;
 
                     /**
+                     * Calls GetTeamFolder.
+                     * @param request GetTeamFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and TeamFolder
+                     */
+                    public getTeamFolder(request: google.cloud.dataform.v1.IGetTeamFolderRequest, callback: google.cloud.dataform.v1.Dataform.GetTeamFolderCallback): void;
+
+                    /**
+                     * Calls GetTeamFolder.
+                     * @param request GetTeamFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getTeamFolder(request: google.cloud.dataform.v1.IGetTeamFolderRequest): Promise<google.cloud.dataform.v1.TeamFolder>;
+
+                    /**
+                     * Calls CreateTeamFolder.
+                     * @param request CreateTeamFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and TeamFolder
+                     */
+                    public createTeamFolder(request: google.cloud.dataform.v1.ICreateTeamFolderRequest, callback: google.cloud.dataform.v1.Dataform.CreateTeamFolderCallback): void;
+
+                    /**
+                     * Calls CreateTeamFolder.
+                     * @param request CreateTeamFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public createTeamFolder(request: google.cloud.dataform.v1.ICreateTeamFolderRequest): Promise<google.cloud.dataform.v1.TeamFolder>;
+
+                    /**
+                     * Calls UpdateTeamFolder.
+                     * @param request UpdateTeamFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and TeamFolder
+                     */
+                    public updateTeamFolder(request: google.cloud.dataform.v1.IUpdateTeamFolderRequest, callback: google.cloud.dataform.v1.Dataform.UpdateTeamFolderCallback): void;
+
+                    /**
+                     * Calls UpdateTeamFolder.
+                     * @param request UpdateTeamFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public updateTeamFolder(request: google.cloud.dataform.v1.IUpdateTeamFolderRequest): Promise<google.cloud.dataform.v1.TeamFolder>;
+
+                    /**
+                     * Calls DeleteTeamFolder.
+                     * @param request DeleteTeamFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Empty
+                     */
+                    public deleteTeamFolder(request: google.cloud.dataform.v1.IDeleteTeamFolderRequest, callback: google.cloud.dataform.v1.Dataform.DeleteTeamFolderCallback): void;
+
+                    /**
+                     * Calls DeleteTeamFolder.
+                     * @param request DeleteTeamFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public deleteTeamFolder(request: google.cloud.dataform.v1.IDeleteTeamFolderRequest): Promise<google.protobuf.Empty>;
+
+                    /**
+                     * Calls DeleteTeamFolderTree.
+                     * @param request DeleteTeamFolderTreeRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Operation
+                     */
+                    public deleteTeamFolderTree(request: google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest, callback: google.cloud.dataform.v1.Dataform.DeleteTeamFolderTreeCallback): void;
+
+                    /**
+                     * Calls DeleteTeamFolderTree.
+                     * @param request DeleteTeamFolderTreeRequest message or plain object
+                     * @returns Promise
+                     */
+                    public deleteTeamFolderTree(request: google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest): Promise<google.longrunning.Operation>;
+
+                    /**
+                     * Calls QueryTeamFolderContents.
+                     * @param request QueryTeamFolderContentsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and QueryTeamFolderContentsResponse
+                     */
+                    public queryTeamFolderContents(request: google.cloud.dataform.v1.IQueryTeamFolderContentsRequest, callback: google.cloud.dataform.v1.Dataform.QueryTeamFolderContentsCallback): void;
+
+                    /**
+                     * Calls QueryTeamFolderContents.
+                     * @param request QueryTeamFolderContentsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public queryTeamFolderContents(request: google.cloud.dataform.v1.IQueryTeamFolderContentsRequest): Promise<google.cloud.dataform.v1.QueryTeamFolderContentsResponse>;
+
+                    /**
+                     * Calls SearchTeamFolders.
+                     * @param request SearchTeamFoldersRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and SearchTeamFoldersResponse
+                     */
+                    public searchTeamFolders(request: google.cloud.dataform.v1.ISearchTeamFoldersRequest, callback: google.cloud.dataform.v1.Dataform.SearchTeamFoldersCallback): void;
+
+                    /**
+                     * Calls SearchTeamFolders.
+                     * @param request SearchTeamFoldersRequest message or plain object
+                     * @returns Promise
+                     */
+                    public searchTeamFolders(request: google.cloud.dataform.v1.ISearchTeamFoldersRequest): Promise<google.cloud.dataform.v1.SearchTeamFoldersResponse>;
+
+                    /**
+                     * Calls GetFolder.
+                     * @param request GetFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Folder
+                     */
+                    public getFolder(request: google.cloud.dataform.v1.IGetFolderRequest, callback: google.cloud.dataform.v1.Dataform.GetFolderCallback): void;
+
+                    /**
+                     * Calls GetFolder.
+                     * @param request GetFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getFolder(request: google.cloud.dataform.v1.IGetFolderRequest): Promise<google.cloud.dataform.v1.Folder>;
+
+                    /**
+                     * Calls CreateFolder.
+                     * @param request CreateFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Folder
+                     */
+                    public createFolder(request: google.cloud.dataform.v1.ICreateFolderRequest, callback: google.cloud.dataform.v1.Dataform.CreateFolderCallback): void;
+
+                    /**
+                     * Calls CreateFolder.
+                     * @param request CreateFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public createFolder(request: google.cloud.dataform.v1.ICreateFolderRequest): Promise<google.cloud.dataform.v1.Folder>;
+
+                    /**
+                     * Calls UpdateFolder.
+                     * @param request UpdateFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Folder
+                     */
+                    public updateFolder(request: google.cloud.dataform.v1.IUpdateFolderRequest, callback: google.cloud.dataform.v1.Dataform.UpdateFolderCallback): void;
+
+                    /**
+                     * Calls UpdateFolder.
+                     * @param request UpdateFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public updateFolder(request: google.cloud.dataform.v1.IUpdateFolderRequest): Promise<google.cloud.dataform.v1.Folder>;
+
+                    /**
+                     * Calls DeleteFolder.
+                     * @param request DeleteFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Empty
+                     */
+                    public deleteFolder(request: google.cloud.dataform.v1.IDeleteFolderRequest, callback: google.cloud.dataform.v1.Dataform.DeleteFolderCallback): void;
+
+                    /**
+                     * Calls DeleteFolder.
+                     * @param request DeleteFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public deleteFolder(request: google.cloud.dataform.v1.IDeleteFolderRequest): Promise<google.protobuf.Empty>;
+
+                    /**
+                     * Calls DeleteFolderTree.
+                     * @param request DeleteFolderTreeRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Operation
+                     */
+                    public deleteFolderTree(request: google.cloud.dataform.v1.IDeleteFolderTreeRequest, callback: google.cloud.dataform.v1.Dataform.DeleteFolderTreeCallback): void;
+
+                    /**
+                     * Calls DeleteFolderTree.
+                     * @param request DeleteFolderTreeRequest message or plain object
+                     * @returns Promise
+                     */
+                    public deleteFolderTree(request: google.cloud.dataform.v1.IDeleteFolderTreeRequest): Promise<google.longrunning.Operation>;
+
+                    /**
+                     * Calls QueryFolderContents.
+                     * @param request QueryFolderContentsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and QueryFolderContentsResponse
+                     */
+                    public queryFolderContents(request: google.cloud.dataform.v1.IQueryFolderContentsRequest, callback: google.cloud.dataform.v1.Dataform.QueryFolderContentsCallback): void;
+
+                    /**
+                     * Calls QueryFolderContents.
+                     * @param request QueryFolderContentsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public queryFolderContents(request: google.cloud.dataform.v1.IQueryFolderContentsRequest): Promise<google.cloud.dataform.v1.QueryFolderContentsResponse>;
+
+                    /**
+                     * Calls QueryUserRootContents.
+                     * @param request QueryUserRootContentsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and QueryUserRootContentsResponse
+                     */
+                    public queryUserRootContents(request: google.cloud.dataform.v1.IQueryUserRootContentsRequest, callback: google.cloud.dataform.v1.Dataform.QueryUserRootContentsCallback): void;
+
+                    /**
+                     * Calls QueryUserRootContents.
+                     * @param request QueryUserRootContentsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public queryUserRootContents(request: google.cloud.dataform.v1.IQueryUserRootContentsRequest): Promise<google.cloud.dataform.v1.QueryUserRootContentsResponse>;
+
+                    /**
+                     * Calls MoveFolder.
+                     * @param request MoveFolderRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Operation
+                     */
+                    public moveFolder(request: google.cloud.dataform.v1.IMoveFolderRequest, callback: google.cloud.dataform.v1.Dataform.MoveFolderCallback): void;
+
+                    /**
+                     * Calls MoveFolder.
+                     * @param request MoveFolderRequest message or plain object
+                     * @returns Promise
+                     */
+                    public moveFolder(request: google.cloud.dataform.v1.IMoveFolderRequest): Promise<google.longrunning.Operation>;
+
+                    /**
                      * Calls ListRepositories.
                      * @param request ListRepositoriesRequest message or plain object
                      * @param callback Node-style callback called with the error, if any, and ListRepositoriesResponse
@@ -115,6 +325,20 @@ export namespace google {
                      * @returns Promise
                      */
                     public deleteRepository(request: google.cloud.dataform.v1.IDeleteRepositoryRequest): Promise<google.protobuf.Empty>;
+
+                    /**
+                     * Calls MoveRepository.
+                     * @param request MoveRepositoryRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Operation
+                     */
+                    public moveRepository(request: google.cloud.dataform.v1.IMoveRepositoryRequest, callback: google.cloud.dataform.v1.Dataform.MoveRepositoryCallback): void;
+
+                    /**
+                     * Calls MoveRepository.
+                     * @param request MoveRepositoryRequest message or plain object
+                     * @returns Promise
+                     */
+                    public moveRepository(request: google.cloud.dataform.v1.IMoveRepositoryRequest): Promise<google.longrunning.Operation>;
 
                     /**
                      * Calls CommitRepositoryChanges.
@@ -801,9 +1025,156 @@ export namespace google {
                      * @returns Promise
                      */
                     public updateConfig(request: google.cloud.dataform.v1.IUpdateConfigRequest): Promise<google.cloud.dataform.v1.Config>;
+
+                    /**
+                     * Calls GetIamPolicy.
+                     * @param request GetIamPolicyRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Policy
+                     */
+                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest, callback: google.cloud.dataform.v1.Dataform.GetIamPolicyCallback): void;
+
+                    /**
+                     * Calls GetIamPolicy.
+                     * @param request GetIamPolicyRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest): Promise<google.iam.v1.Policy>;
+
+                    /**
+                     * Calls SetIamPolicy.
+                     * @param request SetIamPolicyRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Policy
+                     */
+                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest, callback: google.cloud.dataform.v1.Dataform.SetIamPolicyCallback): void;
+
+                    /**
+                     * Calls SetIamPolicy.
+                     * @param request SetIamPolicyRequest message or plain object
+                     * @returns Promise
+                     */
+                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest): Promise<google.iam.v1.Policy>;
+
+                    /**
+                     * Calls TestIamPermissions.
+                     * @param request TestIamPermissionsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
+                     */
+                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest, callback: google.cloud.dataform.v1.Dataform.TestIamPermissionsCallback): void;
+
+                    /**
+                     * Calls TestIamPermissions.
+                     * @param request TestIamPermissionsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest): Promise<google.iam.v1.TestIamPermissionsResponse>;
                 }
 
                 namespace Dataform {
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|getTeamFolder}.
+                     * @param error Error, if any
+                     * @param [response] TeamFolder
+                     */
+                    type GetTeamFolderCallback = (error: (Error|null), response?: google.cloud.dataform.v1.TeamFolder) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|createTeamFolder}.
+                     * @param error Error, if any
+                     * @param [response] TeamFolder
+                     */
+                    type CreateTeamFolderCallback = (error: (Error|null), response?: google.cloud.dataform.v1.TeamFolder) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|updateTeamFolder}.
+                     * @param error Error, if any
+                     * @param [response] TeamFolder
+                     */
+                    type UpdateTeamFolderCallback = (error: (Error|null), response?: google.cloud.dataform.v1.TeamFolder) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteTeamFolder}.
+                     * @param error Error, if any
+                     * @param [response] Empty
+                     */
+                    type DeleteTeamFolderCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteTeamFolderTree}.
+                     * @param error Error, if any
+                     * @param [response] Operation
+                     */
+                    type DeleteTeamFolderTreeCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|queryTeamFolderContents}.
+                     * @param error Error, if any
+                     * @param [response] QueryTeamFolderContentsResponse
+                     */
+                    type QueryTeamFolderContentsCallback = (error: (Error|null), response?: google.cloud.dataform.v1.QueryTeamFolderContentsResponse) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|searchTeamFolders}.
+                     * @param error Error, if any
+                     * @param [response] SearchTeamFoldersResponse
+                     */
+                    type SearchTeamFoldersCallback = (error: (Error|null), response?: google.cloud.dataform.v1.SearchTeamFoldersResponse) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|getFolder}.
+                     * @param error Error, if any
+                     * @param [response] Folder
+                     */
+                    type GetFolderCallback = (error: (Error|null), response?: google.cloud.dataform.v1.Folder) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|createFolder}.
+                     * @param error Error, if any
+                     * @param [response] Folder
+                     */
+                    type CreateFolderCallback = (error: (Error|null), response?: google.cloud.dataform.v1.Folder) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|updateFolder}.
+                     * @param error Error, if any
+                     * @param [response] Folder
+                     */
+                    type UpdateFolderCallback = (error: (Error|null), response?: google.cloud.dataform.v1.Folder) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteFolder}.
+                     * @param error Error, if any
+                     * @param [response] Empty
+                     */
+                    type DeleteFolderCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|deleteFolderTree}.
+                     * @param error Error, if any
+                     * @param [response] Operation
+                     */
+                    type DeleteFolderTreeCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|queryFolderContents}.
+                     * @param error Error, if any
+                     * @param [response] QueryFolderContentsResponse
+                     */
+                    type QueryFolderContentsCallback = (error: (Error|null), response?: google.cloud.dataform.v1.QueryFolderContentsResponse) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|queryUserRootContents}.
+                     * @param error Error, if any
+                     * @param [response] QueryUserRootContentsResponse
+                     */
+                    type QueryUserRootContentsCallback = (error: (Error|null), response?: google.cloud.dataform.v1.QueryUserRootContentsResponse) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|moveFolder}.
+                     * @param error Error, if any
+                     * @param [response] Operation
+                     */
+                    type MoveFolderCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
                      * Callback as used by {@link google.cloud.dataform.v1.Dataform|listRepositories}.
@@ -839,6 +1210,13 @@ export namespace google {
                      * @param [response] Empty
                      */
                     type DeleteRepositoryCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|moveRepository}.
+                     * @param error Error, if any
+                     * @param [response] Operation
+                     */
+                    type MoveRepositoryCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
                      * Callback as used by {@link google.cloud.dataform.v1.Dataform|commitRepositoryChanges}.
@@ -1182,6 +1560,34 @@ export namespace google {
                      * @param [response] Config
                      */
                     type UpdateConfigCallback = (error: (Error|null), response?: google.cloud.dataform.v1.Config) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|getIamPolicy}.
+                     * @param error Error, if any
+                     * @param [response] Policy
+                     */
+                    type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|setIamPolicy}.
+                     * @param error Error, if any
+                     * @param [response] Policy
+                     */
+                    type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.dataform.v1.Dataform|testIamPermissions}.
+                     * @param error Error, if any
+                     * @param [response] TestIamPermissionsResponse
+                     */
+                    type TestIamPermissionsCallback = (error: (Error|null), response?: google.iam.v1.TestIamPermissionsResponse) => void;
+                }
+
+                /** DirectoryContentsView enum. */
+                enum DirectoryContentsView {
+                    DIRECTORY_CONTENTS_VIEW_UNSPECIFIED = 0,
+                    DIRECTORY_CONTENTS_VIEW_BASIC = 1,
+                    DIRECTORY_CONTENTS_VIEW_METADATA = 2
                 }
 
                 /** Properties of a DataEncryptionState. */
@@ -1287,6 +1693,12 @@ export namespace google {
                     /** Repository name */
                     name?: (string|null);
 
+                    /** Repository containingFolder */
+                    containingFolder?: (string|null);
+
+                    /** Repository teamFolderName */
+                    teamFolderName?: (string|null);
+
                     /** Repository createTime */
                     createTime?: (google.protobuf.ITimestamp|null);
 
@@ -1332,6 +1744,12 @@ export namespace google {
 
                     /** Repository name. */
                     public name: string;
+
+                    /** Repository containingFolder. */
+                    public containingFolder?: (string|null);
+
+                    /** Repository teamFolderName. */
+                    public teamFolderName?: (string|null);
 
                     /** Repository createTime. */
                     public createTime?: (google.protobuf.ITimestamp|null);
@@ -1791,6 +2209,103 @@ export namespace google {
                     }
                 }
 
+                /** Properties of a PrivateResourceMetadata. */
+                interface IPrivateResourceMetadata {
+
+                    /** PrivateResourceMetadata userScoped */
+                    userScoped?: (boolean|null);
+                }
+
+                /** Represents a PrivateResourceMetadata. */
+                class PrivateResourceMetadata implements IPrivateResourceMetadata {
+
+                    /**
+                     * Constructs a new PrivateResourceMetadata.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IPrivateResourceMetadata);
+
+                    /** PrivateResourceMetadata userScoped. */
+                    public userScoped: boolean;
+
+                    /**
+                     * Creates a new PrivateResourceMetadata instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns PrivateResourceMetadata instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IPrivateResourceMetadata): google.cloud.dataform.v1.PrivateResourceMetadata;
+
+                    /**
+                     * Encodes the specified PrivateResourceMetadata message. Does not implicitly {@link google.cloud.dataform.v1.PrivateResourceMetadata.verify|verify} messages.
+                     * @param message PrivateResourceMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IPrivateResourceMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified PrivateResourceMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.PrivateResourceMetadata.verify|verify} messages.
+                     * @param message PrivateResourceMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IPrivateResourceMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a PrivateResourceMetadata message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns PrivateResourceMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.PrivateResourceMetadata;
+
+                    /**
+                     * Decodes a PrivateResourceMetadata message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns PrivateResourceMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.PrivateResourceMetadata;
+
+                    /**
+                     * Verifies a PrivateResourceMetadata message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a PrivateResourceMetadata message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns PrivateResourceMetadata
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.PrivateResourceMetadata;
+
+                    /**
+                     * Creates a plain object from a PrivateResourceMetadata message. Also converts values to other types if specified.
+                     * @param message PrivateResourceMetadata
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.PrivateResourceMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this PrivateResourceMetadata to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for PrivateResourceMetadata
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
                 /** Properties of a ListRepositoriesRequest. */
                 interface IListRepositoriesRequest {
 
@@ -2015,6 +2530,109 @@ export namespace google {
 
                     /**
                      * Gets the default type url for ListRepositoriesResponse
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a MoveRepositoryRequest. */
+                interface IMoveRepositoryRequest {
+
+                    /** MoveRepositoryRequest name */
+                    name?: (string|null);
+
+                    /** MoveRepositoryRequest destinationContainingFolder */
+                    destinationContainingFolder?: (string|null);
+                }
+
+                /** Represents a MoveRepositoryRequest. */
+                class MoveRepositoryRequest implements IMoveRepositoryRequest {
+
+                    /**
+                     * Constructs a new MoveRepositoryRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IMoveRepositoryRequest);
+
+                    /** MoveRepositoryRequest name. */
+                    public name: string;
+
+                    /** MoveRepositoryRequest destinationContainingFolder. */
+                    public destinationContainingFolder?: (string|null);
+
+                    /**
+                     * Creates a new MoveRepositoryRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns MoveRepositoryRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IMoveRepositoryRequest): google.cloud.dataform.v1.MoveRepositoryRequest;
+
+                    /**
+                     * Encodes the specified MoveRepositoryRequest message. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryRequest.verify|verify} messages.
+                     * @param message MoveRepositoryRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IMoveRepositoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified MoveRepositoryRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryRequest.verify|verify} messages.
+                     * @param message MoveRepositoryRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IMoveRepositoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MoveRepositoryRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MoveRepositoryRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.MoveRepositoryRequest;
+
+                    /**
+                     * Decodes a MoveRepositoryRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns MoveRepositoryRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.MoveRepositoryRequest;
+
+                    /**
+                     * Verifies a MoveRepositoryRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a MoveRepositoryRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns MoveRepositoryRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.MoveRepositoryRequest;
+
+                    /**
+                     * Creates a plain object from a MoveRepositoryRequest message. Also converts values to other types if specified.
+                     * @param message MoveRepositoryRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.MoveRepositoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this MoveRepositoryRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for MoveRepositoryRequest
                      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
                      * @returns The default type url
                      */
@@ -4006,7 +4624,8 @@ export namespace google {
                         TOKEN_STATUS_UNSPECIFIED = 0,
                         NOT_FOUND = 1,
                         INVALID = 2,
-                        VALID = 3
+                        VALID = 3,
+                        PERMISSION_DENIED = 4
                     }
                 }
 
@@ -4218,6 +4837,12 @@ export namespace google {
 
                     /** Workspace internalMetadata */
                     internalMetadata?: (string|null);
+
+                    /** Workspace disableMoves */
+                    disableMoves?: (boolean|null);
+
+                    /** Workspace privateResourceMetadata */
+                    privateResourceMetadata?: (google.cloud.dataform.v1.IPrivateResourceMetadata|null);
                 }
 
                 /** Represents a Workspace. */
@@ -4240,6 +4865,12 @@ export namespace google {
 
                     /** Workspace internalMetadata. */
                     public internalMetadata?: (string|null);
+
+                    /** Workspace disableMoves. */
+                    public disableMoves?: (boolean|null);
+
+                    /** Workspace privateResourceMetadata. */
+                    public privateResourceMetadata?: (google.cloud.dataform.v1.IPrivateResourceMetadata|null);
 
                     /**
                      * Creates a new Workspace instance using the specified properties.
@@ -6487,6 +7118,9 @@ export namespace google {
 
                     /** QueryDirectoryContentsRequest pageToken */
                     pageToken?: (string|null);
+
+                    /** QueryDirectoryContentsRequest view */
+                    view?: (google.cloud.dataform.v1.DirectoryContentsView|keyof typeof google.cloud.dataform.v1.DirectoryContentsView|null);
                 }
 
                 /** Represents a QueryDirectoryContentsRequest. */
@@ -6509,6 +7143,9 @@ export namespace google {
 
                     /** QueryDirectoryContentsRequest pageToken. */
                     public pageToken: string;
+
+                    /** QueryDirectoryContentsRequest view. */
+                    public view: (google.cloud.dataform.v1.DirectoryContentsView|keyof typeof google.cloud.dataform.v1.DirectoryContentsView);
 
                     /**
                      * Creates a new QueryDirectoryContentsRequest instance using the specified properties.
@@ -6699,6 +7336,9 @@ export namespace google {
 
                     /** DirectoryEntry directory */
                     directory?: (string|null);
+
+                    /** DirectoryEntry metadata */
+                    metadata?: (google.cloud.dataform.v1.IFilesystemEntryMetadata|null);
                 }
 
                 /** Represents a DirectoryEntry. */
@@ -6715,6 +7355,9 @@ export namespace google {
 
                     /** DirectoryEntry directory. */
                     public directory?: (string|null);
+
+                    /** DirectoryEntry metadata. */
+                    public metadata?: (google.cloud.dataform.v1.IFilesystemEntryMetadata|null);
 
                     /** DirectoryEntry entry. */
                     public entry?: ("file"|"directory");
@@ -6791,6 +7434,109 @@ export namespace google {
 
                     /**
                      * Gets the default type url for DirectoryEntry
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a FilesystemEntryMetadata. */
+                interface IFilesystemEntryMetadata {
+
+                    /** FilesystemEntryMetadata sizeBytes */
+                    sizeBytes?: (number|Long|string|null);
+
+                    /** FilesystemEntryMetadata updateTime */
+                    updateTime?: (google.protobuf.ITimestamp|null);
+                }
+
+                /** Represents a FilesystemEntryMetadata. */
+                class FilesystemEntryMetadata implements IFilesystemEntryMetadata {
+
+                    /**
+                     * Constructs a new FilesystemEntryMetadata.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IFilesystemEntryMetadata);
+
+                    /** FilesystemEntryMetadata sizeBytes. */
+                    public sizeBytes: (number|Long|string);
+
+                    /** FilesystemEntryMetadata updateTime. */
+                    public updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /**
+                     * Creates a new FilesystemEntryMetadata instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns FilesystemEntryMetadata instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IFilesystemEntryMetadata): google.cloud.dataform.v1.FilesystemEntryMetadata;
+
+                    /**
+                     * Encodes the specified FilesystemEntryMetadata message. Does not implicitly {@link google.cloud.dataform.v1.FilesystemEntryMetadata.verify|verify} messages.
+                     * @param message FilesystemEntryMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IFilesystemEntryMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified FilesystemEntryMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.FilesystemEntryMetadata.verify|verify} messages.
+                     * @param message FilesystemEntryMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IFilesystemEntryMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a FilesystemEntryMetadata message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns FilesystemEntryMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.FilesystemEntryMetadata;
+
+                    /**
+                     * Decodes a FilesystemEntryMetadata message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns FilesystemEntryMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.FilesystemEntryMetadata;
+
+                    /**
+                     * Verifies a FilesystemEntryMetadata message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a FilesystemEntryMetadata message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns FilesystemEntryMetadata
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.FilesystemEntryMetadata;
+
+                    /**
+                     * Creates a plain object from a FilesystemEntryMetadata message. Also converts values to other types if specified.
+                     * @param message FilesystemEntryMetadata
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.FilesystemEntryMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this FilesystemEntryMetadata to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for FilesystemEntryMetadata
                      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
                      * @returns The default type url
                      */
@@ -9810,6 +10556,9 @@ export namespace google {
 
                     /** CompilationResult internalMetadata */
                     internalMetadata?: (string|null);
+
+                    /** CompilationResult privateResourceMetadata */
+                    privateResourceMetadata?: (google.cloud.dataform.v1.IPrivateResourceMetadata|null);
                 }
 
                 /** Represents a CompilationResult. */
@@ -9853,6 +10602,9 @@ export namespace google {
 
                     /** CompilationResult internalMetadata. */
                     public internalMetadata?: (string|null);
+
+                    /** CompilationResult privateResourceMetadata. */
+                    public privateResourceMetadata?: (google.cloud.dataform.v1.IPrivateResourceMetadata|null);
 
                     /** CompilationResult source. */
                     public source?: ("gitCommitish"|"workspace"|"releaseConfig");
@@ -11270,6 +12022,18 @@ export namespace google {
 
                         /** Relation additionalOptions */
                         additionalOptions?: ({ [k: string]: string }|null);
+
+                        /** Relation connection */
+                        connection?: (string|null);
+
+                        /** Relation tableFormat */
+                        tableFormat?: (google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat|keyof typeof google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat|null);
+
+                        /** Relation fileFormat */
+                        fileFormat?: (google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat|keyof typeof google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat|null);
+
+                        /** Relation storageUri */
+                        storageUri?: (string|null);
                     }
 
                     /** Represents a Relation. */
@@ -11322,6 +12086,18 @@ export namespace google {
 
                         /** Relation additionalOptions. */
                         public additionalOptions: { [k: string]: string };
+
+                        /** Relation connection. */
+                        public connection: string;
+
+                        /** Relation tableFormat. */
+                        public tableFormat: (google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat|keyof typeof google.cloud.dataform.v1.CompilationResultAction.Relation.TableFormat);
+
+                        /** Relation fileFormat. */
+                        public fileFormat: (google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat|keyof typeof google.cloud.dataform.v1.CompilationResultAction.Relation.FileFormat);
+
+                        /** Relation storageUri. */
+                        public storageUri: string;
 
                         /**
                          * Creates a new Relation instance using the specified properties.
@@ -11537,6 +12313,18 @@ export namespace google {
                             VIEW = 2,
                             INCREMENTAL_TABLE = 3,
                             MATERIALIZED_VIEW = 4
+                        }
+
+                        /** TableFormat enum. */
+                        enum TableFormat {
+                            TABLE_FORMAT_UNSPECIFIED = 0,
+                            ICEBERG = 1
+                        }
+
+                        /** FileFormat enum. */
+                        enum FileFormat {
+                            FILE_FORMAT_UNSPECIFIED = 0,
+                            PARQUET = 1
                         }
                     }
 
@@ -13156,6 +13944,9 @@ export namespace google {
 
                     /** InvocationConfig serviceAccount */
                     serviceAccount?: (string|null);
+
+                    /** InvocationConfig queryPriority */
+                    queryPriority?: (google.cloud.dataform.v1.InvocationConfig.QueryPriority|keyof typeof google.cloud.dataform.v1.InvocationConfig.QueryPriority|null);
                 }
 
                 /** Represents an InvocationConfig. */
@@ -13184,6 +13975,9 @@ export namespace google {
 
                     /** InvocationConfig serviceAccount. */
                     public serviceAccount: string;
+
+                    /** InvocationConfig queryPriority. */
+                    public queryPriority?: (google.cloud.dataform.v1.InvocationConfig.QueryPriority|keyof typeof google.cloud.dataform.v1.InvocationConfig.QueryPriority|null);
 
                     /**
                      * Creates a new InvocationConfig instance using the specified properties.
@@ -13261,6 +14055,16 @@ export namespace google {
                      * @returns The default type url
                      */
                     public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace InvocationConfig {
+
+                    /** QueryPriority enum. */
+                    enum QueryPriority {
+                        QUERY_PRIORITY_UNSPECIFIED = 0,
+                        INTERACTIVE = 1,
+                        BATCH = 2
+                    }
                 }
 
                 /** Properties of a ListWorkflowConfigsRequest. */
@@ -13916,6 +14720,9 @@ export namespace google {
 
                     /** WorkflowInvocation internalMetadata */
                     internalMetadata?: (string|null);
+
+                    /** WorkflowInvocation privateResourceMetadata */
+                    privateResourceMetadata?: (google.cloud.dataform.v1.IPrivateResourceMetadata|null);
                 }
 
                 /** Represents a WorkflowInvocation. */
@@ -13953,6 +14760,9 @@ export namespace google {
 
                     /** WorkflowInvocation internalMetadata. */
                     public internalMetadata?: (string|null);
+
+                    /** WorkflowInvocation privateResourceMetadata. */
+                    public privateResourceMetadata?: (google.cloud.dataform.v1.IPrivateResourceMetadata|null);
 
                     /** WorkflowInvocation compilationSource. */
                     public compilationSource?: ("compilationResult"|"workflowConfig");
@@ -15990,6 +16800,9 @@ export namespace google {
 
                     /** Config defaultKmsKeyName */
                     defaultKmsKeyName?: (string|null);
+
+                    /** Config internalMetadata */
+                    internalMetadata?: (string|null);
                 }
 
                 /** Represents a Config. */
@@ -16006,6 +16819,9 @@ export namespace google {
 
                     /** Config defaultKmsKeyName. */
                     public defaultKmsKeyName: string;
+
+                    /** Config internalMetadata. */
+                    public internalMetadata?: (string|null);
 
                     /**
                      * Creates a new Config instance using the specified properties.
@@ -16283,6 +17099,3106 @@ export namespace google {
                      * @returns The default type url
                      */
                     public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a Folder. */
+                interface IFolder {
+
+                    /** Folder name */
+                    name?: (string|null);
+
+                    /** Folder displayName */
+                    displayName?: (string|null);
+
+                    /** Folder containingFolder */
+                    containingFolder?: (string|null);
+
+                    /** Folder teamFolderName */
+                    teamFolderName?: (string|null);
+
+                    /** Folder createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** Folder updateTime */
+                    updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** Folder internalMetadata */
+                    internalMetadata?: (string|null);
+
+                    /** Folder creatorIamPrincipal */
+                    creatorIamPrincipal?: (string|null);
+                }
+
+                /** Represents a Folder. */
+                class Folder implements IFolder {
+
+                    /**
+                     * Constructs a new Folder.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IFolder);
+
+                    /** Folder name. */
+                    public name: string;
+
+                    /** Folder displayName. */
+                    public displayName: string;
+
+                    /** Folder containingFolder. */
+                    public containingFolder: string;
+
+                    /** Folder teamFolderName. */
+                    public teamFolderName: string;
+
+                    /** Folder createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** Folder updateTime. */
+                    public updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** Folder internalMetadata. */
+                    public internalMetadata?: (string|null);
+
+                    /** Folder creatorIamPrincipal. */
+                    public creatorIamPrincipal?: (string|null);
+
+                    /**
+                     * Creates a new Folder instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns Folder instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IFolder): google.cloud.dataform.v1.Folder;
+
+                    /**
+                     * Encodes the specified Folder message. Does not implicitly {@link google.cloud.dataform.v1.Folder.verify|verify} messages.
+                     * @param message Folder message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IFolder, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified Folder message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.Folder.verify|verify} messages.
+                     * @param message Folder message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IFolder, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a Folder message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns Folder
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.Folder;
+
+                    /**
+                     * Decodes a Folder message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns Folder
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.Folder;
+
+                    /**
+                     * Verifies a Folder message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a Folder message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns Folder
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.Folder;
+
+                    /**
+                     * Creates a plain object from a Folder message. Also converts values to other types if specified.
+                     * @param message Folder
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.Folder, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this Folder to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for Folder
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a CreateFolderRequest. */
+                interface ICreateFolderRequest {
+
+                    /** CreateFolderRequest parent */
+                    parent?: (string|null);
+
+                    /** CreateFolderRequest folder */
+                    folder?: (google.cloud.dataform.v1.IFolder|null);
+                }
+
+                /** Represents a CreateFolderRequest. */
+                class CreateFolderRequest implements ICreateFolderRequest {
+
+                    /**
+                     * Constructs a new CreateFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.ICreateFolderRequest);
+
+                    /** CreateFolderRequest parent. */
+                    public parent: string;
+
+                    /** CreateFolderRequest folder. */
+                    public folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                    /**
+                     * Creates a new CreateFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns CreateFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.ICreateFolderRequest): google.cloud.dataform.v1.CreateFolderRequest;
+
+                    /**
+                     * Encodes the specified CreateFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.CreateFolderRequest.verify|verify} messages.
+                     * @param message CreateFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.ICreateFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified CreateFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.CreateFolderRequest.verify|verify} messages.
+                     * @param message CreateFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.ICreateFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CreateFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CreateFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.CreateFolderRequest;
+
+                    /**
+                     * Decodes a CreateFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns CreateFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.CreateFolderRequest;
+
+                    /**
+                     * Verifies a CreateFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a CreateFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns CreateFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.CreateFolderRequest;
+
+                    /**
+                     * Creates a plain object from a CreateFolderRequest message. Also converts values to other types if specified.
+                     * @param message CreateFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.CreateFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this CreateFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for CreateFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a MoveFolderRequest. */
+                interface IMoveFolderRequest {
+
+                    /** MoveFolderRequest name */
+                    name?: (string|null);
+
+                    /** MoveFolderRequest destinationContainingFolder */
+                    destinationContainingFolder?: (string|null);
+                }
+
+                /** Represents a MoveFolderRequest. */
+                class MoveFolderRequest implements IMoveFolderRequest {
+
+                    /**
+                     * Constructs a new MoveFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IMoveFolderRequest);
+
+                    /** MoveFolderRequest name. */
+                    public name: string;
+
+                    /** MoveFolderRequest destinationContainingFolder. */
+                    public destinationContainingFolder?: (string|null);
+
+                    /**
+                     * Creates a new MoveFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns MoveFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IMoveFolderRequest): google.cloud.dataform.v1.MoveFolderRequest;
+
+                    /**
+                     * Encodes the specified MoveFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderRequest.verify|verify} messages.
+                     * @param message MoveFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IMoveFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified MoveFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderRequest.verify|verify} messages.
+                     * @param message MoveFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IMoveFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MoveFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MoveFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.MoveFolderRequest;
+
+                    /**
+                     * Decodes a MoveFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns MoveFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.MoveFolderRequest;
+
+                    /**
+                     * Verifies a MoveFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a MoveFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns MoveFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.MoveFolderRequest;
+
+                    /**
+                     * Creates a plain object from a MoveFolderRequest message. Also converts values to other types if specified.
+                     * @param message MoveFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.MoveFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this MoveFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for MoveFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a GetFolderRequest. */
+                interface IGetFolderRequest {
+
+                    /** GetFolderRequest name */
+                    name?: (string|null);
+                }
+
+                /** Represents a GetFolderRequest. */
+                class GetFolderRequest implements IGetFolderRequest {
+
+                    /**
+                     * Constructs a new GetFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IGetFolderRequest);
+
+                    /** GetFolderRequest name. */
+                    public name: string;
+
+                    /**
+                     * Creates a new GetFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns GetFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IGetFolderRequest): google.cloud.dataform.v1.GetFolderRequest;
+
+                    /**
+                     * Encodes the specified GetFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.GetFolderRequest.verify|verify} messages.
+                     * @param message GetFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IGetFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified GetFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.GetFolderRequest.verify|verify} messages.
+                     * @param message GetFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IGetFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a GetFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns GetFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.GetFolderRequest;
+
+                    /**
+                     * Decodes a GetFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns GetFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.GetFolderRequest;
+
+                    /**
+                     * Verifies a GetFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GetFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GetFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.GetFolderRequest;
+
+                    /**
+                     * Creates a plain object from a GetFolderRequest message. Also converts values to other types if specified.
+                     * @param message GetFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.GetFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GetFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for GetFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of an UpdateFolderRequest. */
+                interface IUpdateFolderRequest {
+
+                    /** UpdateFolderRequest updateMask */
+                    updateMask?: (google.protobuf.IFieldMask|null);
+
+                    /** UpdateFolderRequest folder */
+                    folder?: (google.cloud.dataform.v1.IFolder|null);
+                }
+
+                /** Represents an UpdateFolderRequest. */
+                class UpdateFolderRequest implements IUpdateFolderRequest {
+
+                    /**
+                     * Constructs a new UpdateFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IUpdateFolderRequest);
+
+                    /** UpdateFolderRequest updateMask. */
+                    public updateMask?: (google.protobuf.IFieldMask|null);
+
+                    /** UpdateFolderRequest folder. */
+                    public folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                    /**
+                     * Creates a new UpdateFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns UpdateFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IUpdateFolderRequest): google.cloud.dataform.v1.UpdateFolderRequest;
+
+                    /**
+                     * Encodes the specified UpdateFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.UpdateFolderRequest.verify|verify} messages.
+                     * @param message UpdateFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IUpdateFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified UpdateFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.UpdateFolderRequest.verify|verify} messages.
+                     * @param message UpdateFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IUpdateFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes an UpdateFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns UpdateFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.UpdateFolderRequest;
+
+                    /**
+                     * Decodes an UpdateFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns UpdateFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.UpdateFolderRequest;
+
+                    /**
+                     * Verifies an UpdateFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates an UpdateFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns UpdateFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.UpdateFolderRequest;
+
+                    /**
+                     * Creates a plain object from an UpdateFolderRequest message. Also converts values to other types if specified.
+                     * @param message UpdateFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.UpdateFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this UpdateFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for UpdateFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a DeleteFolderRequest. */
+                interface IDeleteFolderRequest {
+
+                    /** DeleteFolderRequest name */
+                    name?: (string|null);
+                }
+
+                /** Represents a DeleteFolderRequest. */
+                class DeleteFolderRequest implements IDeleteFolderRequest {
+
+                    /**
+                     * Constructs a new DeleteFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IDeleteFolderRequest);
+
+                    /** DeleteFolderRequest name. */
+                    public name: string;
+
+                    /**
+                     * Creates a new DeleteFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns DeleteFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IDeleteFolderRequest): google.cloud.dataform.v1.DeleteFolderRequest;
+
+                    /**
+                     * Encodes the specified DeleteFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderRequest.verify|verify} messages.
+                     * @param message DeleteFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IDeleteFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified DeleteFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderRequest.verify|verify} messages.
+                     * @param message DeleteFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IDeleteFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a DeleteFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns DeleteFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.DeleteFolderRequest;
+
+                    /**
+                     * Decodes a DeleteFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns DeleteFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.DeleteFolderRequest;
+
+                    /**
+                     * Verifies a DeleteFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a DeleteFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns DeleteFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.DeleteFolderRequest;
+
+                    /**
+                     * Creates a plain object from a DeleteFolderRequest message. Also converts values to other types if specified.
+                     * @param message DeleteFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.DeleteFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this DeleteFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for DeleteFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a DeleteFolderTreeRequest. */
+                interface IDeleteFolderTreeRequest {
+
+                    /** DeleteFolderTreeRequest name */
+                    name?: (string|null);
+
+                    /** DeleteFolderTreeRequest force */
+                    force?: (boolean|null);
+                }
+
+                /** Represents a DeleteFolderTreeRequest. */
+                class DeleteFolderTreeRequest implements IDeleteFolderTreeRequest {
+
+                    /**
+                     * Constructs a new DeleteFolderTreeRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IDeleteFolderTreeRequest);
+
+                    /** DeleteFolderTreeRequest name. */
+                    public name: string;
+
+                    /** DeleteFolderTreeRequest force. */
+                    public force: boolean;
+
+                    /**
+                     * Creates a new DeleteFolderTreeRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns DeleteFolderTreeRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IDeleteFolderTreeRequest): google.cloud.dataform.v1.DeleteFolderTreeRequest;
+
+                    /**
+                     * Encodes the specified DeleteFolderTreeRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeRequest.verify|verify} messages.
+                     * @param message DeleteFolderTreeRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IDeleteFolderTreeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified DeleteFolderTreeRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeRequest.verify|verify} messages.
+                     * @param message DeleteFolderTreeRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IDeleteFolderTreeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a DeleteFolderTreeRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns DeleteFolderTreeRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.DeleteFolderTreeRequest;
+
+                    /**
+                     * Decodes a DeleteFolderTreeRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns DeleteFolderTreeRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.DeleteFolderTreeRequest;
+
+                    /**
+                     * Verifies a DeleteFolderTreeRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a DeleteFolderTreeRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns DeleteFolderTreeRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.DeleteFolderTreeRequest;
+
+                    /**
+                     * Creates a plain object from a DeleteFolderTreeRequest message. Also converts values to other types if specified.
+                     * @param message DeleteFolderTreeRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.DeleteFolderTreeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this DeleteFolderTreeRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for DeleteFolderTreeRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a DeleteTeamFolderTreeRequest. */
+                interface IDeleteTeamFolderTreeRequest {
+
+                    /** DeleteTeamFolderTreeRequest name */
+                    name?: (string|null);
+
+                    /** DeleteTeamFolderTreeRequest force */
+                    force?: (boolean|null);
+                }
+
+                /** Represents a DeleteTeamFolderTreeRequest. */
+                class DeleteTeamFolderTreeRequest implements IDeleteTeamFolderTreeRequest {
+
+                    /**
+                     * Constructs a new DeleteTeamFolderTreeRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest);
+
+                    /** DeleteTeamFolderTreeRequest name. */
+                    public name: string;
+
+                    /** DeleteTeamFolderTreeRequest force. */
+                    public force: boolean;
+
+                    /**
+                     * Creates a new DeleteTeamFolderTreeRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns DeleteTeamFolderTreeRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest): google.cloud.dataform.v1.DeleteTeamFolderTreeRequest;
+
+                    /**
+                     * Encodes the specified DeleteTeamFolderTreeRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderTreeRequest.verify|verify} messages.
+                     * @param message DeleteTeamFolderTreeRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified DeleteTeamFolderTreeRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderTreeRequest.verify|verify} messages.
+                     * @param message DeleteTeamFolderTreeRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IDeleteTeamFolderTreeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a DeleteTeamFolderTreeRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns DeleteTeamFolderTreeRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.DeleteTeamFolderTreeRequest;
+
+                    /**
+                     * Decodes a DeleteTeamFolderTreeRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns DeleteTeamFolderTreeRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.DeleteTeamFolderTreeRequest;
+
+                    /**
+                     * Verifies a DeleteTeamFolderTreeRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a DeleteTeamFolderTreeRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns DeleteTeamFolderTreeRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.DeleteTeamFolderTreeRequest;
+
+                    /**
+                     * Creates a plain object from a DeleteTeamFolderTreeRequest message. Also converts values to other types if specified.
+                     * @param message DeleteTeamFolderTreeRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.DeleteTeamFolderTreeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this DeleteTeamFolderTreeRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for DeleteTeamFolderTreeRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a DeleteFolderTreeMetadata. */
+                interface IDeleteFolderTreeMetadata {
+
+                    /** DeleteFolderTreeMetadata createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** DeleteFolderTreeMetadata endTime */
+                    endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** DeleteFolderTreeMetadata target */
+                    target?: (string|null);
+
+                    /** DeleteFolderTreeMetadata state */
+                    state?: (google.cloud.dataform.v1.DeleteFolderTreeMetadata.State|keyof typeof google.cloud.dataform.v1.DeleteFolderTreeMetadata.State|null);
+
+                    /** DeleteFolderTreeMetadata percentComplete */
+                    percentComplete?: (number|null);
+                }
+
+                /** Represents a DeleteFolderTreeMetadata. */
+                class DeleteFolderTreeMetadata implements IDeleteFolderTreeMetadata {
+
+                    /**
+                     * Constructs a new DeleteFolderTreeMetadata.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IDeleteFolderTreeMetadata);
+
+                    /** DeleteFolderTreeMetadata createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** DeleteFolderTreeMetadata endTime. */
+                    public endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** DeleteFolderTreeMetadata target. */
+                    public target: string;
+
+                    /** DeleteFolderTreeMetadata state. */
+                    public state: (google.cloud.dataform.v1.DeleteFolderTreeMetadata.State|keyof typeof google.cloud.dataform.v1.DeleteFolderTreeMetadata.State);
+
+                    /** DeleteFolderTreeMetadata percentComplete. */
+                    public percentComplete: number;
+
+                    /**
+                     * Creates a new DeleteFolderTreeMetadata instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns DeleteFolderTreeMetadata instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IDeleteFolderTreeMetadata): google.cloud.dataform.v1.DeleteFolderTreeMetadata;
+
+                    /**
+                     * Encodes the specified DeleteFolderTreeMetadata message. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeMetadata.verify|verify} messages.
+                     * @param message DeleteFolderTreeMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IDeleteFolderTreeMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified DeleteFolderTreeMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteFolderTreeMetadata.verify|verify} messages.
+                     * @param message DeleteFolderTreeMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IDeleteFolderTreeMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a DeleteFolderTreeMetadata message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns DeleteFolderTreeMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.DeleteFolderTreeMetadata;
+
+                    /**
+                     * Decodes a DeleteFolderTreeMetadata message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns DeleteFolderTreeMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.DeleteFolderTreeMetadata;
+
+                    /**
+                     * Verifies a DeleteFolderTreeMetadata message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a DeleteFolderTreeMetadata message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns DeleteFolderTreeMetadata
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.DeleteFolderTreeMetadata;
+
+                    /**
+                     * Creates a plain object from a DeleteFolderTreeMetadata message. Also converts values to other types if specified.
+                     * @param message DeleteFolderTreeMetadata
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.DeleteFolderTreeMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this DeleteFolderTreeMetadata to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for DeleteFolderTreeMetadata
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace DeleteFolderTreeMetadata {
+
+                    /** State enum. */
+                    enum State {
+                        STATE_UNSPECIFIED = 0,
+                        INITIALIZED = 1,
+                        IN_PROGRESS = 2,
+                        SUCCEEDED = 3,
+                        FAILED = 4
+                    }
+                }
+
+                /** Properties of a QueryFolderContentsRequest. */
+                interface IQueryFolderContentsRequest {
+
+                    /** QueryFolderContentsRequest folder */
+                    folder?: (string|null);
+
+                    /** QueryFolderContentsRequest pageSize */
+                    pageSize?: (number|null);
+
+                    /** QueryFolderContentsRequest pageToken */
+                    pageToken?: (string|null);
+
+                    /** QueryFolderContentsRequest orderBy */
+                    orderBy?: (string|null);
+
+                    /** QueryFolderContentsRequest filter */
+                    filter?: (string|null);
+                }
+
+                /** Represents a QueryFolderContentsRequest. */
+                class QueryFolderContentsRequest implements IQueryFolderContentsRequest {
+
+                    /**
+                     * Constructs a new QueryFolderContentsRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IQueryFolderContentsRequest);
+
+                    /** QueryFolderContentsRequest folder. */
+                    public folder: string;
+
+                    /** QueryFolderContentsRequest pageSize. */
+                    public pageSize: number;
+
+                    /** QueryFolderContentsRequest pageToken. */
+                    public pageToken: string;
+
+                    /** QueryFolderContentsRequest orderBy. */
+                    public orderBy: string;
+
+                    /** QueryFolderContentsRequest filter. */
+                    public filter: string;
+
+                    /**
+                     * Creates a new QueryFolderContentsRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns QueryFolderContentsRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IQueryFolderContentsRequest): google.cloud.dataform.v1.QueryFolderContentsRequest;
+
+                    /**
+                     * Encodes the specified QueryFolderContentsRequest message. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsRequest.verify|verify} messages.
+                     * @param message QueryFolderContentsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IQueryFolderContentsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified QueryFolderContentsRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsRequest.verify|verify} messages.
+                     * @param message QueryFolderContentsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IQueryFolderContentsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a QueryFolderContentsRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns QueryFolderContentsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryFolderContentsRequest;
+
+                    /**
+                     * Decodes a QueryFolderContentsRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns QueryFolderContentsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryFolderContentsRequest;
+
+                    /**
+                     * Verifies a QueryFolderContentsRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a QueryFolderContentsRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns QueryFolderContentsRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryFolderContentsRequest;
+
+                    /**
+                     * Creates a plain object from a QueryFolderContentsRequest message. Also converts values to other types if specified.
+                     * @param message QueryFolderContentsRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.QueryFolderContentsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this QueryFolderContentsRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for QueryFolderContentsRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a QueryFolderContentsResponse. */
+                interface IQueryFolderContentsResponse {
+
+                    /** QueryFolderContentsResponse entries */
+                    entries?: (google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry[]|null);
+
+                    /** QueryFolderContentsResponse nextPageToken */
+                    nextPageToken?: (string|null);
+                }
+
+                /** Represents a QueryFolderContentsResponse. */
+                class QueryFolderContentsResponse implements IQueryFolderContentsResponse {
+
+                    /**
+                     * Constructs a new QueryFolderContentsResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IQueryFolderContentsResponse);
+
+                    /** QueryFolderContentsResponse entries. */
+                    public entries: google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry[];
+
+                    /** QueryFolderContentsResponse nextPageToken. */
+                    public nextPageToken: string;
+
+                    /**
+                     * Creates a new QueryFolderContentsResponse instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns QueryFolderContentsResponse instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IQueryFolderContentsResponse): google.cloud.dataform.v1.QueryFolderContentsResponse;
+
+                    /**
+                     * Encodes the specified QueryFolderContentsResponse message. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.verify|verify} messages.
+                     * @param message QueryFolderContentsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IQueryFolderContentsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified QueryFolderContentsResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.verify|verify} messages.
+                     * @param message QueryFolderContentsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IQueryFolderContentsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a QueryFolderContentsResponse message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns QueryFolderContentsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryFolderContentsResponse;
+
+                    /**
+                     * Decodes a QueryFolderContentsResponse message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns QueryFolderContentsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryFolderContentsResponse;
+
+                    /**
+                     * Verifies a QueryFolderContentsResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a QueryFolderContentsResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns QueryFolderContentsResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryFolderContentsResponse;
+
+                    /**
+                     * Creates a plain object from a QueryFolderContentsResponse message. Also converts values to other types if specified.
+                     * @param message QueryFolderContentsResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.QueryFolderContentsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this QueryFolderContentsResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for QueryFolderContentsResponse
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace QueryFolderContentsResponse {
+
+                    /** Properties of a FolderContentsEntry. */
+                    interface IFolderContentsEntry {
+
+                        /** FolderContentsEntry folder */
+                        folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                        /** FolderContentsEntry repository */
+                        repository?: (google.cloud.dataform.v1.IRepository|null);
+                    }
+
+                    /** Represents a FolderContentsEntry. */
+                    class FolderContentsEntry implements IFolderContentsEntry {
+
+                        /**
+                         * Constructs a new FolderContentsEntry.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry);
+
+                        /** FolderContentsEntry folder. */
+                        public folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                        /** FolderContentsEntry repository. */
+                        public repository?: (google.cloud.dataform.v1.IRepository|null);
+
+                        /** FolderContentsEntry entry. */
+                        public entry?: ("folder"|"repository");
+
+                        /**
+                         * Creates a new FolderContentsEntry instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns FolderContentsEntry instance
+                         */
+                        public static create(properties?: google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry): google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry;
+
+                        /**
+                         * Encodes the specified FolderContentsEntry message. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.verify|verify} messages.
+                         * @param message FolderContentsEntry message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified FolderContentsEntry message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry.verify|verify} messages.
+                         * @param message FolderContentsEntry message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.dataform.v1.QueryFolderContentsResponse.IFolderContentsEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a FolderContentsEntry message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns FolderContentsEntry
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry;
+
+                        /**
+                         * Decodes a FolderContentsEntry message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns FolderContentsEntry
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry;
+
+                        /**
+                         * Verifies a FolderContentsEntry message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a FolderContentsEntry message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns FolderContentsEntry
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry;
+
+                        /**
+                         * Creates a plain object from a FolderContentsEntry message. Also converts values to other types if specified.
+                         * @param message FolderContentsEntry
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.dataform.v1.QueryFolderContentsResponse.FolderContentsEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this FolderContentsEntry to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+
+                        /**
+                         * Gets the default type url for FolderContentsEntry
+                         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns The default type url
+                         */
+                        public static getTypeUrl(typeUrlPrefix?: string): string;
+                    }
+                }
+
+                /** Properties of a QueryUserRootContentsRequest. */
+                interface IQueryUserRootContentsRequest {
+
+                    /** QueryUserRootContentsRequest location */
+                    location?: (string|null);
+
+                    /** QueryUserRootContentsRequest pageSize */
+                    pageSize?: (number|null);
+
+                    /** QueryUserRootContentsRequest pageToken */
+                    pageToken?: (string|null);
+
+                    /** QueryUserRootContentsRequest orderBy */
+                    orderBy?: (string|null);
+
+                    /** QueryUserRootContentsRequest filter */
+                    filter?: (string|null);
+                }
+
+                /** Represents a QueryUserRootContentsRequest. */
+                class QueryUserRootContentsRequest implements IQueryUserRootContentsRequest {
+
+                    /**
+                     * Constructs a new QueryUserRootContentsRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IQueryUserRootContentsRequest);
+
+                    /** QueryUserRootContentsRequest location. */
+                    public location: string;
+
+                    /** QueryUserRootContentsRequest pageSize. */
+                    public pageSize: number;
+
+                    /** QueryUserRootContentsRequest pageToken. */
+                    public pageToken: string;
+
+                    /** QueryUserRootContentsRequest orderBy. */
+                    public orderBy: string;
+
+                    /** QueryUserRootContentsRequest filter. */
+                    public filter: string;
+
+                    /**
+                     * Creates a new QueryUserRootContentsRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns QueryUserRootContentsRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IQueryUserRootContentsRequest): google.cloud.dataform.v1.QueryUserRootContentsRequest;
+
+                    /**
+                     * Encodes the specified QueryUserRootContentsRequest message. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsRequest.verify|verify} messages.
+                     * @param message QueryUserRootContentsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IQueryUserRootContentsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified QueryUserRootContentsRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsRequest.verify|verify} messages.
+                     * @param message QueryUserRootContentsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IQueryUserRootContentsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a QueryUserRootContentsRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns QueryUserRootContentsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryUserRootContentsRequest;
+
+                    /**
+                     * Decodes a QueryUserRootContentsRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns QueryUserRootContentsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryUserRootContentsRequest;
+
+                    /**
+                     * Verifies a QueryUserRootContentsRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a QueryUserRootContentsRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns QueryUserRootContentsRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryUserRootContentsRequest;
+
+                    /**
+                     * Creates a plain object from a QueryUserRootContentsRequest message. Also converts values to other types if specified.
+                     * @param message QueryUserRootContentsRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.QueryUserRootContentsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this QueryUserRootContentsRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for QueryUserRootContentsRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a QueryUserRootContentsResponse. */
+                interface IQueryUserRootContentsResponse {
+
+                    /** QueryUserRootContentsResponse entries */
+                    entries?: (google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry[]|null);
+
+                    /** QueryUserRootContentsResponse nextPageToken */
+                    nextPageToken?: (string|null);
+                }
+
+                /** Represents a QueryUserRootContentsResponse. */
+                class QueryUserRootContentsResponse implements IQueryUserRootContentsResponse {
+
+                    /**
+                     * Constructs a new QueryUserRootContentsResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IQueryUserRootContentsResponse);
+
+                    /** QueryUserRootContentsResponse entries. */
+                    public entries: google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry[];
+
+                    /** QueryUserRootContentsResponse nextPageToken. */
+                    public nextPageToken: string;
+
+                    /**
+                     * Creates a new QueryUserRootContentsResponse instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns QueryUserRootContentsResponse instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IQueryUserRootContentsResponse): google.cloud.dataform.v1.QueryUserRootContentsResponse;
+
+                    /**
+                     * Encodes the specified QueryUserRootContentsResponse message. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.verify|verify} messages.
+                     * @param message QueryUserRootContentsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IQueryUserRootContentsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified QueryUserRootContentsResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.verify|verify} messages.
+                     * @param message QueryUserRootContentsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IQueryUserRootContentsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a QueryUserRootContentsResponse message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns QueryUserRootContentsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryUserRootContentsResponse;
+
+                    /**
+                     * Decodes a QueryUserRootContentsResponse message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns QueryUserRootContentsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryUserRootContentsResponse;
+
+                    /**
+                     * Verifies a QueryUserRootContentsResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a QueryUserRootContentsResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns QueryUserRootContentsResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryUserRootContentsResponse;
+
+                    /**
+                     * Creates a plain object from a QueryUserRootContentsResponse message. Also converts values to other types if specified.
+                     * @param message QueryUserRootContentsResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.QueryUserRootContentsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this QueryUserRootContentsResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for QueryUserRootContentsResponse
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace QueryUserRootContentsResponse {
+
+                    /** Properties of a RootContentsEntry. */
+                    interface IRootContentsEntry {
+
+                        /** RootContentsEntry folder */
+                        folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                        /** RootContentsEntry repository */
+                        repository?: (google.cloud.dataform.v1.IRepository|null);
+                    }
+
+                    /** Represents a RootContentsEntry. */
+                    class RootContentsEntry implements IRootContentsEntry {
+
+                        /**
+                         * Constructs a new RootContentsEntry.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry);
+
+                        /** RootContentsEntry folder. */
+                        public folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                        /** RootContentsEntry repository. */
+                        public repository?: (google.cloud.dataform.v1.IRepository|null);
+
+                        /** RootContentsEntry entry. */
+                        public entry?: ("folder"|"repository");
+
+                        /**
+                         * Creates a new RootContentsEntry instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns RootContentsEntry instance
+                         */
+                        public static create(properties?: google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry): google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry;
+
+                        /**
+                         * Encodes the specified RootContentsEntry message. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.verify|verify} messages.
+                         * @param message RootContentsEntry message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified RootContentsEntry message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry.verify|verify} messages.
+                         * @param message RootContentsEntry message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.dataform.v1.QueryUserRootContentsResponse.IRootContentsEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a RootContentsEntry message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns RootContentsEntry
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry;
+
+                        /**
+                         * Decodes a RootContentsEntry message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns RootContentsEntry
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry;
+
+                        /**
+                         * Verifies a RootContentsEntry message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a RootContentsEntry message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns RootContentsEntry
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry;
+
+                        /**
+                         * Creates a plain object from a RootContentsEntry message. Also converts values to other types if specified.
+                         * @param message RootContentsEntry
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.dataform.v1.QueryUserRootContentsResponse.RootContentsEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this RootContentsEntry to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+
+                        /**
+                         * Gets the default type url for RootContentsEntry
+                         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns The default type url
+                         */
+                        public static getTypeUrl(typeUrlPrefix?: string): string;
+                    }
+                }
+
+                /** Properties of a TeamFolder. */
+                interface ITeamFolder {
+
+                    /** TeamFolder name */
+                    name?: (string|null);
+
+                    /** TeamFolder displayName */
+                    displayName?: (string|null);
+
+                    /** TeamFolder createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** TeamFolder updateTime */
+                    updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** TeamFolder internalMetadata */
+                    internalMetadata?: (string|null);
+
+                    /** TeamFolder creatorIamPrincipal */
+                    creatorIamPrincipal?: (string|null);
+                }
+
+                /** Represents a TeamFolder. */
+                class TeamFolder implements ITeamFolder {
+
+                    /**
+                     * Constructs a new TeamFolder.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.ITeamFolder);
+
+                    /** TeamFolder name. */
+                    public name: string;
+
+                    /** TeamFolder displayName. */
+                    public displayName: string;
+
+                    /** TeamFolder createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** TeamFolder updateTime. */
+                    public updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** TeamFolder internalMetadata. */
+                    public internalMetadata?: (string|null);
+
+                    /** TeamFolder creatorIamPrincipal. */
+                    public creatorIamPrincipal?: (string|null);
+
+                    /**
+                     * Creates a new TeamFolder instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns TeamFolder instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.ITeamFolder): google.cloud.dataform.v1.TeamFolder;
+
+                    /**
+                     * Encodes the specified TeamFolder message. Does not implicitly {@link google.cloud.dataform.v1.TeamFolder.verify|verify} messages.
+                     * @param message TeamFolder message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.ITeamFolder, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified TeamFolder message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.TeamFolder.verify|verify} messages.
+                     * @param message TeamFolder message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.ITeamFolder, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a TeamFolder message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns TeamFolder
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.TeamFolder;
+
+                    /**
+                     * Decodes a TeamFolder message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns TeamFolder
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.TeamFolder;
+
+                    /**
+                     * Verifies a TeamFolder message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a TeamFolder message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns TeamFolder
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.TeamFolder;
+
+                    /**
+                     * Creates a plain object from a TeamFolder message. Also converts values to other types if specified.
+                     * @param message TeamFolder
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.TeamFolder, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this TeamFolder to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for TeamFolder
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a CreateTeamFolderRequest. */
+                interface ICreateTeamFolderRequest {
+
+                    /** CreateTeamFolderRequest parent */
+                    parent?: (string|null);
+
+                    /** CreateTeamFolderRequest teamFolder */
+                    teamFolder?: (google.cloud.dataform.v1.ITeamFolder|null);
+                }
+
+                /** Represents a CreateTeamFolderRequest. */
+                class CreateTeamFolderRequest implements ICreateTeamFolderRequest {
+
+                    /**
+                     * Constructs a new CreateTeamFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.ICreateTeamFolderRequest);
+
+                    /** CreateTeamFolderRequest parent. */
+                    public parent: string;
+
+                    /** CreateTeamFolderRequest teamFolder. */
+                    public teamFolder?: (google.cloud.dataform.v1.ITeamFolder|null);
+
+                    /**
+                     * Creates a new CreateTeamFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns CreateTeamFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.ICreateTeamFolderRequest): google.cloud.dataform.v1.CreateTeamFolderRequest;
+
+                    /**
+                     * Encodes the specified CreateTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.CreateTeamFolderRequest.verify|verify} messages.
+                     * @param message CreateTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.ICreateTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified CreateTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.CreateTeamFolderRequest.verify|verify} messages.
+                     * @param message CreateTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.ICreateTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CreateTeamFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CreateTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.CreateTeamFolderRequest;
+
+                    /**
+                     * Decodes a CreateTeamFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns CreateTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.CreateTeamFolderRequest;
+
+                    /**
+                     * Verifies a CreateTeamFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a CreateTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns CreateTeamFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.CreateTeamFolderRequest;
+
+                    /**
+                     * Creates a plain object from a CreateTeamFolderRequest message. Also converts values to other types if specified.
+                     * @param message CreateTeamFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.CreateTeamFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this CreateTeamFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for CreateTeamFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a GetTeamFolderRequest. */
+                interface IGetTeamFolderRequest {
+
+                    /** GetTeamFolderRequest name */
+                    name?: (string|null);
+                }
+
+                /** Represents a GetTeamFolderRequest. */
+                class GetTeamFolderRequest implements IGetTeamFolderRequest {
+
+                    /**
+                     * Constructs a new GetTeamFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IGetTeamFolderRequest);
+
+                    /** GetTeamFolderRequest name. */
+                    public name: string;
+
+                    /**
+                     * Creates a new GetTeamFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns GetTeamFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IGetTeamFolderRequest): google.cloud.dataform.v1.GetTeamFolderRequest;
+
+                    /**
+                     * Encodes the specified GetTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.GetTeamFolderRequest.verify|verify} messages.
+                     * @param message GetTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IGetTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified GetTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.GetTeamFolderRequest.verify|verify} messages.
+                     * @param message GetTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IGetTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a GetTeamFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns GetTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.GetTeamFolderRequest;
+
+                    /**
+                     * Decodes a GetTeamFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns GetTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.GetTeamFolderRequest;
+
+                    /**
+                     * Verifies a GetTeamFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GetTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GetTeamFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.GetTeamFolderRequest;
+
+                    /**
+                     * Creates a plain object from a GetTeamFolderRequest message. Also converts values to other types if specified.
+                     * @param message GetTeamFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.GetTeamFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GetTeamFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for GetTeamFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of an UpdateTeamFolderRequest. */
+                interface IUpdateTeamFolderRequest {
+
+                    /** UpdateTeamFolderRequest updateMask */
+                    updateMask?: (google.protobuf.IFieldMask|null);
+
+                    /** UpdateTeamFolderRequest teamFolder */
+                    teamFolder?: (google.cloud.dataform.v1.ITeamFolder|null);
+                }
+
+                /** Represents an UpdateTeamFolderRequest. */
+                class UpdateTeamFolderRequest implements IUpdateTeamFolderRequest {
+
+                    /**
+                     * Constructs a new UpdateTeamFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IUpdateTeamFolderRequest);
+
+                    /** UpdateTeamFolderRequest updateMask. */
+                    public updateMask?: (google.protobuf.IFieldMask|null);
+
+                    /** UpdateTeamFolderRequest teamFolder. */
+                    public teamFolder?: (google.cloud.dataform.v1.ITeamFolder|null);
+
+                    /**
+                     * Creates a new UpdateTeamFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns UpdateTeamFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IUpdateTeamFolderRequest): google.cloud.dataform.v1.UpdateTeamFolderRequest;
+
+                    /**
+                     * Encodes the specified UpdateTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.UpdateTeamFolderRequest.verify|verify} messages.
+                     * @param message UpdateTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IUpdateTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified UpdateTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.UpdateTeamFolderRequest.verify|verify} messages.
+                     * @param message UpdateTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IUpdateTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes an UpdateTeamFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns UpdateTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.UpdateTeamFolderRequest;
+
+                    /**
+                     * Decodes an UpdateTeamFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns UpdateTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.UpdateTeamFolderRequest;
+
+                    /**
+                     * Verifies an UpdateTeamFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates an UpdateTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns UpdateTeamFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.UpdateTeamFolderRequest;
+
+                    /**
+                     * Creates a plain object from an UpdateTeamFolderRequest message. Also converts values to other types if specified.
+                     * @param message UpdateTeamFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.UpdateTeamFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this UpdateTeamFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for UpdateTeamFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a DeleteTeamFolderRequest. */
+                interface IDeleteTeamFolderRequest {
+
+                    /** DeleteTeamFolderRequest name */
+                    name?: (string|null);
+                }
+
+                /** Represents a DeleteTeamFolderRequest. */
+                class DeleteTeamFolderRequest implements IDeleteTeamFolderRequest {
+
+                    /**
+                     * Constructs a new DeleteTeamFolderRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IDeleteTeamFolderRequest);
+
+                    /** DeleteTeamFolderRequest name. */
+                    public name: string;
+
+                    /**
+                     * Creates a new DeleteTeamFolderRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns DeleteTeamFolderRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IDeleteTeamFolderRequest): google.cloud.dataform.v1.DeleteTeamFolderRequest;
+
+                    /**
+                     * Encodes the specified DeleteTeamFolderRequest message. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderRequest.verify|verify} messages.
+                     * @param message DeleteTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IDeleteTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified DeleteTeamFolderRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.DeleteTeamFolderRequest.verify|verify} messages.
+                     * @param message DeleteTeamFolderRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IDeleteTeamFolderRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a DeleteTeamFolderRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns DeleteTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.DeleteTeamFolderRequest;
+
+                    /**
+                     * Decodes a DeleteTeamFolderRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns DeleteTeamFolderRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.DeleteTeamFolderRequest;
+
+                    /**
+                     * Verifies a DeleteTeamFolderRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a DeleteTeamFolderRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns DeleteTeamFolderRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.DeleteTeamFolderRequest;
+
+                    /**
+                     * Creates a plain object from a DeleteTeamFolderRequest message. Also converts values to other types if specified.
+                     * @param message DeleteTeamFolderRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.DeleteTeamFolderRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this DeleteTeamFolderRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for DeleteTeamFolderRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a QueryTeamFolderContentsRequest. */
+                interface IQueryTeamFolderContentsRequest {
+
+                    /** QueryTeamFolderContentsRequest teamFolder */
+                    teamFolder?: (string|null);
+
+                    /** QueryTeamFolderContentsRequest pageSize */
+                    pageSize?: (number|null);
+
+                    /** QueryTeamFolderContentsRequest pageToken */
+                    pageToken?: (string|null);
+
+                    /** QueryTeamFolderContentsRequest orderBy */
+                    orderBy?: (string|null);
+
+                    /** QueryTeamFolderContentsRequest filter */
+                    filter?: (string|null);
+                }
+
+                /** Represents a QueryTeamFolderContentsRequest. */
+                class QueryTeamFolderContentsRequest implements IQueryTeamFolderContentsRequest {
+
+                    /**
+                     * Constructs a new QueryTeamFolderContentsRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IQueryTeamFolderContentsRequest);
+
+                    /** QueryTeamFolderContentsRequest teamFolder. */
+                    public teamFolder: string;
+
+                    /** QueryTeamFolderContentsRequest pageSize. */
+                    public pageSize: number;
+
+                    /** QueryTeamFolderContentsRequest pageToken. */
+                    public pageToken: string;
+
+                    /** QueryTeamFolderContentsRequest orderBy. */
+                    public orderBy: string;
+
+                    /** QueryTeamFolderContentsRequest filter. */
+                    public filter: string;
+
+                    /**
+                     * Creates a new QueryTeamFolderContentsRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns QueryTeamFolderContentsRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IQueryTeamFolderContentsRequest): google.cloud.dataform.v1.QueryTeamFolderContentsRequest;
+
+                    /**
+                     * Encodes the specified QueryTeamFolderContentsRequest message. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsRequest.verify|verify} messages.
+                     * @param message QueryTeamFolderContentsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IQueryTeamFolderContentsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified QueryTeamFolderContentsRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsRequest.verify|verify} messages.
+                     * @param message QueryTeamFolderContentsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IQueryTeamFolderContentsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a QueryTeamFolderContentsRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns QueryTeamFolderContentsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryTeamFolderContentsRequest;
+
+                    /**
+                     * Decodes a QueryTeamFolderContentsRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns QueryTeamFolderContentsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryTeamFolderContentsRequest;
+
+                    /**
+                     * Verifies a QueryTeamFolderContentsRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a QueryTeamFolderContentsRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns QueryTeamFolderContentsRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryTeamFolderContentsRequest;
+
+                    /**
+                     * Creates a plain object from a QueryTeamFolderContentsRequest message. Also converts values to other types if specified.
+                     * @param message QueryTeamFolderContentsRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.QueryTeamFolderContentsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this QueryTeamFolderContentsRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for QueryTeamFolderContentsRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a QueryTeamFolderContentsResponse. */
+                interface IQueryTeamFolderContentsResponse {
+
+                    /** QueryTeamFolderContentsResponse entries */
+                    entries?: (google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[]|null);
+
+                    /** QueryTeamFolderContentsResponse nextPageToken */
+                    nextPageToken?: (string|null);
+                }
+
+                /** Represents a QueryTeamFolderContentsResponse. */
+                class QueryTeamFolderContentsResponse implements IQueryTeamFolderContentsResponse {
+
+                    /**
+                     * Constructs a new QueryTeamFolderContentsResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IQueryTeamFolderContentsResponse);
+
+                    /** QueryTeamFolderContentsResponse entries. */
+                    public entries: google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry[];
+
+                    /** QueryTeamFolderContentsResponse nextPageToken. */
+                    public nextPageToken: string;
+
+                    /**
+                     * Creates a new QueryTeamFolderContentsResponse instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns QueryTeamFolderContentsResponse instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IQueryTeamFolderContentsResponse): google.cloud.dataform.v1.QueryTeamFolderContentsResponse;
+
+                    /**
+                     * Encodes the specified QueryTeamFolderContentsResponse message. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.verify|verify} messages.
+                     * @param message QueryTeamFolderContentsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IQueryTeamFolderContentsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified QueryTeamFolderContentsResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.verify|verify} messages.
+                     * @param message QueryTeamFolderContentsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IQueryTeamFolderContentsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a QueryTeamFolderContentsResponse message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns QueryTeamFolderContentsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryTeamFolderContentsResponse;
+
+                    /**
+                     * Decodes a QueryTeamFolderContentsResponse message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns QueryTeamFolderContentsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryTeamFolderContentsResponse;
+
+                    /**
+                     * Verifies a QueryTeamFolderContentsResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a QueryTeamFolderContentsResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns QueryTeamFolderContentsResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryTeamFolderContentsResponse;
+
+                    /**
+                     * Creates a plain object from a QueryTeamFolderContentsResponse message. Also converts values to other types if specified.
+                     * @param message QueryTeamFolderContentsResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.QueryTeamFolderContentsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this QueryTeamFolderContentsResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for QueryTeamFolderContentsResponse
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace QueryTeamFolderContentsResponse {
+
+                    /** Properties of a TeamFolderContentsEntry. */
+                    interface ITeamFolderContentsEntry {
+
+                        /** TeamFolderContentsEntry folder */
+                        folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                        /** TeamFolderContentsEntry repository */
+                        repository?: (google.cloud.dataform.v1.IRepository|null);
+                    }
+
+                    /** Represents a TeamFolderContentsEntry. */
+                    class TeamFolderContentsEntry implements ITeamFolderContentsEntry {
+
+                        /**
+                         * Constructs a new TeamFolderContentsEntry.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry);
+
+                        /** TeamFolderContentsEntry folder. */
+                        public folder?: (google.cloud.dataform.v1.IFolder|null);
+
+                        /** TeamFolderContentsEntry repository. */
+                        public repository?: (google.cloud.dataform.v1.IRepository|null);
+
+                        /** TeamFolderContentsEntry entry. */
+                        public entry?: ("folder"|"repository");
+
+                        /**
+                         * Creates a new TeamFolderContentsEntry instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns TeamFolderContentsEntry instance
+                         */
+                        public static create(properties?: google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry): google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry;
+
+                        /**
+                         * Encodes the specified TeamFolderContentsEntry message. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.verify|verify} messages.
+                         * @param message TeamFolderContentsEntry message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified TeamFolderContentsEntry message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry.verify|verify} messages.
+                         * @param message TeamFolderContentsEntry message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.dataform.v1.QueryTeamFolderContentsResponse.ITeamFolderContentsEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a TeamFolderContentsEntry message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns TeamFolderContentsEntry
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry;
+
+                        /**
+                         * Decodes a TeamFolderContentsEntry message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns TeamFolderContentsEntry
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry;
+
+                        /**
+                         * Verifies a TeamFolderContentsEntry message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a TeamFolderContentsEntry message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns TeamFolderContentsEntry
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry;
+
+                        /**
+                         * Creates a plain object from a TeamFolderContentsEntry message. Also converts values to other types if specified.
+                         * @param message TeamFolderContentsEntry
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.dataform.v1.QueryTeamFolderContentsResponse.TeamFolderContentsEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this TeamFolderContentsEntry to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+
+                        /**
+                         * Gets the default type url for TeamFolderContentsEntry
+                         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns The default type url
+                         */
+                        public static getTypeUrl(typeUrlPrefix?: string): string;
+                    }
+                }
+
+                /** Properties of a SearchTeamFoldersRequest. */
+                interface ISearchTeamFoldersRequest {
+
+                    /** SearchTeamFoldersRequest location */
+                    location?: (string|null);
+
+                    /** SearchTeamFoldersRequest pageSize */
+                    pageSize?: (number|null);
+
+                    /** SearchTeamFoldersRequest pageToken */
+                    pageToken?: (string|null);
+
+                    /** SearchTeamFoldersRequest orderBy */
+                    orderBy?: (string|null);
+
+                    /** SearchTeamFoldersRequest filter */
+                    filter?: (string|null);
+                }
+
+                /** Represents a SearchTeamFoldersRequest. */
+                class SearchTeamFoldersRequest implements ISearchTeamFoldersRequest {
+
+                    /**
+                     * Constructs a new SearchTeamFoldersRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.ISearchTeamFoldersRequest);
+
+                    /** SearchTeamFoldersRequest location. */
+                    public location: string;
+
+                    /** SearchTeamFoldersRequest pageSize. */
+                    public pageSize: number;
+
+                    /** SearchTeamFoldersRequest pageToken. */
+                    public pageToken: string;
+
+                    /** SearchTeamFoldersRequest orderBy. */
+                    public orderBy: string;
+
+                    /** SearchTeamFoldersRequest filter. */
+                    public filter: string;
+
+                    /**
+                     * Creates a new SearchTeamFoldersRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns SearchTeamFoldersRequest instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.ISearchTeamFoldersRequest): google.cloud.dataform.v1.SearchTeamFoldersRequest;
+
+                    /**
+                     * Encodes the specified SearchTeamFoldersRequest message. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersRequest.verify|verify} messages.
+                     * @param message SearchTeamFoldersRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.ISearchTeamFoldersRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified SearchTeamFoldersRequest message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersRequest.verify|verify} messages.
+                     * @param message SearchTeamFoldersRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.ISearchTeamFoldersRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a SearchTeamFoldersRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns SearchTeamFoldersRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.SearchTeamFoldersRequest;
+
+                    /**
+                     * Decodes a SearchTeamFoldersRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns SearchTeamFoldersRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.SearchTeamFoldersRequest;
+
+                    /**
+                     * Verifies a SearchTeamFoldersRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a SearchTeamFoldersRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns SearchTeamFoldersRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.SearchTeamFoldersRequest;
+
+                    /**
+                     * Creates a plain object from a SearchTeamFoldersRequest message. Also converts values to other types if specified.
+                     * @param message SearchTeamFoldersRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.SearchTeamFoldersRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this SearchTeamFoldersRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for SearchTeamFoldersRequest
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a SearchTeamFoldersResponse. */
+                interface ISearchTeamFoldersResponse {
+
+                    /** SearchTeamFoldersResponse results */
+                    results?: (google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult[]|null);
+
+                    /** SearchTeamFoldersResponse nextPageToken */
+                    nextPageToken?: (string|null);
+                }
+
+                /** Represents a SearchTeamFoldersResponse. */
+                class SearchTeamFoldersResponse implements ISearchTeamFoldersResponse {
+
+                    /**
+                     * Constructs a new SearchTeamFoldersResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.ISearchTeamFoldersResponse);
+
+                    /** SearchTeamFoldersResponse results. */
+                    public results: google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult[];
+
+                    /** SearchTeamFoldersResponse nextPageToken. */
+                    public nextPageToken: string;
+
+                    /**
+                     * Creates a new SearchTeamFoldersResponse instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns SearchTeamFoldersResponse instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.ISearchTeamFoldersResponse): google.cloud.dataform.v1.SearchTeamFoldersResponse;
+
+                    /**
+                     * Encodes the specified SearchTeamFoldersResponse message. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.verify|verify} messages.
+                     * @param message SearchTeamFoldersResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.ISearchTeamFoldersResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified SearchTeamFoldersResponse message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.verify|verify} messages.
+                     * @param message SearchTeamFoldersResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.ISearchTeamFoldersResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a SearchTeamFoldersResponse message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns SearchTeamFoldersResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.SearchTeamFoldersResponse;
+
+                    /**
+                     * Decodes a SearchTeamFoldersResponse message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns SearchTeamFoldersResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.SearchTeamFoldersResponse;
+
+                    /**
+                     * Verifies a SearchTeamFoldersResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a SearchTeamFoldersResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns SearchTeamFoldersResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.SearchTeamFoldersResponse;
+
+                    /**
+                     * Creates a plain object from a SearchTeamFoldersResponse message. Also converts values to other types if specified.
+                     * @param message SearchTeamFoldersResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.SearchTeamFoldersResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this SearchTeamFoldersResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for SearchTeamFoldersResponse
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace SearchTeamFoldersResponse {
+
+                    /** Properties of a TeamFolderSearchResult. */
+                    interface ITeamFolderSearchResult {
+
+                        /** TeamFolderSearchResult teamFolder */
+                        teamFolder?: (google.cloud.dataform.v1.ITeamFolder|null);
+                    }
+
+                    /** Represents a TeamFolderSearchResult. */
+                    class TeamFolderSearchResult implements ITeamFolderSearchResult {
+
+                        /**
+                         * Constructs a new TeamFolderSearchResult.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult);
+
+                        /** TeamFolderSearchResult teamFolder. */
+                        public teamFolder?: (google.cloud.dataform.v1.ITeamFolder|null);
+
+                        /** TeamFolderSearchResult entry. */
+                        public entry?: "teamFolder";
+
+                        /**
+                         * Creates a new TeamFolderSearchResult instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns TeamFolderSearchResult instance
+                         */
+                        public static create(properties?: google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult): google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult;
+
+                        /**
+                         * Encodes the specified TeamFolderSearchResult message. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.verify|verify} messages.
+                         * @param message TeamFolderSearchResult message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified TeamFolderSearchResult message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult.verify|verify} messages.
+                         * @param message TeamFolderSearchResult message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.dataform.v1.SearchTeamFoldersResponse.ITeamFolderSearchResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a TeamFolderSearchResult message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns TeamFolderSearchResult
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult;
+
+                        /**
+                         * Decodes a TeamFolderSearchResult message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns TeamFolderSearchResult
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult;
+
+                        /**
+                         * Verifies a TeamFolderSearchResult message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a TeamFolderSearchResult message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns TeamFolderSearchResult
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult;
+
+                        /**
+                         * Creates a plain object from a TeamFolderSearchResult message. Also converts values to other types if specified.
+                         * @param message TeamFolderSearchResult
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.dataform.v1.SearchTeamFoldersResponse.TeamFolderSearchResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this TeamFolderSearchResult to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+
+                        /**
+                         * Gets the default type url for TeamFolderSearchResult
+                         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns The default type url
+                         */
+                        public static getTypeUrl(typeUrlPrefix?: string): string;
+                    }
+                }
+
+                /** Properties of a MoveFolderMetadata. */
+                interface IMoveFolderMetadata {
+
+                    /** MoveFolderMetadata createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveFolderMetadata endTime */
+                    endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveFolderMetadata target */
+                    target?: (string|null);
+
+                    /** MoveFolderMetadata state */
+                    state?: (google.cloud.dataform.v1.MoveFolderMetadata.State|keyof typeof google.cloud.dataform.v1.MoveFolderMetadata.State|null);
+
+                    /** MoveFolderMetadata percentComplete */
+                    percentComplete?: (number|null);
+                }
+
+                /** Represents a MoveFolderMetadata. */
+                class MoveFolderMetadata implements IMoveFolderMetadata {
+
+                    /**
+                     * Constructs a new MoveFolderMetadata.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IMoveFolderMetadata);
+
+                    /** MoveFolderMetadata createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveFolderMetadata endTime. */
+                    public endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveFolderMetadata target. */
+                    public target: string;
+
+                    /** MoveFolderMetadata state. */
+                    public state: (google.cloud.dataform.v1.MoveFolderMetadata.State|keyof typeof google.cloud.dataform.v1.MoveFolderMetadata.State);
+
+                    /** MoveFolderMetadata percentComplete. */
+                    public percentComplete: number;
+
+                    /**
+                     * Creates a new MoveFolderMetadata instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns MoveFolderMetadata instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IMoveFolderMetadata): google.cloud.dataform.v1.MoveFolderMetadata;
+
+                    /**
+                     * Encodes the specified MoveFolderMetadata message. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderMetadata.verify|verify} messages.
+                     * @param message MoveFolderMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IMoveFolderMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified MoveFolderMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveFolderMetadata.verify|verify} messages.
+                     * @param message MoveFolderMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IMoveFolderMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MoveFolderMetadata message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MoveFolderMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.MoveFolderMetadata;
+
+                    /**
+                     * Decodes a MoveFolderMetadata message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns MoveFolderMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.MoveFolderMetadata;
+
+                    /**
+                     * Verifies a MoveFolderMetadata message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a MoveFolderMetadata message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns MoveFolderMetadata
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.MoveFolderMetadata;
+
+                    /**
+                     * Creates a plain object from a MoveFolderMetadata message. Also converts values to other types if specified.
+                     * @param message MoveFolderMetadata
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.MoveFolderMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this MoveFolderMetadata to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for MoveFolderMetadata
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace MoveFolderMetadata {
+
+                    /** State enum. */
+                    enum State {
+                        STATE_UNSPECIFIED = 0,
+                        INITIALIZED = 1,
+                        IN_PROGRESS = 2,
+                        SUCCESS = 3,
+                        FAILED = 4
+                    }
+                }
+
+                /** Properties of a MoveRepositoryMetadata. */
+                interface IMoveRepositoryMetadata {
+
+                    /** MoveRepositoryMetadata createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveRepositoryMetadata endTime */
+                    endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveRepositoryMetadata target */
+                    target?: (string|null);
+
+                    /** MoveRepositoryMetadata state */
+                    state?: (google.cloud.dataform.v1.MoveRepositoryMetadata.State|keyof typeof google.cloud.dataform.v1.MoveRepositoryMetadata.State|null);
+
+                    /** MoveRepositoryMetadata percentComplete */
+                    percentComplete?: (number|null);
+                }
+
+                /** Represents a MoveRepositoryMetadata. */
+                class MoveRepositoryMetadata implements IMoveRepositoryMetadata {
+
+                    /**
+                     * Constructs a new MoveRepositoryMetadata.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.dataform.v1.IMoveRepositoryMetadata);
+
+                    /** MoveRepositoryMetadata createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveRepositoryMetadata endTime. */
+                    public endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MoveRepositoryMetadata target. */
+                    public target: string;
+
+                    /** MoveRepositoryMetadata state. */
+                    public state: (google.cloud.dataform.v1.MoveRepositoryMetadata.State|keyof typeof google.cloud.dataform.v1.MoveRepositoryMetadata.State);
+
+                    /** MoveRepositoryMetadata percentComplete. */
+                    public percentComplete: number;
+
+                    /**
+                     * Creates a new MoveRepositoryMetadata instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns MoveRepositoryMetadata instance
+                     */
+                    public static create(properties?: google.cloud.dataform.v1.IMoveRepositoryMetadata): google.cloud.dataform.v1.MoveRepositoryMetadata;
+
+                    /**
+                     * Encodes the specified MoveRepositoryMetadata message. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryMetadata.verify|verify} messages.
+                     * @param message MoveRepositoryMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.dataform.v1.IMoveRepositoryMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified MoveRepositoryMetadata message, length delimited. Does not implicitly {@link google.cloud.dataform.v1.MoveRepositoryMetadata.verify|verify} messages.
+                     * @param message MoveRepositoryMetadata message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.dataform.v1.IMoveRepositoryMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MoveRepositoryMetadata message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MoveRepositoryMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.dataform.v1.MoveRepositoryMetadata;
+
+                    /**
+                     * Decodes a MoveRepositoryMetadata message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns MoveRepositoryMetadata
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.dataform.v1.MoveRepositoryMetadata;
+
+                    /**
+                     * Verifies a MoveRepositoryMetadata message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a MoveRepositoryMetadata message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns MoveRepositoryMetadata
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.dataform.v1.MoveRepositoryMetadata;
+
+                    /**
+                     * Creates a plain object from a MoveRepositoryMetadata message. Also converts values to other types if specified.
+                     * @param message MoveRepositoryMetadata
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.dataform.v1.MoveRepositoryMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this MoveRepositoryMetadata to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for MoveRepositoryMetadata
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                namespace MoveRepositoryMetadata {
+
+                    /** State enum. */
+                    enum State {
+                        STATE_UNSPECIFIED = 0,
+                        INITIALIZED = 1,
+                        IN_PROGRESS = 2,
+                        SUCCESS = 3,
+                        FAILED = 4
+                    }
                 }
             }
 
@@ -42311,97 +46227,6 @@ export namespace google {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of an Empty. */
-        interface IEmpty {
-        }
-
-        /** Represents an Empty. */
-        class Empty implements IEmpty {
-
-            /**
-             * Constructs a new Empty.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.protobuf.IEmpty);
-
-            /**
-             * Creates a new Empty instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Empty instance
-             */
-            public static create(properties?: google.protobuf.IEmpty): google.protobuf.Empty;
-
-            /**
-             * Encodes the specified Empty message. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
-             * @param message Empty message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.protobuf.IEmpty, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Empty message, length delimited. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
-             * @param message Empty message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.protobuf.IEmpty, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an Empty message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Empty
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.protobuf.Empty;
-
-            /**
-             * Decodes an Empty message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Empty
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.protobuf.Empty;
-
-            /**
-             * Verifies an Empty message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an Empty message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Empty
-             */
-            public static fromObject(object: { [k: string]: any }): google.protobuf.Empty;
-
-            /**
-             * Creates a plain object from an Empty message. Also converts values to other types if specified.
-             * @param message Empty
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.protobuf.Empty, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Empty to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Empty
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
         /** Properties of a FieldMask. */
         interface IFieldMask {
 
@@ -42493,109 +46318,6 @@ export namespace google {
 
             /**
              * Gets the default type url for FieldMask
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a Timestamp. */
-        interface ITimestamp {
-
-            /** Timestamp seconds */
-            seconds?: (number|Long|string|null);
-
-            /** Timestamp nanos */
-            nanos?: (number|null);
-        }
-
-        /** Represents a Timestamp. */
-        class Timestamp implements ITimestamp {
-
-            /**
-             * Constructs a new Timestamp.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.protobuf.ITimestamp);
-
-            /** Timestamp seconds. */
-            public seconds: (number|Long|string);
-
-            /** Timestamp nanos. */
-            public nanos: number;
-
-            /**
-             * Creates a new Timestamp instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Timestamp instance
-             */
-            public static create(properties?: google.protobuf.ITimestamp): google.protobuf.Timestamp;
-
-            /**
-             * Encodes the specified Timestamp message. Does not implicitly {@link google.protobuf.Timestamp.verify|verify} messages.
-             * @param message Timestamp message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.protobuf.ITimestamp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Timestamp message, length delimited. Does not implicitly {@link google.protobuf.Timestamp.verify|verify} messages.
-             * @param message Timestamp message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.protobuf.ITimestamp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a Timestamp message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Timestamp
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.protobuf.Timestamp;
-
-            /**
-             * Decodes a Timestamp message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Timestamp
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.protobuf.Timestamp;
-
-            /**
-             * Verifies a Timestamp message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a Timestamp message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Timestamp
-             */
-            public static fromObject(object: { [k: string]: any }): google.protobuf.Timestamp;
-
-            /**
-             * Creates a plain object from a Timestamp message. Also converts values to other types if specified.
-             * @param message Timestamp
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.protobuf.Timestamp, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Timestamp to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Timestamp
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -42704,336 +46426,195 @@ export namespace google {
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
-    }
 
-    /** Namespace rpc. */
-    namespace rpc {
-
-        /** Properties of a Status. */
-        interface IStatus {
-
-            /** Status code */
-            code?: (number|null);
-
-            /** Status message */
-            message?: (string|null);
-
-            /** Status details */
-            details?: (google.protobuf.IAny[]|null);
+        /** Properties of an Empty. */
+        interface IEmpty {
         }
 
-        /** Represents a Status. */
-        class Status implements IStatus {
+        /** Represents an Empty. */
+        class Empty implements IEmpty {
 
             /**
-             * Constructs a new Status.
+             * Constructs a new Empty.
              * @param [properties] Properties to set
              */
-            constructor(properties?: google.rpc.IStatus);
-
-            /** Status code. */
-            public code: number;
-
-            /** Status message. */
-            public message: string;
-
-            /** Status details. */
-            public details: google.protobuf.IAny[];
+            constructor(properties?: google.protobuf.IEmpty);
 
             /**
-             * Creates a new Status instance using the specified properties.
+             * Creates a new Empty instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns Status instance
+             * @returns Empty instance
              */
-            public static create(properties?: google.rpc.IStatus): google.rpc.Status;
+            public static create(properties?: google.protobuf.IEmpty): google.protobuf.Empty;
 
             /**
-             * Encodes the specified Status message. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
-             * @param message Status message or plain object to encode
+             * Encodes the specified Empty message. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
+             * @param message Empty message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: google.rpc.IStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: google.protobuf.IEmpty, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified Status message, length delimited. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
-             * @param message Status message or plain object to encode
+             * Encodes the specified Empty message, length delimited. Does not implicitly {@link google.protobuf.Empty.verify|verify} messages.
+             * @param message Empty message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: google.rpc.IStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: google.protobuf.IEmpty, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a Status message from the specified reader or buffer.
+             * Decodes an Empty message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns Status
+             * @returns Empty
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.rpc.Status;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.protobuf.Empty;
 
             /**
-             * Decodes a Status message from the specified reader or buffer, length delimited.
+             * Decodes an Empty message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns Status
+             * @returns Empty
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.rpc.Status;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.protobuf.Empty;
 
             /**
-             * Verifies a Status message.
+             * Verifies an Empty message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a Status message from a plain object. Also converts values to their respective internal types.
+             * Creates an Empty message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns Status
+             * @returns Empty
              */
-            public static fromObject(object: { [k: string]: any }): google.rpc.Status;
+            public static fromObject(object: { [k: string]: any }): google.protobuf.Empty;
 
             /**
-             * Creates a plain object from a Status message. Also converts values to other types if specified.
-             * @param message Status
+             * Creates a plain object from an Empty message. Also converts values to other types if specified.
+             * @param message Empty
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: google.rpc.Status, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: google.protobuf.Empty, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this Status to JSON.
+             * Converts this Empty to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for Status
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-    }
-
-    /** Namespace type. */
-    namespace type {
-
-        /** Properties of an Interval. */
-        interface IInterval {
-
-            /** Interval startTime */
-            startTime?: (google.protobuf.ITimestamp|null);
-
-            /** Interval endTime */
-            endTime?: (google.protobuf.ITimestamp|null);
-        }
-
-        /** Represents an Interval. */
-        class Interval implements IInterval {
-
-            /**
-             * Constructs a new Interval.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.type.IInterval);
-
-            /** Interval startTime. */
-            public startTime?: (google.protobuf.ITimestamp|null);
-
-            /** Interval endTime. */
-            public endTime?: (google.protobuf.ITimestamp|null);
-
-            /**
-             * Creates a new Interval instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Interval instance
-             */
-            public static create(properties?: google.type.IInterval): google.type.Interval;
-
-            /**
-             * Encodes the specified Interval message. Does not implicitly {@link google.type.Interval.verify|verify} messages.
-             * @param message Interval message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.type.IInterval, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Interval message, length delimited. Does not implicitly {@link google.type.Interval.verify|verify} messages.
-             * @param message Interval message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.type.IInterval, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an Interval message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Interval
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.type.Interval;
-
-            /**
-             * Decodes an Interval message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Interval
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.type.Interval;
-
-            /**
-             * Verifies an Interval message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an Interval message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Interval
-             */
-            public static fromObject(object: { [k: string]: any }): google.type.Interval;
-
-            /**
-             * Creates a plain object from an Interval message. Also converts values to other types if specified.
-             * @param message Interval
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.type.Interval, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Interval to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Interval
+             * Gets the default type url for Empty
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of an Expr. */
-        interface IExpr {
+        /** Properties of a Timestamp. */
+        interface ITimestamp {
 
-            /** Expr expression */
-            expression?: (string|null);
+            /** Timestamp seconds */
+            seconds?: (number|Long|string|null);
 
-            /** Expr title */
-            title?: (string|null);
-
-            /** Expr description */
-            description?: (string|null);
-
-            /** Expr location */
-            location?: (string|null);
+            /** Timestamp nanos */
+            nanos?: (number|null);
         }
 
-        /** Represents an Expr. */
-        class Expr implements IExpr {
+        /** Represents a Timestamp. */
+        class Timestamp implements ITimestamp {
 
             /**
-             * Constructs a new Expr.
+             * Constructs a new Timestamp.
              * @param [properties] Properties to set
              */
-            constructor(properties?: google.type.IExpr);
+            constructor(properties?: google.protobuf.ITimestamp);
 
-            /** Expr expression. */
-            public expression: string;
+            /** Timestamp seconds. */
+            public seconds: (number|Long|string);
 
-            /** Expr title. */
-            public title: string;
-
-            /** Expr description. */
-            public description: string;
-
-            /** Expr location. */
-            public location: string;
+            /** Timestamp nanos. */
+            public nanos: number;
 
             /**
-             * Creates a new Expr instance using the specified properties.
+             * Creates a new Timestamp instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns Expr instance
+             * @returns Timestamp instance
              */
-            public static create(properties?: google.type.IExpr): google.type.Expr;
+            public static create(properties?: google.protobuf.ITimestamp): google.protobuf.Timestamp;
 
             /**
-             * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-             * @param message Expr message or plain object to encode
+             * Encodes the specified Timestamp message. Does not implicitly {@link google.protobuf.Timestamp.verify|verify} messages.
+             * @param message Timestamp message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: google.type.IExpr, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: google.protobuf.ITimestamp, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-             * @param message Expr message or plain object to encode
+             * Encodes the specified Timestamp message, length delimited. Does not implicitly {@link google.protobuf.Timestamp.verify|verify} messages.
+             * @param message Timestamp message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: google.type.IExpr, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: google.protobuf.ITimestamp, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an Expr message from the specified reader or buffer.
+             * Decodes a Timestamp message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns Expr
+             * @returns Timestamp
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.type.Expr;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.protobuf.Timestamp;
 
             /**
-             * Decodes an Expr message from the specified reader or buffer, length delimited.
+             * Decodes a Timestamp message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns Expr
+             * @returns Timestamp
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.type.Expr;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.protobuf.Timestamp;
 
             /**
-             * Verifies an Expr message.
+             * Verifies a Timestamp message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates an Expr message from a plain object. Also converts values to their respective internal types.
+             * Creates a Timestamp message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns Expr
+             * @returns Timestamp
              */
-            public static fromObject(object: { [k: string]: any }): google.type.Expr;
+            public static fromObject(object: { [k: string]: any }): google.protobuf.Timestamp;
 
             /**
-             * Creates a plain object from an Expr message. Also converts values to other types if specified.
-             * @param message Expr
+             * Creates a plain object from a Timestamp message. Also converts values to other types if specified.
+             * @param message Timestamp
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: google.type.Expr, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: google.protobuf.Timestamp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this Expr to JSON.
+             * Converts this Timestamp to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for Expr
+             * Gets the default type url for Timestamp
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -44439,6 +48020,228 @@ export namespace google {
         }
     }
 
+    /** Namespace type. */
+    namespace type {
+
+        /** Properties of an Expr. */
+        interface IExpr {
+
+            /** Expr expression */
+            expression?: (string|null);
+
+            /** Expr title */
+            title?: (string|null);
+
+            /** Expr description */
+            description?: (string|null);
+
+            /** Expr location */
+            location?: (string|null);
+        }
+
+        /** Represents an Expr. */
+        class Expr implements IExpr {
+
+            /**
+             * Constructs a new Expr.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: google.type.IExpr);
+
+            /** Expr expression. */
+            public expression: string;
+
+            /** Expr title. */
+            public title: string;
+
+            /** Expr description. */
+            public description: string;
+
+            /** Expr location. */
+            public location: string;
+
+            /**
+             * Creates a new Expr instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Expr instance
+             */
+            public static create(properties?: google.type.IExpr): google.type.Expr;
+
+            /**
+             * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
+             * @param message Expr message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: google.type.IExpr, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
+             * @param message Expr message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: google.type.IExpr, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Expr message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Expr
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.type.Expr;
+
+            /**
+             * Decodes an Expr message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Expr
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.type.Expr;
+
+            /**
+             * Verifies an Expr message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Expr message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Expr
+             */
+            public static fromObject(object: { [k: string]: any }): google.type.Expr;
+
+            /**
+             * Creates a plain object from an Expr message. Also converts values to other types if specified.
+             * @param message Expr
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: google.type.Expr, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Expr to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Expr
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of an Interval. */
+        interface IInterval {
+
+            /** Interval startTime */
+            startTime?: (google.protobuf.ITimestamp|null);
+
+            /** Interval endTime */
+            endTime?: (google.protobuf.ITimestamp|null);
+        }
+
+        /** Represents an Interval. */
+        class Interval implements IInterval {
+
+            /**
+             * Constructs a new Interval.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: google.type.IInterval);
+
+            /** Interval startTime. */
+            public startTime?: (google.protobuf.ITimestamp|null);
+
+            /** Interval endTime. */
+            public endTime?: (google.protobuf.ITimestamp|null);
+
+            /**
+             * Creates a new Interval instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Interval instance
+             */
+            public static create(properties?: google.type.IInterval): google.type.Interval;
+
+            /**
+             * Encodes the specified Interval message. Does not implicitly {@link google.type.Interval.verify|verify} messages.
+             * @param message Interval message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: google.type.IInterval, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Interval message, length delimited. Does not implicitly {@link google.type.Interval.verify|verify} messages.
+             * @param message Interval message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: google.type.IInterval, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Interval message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Interval
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.type.Interval;
+
+            /**
+             * Decodes an Interval message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Interval
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.type.Interval;
+
+            /**
+             * Verifies an Interval message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Interval message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Interval
+             */
+            public static fromObject(object: { [k: string]: any }): google.type.Interval;
+
+            /**
+             * Creates a plain object from an Interval message. Also converts values to other types if specified.
+             * @param message Interval
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: google.type.Interval, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Interval to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Interval
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+    }
+
     /** Namespace longrunning. */
     namespace longrunning {
 
@@ -45404,6 +49207,119 @@ export namespace google {
 
             /**
              * Gets the default type url for OperationInfo
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+    }
+
+    /** Namespace rpc. */
+    namespace rpc {
+
+        /** Properties of a Status. */
+        interface IStatus {
+
+            /** Status code */
+            code?: (number|null);
+
+            /** Status message */
+            message?: (string|null);
+
+            /** Status details */
+            details?: (google.protobuf.IAny[]|null);
+        }
+
+        /** Represents a Status. */
+        class Status implements IStatus {
+
+            /**
+             * Constructs a new Status.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: google.rpc.IStatus);
+
+            /** Status code. */
+            public code: number;
+
+            /** Status message. */
+            public message: string;
+
+            /** Status details. */
+            public details: google.protobuf.IAny[];
+
+            /**
+             * Creates a new Status instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Status instance
+             */
+            public static create(properties?: google.rpc.IStatus): google.rpc.Status;
+
+            /**
+             * Encodes the specified Status message. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
+             * @param message Status message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: google.rpc.IStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Status message, length delimited. Does not implicitly {@link google.rpc.Status.verify|verify} messages.
+             * @param message Status message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: google.rpc.IStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Status message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Status
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.rpc.Status;
+
+            /**
+             * Decodes a Status message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Status
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.rpc.Status;
+
+            /**
+             * Verifies a Status message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Status message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Status
+             */
+            public static fromObject(object: { [k: string]: any }): google.rpc.Status;
+
+            /**
+             * Creates a plain object from a Status message. Also converts values to other types if specified.
+             * @param message Status
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: google.rpc.Status, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Status to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Status
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
