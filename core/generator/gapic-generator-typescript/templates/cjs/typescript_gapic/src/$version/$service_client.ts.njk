@@ -27,18 +27,22 @@ limitations under the License.
 {% import "../../_namer.njk" as namer -%}
 {{- namer.initialize(id, service) -}}
 {%- set autoPopulated = false -%}
+{%- set methodNamesStr = "|" -%}
 {%- for method in service.method -%}
       {%- if method.autoPopulatedFields|length !== 0 %}
         {%- set autoPopulated = true -%}
       {%- endif %}
+      {%- set methodNamesStr = methodNamesStr + method.name.toCamelCase() + "|" -%}
 {%- endfor -%}
+{%- set generateIam = service.IAMPolicyMixin > 0 and ('|getIamPolicy|' not in methodNamesStr or '|setIamPolicy|' not in methodNamesStr or '|testIamPermissions|' not in methodNamesStr) -%}
+{%- set generateLocation = service.LocationMixin > 0 and ('|getLocation|' not in methodNamesStr or '|listLocations|' not in methodNamesStr) -%}
 import {% if (not api.legacyProtoLoad) and (autoPopulated === false)  %}type {% endif %}* as gax from 'google-gax';
 import type {Callback, CallOptions, Descriptors, ClientOptions
 {%- if service.longRunning.length > 0 or service.LongRunningOperationsMixin > 0 %}, GrpcClientOptions{%- endif -%}
 {%- if service.longRunning.length > 0 or service.diregapicLRO.length > 0 %}, LROperation{%- endif -%}
 {%- if service.paging.length > 0 %}, PaginationCallback, GaxCall{%- endif -%}
-{%- if service.IAMPolicyMixin > 0 %}, IamClient, IamProtos{%- endif -%}
-{%- if service.LocationMixin > 0 %}, LocationsClient, LocationProtos{%- endif -%}
+{%- if generateIam %}, IamClient, IamProtos{%- endif -%}
+{%- if generateLocation %}, LocationsClient, LocationProtos{%- endif -%}
 } from 'google-gax';
 {% if service.paging.length > 0 or service.streaming.length > 0 -%}
 {% set importStreamJoiner = joiner(', ') -%}
@@ -93,10 +97,10 @@ export class {{ service.name }}Client {
   };
   warn: (code: string, message: string, warnType?: string) => void;
   innerApiCalls: {[name: string]: Function};
-  {%- if service.IAMPolicyMixin > 0 %}
+  {%- if generateIam %}
   iamClient: IamClient;
   {%- endif %}
-  {%- if service.LocationMixin > 0 %}
+  {%- if generateLocation %}
   locationsClient: LocationsClient;
   {%- endif -%}
   {%- if service.pathTemplates.length > 0 %}
@@ -222,11 +226,11 @@ export class {{ service.name }}Client {
     if (servicePath === this._servicePath) {
       this.auth.defaultScopes = staticMembers.{{ id.get("scopes") }};
     }
-  {%- if service.IAMPolicyMixin > 0 %}
+  {%- if generateIam %}
     this.iamClient = new this._gaxModule.IamClient(this._gaxGrpc, opts);
   {% endif %}
 
-  {%- if service.LocationMixin > 0 %}
+  {%- if generateLocation %}
     this.locationsClient = new this._gaxModule.LocationsClient(
       this._gaxGrpc,
       opts
@@ -1102,11 +1106,24 @@ export class {{ service.name }}Client {
   }
 {%- endif %}
 {%- endfor %}
-{%- if service.IAMPolicyMixin > 0 %}
-{{ iam.iamServiceMethods()}}
+{%- if generateIam %}
+  {%- if '|getIamPolicy|' not in methodNamesStr %}
+    {{ iam.getIamPolicy()}}
+  {%- endif %}
+  {%- if '|setIamPolicy|' not in methodNamesStr %}
+    {{ iam.setIamPolicy()}}
+  {%- endif %}
+  {%- if '|testIamPermissions|' not in methodNamesStr %}
+    {{ iam.testIamPermissions()}}
+  {%- endif %}
 {% endif -%}
-{%- if service.LocationMixin > 0 %}
-{{ location.locationServiceMethods()}}
+{%- if generateLocation %}
+  {%- if '|getLocation|' not in methodNamesStr %}
+    {{ location.getLocation() }}
+  {%- endif %}
+  {%- if '|listLocations|' not in methodNamesStr %}
+    {{ location.listLocationsAsync() }}
+  {%- endif %}
 {% endif -%}
 {%- if service.LongRunningOperationsMixin > 0 %}
 {{ operations.operationsServiceMethods()}}
@@ -1165,10 +1182,10 @@ export class {{ service.name }}Client {
         this._log.info('ending gRPC channel');
         this._terminated = true;
         stub.close();
-        {%- if service.IAMPolicyMixin > 0 %}
+        {%- if generateIam %}
         this.iamClient.close().catch(err => {throw err});
         {%- endif %}
-        {%- if service.LocationMixin > 0 %}
+        {%- if generateLocation %}
         this.locationsClient.close().catch(err => {throw err});
         {%- endif %}
         {%- if service.longRunning.length > 0 or service.LongRunningOperationsMixin > 0 %}
