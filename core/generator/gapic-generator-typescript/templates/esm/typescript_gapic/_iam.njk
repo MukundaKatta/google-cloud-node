@@ -5,12 +5,6 @@
   IamClient is created for the client in the constructor.
   [setIamPolicy, getIamPolicy, testIamPermission] methods are created which is calling the corresponding methods from IamClient in google-gax.
 -#}
-{{ getIamPolicy() }}
-{{ setIamPolicy() }}
-{{ testIamPermissions() }}
-{%- endmacro -%}
-
-{%- macro getIamPolicy() -%}
 /**
  * Gets the access control policy for a resource. Returns an empty policy
  * if the resource exists and does not have a policy set.
@@ -53,9 +47,7 @@
   ):Promise<[IamProtos.google.iam.v1.Policy]> {
     return this.iamClient.getIamPolicy(request, options, callback);
   }
-{%- endmacro -%}
 
-{%- macro setIamPolicy() -%}
 /**
  * Returns permissions that a caller has on the specified resource. If the
  * resource does not exist, this will return an empty set of
@@ -102,9 +94,7 @@
   ):Promise<[IamProtos.google.iam.v1.Policy]> {
     return this.iamClient.setIamPolicy(request, options, callback);
   }
-{%- endmacro -%}
 
-{%- macro testIamPermissions() -%}
 /**
  * Returns permissions that a caller has on the specified resource. If the
  * resource does not exist, this will return an empty set of
