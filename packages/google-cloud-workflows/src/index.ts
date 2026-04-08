@@ -1,4 +1,4 @@
-// Copyright 2023 Google LLC
+// Copyright 2025 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,11 +18,13 @@
 
 import * as v1 from './v1';
 import * as v1beta from './v1beta';
+import * as v1 from './v1';
+import * as v1beta from './v1beta';
 
 const ExecutionsClient = v1.ExecutionsClient;
 type ExecutionsClient = v1.ExecutionsClient;
 
-export {v1, v1beta, ExecutionsClient};
-export default {v1, v1beta, ExecutionsClient};
+export {v1, v1beta, v1, v1beta, ExecutionsClient};
+export default {v1, v1beta, v1, v1beta, ExecutionsClient};
 import * as protos from '../protos/protos';
 export {protos};
