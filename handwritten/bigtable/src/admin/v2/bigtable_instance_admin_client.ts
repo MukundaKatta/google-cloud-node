@@ -914,6 +914,9 @@ export class BigtableInstanceAdminClient {
    *   Output only. The current state of the instance.
    * @param {google.bigtable.admin.v2.Instance.Type} request.type
    *   The type of the instance. Defaults to `PRODUCTION`.
+   * @param {google.bigtable.admin.v2.Instance.Edition} [request.edition]
+   *   Optional. The edition of the instance. See
+   *   {@link protos.google.bigtable.admin.v2.Instance.Edition|Edition} for details.
    * @param {number[]} request.labels
    *   Labels are a flexible and lightweight mechanism for organizing cloud
    *   resources into groups that reflect a customer's organizational needs and

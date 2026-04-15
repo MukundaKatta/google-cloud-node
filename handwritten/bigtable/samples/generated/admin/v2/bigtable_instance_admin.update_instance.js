@@ -48,6 +48,11 @@ function main(displayName, state, createTime, satisfiesPzs, satisfiesPzi, tags) 
    */
   // const type = {}
   /**
+   *  Optional. The edition of the instance. See
+   *  Edition google.bigtable.admin.v2.Instance.Edition  for details.
+   */
+  // const edition = {}
+  /**
    *  Labels are a flexible and lightweight mechanism for organizing cloud
    *  resources into groups that reflect a customer's organizational needs and
    *  deployment strategies. They can be used to filter resources and aggregate
