@@ -4353,6 +4353,7 @@
                          * @property {boolean|null} [multikey] Index multikey
                          * @property {number|null} [shardCount] Index shardCount
                          * @property {boolean|null} [unique] Index unique
+                         * @property {google.firestore.admin.v1.Index.ISearchIndexOptions|null} [searchIndexOptions] Index searchIndexOptions
                          */
     
                         /**
@@ -4444,6 +4445,14 @@
                         Index.prototype.unique = false;
     
                         /**
+                         * Index searchIndexOptions.
+                         * @member {google.firestore.admin.v1.Index.ISearchIndexOptions|null|undefined} searchIndexOptions
+                         * @memberof google.firestore.admin.v1.Index
+                         * @instance
+                         */
+                        Index.prototype.searchIndexOptions = null;
+    
+                        /**
                          * Creates a new Index instance using the specified properties.
                          * @function create
                          * @memberof google.firestore.admin.v1.Index
@@ -4484,6 +4493,8 @@
                                 writer.uint32(/* id 7, wireType 0 =*/56).bool(message.multikey);
                             if (message.shardCount != null && Object.hasOwnProperty.call(message, "shardCount"))
                                 writer.uint32(/* id 8, wireType 0 =*/64).int32(message.shardCount);
+                            if (message.searchIndexOptions != null && Object.hasOwnProperty.call(message, "searchIndexOptions"))
+                                $root.google.firestore.admin.v1.Index.SearchIndexOptions.encode(message.searchIndexOptions, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
                             if (message.unique != null && Object.hasOwnProperty.call(message, "unique"))
                                 writer.uint32(/* id 10, wireType 0 =*/80).bool(message.unique);
                             return writer;
@@ -4558,6 +4569,10 @@
                                     }
                                 case 10: {
                                         message.unique = reader.bool();
+                                        break;
+                                    }
+                                case 9: {
+                                        message.searchIndexOptions = $root.google.firestore.admin.v1.Index.SearchIndexOptions.decode(reader, reader.uint32());
                                         break;
                                     }
                                 default:
@@ -4655,6 +4670,11 @@
                             if (message.unique != null && message.hasOwnProperty("unique"))
                                 if (typeof message.unique !== "boolean")
                                     return "unique: boolean expected";
+                            if (message.searchIndexOptions != null && message.hasOwnProperty("searchIndexOptions")) {
+                                var error = $root.google.firestore.admin.v1.Index.SearchIndexOptions.verify(message.searchIndexOptions);
+                                if (error)
+                                    return "searchIndexOptions." + error;
+                            }
                             return null;
                         };
     
@@ -4780,6 +4800,11 @@
                                 message.shardCount = object.shardCount | 0;
                             if (object.unique != null)
                                 message.unique = Boolean(object.unique);
+                            if (object.searchIndexOptions != null) {
+                                if (typeof object.searchIndexOptions !== "object")
+                                    throw TypeError(".google.firestore.admin.v1.Index.searchIndexOptions: object expected");
+                                message.searchIndexOptions = $root.google.firestore.admin.v1.Index.SearchIndexOptions.fromObject(object.searchIndexOptions);
+                            }
                             return message;
                         };
     
@@ -4806,6 +4831,7 @@
                                 object.density = options.enums === String ? "DENSITY_UNSPECIFIED" : 0;
                                 object.multikey = false;
                                 object.shardCount = 0;
+                                object.searchIndexOptions = null;
                                 object.unique = false;
                             }
                             if (message.name != null && message.hasOwnProperty("name"))
@@ -4827,6 +4853,8 @@
                                 object.multikey = message.multikey;
                             if (message.shardCount != null && message.hasOwnProperty("shardCount"))
                                 object.shardCount = message.shardCount;
+                            if (message.searchIndexOptions != null && message.hasOwnProperty("searchIndexOptions"))
+                                object.searchIndexOptions = $root.google.firestore.admin.v1.Index.SearchIndexOptions.toObject(message.searchIndexOptions, options);
                             if (message.unique != null && message.hasOwnProperty("unique"))
                                 object.unique = message.unique;
                             return object;
@@ -4902,6 +4930,7 @@
                              * @property {google.firestore.admin.v1.Index.IndexField.Order|null} [order] IndexField order
                              * @property {google.firestore.admin.v1.Index.IndexField.ArrayConfig|null} [arrayConfig] IndexField arrayConfig
                              * @property {google.firestore.admin.v1.Index.IndexField.IVectorConfig|null} [vectorConfig] IndexField vectorConfig
+                             * @property {google.firestore.admin.v1.Index.IndexField.ISearchConfig|null} [searchConfig] IndexField searchConfig
                              */
     
                             /**
@@ -4951,17 +4980,25 @@
                              */
                             IndexField.prototype.vectorConfig = null;
     
+                            /**
+                             * IndexField searchConfig.
+                             * @member {google.firestore.admin.v1.Index.IndexField.ISearchConfig|null|undefined} searchConfig
+                             * @memberof google.firestore.admin.v1.Index.IndexField
+                             * @instance
+                             */
+                            IndexField.prototype.searchConfig = null;
+    
                             // OneOf field names bound to virtual getters and setters
                             var $oneOfFields;
     
                             /**
                              * IndexField valueMode.
-                             * @member {"order"|"arrayConfig"|"vectorConfig"|undefined} valueMode
+                             * @member {"order"|"arrayConfig"|"vectorConfig"|"searchConfig"|undefined} valueMode
                              * @memberof google.firestore.admin.v1.Index.IndexField
                              * @instance
                              */
                             Object.defineProperty(IndexField.prototype, "valueMode", {
-                                get: $util.oneOfGetter($oneOfFields = ["order", "arrayConfig", "vectorConfig"]),
+                                get: $util.oneOfGetter($oneOfFields = ["order", "arrayConfig", "vectorConfig", "searchConfig"]),
                                 set: $util.oneOfSetter($oneOfFields)
                             });
     
@@ -4997,6 +5034,8 @@
                                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.arrayConfig);
                                 if (message.vectorConfig != null && Object.hasOwnProperty.call(message, "vectorConfig"))
                                     $root.google.firestore.admin.v1.Index.IndexField.VectorConfig.encode(message.vectorConfig, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                                if (message.searchConfig != null && Object.hasOwnProperty.call(message, "searchConfig"))
+                                    $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.encode(message.searchConfig, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                                 return writer;
                             };
     
@@ -5047,6 +5086,10 @@
                                         }
                                     case 4: {
                                             message.vectorConfig = $root.google.firestore.admin.v1.Index.IndexField.VectorConfig.decode(reader, reader.uint32());
+                                            break;
+                                        }
+                                    case 5: {
+                                            message.searchConfig = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.decode(reader, reader.uint32());
                                             break;
                                         }
                                     default:
@@ -5121,6 +5164,16 @@
                                             return "vectorConfig." + error;
                                     }
                                 }
+                                if (message.searchConfig != null && message.hasOwnProperty("searchConfig")) {
+                                    if (properties.valueMode === 1)
+                                        return "valueMode: multiple values";
+                                    properties.valueMode = 1;
+                                    {
+                                        var error = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.verify(message.searchConfig);
+                                        if (error)
+                                            return "searchConfig." + error;
+                                    }
+                                }
                                 return null;
                             };
     
@@ -5179,6 +5232,11 @@
                                         throw TypeError(".google.firestore.admin.v1.Index.IndexField.vectorConfig: object expected");
                                     message.vectorConfig = $root.google.firestore.admin.v1.Index.IndexField.VectorConfig.fromObject(object.vectorConfig);
                                 }
+                                if (object.searchConfig != null) {
+                                    if (typeof object.searchConfig !== "object")
+                                        throw TypeError(".google.firestore.admin.v1.Index.IndexField.searchConfig: object expected");
+                                    message.searchConfig = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.fromObject(object.searchConfig);
+                                }
                                 return message;
                             };
     
@@ -5213,6 +5271,11 @@
                                     object.vectorConfig = $root.google.firestore.admin.v1.Index.IndexField.VectorConfig.toObject(message.vectorConfig, options);
                                     if (options.oneofs)
                                         object.valueMode = "vectorConfig";
+                                }
+                                if (message.searchConfig != null && message.hasOwnProperty("searchConfig")) {
+                                    object.searchConfig = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.toObject(message.searchConfig, options);
+                                    if (options.oneofs)
+                                        object.valueMode = "searchConfig";
                                 }
                                 return object;
                             };
@@ -5703,6 +5766,971 @@
                                 return VectorConfig;
                             })();
     
+                            IndexField.SearchConfig = (function() {
+    
+                                /**
+                                 * Properties of a SearchConfig.
+                                 * @memberof google.firestore.admin.v1.Index.IndexField
+                                 * @interface ISearchConfig
+                                 * @property {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec|null} [textSpec] SearchConfig textSpec
+                                 * @property {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec|null} [geoSpec] SearchConfig geoSpec
+                                 */
+    
+                                /**
+                                 * Constructs a new SearchConfig.
+                                 * @memberof google.firestore.admin.v1.Index.IndexField
+                                 * @classdesc Represents a SearchConfig.
+                                 * @implements ISearchConfig
+                                 * @constructor
+                                 * @param {google.firestore.admin.v1.Index.IndexField.ISearchConfig=} [properties] Properties to set
+                                 */
+                                function SearchConfig(properties) {
+                                    if (properties)
+                                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                            if (properties[keys[i]] != null)
+                                                this[keys[i]] = properties[keys[i]];
+                                }
+    
+                                /**
+                                 * SearchConfig textSpec.
+                                 * @member {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec|null|undefined} textSpec
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @instance
+                                 */
+                                SearchConfig.prototype.textSpec = null;
+    
+                                /**
+                                 * SearchConfig geoSpec.
+                                 * @member {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec|null|undefined} geoSpec
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @instance
+                                 */
+                                SearchConfig.prototype.geoSpec = null;
+    
+                                /**
+                                 * Creates a new SearchConfig instance using the specified properties.
+                                 * @function create
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {google.firestore.admin.v1.Index.IndexField.ISearchConfig=} [properties] Properties to set
+                                 * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig} SearchConfig instance
+                                 */
+                                SearchConfig.create = function create(properties) {
+                                    return new SearchConfig(properties);
+                                };
+    
+                                /**
+                                 * Encodes the specified SearchConfig message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.verify|verify} messages.
+                                 * @function encode
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {google.firestore.admin.v1.Index.IndexField.ISearchConfig} message SearchConfig message or plain object to encode
+                                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                                 * @returns {$protobuf.Writer} Writer
+                                 */
+                                SearchConfig.encode = function encode(message, writer) {
+                                    if (!writer)
+                                        writer = $Writer.create();
+                                    if (message.textSpec != null && Object.hasOwnProperty.call(message, "textSpec"))
+                                        $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.encode(message.textSpec, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                    if (message.geoSpec != null && Object.hasOwnProperty.call(message, "geoSpec"))
+                                        $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.encode(message.geoSpec, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                                    return writer;
+                                };
+    
+                                /**
+                                 * Encodes the specified SearchConfig message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.verify|verify} messages.
+                                 * @function encodeDelimited
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {google.firestore.admin.v1.Index.IndexField.ISearchConfig} message SearchConfig message or plain object to encode
+                                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                                 * @returns {$protobuf.Writer} Writer
+                                 */
+                                SearchConfig.encodeDelimited = function encodeDelimited(message, writer) {
+                                    return this.encode(message, writer).ldelim();
+                                };
+    
+                                /**
+                                 * Decodes a SearchConfig message from the specified reader or buffer.
+                                 * @function decode
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                 * @param {number} [length] Message length if known beforehand
+                                 * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig} SearchConfig
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                SearchConfig.decode = function decode(reader, length, error) {
+                                    if (!(reader instanceof $Reader))
+                                        reader = $Reader.create(reader);
+                                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig();
+                                    while (reader.pos < end) {
+                                        var tag = reader.uint32();
+                                        if (tag === error)
+                                            break;
+                                        switch (tag >>> 3) {
+                                        case 1: {
+                                                message.textSpec = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.decode(reader, reader.uint32());
+                                                break;
+                                            }
+                                        case 2: {
+                                                message.geoSpec = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.decode(reader, reader.uint32());
+                                                break;
+                                            }
+                                        default:
+                                            reader.skipType(tag & 7);
+                                            break;
+                                        }
+                                    }
+                                    return message;
+                                };
+    
+                                /**
+                                 * Decodes a SearchConfig message from the specified reader or buffer, length delimited.
+                                 * @function decodeDelimited
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                 * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig} SearchConfig
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                SearchConfig.decodeDelimited = function decodeDelimited(reader) {
+                                    if (!(reader instanceof $Reader))
+                                        reader = new $Reader(reader);
+                                    return this.decode(reader, reader.uint32());
+                                };
+    
+                                /**
+                                 * Verifies a SearchConfig message.
+                                 * @function verify
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {Object.<string,*>} message Plain object to verify
+                                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                 */
+                                SearchConfig.verify = function verify(message) {
+                                    if (typeof message !== "object" || message === null)
+                                        return "object expected";
+                                    if (message.textSpec != null && message.hasOwnProperty("textSpec")) {
+                                        var error = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.verify(message.textSpec);
+                                        if (error)
+                                            return "textSpec." + error;
+                                    }
+                                    if (message.geoSpec != null && message.hasOwnProperty("geoSpec")) {
+                                        var error = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.verify(message.geoSpec);
+                                        if (error)
+                                            return "geoSpec." + error;
+                                    }
+                                    return null;
+                                };
+    
+                                /**
+                                 * Creates a SearchConfig message from a plain object. Also converts values to their respective internal types.
+                                 * @function fromObject
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {Object.<string,*>} object Plain object
+                                 * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig} SearchConfig
+                                 */
+                                SearchConfig.fromObject = function fromObject(object) {
+                                    if (object instanceof $root.google.firestore.admin.v1.Index.IndexField.SearchConfig)
+                                        return object;
+                                    var message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig();
+                                    if (object.textSpec != null) {
+                                        if (typeof object.textSpec !== "object")
+                                            throw TypeError(".google.firestore.admin.v1.Index.IndexField.SearchConfig.textSpec: object expected");
+                                        message.textSpec = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.fromObject(object.textSpec);
+                                    }
+                                    if (object.geoSpec != null) {
+                                        if (typeof object.geoSpec !== "object")
+                                            throw TypeError(".google.firestore.admin.v1.Index.IndexField.SearchConfig.geoSpec: object expected");
+                                        message.geoSpec = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.fromObject(object.geoSpec);
+                                    }
+                                    return message;
+                                };
+    
+                                /**
+                                 * Creates a plain object from a SearchConfig message. Also converts values to other types if specified.
+                                 * @function toObject
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig} message SearchConfig
+                                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                 * @returns {Object.<string,*>} Plain object
+                                 */
+                                SearchConfig.toObject = function toObject(message, options) {
+                                    if (!options)
+                                        options = {};
+                                    var object = {};
+                                    if (options.defaults) {
+                                        object.textSpec = null;
+                                        object.geoSpec = null;
+                                    }
+                                    if (message.textSpec != null && message.hasOwnProperty("textSpec"))
+                                        object.textSpec = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.toObject(message.textSpec, options);
+                                    if (message.geoSpec != null && message.hasOwnProperty("geoSpec"))
+                                        object.geoSpec = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.toObject(message.geoSpec, options);
+                                    return object;
+                                };
+    
+                                /**
+                                 * Converts this SearchConfig to JSON.
+                                 * @function toJSON
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @instance
+                                 * @returns {Object.<string,*>} JSON object
+                                 */
+                                SearchConfig.prototype.toJSON = function toJSON() {
+                                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                };
+    
+                                /**
+                                 * Gets the default type url for SearchConfig
+                                 * @function getTypeUrl
+                                 * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                 * @static
+                                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                 * @returns {string} The default type url
+                                 */
+                                SearchConfig.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                    if (typeUrlPrefix === undefined) {
+                                        typeUrlPrefix = "type.googleapis.com";
+                                    }
+                                    return typeUrlPrefix + "/google.firestore.admin.v1.Index.IndexField.SearchConfig";
+                                };
+    
+                                /**
+                                 * TextIndexType enum.
+                                 * @name google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType
+                                 * @enum {number}
+                                 * @property {number} TEXT_INDEX_TYPE_UNSPECIFIED=0 TEXT_INDEX_TYPE_UNSPECIFIED value
+                                 * @property {number} TOKENIZED=1 TOKENIZED value
+                                 */
+                                SearchConfig.TextIndexType = (function() {
+                                    var valuesById = {}, values = Object.create(valuesById);
+                                    values[valuesById[0] = "TEXT_INDEX_TYPE_UNSPECIFIED"] = 0;
+                                    values[valuesById[1] = "TOKENIZED"] = 1;
+                                    return values;
+                                })();
+    
+                                /**
+                                 * TextMatchType enum.
+                                 * @name google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType
+                                 * @enum {number}
+                                 * @property {number} TEXT_MATCH_TYPE_UNSPECIFIED=0 TEXT_MATCH_TYPE_UNSPECIFIED value
+                                 * @property {number} MATCH_GLOBALLY=1 MATCH_GLOBALLY value
+                                 */
+                                SearchConfig.TextMatchType = (function() {
+                                    var valuesById = {}, values = Object.create(valuesById);
+                                    values[valuesById[0] = "TEXT_MATCH_TYPE_UNSPECIFIED"] = 0;
+                                    values[valuesById[1] = "MATCH_GLOBALLY"] = 1;
+                                    return values;
+                                })();
+    
+                                SearchConfig.SearchTextIndexSpec = (function() {
+    
+                                    /**
+                                     * Properties of a SearchTextIndexSpec.
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                     * @interface ISearchTextIndexSpec
+                                     * @property {google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType|null} [indexType] SearchTextIndexSpec indexType
+                                     * @property {google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType|null} [matchType] SearchTextIndexSpec matchType
+                                     */
+    
+                                    /**
+                                     * Constructs a new SearchTextIndexSpec.
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                     * @classdesc Represents a SearchTextIndexSpec.
+                                     * @implements ISearchTextIndexSpec
+                                     * @constructor
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec=} [properties] Properties to set
+                                     */
+                                    function SearchTextIndexSpec(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+    
+                                    /**
+                                     * SearchTextIndexSpec indexType.
+                                     * @member {google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType} indexType
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @instance
+                                     */
+                                    SearchTextIndexSpec.prototype.indexType = 0;
+    
+                                    /**
+                                     * SearchTextIndexSpec matchType.
+                                     * @member {google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType} matchType
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @instance
+                                     */
+                                    SearchTextIndexSpec.prototype.matchType = 0;
+    
+                                    /**
+                                     * Creates a new SearchTextIndexSpec instance using the specified properties.
+                                     * @function create
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec=} [properties] Properties to set
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec} SearchTextIndexSpec instance
+                                     */
+                                    SearchTextIndexSpec.create = function create(properties) {
+                                        return new SearchTextIndexSpec(properties);
+                                    };
+    
+                                    /**
+                                     * Encodes the specified SearchTextIndexSpec message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec} message SearchTextIndexSpec message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    SearchTextIndexSpec.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.indexType != null && Object.hasOwnProperty.call(message, "indexType"))
+                                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.indexType);
+                                        if (message.matchType != null && Object.hasOwnProperty.call(message, "matchType"))
+                                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.matchType);
+                                        return writer;
+                                    };
+    
+                                    /**
+                                     * Encodes the specified SearchTextIndexSpec message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec} message SearchTextIndexSpec message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    SearchTextIndexSpec.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+    
+                                    /**
+                                     * Decodes a SearchTextIndexSpec message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec} SearchTextIndexSpec
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    SearchTextIndexSpec.decode = function decode(reader, length, error) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            if (tag === error)
+                                                break;
+                                            switch (tag >>> 3) {
+                                            case 1: {
+                                                    message.indexType = reader.int32();
+                                                    break;
+                                                }
+                                            case 2: {
+                                                    message.matchType = reader.int32();
+                                                    break;
+                                                }
+                                            default:
+                                                reader.skipType(tag & 7);
+                                                break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+    
+                                    /**
+                                     * Decodes a SearchTextIndexSpec message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec} SearchTextIndexSpec
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    SearchTextIndexSpec.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+    
+                                    /**
+                                     * Verifies a SearchTextIndexSpec message.
+                                     * @function verify
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    SearchTextIndexSpec.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.indexType != null && message.hasOwnProperty("indexType"))
+                                            switch (message.indexType) {
+                                            default:
+                                                return "indexType: enum value expected";
+                                            case 0:
+                                            case 1:
+                                                break;
+                                            }
+                                        if (message.matchType != null && message.hasOwnProperty("matchType"))
+                                            switch (message.matchType) {
+                                            default:
+                                                return "matchType: enum value expected";
+                                            case 0:
+                                            case 1:
+                                                break;
+                                            }
+                                        return null;
+                                    };
+    
+                                    /**
+                                     * Creates a SearchTextIndexSpec message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec} SearchTextIndexSpec
+                                     */
+                                    SearchTextIndexSpec.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec)
+                                            return object;
+                                        var message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec();
+                                        switch (object.indexType) {
+                                        default:
+                                            if (typeof object.indexType === "number") {
+                                                message.indexType = object.indexType;
+                                                break;
+                                            }
+                                            break;
+                                        case "TEXT_INDEX_TYPE_UNSPECIFIED":
+                                        case 0:
+                                            message.indexType = 0;
+                                            break;
+                                        case "TOKENIZED":
+                                        case 1:
+                                            message.indexType = 1;
+                                            break;
+                                        }
+                                        switch (object.matchType) {
+                                        default:
+                                            if (typeof object.matchType === "number") {
+                                                message.matchType = object.matchType;
+                                                break;
+                                            }
+                                            break;
+                                        case "TEXT_MATCH_TYPE_UNSPECIFIED":
+                                        case 0:
+                                            message.matchType = 0;
+                                            break;
+                                        case "MATCH_GLOBALLY":
+                                        case 1:
+                                            message.matchType = 1;
+                                            break;
+                                        }
+                                        return message;
+                                    };
+    
+                                    /**
+                                     * Creates a plain object from a SearchTextIndexSpec message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec} message SearchTextIndexSpec
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    SearchTextIndexSpec.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults) {
+                                            object.indexType = options.enums === String ? "TEXT_INDEX_TYPE_UNSPECIFIED" : 0;
+                                            object.matchType = options.enums === String ? "TEXT_MATCH_TYPE_UNSPECIFIED" : 0;
+                                        }
+                                        if (message.indexType != null && message.hasOwnProperty("indexType"))
+                                            object.indexType = options.enums === String ? $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType[message.indexType] === undefined ? message.indexType : $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType[message.indexType] : message.indexType;
+                                        if (message.matchType != null && message.hasOwnProperty("matchType"))
+                                            object.matchType = options.enums === String ? $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType[message.matchType] === undefined ? message.matchType : $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType[message.matchType] : message.matchType;
+                                        return object;
+                                    };
+    
+                                    /**
+                                     * Converts this SearchTextIndexSpec to JSON.
+                                     * @function toJSON
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    SearchTextIndexSpec.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+    
+                                    /**
+                                     * Gets the default type url for SearchTextIndexSpec
+                                     * @function getTypeUrl
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec
+                                     * @static
+                                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                     * @returns {string} The default type url
+                                     */
+                                    SearchTextIndexSpec.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                        if (typeUrlPrefix === undefined) {
+                                            typeUrlPrefix = "type.googleapis.com";
+                                        }
+                                        return typeUrlPrefix + "/google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec";
+                                    };
+    
+                                    return SearchTextIndexSpec;
+                                })();
+    
+                                SearchConfig.SearchTextSpec = (function() {
+    
+                                    /**
+                                     * Properties of a SearchTextSpec.
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                     * @interface ISearchTextSpec
+                                     * @property {Array.<google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec>|null} [indexSpecs] SearchTextSpec indexSpecs
+                                     */
+    
+                                    /**
+                                     * Constructs a new SearchTextSpec.
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                     * @classdesc Represents a SearchTextSpec.
+                                     * @implements ISearchTextSpec
+                                     * @constructor
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec=} [properties] Properties to set
+                                     */
+                                    function SearchTextSpec(properties) {
+                                        this.indexSpecs = [];
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+    
+                                    /**
+                                     * SearchTextSpec indexSpecs.
+                                     * @member {Array.<google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec>} indexSpecs
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @instance
+                                     */
+                                    SearchTextSpec.prototype.indexSpecs = $util.emptyArray;
+    
+                                    /**
+                                     * Creates a new SearchTextSpec instance using the specified properties.
+                                     * @function create
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec=} [properties] Properties to set
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec} SearchTextSpec instance
+                                     */
+                                    SearchTextSpec.create = function create(properties) {
+                                        return new SearchTextSpec(properties);
+                                    };
+    
+                                    /**
+                                     * Encodes the specified SearchTextSpec message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec} message SearchTextSpec message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    SearchTextSpec.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.indexSpecs != null && message.indexSpecs.length)
+                                            for (var i = 0; i < message.indexSpecs.length; ++i)
+                                                $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.encode(message.indexSpecs[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                                        return writer;
+                                    };
+    
+                                    /**
+                                     * Encodes the specified SearchTextSpec message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec} message SearchTextSpec message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    SearchTextSpec.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+    
+                                    /**
+                                     * Decodes a SearchTextSpec message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec} SearchTextSpec
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    SearchTextSpec.decode = function decode(reader, length, error) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            if (tag === error)
+                                                break;
+                                            switch (tag >>> 3) {
+                                            case 1: {
+                                                    if (!(message.indexSpecs && message.indexSpecs.length))
+                                                        message.indexSpecs = [];
+                                                    message.indexSpecs.push($root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.decode(reader, reader.uint32()));
+                                                    break;
+                                                }
+                                            default:
+                                                reader.skipType(tag & 7);
+                                                break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+    
+                                    /**
+                                     * Decodes a SearchTextSpec message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec} SearchTextSpec
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    SearchTextSpec.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+    
+                                    /**
+                                     * Verifies a SearchTextSpec message.
+                                     * @function verify
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    SearchTextSpec.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.indexSpecs != null && message.hasOwnProperty("indexSpecs")) {
+                                            if (!Array.isArray(message.indexSpecs))
+                                                return "indexSpecs: array expected";
+                                            for (var i = 0; i < message.indexSpecs.length; ++i) {
+                                                var error = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.verify(message.indexSpecs[i]);
+                                                if (error)
+                                                    return "indexSpecs." + error;
+                                            }
+                                        }
+                                        return null;
+                                    };
+    
+                                    /**
+                                     * Creates a SearchTextSpec message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec} SearchTextSpec
+                                     */
+                                    SearchTextSpec.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec)
+                                            return object;
+                                        var message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec();
+                                        if (object.indexSpecs) {
+                                            if (!Array.isArray(object.indexSpecs))
+                                                throw TypeError(".google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.indexSpecs: array expected");
+                                            message.indexSpecs = [];
+                                            for (var i = 0; i < object.indexSpecs.length; ++i) {
+                                                if (typeof object.indexSpecs[i] !== "object")
+                                                    throw TypeError(".google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.indexSpecs: object expected");
+                                                message.indexSpecs[i] = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.fromObject(object.indexSpecs[i]);
+                                            }
+                                        }
+                                        return message;
+                                    };
+    
+                                    /**
+                                     * Creates a plain object from a SearchTextSpec message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec} message SearchTextSpec
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    SearchTextSpec.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.arrays || options.defaults)
+                                            object.indexSpecs = [];
+                                        if (message.indexSpecs && message.indexSpecs.length) {
+                                            object.indexSpecs = [];
+                                            for (var j = 0; j < message.indexSpecs.length; ++j)
+                                                object.indexSpecs[j] = $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.toObject(message.indexSpecs[j], options);
+                                        }
+                                        return object;
+                                    };
+    
+                                    /**
+                                     * Converts this SearchTextSpec to JSON.
+                                     * @function toJSON
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    SearchTextSpec.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+    
+                                    /**
+                                     * Gets the default type url for SearchTextSpec
+                                     * @function getTypeUrl
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec
+                                     * @static
+                                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                     * @returns {string} The default type url
+                                     */
+                                    SearchTextSpec.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                        if (typeUrlPrefix === undefined) {
+                                            typeUrlPrefix = "type.googleapis.com";
+                                        }
+                                        return typeUrlPrefix + "/google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec";
+                                    };
+    
+                                    return SearchTextSpec;
+                                })();
+    
+                                SearchConfig.SearchGeoSpec = (function() {
+    
+                                    /**
+                                     * Properties of a SearchGeoSpec.
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                     * @interface ISearchGeoSpec
+                                     * @property {boolean|null} [geoJsonIndexingDisabled] SearchGeoSpec geoJsonIndexingDisabled
+                                     */
+    
+                                    /**
+                                     * Constructs a new SearchGeoSpec.
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig
+                                     * @classdesc Represents a SearchGeoSpec.
+                                     * @implements ISearchGeoSpec
+                                     * @constructor
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec=} [properties] Properties to set
+                                     */
+                                    function SearchGeoSpec(properties) {
+                                        if (properties)
+                                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                                if (properties[keys[i]] != null)
+                                                    this[keys[i]] = properties[keys[i]];
+                                    }
+    
+                                    /**
+                                     * SearchGeoSpec geoJsonIndexingDisabled.
+                                     * @member {boolean} geoJsonIndexingDisabled
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @instance
+                                     */
+                                    SearchGeoSpec.prototype.geoJsonIndexingDisabled = false;
+    
+                                    /**
+                                     * Creates a new SearchGeoSpec instance using the specified properties.
+                                     * @function create
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec=} [properties] Properties to set
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec} SearchGeoSpec instance
+                                     */
+                                    SearchGeoSpec.create = function create(properties) {
+                                        return new SearchGeoSpec(properties);
+                                    };
+    
+                                    /**
+                                     * Encodes the specified SearchGeoSpec message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.verify|verify} messages.
+                                     * @function encode
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec} message SearchGeoSpec message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    SearchGeoSpec.encode = function encode(message, writer) {
+                                        if (!writer)
+                                            writer = $Writer.create();
+                                        if (message.geoJsonIndexingDisabled != null && Object.hasOwnProperty.call(message, "geoJsonIndexingDisabled"))
+                                            writer.uint32(/* id 1, wireType 0 =*/8).bool(message.geoJsonIndexingDisabled);
+                                        return writer;
+                                    };
+    
+                                    /**
+                                     * Encodes the specified SearchGeoSpec message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.verify|verify} messages.
+                                     * @function encodeDelimited
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec} message SearchGeoSpec message or plain object to encode
+                                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                                     * @returns {$protobuf.Writer} Writer
+                                     */
+                                    SearchGeoSpec.encodeDelimited = function encodeDelimited(message, writer) {
+                                        return this.encode(message, writer).ldelim();
+                                    };
+    
+                                    /**
+                                     * Decodes a SearchGeoSpec message from the specified reader or buffer.
+                                     * @function decode
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @param {number} [length] Message length if known beforehand
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec} SearchGeoSpec
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    SearchGeoSpec.decode = function decode(reader, length, error) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = $Reader.create(reader);
+                                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec();
+                                        while (reader.pos < end) {
+                                            var tag = reader.uint32();
+                                            if (tag === error)
+                                                break;
+                                            switch (tag >>> 3) {
+                                            case 1: {
+                                                    message.geoJsonIndexingDisabled = reader.bool();
+                                                    break;
+                                                }
+                                            default:
+                                                reader.skipType(tag & 7);
+                                                break;
+                                            }
+                                        }
+                                        return message;
+                                    };
+    
+                                    /**
+                                     * Decodes a SearchGeoSpec message from the specified reader or buffer, length delimited.
+                                     * @function decodeDelimited
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec} SearchGeoSpec
+                                     * @throws {Error} If the payload is not a reader or valid buffer
+                                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                     */
+                                    SearchGeoSpec.decodeDelimited = function decodeDelimited(reader) {
+                                        if (!(reader instanceof $Reader))
+                                            reader = new $Reader(reader);
+                                        return this.decode(reader, reader.uint32());
+                                    };
+    
+                                    /**
+                                     * Verifies a SearchGeoSpec message.
+                                     * @function verify
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {Object.<string,*>} message Plain object to verify
+                                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                                     */
+                                    SearchGeoSpec.verify = function verify(message) {
+                                        if (typeof message !== "object" || message === null)
+                                            return "object expected";
+                                        if (message.geoJsonIndexingDisabled != null && message.hasOwnProperty("geoJsonIndexingDisabled"))
+                                            if (typeof message.geoJsonIndexingDisabled !== "boolean")
+                                                return "geoJsonIndexingDisabled: boolean expected";
+                                        return null;
+                                    };
+    
+                                    /**
+                                     * Creates a SearchGeoSpec message from a plain object. Also converts values to their respective internal types.
+                                     * @function fromObject
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {Object.<string,*>} object Plain object
+                                     * @returns {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec} SearchGeoSpec
+                                     */
+                                    SearchGeoSpec.fromObject = function fromObject(object) {
+                                        if (object instanceof $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec)
+                                            return object;
+                                        var message = new $root.google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec();
+                                        if (object.geoJsonIndexingDisabled != null)
+                                            message.geoJsonIndexingDisabled = Boolean(object.geoJsonIndexingDisabled);
+                                        return message;
+                                    };
+    
+                                    /**
+                                     * Creates a plain object from a SearchGeoSpec message. Also converts values to other types if specified.
+                                     * @function toObject
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec} message SearchGeoSpec
+                                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                                     * @returns {Object.<string,*>} Plain object
+                                     */
+                                    SearchGeoSpec.toObject = function toObject(message, options) {
+                                        if (!options)
+                                            options = {};
+                                        var object = {};
+                                        if (options.defaults)
+                                            object.geoJsonIndexingDisabled = false;
+                                        if (message.geoJsonIndexingDisabled != null && message.hasOwnProperty("geoJsonIndexingDisabled"))
+                                            object.geoJsonIndexingDisabled = message.geoJsonIndexingDisabled;
+                                        return object;
+                                    };
+    
+                                    /**
+                                     * Converts this SearchGeoSpec to JSON.
+                                     * @function toJSON
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @instance
+                                     * @returns {Object.<string,*>} JSON object
+                                     */
+                                    SearchGeoSpec.prototype.toJSON = function toJSON() {
+                                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                                    };
+    
+                                    /**
+                                     * Gets the default type url for SearchGeoSpec
+                                     * @function getTypeUrl
+                                     * @memberof google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec
+                                     * @static
+                                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                     * @returns {string} The default type url
+                                     */
+                                    SearchGeoSpec.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                        if (typeUrlPrefix === undefined) {
+                                            typeUrlPrefix = "type.googleapis.com";
+                                        }
+                                        return typeUrlPrefix + "/google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec";
+                                    };
+    
+                                    return SearchGeoSpec;
+                                })();
+    
+                                return SearchConfig;
+                            })();
+    
                             return IndexField;
                         })();
     
@@ -5740,6 +6768,235 @@
                             values[valuesById[2] = "SPARSE_ANY"] = 2;
                             values[valuesById[3] = "DENSE"] = 3;
                             return values;
+                        })();
+    
+                        Index.SearchIndexOptions = (function() {
+    
+                            /**
+                             * Properties of a SearchIndexOptions.
+                             * @memberof google.firestore.admin.v1.Index
+                             * @interface ISearchIndexOptions
+                             * @property {string|null} [textLanguage] SearchIndexOptions textLanguage
+                             * @property {string|null} [textLanguageOverrideFieldPath] SearchIndexOptions textLanguageOverrideFieldPath
+                             */
+    
+                            /**
+                             * Constructs a new SearchIndexOptions.
+                             * @memberof google.firestore.admin.v1.Index
+                             * @classdesc Represents a SearchIndexOptions.
+                             * @implements ISearchIndexOptions
+                             * @constructor
+                             * @param {google.firestore.admin.v1.Index.ISearchIndexOptions=} [properties] Properties to set
+                             */
+                            function SearchIndexOptions(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * SearchIndexOptions textLanguage.
+                             * @member {string} textLanguage
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @instance
+                             */
+                            SearchIndexOptions.prototype.textLanguage = "";
+    
+                            /**
+                             * SearchIndexOptions textLanguageOverrideFieldPath.
+                             * @member {string} textLanguageOverrideFieldPath
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @instance
+                             */
+                            SearchIndexOptions.prototype.textLanguageOverrideFieldPath = "";
+    
+                            /**
+                             * Creates a new SearchIndexOptions instance using the specified properties.
+                             * @function create
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {google.firestore.admin.v1.Index.ISearchIndexOptions=} [properties] Properties to set
+                             * @returns {google.firestore.admin.v1.Index.SearchIndexOptions} SearchIndexOptions instance
+                             */
+                            SearchIndexOptions.create = function create(properties) {
+                                return new SearchIndexOptions(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified SearchIndexOptions message. Does not implicitly {@link google.firestore.admin.v1.Index.SearchIndexOptions.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {google.firestore.admin.v1.Index.ISearchIndexOptions} message SearchIndexOptions message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            SearchIndexOptions.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.textLanguage != null && Object.hasOwnProperty.call(message, "textLanguage"))
+                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.textLanguage);
+                                if (message.textLanguageOverrideFieldPath != null && Object.hasOwnProperty.call(message, "textLanguageOverrideFieldPath"))
+                                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.textLanguageOverrideFieldPath);
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified SearchIndexOptions message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.SearchIndexOptions.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {google.firestore.admin.v1.Index.ISearchIndexOptions} message SearchIndexOptions message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            SearchIndexOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a SearchIndexOptions message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.firestore.admin.v1.Index.SearchIndexOptions} SearchIndexOptions
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            SearchIndexOptions.decode = function decode(reader, length, error) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.firestore.admin.v1.Index.SearchIndexOptions();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    if (tag === error)
+                                        break;
+                                    switch (tag >>> 3) {
+                                    case 1: {
+                                            message.textLanguage = reader.string();
+                                            break;
+                                        }
+                                    case 2: {
+                                            message.textLanguageOverrideFieldPath = reader.string();
+                                            break;
+                                        }
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a SearchIndexOptions message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.firestore.admin.v1.Index.SearchIndexOptions} SearchIndexOptions
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            SearchIndexOptions.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a SearchIndexOptions message.
+                             * @function verify
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            SearchIndexOptions.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.textLanguage != null && message.hasOwnProperty("textLanguage"))
+                                    if (!$util.isString(message.textLanguage))
+                                        return "textLanguage: string expected";
+                                if (message.textLanguageOverrideFieldPath != null && message.hasOwnProperty("textLanguageOverrideFieldPath"))
+                                    if (!$util.isString(message.textLanguageOverrideFieldPath))
+                                        return "textLanguageOverrideFieldPath: string expected";
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a SearchIndexOptions message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.firestore.admin.v1.Index.SearchIndexOptions} SearchIndexOptions
+                             */
+                            SearchIndexOptions.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.firestore.admin.v1.Index.SearchIndexOptions)
+                                    return object;
+                                var message = new $root.google.firestore.admin.v1.Index.SearchIndexOptions();
+                                if (object.textLanguage != null)
+                                    message.textLanguage = String(object.textLanguage);
+                                if (object.textLanguageOverrideFieldPath != null)
+                                    message.textLanguageOverrideFieldPath = String(object.textLanguageOverrideFieldPath);
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a SearchIndexOptions message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {google.firestore.admin.v1.Index.SearchIndexOptions} message SearchIndexOptions
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            SearchIndexOptions.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.defaults) {
+                                    object.textLanguage = "";
+                                    object.textLanguageOverrideFieldPath = "";
+                                }
+                                if (message.textLanguage != null && message.hasOwnProperty("textLanguage"))
+                                    object.textLanguage = message.textLanguage;
+                                if (message.textLanguageOverrideFieldPath != null && message.hasOwnProperty("textLanguageOverrideFieldPath"))
+                                    object.textLanguageOverrideFieldPath = message.textLanguageOverrideFieldPath;
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this SearchIndexOptions to JSON.
+                             * @function toJSON
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            SearchIndexOptions.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            /**
+                             * Gets the default type url for SearchIndexOptions
+                             * @function getTypeUrl
+                             * @memberof google.firestore.admin.v1.Index.SearchIndexOptions
+                             * @static
+                             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                             * @returns {string} The default type url
+                             */
+                            SearchIndexOptions.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                                if (typeUrlPrefix === undefined) {
+                                    typeUrlPrefix = "type.googleapis.com";
+                                }
+                                return typeUrlPrefix + "/google.firestore.admin.v1.Index.SearchIndexOptions";
+                            };
+    
+                            return SearchIndexOptions;
                         })();
     
                         return Index;

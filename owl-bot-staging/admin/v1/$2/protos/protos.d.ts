@@ -1647,6 +1647,9 @@ export namespace google {
 
                     /** Index unique */
                     unique?: (boolean|null);
+
+                    /** Index searchIndexOptions */
+                    searchIndexOptions?: (google.firestore.admin.v1.Index.ISearchIndexOptions|null);
                 }
 
                 /** Represents an Index. */
@@ -1684,6 +1687,9 @@ export namespace google {
 
                     /** Index unique. */
                     public unique: boolean;
+
+                    /** Index searchIndexOptions. */
+                    public searchIndexOptions?: (google.firestore.admin.v1.Index.ISearchIndexOptions|null);
 
                     /**
                      * Creates a new Index instance using the specified properties.
@@ -1794,6 +1800,9 @@ export namespace google {
 
                         /** IndexField vectorConfig */
                         vectorConfig?: (google.firestore.admin.v1.Index.IndexField.IVectorConfig|null);
+
+                        /** IndexField searchConfig */
+                        searchConfig?: (google.firestore.admin.v1.Index.IndexField.ISearchConfig|null);
                     }
 
                     /** Represents an IndexField. */
@@ -1817,8 +1826,11 @@ export namespace google {
                         /** IndexField vectorConfig. */
                         public vectorConfig?: (google.firestore.admin.v1.Index.IndexField.IVectorConfig|null);
 
+                        /** IndexField searchConfig. */
+                        public searchConfig?: (google.firestore.admin.v1.Index.IndexField.ISearchConfig|null);
+
                         /** IndexField valueMode. */
-                        public valueMode?: ("order"|"arrayConfig"|"vectorConfig");
+                        public valueMode?: ("order"|"arrayConfig"|"vectorConfig"|"searchConfig");
 
                         /**
                          * Creates a new IndexField instance using the specified properties.
@@ -2112,6 +2124,421 @@ export namespace google {
                                 public static getTypeUrl(typeUrlPrefix?: string): string;
                             }
                         }
+
+                        /** Properties of a SearchConfig. */
+                        interface ISearchConfig {
+
+                            /** SearchConfig textSpec */
+                            textSpec?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec|null);
+
+                            /** SearchConfig geoSpec */
+                            geoSpec?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec|null);
+                        }
+
+                        /** Represents a SearchConfig. */
+                        class SearchConfig implements ISearchConfig {
+
+                            /**
+                             * Constructs a new SearchConfig.
+                             * @param [properties] Properties to set
+                             */
+                            constructor(properties?: google.firestore.admin.v1.Index.IndexField.ISearchConfig);
+
+                            /** SearchConfig textSpec. */
+                            public textSpec?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec|null);
+
+                            /** SearchConfig geoSpec. */
+                            public geoSpec?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec|null);
+
+                            /**
+                             * Creates a new SearchConfig instance using the specified properties.
+                             * @param [properties] Properties to set
+                             * @returns SearchConfig instance
+                             */
+                            public static create(properties?: google.firestore.admin.v1.Index.IndexField.ISearchConfig): google.firestore.admin.v1.Index.IndexField.SearchConfig;
+
+                            /**
+                             * Encodes the specified SearchConfig message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.verify|verify} messages.
+                             * @param message SearchConfig message or plain object to encode
+                             * @param [writer] Writer to encode to
+                             * @returns Writer
+                             */
+                            public static encode(message: google.firestore.admin.v1.Index.IndexField.ISearchConfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                            /**
+                             * Encodes the specified SearchConfig message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.verify|verify} messages.
+                             * @param message SearchConfig message or plain object to encode
+                             * @param [writer] Writer to encode to
+                             * @returns Writer
+                             */
+                            public static encodeDelimited(message: google.firestore.admin.v1.Index.IndexField.ISearchConfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                            /**
+                             * Decodes a SearchConfig message from the specified reader or buffer.
+                             * @param reader Reader or buffer to decode from
+                             * @param [length] Message length if known beforehand
+                             * @returns SearchConfig
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.firestore.admin.v1.Index.IndexField.SearchConfig;
+
+                            /**
+                             * Decodes a SearchConfig message from the specified reader or buffer, length delimited.
+                             * @param reader Reader or buffer to decode from
+                             * @returns SearchConfig
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.firestore.admin.v1.Index.IndexField.SearchConfig;
+
+                            /**
+                             * Verifies a SearchConfig message.
+                             * @param message Plain object to verify
+                             * @returns `null` if valid, otherwise the reason why it is not
+                             */
+                            public static verify(message: { [k: string]: any }): (string|null);
+
+                            /**
+                             * Creates a SearchConfig message from a plain object. Also converts values to their respective internal types.
+                             * @param object Plain object
+                             * @returns SearchConfig
+                             */
+                            public static fromObject(object: { [k: string]: any }): google.firestore.admin.v1.Index.IndexField.SearchConfig;
+
+                            /**
+                             * Creates a plain object from a SearchConfig message. Also converts values to other types if specified.
+                             * @param message SearchConfig
+                             * @param [options] Conversion options
+                             * @returns Plain object
+                             */
+                            public static toObject(message: google.firestore.admin.v1.Index.IndexField.SearchConfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                            /**
+                             * Converts this SearchConfig to JSON.
+                             * @returns JSON object
+                             */
+                            public toJSON(): { [k: string]: any };
+
+                            /**
+                             * Gets the default type url for SearchConfig
+                             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                             * @returns The default type url
+                             */
+                            public static getTypeUrl(typeUrlPrefix?: string): string;
+                        }
+
+                        namespace SearchConfig {
+
+                            /** TextIndexType enum. */
+                            enum TextIndexType {
+                                TEXT_INDEX_TYPE_UNSPECIFIED = 0,
+                                TOKENIZED = 1
+                            }
+
+                            /** TextMatchType enum. */
+                            enum TextMatchType {
+                                TEXT_MATCH_TYPE_UNSPECIFIED = 0,
+                                MATCH_GLOBALLY = 1
+                            }
+
+                            /** Properties of a SearchTextIndexSpec. */
+                            interface ISearchTextIndexSpec {
+
+                                /** SearchTextIndexSpec indexType */
+                                indexType?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType|keyof typeof google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType|null);
+
+                                /** SearchTextIndexSpec matchType */
+                                matchType?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType|keyof typeof google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType|null);
+                            }
+
+                            /** Represents a SearchTextIndexSpec. */
+                            class SearchTextIndexSpec implements ISearchTextIndexSpec {
+
+                                /**
+                                 * Constructs a new SearchTextIndexSpec.
+                                 * @param [properties] Properties to set
+                                 */
+                                constructor(properties?: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec);
+
+                                /** SearchTextIndexSpec indexType. */
+                                public indexType: (google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType|keyof typeof google.firestore.admin.v1.Index.IndexField.SearchConfig.TextIndexType);
+
+                                /** SearchTextIndexSpec matchType. */
+                                public matchType: (google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType|keyof typeof google.firestore.admin.v1.Index.IndexField.SearchConfig.TextMatchType);
+
+                                /**
+                                 * Creates a new SearchTextIndexSpec instance using the specified properties.
+                                 * @param [properties] Properties to set
+                                 * @returns SearchTextIndexSpec instance
+                                 */
+                                public static create(properties?: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec;
+
+                                /**
+                                 * Encodes the specified SearchTextIndexSpec message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.verify|verify} messages.
+                                 * @param message SearchTextIndexSpec message or plain object to encode
+                                 * @param [writer] Writer to encode to
+                                 * @returns Writer
+                                 */
+                                public static encode(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                /**
+                                 * Encodes the specified SearchTextIndexSpec message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec.verify|verify} messages.
+                                 * @param message SearchTextIndexSpec message or plain object to encode
+                                 * @param [writer] Writer to encode to
+                                 * @returns Writer
+                                 */
+                                public static encodeDelimited(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                /**
+                                 * Decodes a SearchTextIndexSpec message from the specified reader or buffer.
+                                 * @param reader Reader or buffer to decode from
+                                 * @param [length] Message length if known beforehand
+                                 * @returns SearchTextIndexSpec
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec;
+
+                                /**
+                                 * Decodes a SearchTextIndexSpec message from the specified reader or buffer, length delimited.
+                                 * @param reader Reader or buffer to decode from
+                                 * @returns SearchTextIndexSpec
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec;
+
+                                /**
+                                 * Verifies a SearchTextIndexSpec message.
+                                 * @param message Plain object to verify
+                                 * @returns `null` if valid, otherwise the reason why it is not
+                                 */
+                                public static verify(message: { [k: string]: any }): (string|null);
+
+                                /**
+                                 * Creates a SearchTextIndexSpec message from a plain object. Also converts values to their respective internal types.
+                                 * @param object Plain object
+                                 * @returns SearchTextIndexSpec
+                                 */
+                                public static fromObject(object: { [k: string]: any }): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec;
+
+                                /**
+                                 * Creates a plain object from a SearchTextIndexSpec message. Also converts values to other types if specified.
+                                 * @param message SearchTextIndexSpec
+                                 * @param [options] Conversion options
+                                 * @returns Plain object
+                                 */
+                                public static toObject(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextIndexSpec, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                /**
+                                 * Converts this SearchTextIndexSpec to JSON.
+                                 * @returns JSON object
+                                 */
+                                public toJSON(): { [k: string]: any };
+
+                                /**
+                                 * Gets the default type url for SearchTextIndexSpec
+                                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                 * @returns The default type url
+                                 */
+                                public static getTypeUrl(typeUrlPrefix?: string): string;
+                            }
+
+                            /** Properties of a SearchTextSpec. */
+                            interface ISearchTextSpec {
+
+                                /** SearchTextSpec indexSpecs */
+                                indexSpecs?: (google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec[]|null);
+                            }
+
+                            /** Represents a SearchTextSpec. */
+                            class SearchTextSpec implements ISearchTextSpec {
+
+                                /**
+                                 * Constructs a new SearchTextSpec.
+                                 * @param [properties] Properties to set
+                                 */
+                                constructor(properties?: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec);
+
+                                /** SearchTextSpec indexSpecs. */
+                                public indexSpecs: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextIndexSpec[];
+
+                                /**
+                                 * Creates a new SearchTextSpec instance using the specified properties.
+                                 * @param [properties] Properties to set
+                                 * @returns SearchTextSpec instance
+                                 */
+                                public static create(properties?: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec;
+
+                                /**
+                                 * Encodes the specified SearchTextSpec message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.verify|verify} messages.
+                                 * @param message SearchTextSpec message or plain object to encode
+                                 * @param [writer] Writer to encode to
+                                 * @returns Writer
+                                 */
+                                public static encode(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                /**
+                                 * Encodes the specified SearchTextSpec message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec.verify|verify} messages.
+                                 * @param message SearchTextSpec message or plain object to encode
+                                 * @param [writer] Writer to encode to
+                                 * @returns Writer
+                                 */
+                                public static encodeDelimited(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchTextSpec, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                /**
+                                 * Decodes a SearchTextSpec message from the specified reader or buffer.
+                                 * @param reader Reader or buffer to decode from
+                                 * @param [length] Message length if known beforehand
+                                 * @returns SearchTextSpec
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec;
+
+                                /**
+                                 * Decodes a SearchTextSpec message from the specified reader or buffer, length delimited.
+                                 * @param reader Reader or buffer to decode from
+                                 * @returns SearchTextSpec
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec;
+
+                                /**
+                                 * Verifies a SearchTextSpec message.
+                                 * @param message Plain object to verify
+                                 * @returns `null` if valid, otherwise the reason why it is not
+                                 */
+                                public static verify(message: { [k: string]: any }): (string|null);
+
+                                /**
+                                 * Creates a SearchTextSpec message from a plain object. Also converts values to their respective internal types.
+                                 * @param object Plain object
+                                 * @returns SearchTextSpec
+                                 */
+                                public static fromObject(object: { [k: string]: any }): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec;
+
+                                /**
+                                 * Creates a plain object from a SearchTextSpec message. Also converts values to other types if specified.
+                                 * @param message SearchTextSpec
+                                 * @param [options] Conversion options
+                                 * @returns Plain object
+                                 */
+                                public static toObject(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchTextSpec, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                /**
+                                 * Converts this SearchTextSpec to JSON.
+                                 * @returns JSON object
+                                 */
+                                public toJSON(): { [k: string]: any };
+
+                                /**
+                                 * Gets the default type url for SearchTextSpec
+                                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                 * @returns The default type url
+                                 */
+                                public static getTypeUrl(typeUrlPrefix?: string): string;
+                            }
+
+                            /** Properties of a SearchGeoSpec. */
+                            interface ISearchGeoSpec {
+
+                                /** SearchGeoSpec geoJsonIndexingDisabled */
+                                geoJsonIndexingDisabled?: (boolean|null);
+                            }
+
+                            /** Represents a SearchGeoSpec. */
+                            class SearchGeoSpec implements ISearchGeoSpec {
+
+                                /**
+                                 * Constructs a new SearchGeoSpec.
+                                 * @param [properties] Properties to set
+                                 */
+                                constructor(properties?: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec);
+
+                                /** SearchGeoSpec geoJsonIndexingDisabled. */
+                                public geoJsonIndexingDisabled: boolean;
+
+                                /**
+                                 * Creates a new SearchGeoSpec instance using the specified properties.
+                                 * @param [properties] Properties to set
+                                 * @returns SearchGeoSpec instance
+                                 */
+                                public static create(properties?: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec;
+
+                                /**
+                                 * Encodes the specified SearchGeoSpec message. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.verify|verify} messages.
+                                 * @param message SearchGeoSpec message or plain object to encode
+                                 * @param [writer] Writer to encode to
+                                 * @returns Writer
+                                 */
+                                public static encode(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                /**
+                                 * Encodes the specified SearchGeoSpec message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec.verify|verify} messages.
+                                 * @param message SearchGeoSpec message or plain object to encode
+                                 * @param [writer] Writer to encode to
+                                 * @returns Writer
+                                 */
+                                public static encodeDelimited(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.ISearchGeoSpec, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                                /**
+                                 * Decodes a SearchGeoSpec message from the specified reader or buffer.
+                                 * @param reader Reader or buffer to decode from
+                                 * @param [length] Message length if known beforehand
+                                 * @returns SearchGeoSpec
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec;
+
+                                /**
+                                 * Decodes a SearchGeoSpec message from the specified reader or buffer, length delimited.
+                                 * @param reader Reader or buffer to decode from
+                                 * @returns SearchGeoSpec
+                                 * @throws {Error} If the payload is not a reader or valid buffer
+                                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                                 */
+                                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec;
+
+                                /**
+                                 * Verifies a SearchGeoSpec message.
+                                 * @param message Plain object to verify
+                                 * @returns `null` if valid, otherwise the reason why it is not
+                                 */
+                                public static verify(message: { [k: string]: any }): (string|null);
+
+                                /**
+                                 * Creates a SearchGeoSpec message from a plain object. Also converts values to their respective internal types.
+                                 * @param object Plain object
+                                 * @returns SearchGeoSpec
+                                 */
+                                public static fromObject(object: { [k: string]: any }): google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec;
+
+                                /**
+                                 * Creates a plain object from a SearchGeoSpec message. Also converts values to other types if specified.
+                                 * @param message SearchGeoSpec
+                                 * @param [options] Conversion options
+                                 * @returns Plain object
+                                 */
+                                public static toObject(message: google.firestore.admin.v1.Index.IndexField.SearchConfig.SearchGeoSpec, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                                /**
+                                 * Converts this SearchGeoSpec to JSON.
+                                 * @returns JSON object
+                                 */
+                                public toJSON(): { [k: string]: any };
+
+                                /**
+                                 * Gets the default type url for SearchGeoSpec
+                                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                                 * @returns The default type url
+                                 */
+                                public static getTypeUrl(typeUrlPrefix?: string): string;
+                            }
+                        }
                     }
 
                     /** State enum. */
@@ -2128,6 +2555,109 @@ export namespace google {
                         SPARSE_ALL = 1,
                         SPARSE_ANY = 2,
                         DENSE = 3
+                    }
+
+                    /** Properties of a SearchIndexOptions. */
+                    interface ISearchIndexOptions {
+
+                        /** SearchIndexOptions textLanguage */
+                        textLanguage?: (string|null);
+
+                        /** SearchIndexOptions textLanguageOverrideFieldPath */
+                        textLanguageOverrideFieldPath?: (string|null);
+                    }
+
+                    /** Represents a SearchIndexOptions. */
+                    class SearchIndexOptions implements ISearchIndexOptions {
+
+                        /**
+                         * Constructs a new SearchIndexOptions.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.firestore.admin.v1.Index.ISearchIndexOptions);
+
+                        /** SearchIndexOptions textLanguage. */
+                        public textLanguage: string;
+
+                        /** SearchIndexOptions textLanguageOverrideFieldPath. */
+                        public textLanguageOverrideFieldPath: string;
+
+                        /**
+                         * Creates a new SearchIndexOptions instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns SearchIndexOptions instance
+                         */
+                        public static create(properties?: google.firestore.admin.v1.Index.ISearchIndexOptions): google.firestore.admin.v1.Index.SearchIndexOptions;
+
+                        /**
+                         * Encodes the specified SearchIndexOptions message. Does not implicitly {@link google.firestore.admin.v1.Index.SearchIndexOptions.verify|verify} messages.
+                         * @param message SearchIndexOptions message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.firestore.admin.v1.Index.ISearchIndexOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified SearchIndexOptions message, length delimited. Does not implicitly {@link google.firestore.admin.v1.Index.SearchIndexOptions.verify|verify} messages.
+                         * @param message SearchIndexOptions message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.firestore.admin.v1.Index.ISearchIndexOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a SearchIndexOptions message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns SearchIndexOptions
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.firestore.admin.v1.Index.SearchIndexOptions;
+
+                        /**
+                         * Decodes a SearchIndexOptions message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns SearchIndexOptions
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.firestore.admin.v1.Index.SearchIndexOptions;
+
+                        /**
+                         * Verifies a SearchIndexOptions message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a SearchIndexOptions message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns SearchIndexOptions
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.firestore.admin.v1.Index.SearchIndexOptions;
+
+                        /**
+                         * Creates a plain object from a SearchIndexOptions message. Also converts values to other types if specified.
+                         * @param message SearchIndexOptions
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.firestore.admin.v1.Index.SearchIndexOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this SearchIndexOptions to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+
+                        /**
+                         * Gets the default type url for SearchIndexOptions
+                         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns The default type url
+                         */
+                        public static getTypeUrl(typeUrlPrefix?: string): string;
                     }
                 }
 

@@ -560,6 +560,13 @@
                           "options": {
                             "(google.api.field_behavior)": "OPTIONAL"
                           }
+                        },
+                        "searchIndexOptions": {
+                          "type": "SearchIndexOptions",
+                          "id": 9,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
                         }
                       },
                       "nested": {
@@ -584,7 +591,8 @@
                               "oneof": [
                                 "order",
                                 "arrayConfig",
-                                "vectorConfig"
+                                "vectorConfig",
+                                "searchConfig"
                               ]
                             }
                           },
@@ -604,6 +612,10 @@
                             "vectorConfig": {
                               "type": "VectorConfig",
                               "id": 4
+                            },
+                            "searchConfig": {
+                              "type": "SearchConfig",
+                              "id": 5
                             }
                           },
                           "nested": {
@@ -646,6 +658,79 @@
                                   "fields": {}
                                 }
                               }
+                            },
+                            "SearchConfig": {
+                              "fields": {
+                                "textSpec": {
+                                  "type": "SearchTextSpec",
+                                  "id": 1,
+                                  "options": {
+                                    "(google.api.field_behavior)": "OPTIONAL"
+                                  }
+                                },
+                                "geoSpec": {
+                                  "type": "SearchGeoSpec",
+                                  "id": 2,
+                                  "options": {
+                                    "(google.api.field_behavior)": "OPTIONAL"
+                                  }
+                                }
+                              },
+                              "nested": {
+                                "TextIndexType": {
+                                  "values": {
+                                    "TEXT_INDEX_TYPE_UNSPECIFIED": 0,
+                                    "TOKENIZED": 1
+                                  }
+                                },
+                                "TextMatchType": {
+                                  "values": {
+                                    "TEXT_MATCH_TYPE_UNSPECIFIED": 0,
+                                    "MATCH_GLOBALLY": 1
+                                  }
+                                },
+                                "SearchTextIndexSpec": {
+                                  "fields": {
+                                    "indexType": {
+                                      "type": "TextIndexType",
+                                      "id": 1,
+                                      "options": {
+                                        "(google.api.field_behavior)": "REQUIRED"
+                                      }
+                                    },
+                                    "matchType": {
+                                      "type": "TextMatchType",
+                                      "id": 2,
+                                      "options": {
+                                        "(google.api.field_behavior)": "REQUIRED"
+                                      }
+                                    }
+                                  }
+                                },
+                                "SearchTextSpec": {
+                                  "fields": {
+                                    "indexSpecs": {
+                                      "rule": "repeated",
+                                      "type": "SearchTextIndexSpec",
+                                      "id": 1,
+                                      "options": {
+                                        "(google.api.field_behavior)": "REQUIRED"
+                                      }
+                                    }
+                                  }
+                                },
+                                "SearchGeoSpec": {
+                                  "fields": {
+                                    "geoJsonIndexingDisabled": {
+                                      "type": "bool",
+                                      "id": 1,
+                                      "options": {
+                                        "(google.api.field_behavior)": "OPTIONAL"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         },
@@ -663,6 +748,24 @@
                             "SPARSE_ALL": 1,
                             "SPARSE_ANY": 2,
                             "DENSE": 3
+                          }
+                        },
+                        "SearchIndexOptions": {
+                          "fields": {
+                            "textLanguage": {
+                              "type": "string",
+                              "id": 1,
+                              "options": {
+                                "(google.api.field_behavior)": "OPTIONAL"
+                              }
+                            },
+                            "textLanguageOverrideFieldPath": {
+                              "type": "string",
+                              "id": 2,
+                              "options": {
+                                "(google.api.field_behavior)": "OPTIONAL"
+                              }
+                            }
                           }
                         }
                       }
