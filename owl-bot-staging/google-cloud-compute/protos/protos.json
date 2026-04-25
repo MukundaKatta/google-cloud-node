@@ -138239,6 +138239,11 @@
                             "preference"
                           ]
                         },
+                        "_service": {
+                          "oneof": [
+                            "service"
+                          ]
+                        },
                         "_trafficDuration": {
                           "oneof": [
                             "trafficDuration"
@@ -138366,6 +138371,13 @@
                         "preference": {
                           "type": "string",
                           "id": 150781147,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "service": {
+                          "type": "string",
+                          "id": 373540533,
                           "options": {
                             "proto3_optional": true
                           }
@@ -143003,6 +143015,11 @@
                             "name"
                           ]
                         },
+                        "_params": {
+                          "oneof": [
+                            "params"
+                          ]
+                        },
                         "_plan": {
                           "oneof": [
                             "plan"
@@ -143126,6 +143143,13 @@
                         "name": {
                           "type": "string",
                           "id": 3373707,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "params": {
+                          "type": "CommitmentParams",
+                          "id": 78313862,
                           "options": {
                             "proto3_optional": true
                           }
@@ -143424,6 +143448,15 @@
                         }
                       }
                     },
+                    "CommitmentParams": {
+                      "fields": {
+                        "resourceManagerTags": {
+                          "keyType": "string",
+                          "type": "string",
+                          "id": 377671164
+                        }
+                      }
+                    },
                     "CommitmentResourceStatus": {
                       "oneofs": {
                         "_customTermEligibilityEndTimestamp": {
@@ -143672,6 +143705,51 @@
                         }
                       }
                     },
+                    "CompositeHealthCheckHealth": {
+                      "oneofs": {
+                        "_healthState": {
+                          "oneof": [
+                            "healthState"
+                          ]
+                        },
+                        "_kind": {
+                          "oneof": [
+                            "kind"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "healthSources": {
+                          "rule": "repeated",
+                          "type": "CompositeHealthChecksGetHealthResponseHealthSourceHealth",
+                          "id": 397879509
+                        },
+                        "healthState": {
+                          "type": "string",
+                          "id": 324007150,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "kind": {
+                          "type": "string",
+                          "id": 3292052,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      },
+                      "nested": {
+                        "HealthState": {
+                          "values": {
+                            "UNDEFINED_HEALTH_STATE": 0,
+                            "HEALTHY": 439801213,
+                            "UNHEALTHY": 462118084,
+                            "UNKNOWN": 433141802
+                          }
+                        }
+                      }
+                    },
                     "CompositeHealthCheckList": {
                       "oneofs": {
                         "_id": {
@@ -143739,6 +143817,46 @@
                           "id": 50704284,
                           "options": {
                             "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "CompositeHealthChecksGetHealthResponseHealthSourceHealth": {
+                      "oneofs": {
+                        "_healthState": {
+                          "oneof": [
+                            "healthState"
+                          ]
+                        },
+                        "_source": {
+                          "oneof": [
+                            "source"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "healthState": {
+                          "type": "string",
+                          "id": 324007150,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "source": {
+                          "type": "string",
+                          "id": 177235995,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      },
+                      "nested": {
+                        "HealthState": {
+                          "values": {
+                            "UNDEFINED_HEALTH_STATE": 0,
+                            "HEALTHY": 439801213,
+                            "UNHEALTHY": 462118084,
+                            "UNKNOWN": 433141802
                           }
                         }
                       }
@@ -150768,6 +150886,24 @@
                         }
                       }
                     },
+                    "DiskUpdateKmsKeyRequest": {
+                      "oneofs": {
+                        "_kmsKeyName": {
+                          "oneof": [
+                            "kmsKeyName"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "kmsKeyName": {
+                          "type": "string",
+                          "id": 484373913,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
                     "DisksAddResourcePoliciesRequest": {
                       "fields": {
                         "resourcePolicies": {
@@ -153773,6 +153909,11 @@
                             "commitmentInfo"
                           ]
                         },
+                        "_confidentialComputeType": {
+                          "oneof": [
+                            "confidentialComputeType"
+                          ]
+                        },
                         "_creationTimestamp": {
                           "oneof": [
                             "creationTimestamp"
@@ -153811,6 +153952,11 @@
                         "_namePrefix": {
                           "oneof": [
                             "namePrefix"
+                          ]
+                        },
+                        "_params": {
+                          "oneof": [
+                            "params"
                           ]
                         },
                         "_planningStatus": {
@@ -153922,6 +154068,13 @@
                             "proto3_optional": true
                           }
                         },
+                        "confidentialComputeType": {
+                          "type": "string",
+                          "id": 386447257,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
                         "creationTimestamp": {
                           "type": "string",
                           "id": 30525366,
@@ -153974,6 +154127,13 @@
                         "namePrefix": {
                           "type": "string",
                           "id": 236409542,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "params": {
+                          "type": "FutureReservationParams",
+                          "id": 78313862,
                           "options": {
                             "proto3_optional": true
                           }
@@ -154071,6 +154231,13 @@
                         }
                       },
                       "nested": {
+                        "ConfidentialComputeType": {
+                          "values": {
+                            "UNDEFINED_CONFIDENTIAL_COMPUTE_TYPE": 0,
+                            "CONFIDENTIAL_COMPUTE_TYPE_TDX": 301241954,
+                            "CONFIDENTIAL_COMPUTE_TYPE_UNSPECIFIED": 42227601
+                          }
+                        },
                         "DeploymentType": {
                           "values": {
                             "UNDEFINED_DEPLOYMENT_TYPE": 0,
@@ -154169,6 +154336,15 @@
                             "EXTEND": 448639770,
                             "PREVIOUSCOMMITMENTTERM_UNSPECIFIED": 98482448
                           }
+                        }
+                      }
+                    },
+                    "FutureReservationParams": {
+                      "fields": {
+                        "resourceManagerTags": {
+                          "keyType": "string",
+                          "type": "string",
+                          "id": 377671164
                         }
                       }
                     },
@@ -156138,6 +156314,56 @@
                         "resourceGroupReferenceResource": {
                           "type": "ResourceGroupReference",
                           "id": 112951123,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "GetHealthRegionCompositeHealthCheckRequest": {
+                      "fields": {
+                        "compositeHealthCheck": {
+                          "type": "string",
+                          "id": 466984989,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "project": {
+                          "type": "string",
+                          "id": 227560217,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "region": {
+                          "type": "string",
+                          "id": 138946292,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "GetHealthRegionHealthSourceRequest": {
+                      "fields": {
+                        "healthSource": {
+                          "type": "string",
+                          "id": 376521566,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "project": {
+                          "type": "string",
+                          "id": 227560217,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "region": {
+                          "type": "string",
+                          "id": 138946292,
                           "options": {
                             "(google.api.field_behavior)": "REQUIRED"
                           }
@@ -163530,6 +163756,51 @@
                         }
                       }
                     },
+                    "HealthSourceHealth": {
+                      "oneofs": {
+                        "_healthState": {
+                          "oneof": [
+                            "healthState"
+                          ]
+                        },
+                        "_kind": {
+                          "oneof": [
+                            "kind"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "healthState": {
+                          "type": "string",
+                          "id": 324007150,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "kind": {
+                          "type": "string",
+                          "id": 3292052,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "sources": {
+                          "rule": "repeated",
+                          "type": "HealthSourcesGetHealthResponseSourceInfo",
+                          "id": 125606840
+                        }
+                      },
+                      "nested": {
+                        "HealthState": {
+                          "values": {
+                            "UNDEFINED_HEALTH_STATE": 0,
+                            "HEALTHY": 439801213,
+                            "UNHEALTHY": 462118084,
+                            "UNKNOWN": 433141802
+                          }
+                        }
+                      }
+                    },
                     "HealthSourceList": {
                       "oneofs": {
                         "_id": {
@@ -163595,6 +163866,83 @@
                         "warning": {
                           "type": "Warning",
                           "id": 50704284,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "HealthSourcesGetHealthResponseSourceInfo": {
+                      "oneofs": {
+                        "_forwardingRule": {
+                          "oneof": [
+                            "forwardingRule"
+                          ]
+                        },
+                        "_source": {
+                          "oneof": [
+                            "source"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "backends": {
+                          "rule": "repeated",
+                          "type": "HealthSourcesGetHealthResponseSourceInfoBackendInfo",
+                          "id": 510839903
+                        },
+                        "forwardingRule": {
+                          "type": "string",
+                          "id": 269964030,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "source": {
+                          "type": "string",
+                          "id": 177235995,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "HealthSourcesGetHealthResponseSourceInfoBackendInfo": {
+                      "oneofs": {
+                        "_endpointCount": {
+                          "oneof": [
+                            "endpointCount"
+                          ]
+                        },
+                        "_group": {
+                          "oneof": [
+                            "group"
+                          ]
+                        },
+                        "_healthyEndpointCount": {
+                          "oneof": [
+                            "healthyEndpointCount"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "endpointCount": {
+                          "type": "int32",
+                          "id": 486641125,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "group": {
+                          "type": "string",
+                          "id": 98629247,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "healthyEndpointCount": {
+                          "type": "int32",
+                          "id": 291284167,
                           "options": {
                             "proto3_optional": true
                           }
@@ -172426,6 +172774,51 @@
                           "keyType": "string",
                           "type": "string",
                           "id": 16520833
+                        },
+                        "acceleratorTopologyConfigurations": {
+                          "keyType": "string",
+                          "type": "InstanceGroupManagersConfigureAcceleratorTopologiesRequestAcceleratorTopologyConfiguration",
+                          "id": 95019065
+                        }
+                      }
+                    },
+                    "InstanceGroupManagersConfigureAcceleratorTopologiesRequestAcceleratorTopologyConfiguration": {
+                      "oneofs": {
+                        "_action": {
+                          "oneof": [
+                            "action"
+                          ]
+                        },
+                        "_externalId": {
+                          "oneof": [
+                            "externalId"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "action": {
+                          "type": "string",
+                          "id": 187661878,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "externalId": {
+                          "type": "string",
+                          "id": 457537039,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      },
+                      "nested": {
+                        "Action": {
+                          "values": {
+                            "UNDEFINED_ACTION": 0,
+                            "ACCELERATOR_TOPOLOGY_ACTION_UNSPECIFIED": 78494314,
+                            "ACTIVATE": 200393971,
+                            "DEACTIVATE": 98942068
+                          }
                         }
                       }
                     },
@@ -172593,6 +172986,11 @@
                           "oneof": [
                             "errorTimestamp"
                           ]
+                        },
+                        "_externalId": {
+                          "oneof": [
+                            "externalId"
+                          ]
                         }
                       },
                       "fields": {
@@ -172613,6 +173011,13 @@
                         "errorTimestamp": {
                           "type": "string",
                           "id": 219548575,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "externalId": {
+                          "type": "string",
+                          "id": 457537039,
                           "options": {
                             "proto3_optional": true
                           }
@@ -195488,6 +195893,11 @@
                             "projectIdOrNum"
                           ]
                         },
+                        "_serviceClassId": {
+                          "oneof": [
+                            "serviceClassId"
+                          ]
+                        },
                         "_status": {
                           "oneof": [
                             "status"
@@ -195530,6 +195940,13 @@
                           "rule": "repeated",
                           "type": "string",
                           "id": 117184788
+                        },
+                        "serviceClassId": {
+                          "type": "string",
+                          "id": 422763404,
+                          "options": {
+                            "proto3_optional": true
+                          }
                         },
                         "status": {
                           "type": "string",
@@ -197009,6 +197426,11 @@
                             "queueCount"
                           ]
                         },
+                        "_serviceClassId": {
+                          "oneof": [
+                            "serviceClassId"
+                          ]
+                        },
                         "_stackType": {
                           "oneof": [
                             "stackType"
@@ -197142,6 +197564,13 @@
                         "queueCount": {
                           "type": "int32",
                           "id": 503708769,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "serviceClassId": {
+                          "type": "string",
+                          "id": 422763404,
                           "options": {
                             "proto3_optional": true
                           }
@@ -209656,6 +210085,24 @@
                         }
                       }
                     },
+                    "RegionDiskUpdateKmsKeyRequest": {
+                      "oneofs": {
+                        "_kmsKeyName": {
+                          "oneof": [
+                            "kmsKeyName"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "kmsKeyName": {
+                          "type": "string",
+                          "id": 484373913,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
                     "RegionDisksAddResourcePoliciesRequest": {
                       "fields": {
                         "resourcePolicies": {
@@ -210675,6 +211122,24 @@
                         "policy": {
                           "type": "Policy",
                           "id": 91071794,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "RegionSnapshotUpdateKmsKeyRequest": {
+                      "oneofs": {
+                        "_kmsKeyName": {
+                          "oneof": [
+                            "kmsKeyName"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "kmsKeyName": {
+                          "type": "string",
+                          "id": 484373913,
                           "options": {
                             "proto3_optional": true
                           }
@@ -211832,6 +212297,11 @@
                             "commitment"
                           ]
                         },
+                        "_confidentialComputeType": {
+                          "oneof": [
+                            "confidentialComputeType"
+                          ]
+                        },
                         "_creationTimestamp": {
                           "oneof": [
                             "creationTimestamp"
@@ -211966,6 +212436,13 @@
                         "commitment": {
                           "type": "string",
                           "id": 482134805,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "confidentialComputeType": {
+                          "type": "string",
+                          "id": 386447257,
                           "options": {
                             "proto3_optional": true
                           }
@@ -212143,6 +212620,13 @@
                         }
                       },
                       "nested": {
+                        "ConfidentialComputeType": {
+                          "values": {
+                            "UNDEFINED_CONFIDENTIAL_COMPUTE_TYPE": 0,
+                            "CONFIDENTIAL_COMPUTE_TYPE_TDX": 301241954,
+                            "CONFIDENTIAL_COMPUTE_TYPE_UNSPECIFIED": 42227601
+                          }
+                        },
                         "DeploymentType": {
                           "values": {
                             "UNDEFINED_DEPLOYMENT_TYPE": 0,
@@ -216671,6 +217155,42 @@
                           "id": 391795315,
                           "options": {
                             "proto3_optional": true
+                          }
+                        },
+                        "locationStatus": {
+                          "keyType": "string",
+                          "type": "RolloutWaveDetailsOrchestratedWaveDetailsLocationStatus",
+                          "id": 19007420
+                        }
+                      }
+                    },
+                    "RolloutWaveDetailsOrchestratedWaveDetailsLocationStatus": {
+                      "oneofs": {
+                        "_state": {
+                          "oneof": [
+                            "state"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "state": {
+                          "type": "string",
+                          "id": 109757585,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      },
+                      "nested": {
+                        "State": {
+                          "values": {
+                            "UNDEFINED_STATE": 0,
+                            "STATE_FAILED": 50857931,
+                            "STATE_IN_PROGRESS": 413162809,
+                            "STATE_PENDING": 369985449,
+                            "STATE_SKIPPED": 515663170,
+                            "STATE_SUCCEEDED": 466911219,
+                            "STATE_UNSPECIFIED": 470755401
                           }
                         }
                       }
@@ -228805,6 +229325,24 @@
                         }
                       }
                     },
+                    "SnapshotUpdateKmsKeyRequest": {
+                      "oneofs": {
+                        "_kmsKeyName": {
+                          "oneof": [
+                            "kmsKeyName"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "kmsKeyName": {
+                          "type": "string",
+                          "id": 484373913,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
                     "SnapshotsScopedList": {
                       "oneofs": {
                         "_warning": {
@@ -239174,6 +239712,190 @@
                         }
                       }
                     },
+                    "UpdateKmsKeyDiskRequest": {
+                      "oneofs": {
+                        "_requestId": {
+                          "oneof": [
+                            "requestId"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "disk": {
+                          "type": "string",
+                          "id": 3083677,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "diskUpdateKmsKeyRequestResource": {
+                          "type": "DiskUpdateKmsKeyRequest",
+                          "id": 178025952,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "project": {
+                          "type": "string",
+                          "id": 227560217,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "project"
+                          }
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "id": 37109963,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "zone": {
+                          "type": "string",
+                          "id": 3744684,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "zone"
+                          }
+                        }
+                      }
+                    },
+                    "UpdateKmsKeyRegionDiskRequest": {
+                      "oneofs": {
+                        "_requestId": {
+                          "oneof": [
+                            "requestId"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "disk": {
+                          "type": "string",
+                          "id": 3083677,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "project": {
+                          "type": "string",
+                          "id": 227560217,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "project"
+                          }
+                        },
+                        "region": {
+                          "type": "string",
+                          "id": 138946292,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "region"
+                          }
+                        },
+                        "regionDiskUpdateKmsKeyRequestResource": {
+                          "type": "RegionDiskUpdateKmsKeyRequest",
+                          "id": 10015819,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "id": 37109963,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "UpdateKmsKeyRegionSnapshotRequest": {
+                      "oneofs": {
+                        "_requestId": {
+                          "oneof": [
+                            "requestId"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "project": {
+                          "type": "string",
+                          "id": 227560217,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "project"
+                          }
+                        },
+                        "region": {
+                          "type": "string",
+                          "id": 138946292,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "region"
+                          }
+                        },
+                        "regionSnapshotUpdateKmsKeyRequestResource": {
+                          "type": "RegionSnapshotUpdateKmsKeyRequest",
+                          "id": 279384818,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "id": 37109963,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "snapshot": {
+                          "type": "string",
+                          "id": 284874180,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
+                    "UpdateKmsKeySnapshotRequest": {
+                      "oneofs": {
+                        "_requestId": {
+                          "oneof": [
+                            "requestId"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "project": {
+                          "type": "string",
+                          "id": 227560217,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.cloud.operation_request_field)": "project"
+                          }
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "id": 37109963,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "snapshot": {
+                          "type": "string",
+                          "id": 284874180,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "snapshotUpdateKmsKeyRequestResource": {
+                          "type": "SnapshotUpdateKmsKeyRequest",
+                          "id": 103145991,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    },
                     "UpdateLicenseRequest": {
                       "oneofs": {
                         "_requestId": {
@@ -240475,6 +241197,11 @@
                           "oneof": [
                             "selfLink"
                           ]
+                        },
+                        "_status": {
+                          "oneof": [
+                            "status"
+                          ]
                         }
                       },
                       "fields": {
@@ -240579,6 +241306,13 @@
                             "proto3_optional": true
                           }
                         },
+                        "status": {
+                          "type": "UrlMapStatus",
+                          "id": 181260274,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
                         "tests": {
                           "rule": "repeated",
                           "type": "UrlMapTest",
@@ -240657,6 +241391,36 @@
                         }
                       }
                     },
+                    "UrlMapQuotaUsage": {
+                      "oneofs": {
+                        "_forwardingRules": {
+                          "oneof": [
+                            "forwardingRules"
+                          ]
+                        },
+                        "_units": {
+                          "oneof": [
+                            "units"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "forwardingRules": {
+                          "type": "int32",
+                          "id": 315821365,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "units": {
+                          "type": "int64",
+                          "id": 111433583,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
                     "UrlMapReference": {
                       "oneofs": {
                         "_urlMap": {
@@ -240669,6 +241433,24 @@
                         "urlMap": {
                           "type": "string",
                           "id": 367020684,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        }
+                      }
+                    },
+                    "UrlMapStatus": {
+                      "oneofs": {
+                        "_quotaUsage": {
+                          "oneof": [
+                            "quotaUsage"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "quotaUsage": {
+                          "type": "UrlMapQuotaUsage",
+                          "id": 238511386,
                           "options": {
                             "proto3_optional": true
                           }
@@ -240795,6 +241577,11 @@
                             "loadSucceeded"
                           ]
                         },
+                        "_quotaUsage": {
+                          "oneof": [
+                            "quotaUsage"
+                          ]
+                        },
                         "_testPassed": {
                           "oneof": [
                             "testPassed"
@@ -240810,6 +241597,13 @@
                         "loadSucceeded": {
                           "type": "bool",
                           "id": 128326216,
+                          "options": {
+                            "proto3_optional": true
+                          }
+                        },
+                        "quotaUsage": {
+                          "type": "UrlMapQuotaUsage",
+                          "id": 238511386,
                           "options": {
                             "proto3_optional": true
                           }
@@ -246226,6 +247020,30 @@
                             },
                             {
                               "(google.api.method_signature)": "project,zone,disk,disk_resource"
+                            },
+                            {
+                              "(google.cloud.operation_service)": "ZoneOperations"
+                            }
+                          ]
+                        },
+                        "UpdateKmsKey": {
+                          "requestType": "UpdateKmsKeyDiskRequest",
+                          "responseType": "Operation",
+                          "options": {
+                            "(google.api.http).body": "disk_update_kms_key_request_resource",
+                            "(google.api.http).post": "/compute/beta/projects/{project}/zones/{zone}/disks/{disk}/updateKmsKey",
+                            "(google.api.method_signature)": "project,zone,disk,disk_update_kms_key_request_resource",
+                            "(google.cloud.operation_service)": "ZoneOperations"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "body": "disk_update_kms_key_request_resource",
+                                "post": "/compute/beta/projects/{project}/zones/{zone}/disks/{disk}/updateKmsKey"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "project,zone,disk,disk_update_kms_key_request_resource"
                             },
                             {
                               "(google.cloud.operation_service)": "ZoneOperations"
@@ -256756,6 +257574,24 @@
                             }
                           ]
                         },
+                        "GetHealth": {
+                          "requestType": "GetHealthRegionCompositeHealthCheckRequest",
+                          "responseType": "CompositeHealthCheckHealth",
+                          "options": {
+                            "(google.api.http).get": "/compute/beta/projects/{project}/regions/{region}/compositeHealthChecks/{composite_health_check}/getHealth",
+                            "(google.api.method_signature)": "project,region,composite_health_check"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/compute/beta/projects/{project}/regions/{region}/compositeHealthChecks/{composite_health_check}/getHealth"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "project,region,composite_health_check"
+                            }
+                          ]
+                        },
                         "Insert": {
                           "requestType": "InsertRegionCompositeHealthCheckRequest",
                           "responseType": "Operation",
@@ -257321,6 +258157,30 @@
                               "(google.cloud.operation_service)": "RegionOperations"
                             }
                           ]
+                        },
+                        "UpdateKmsKey": {
+                          "requestType": "UpdateKmsKeyRegionDiskRequest",
+                          "responseType": "Operation",
+                          "options": {
+                            "(google.api.http).body": "region_disk_update_kms_key_request_resource",
+                            "(google.api.http).post": "/compute/beta/projects/{project}/regions/{region}/disks/{disk}/updateKmsKey",
+                            "(google.api.method_signature)": "project,region,disk,region_disk_update_kms_key_request_resource",
+                            "(google.cloud.operation_service)": "RegionOperations"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "body": "region_disk_update_kms_key_request_resource",
+                                "post": "/compute/beta/projects/{project}/regions/{region}/disks/{disk}/updateKmsKey"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "project,region,disk,region_disk_update_kms_key_request_resource"
+                            },
+                            {
+                              "(google.cloud.operation_service)": "RegionOperations"
+                            }
+                          ]
                         }
                       }
                     },
@@ -257843,6 +258703,24 @@
                             {
                               "(google.api.http)": {
                                 "get": "/compute/beta/projects/{project}/regions/{region}/healthSources/{health_source}"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "project,region,health_source"
+                            }
+                          ]
+                        },
+                        "GetHealth": {
+                          "requestType": "GetHealthRegionHealthSourceRequest",
+                          "responseType": "HealthSourceHealth",
+                          "options": {
+                            "(google.api.http).get": "/compute/beta/projects/{project}/regions/{region}/healthSources/{health_source}/getHealth",
+                            "(google.api.method_signature)": "project,region,health_source"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/compute/beta/projects/{project}/regions/{region}/healthSources/{health_source}/getHealth"
                               }
                             },
                             {
@@ -260859,6 +261737,30 @@
                             },
                             {
                               "(google.api.method_signature)": "project,region,resource,test_permissions_request_resource"
+                            }
+                          ]
+                        },
+                        "UpdateKmsKey": {
+                          "requestType": "UpdateKmsKeyRegionSnapshotRequest",
+                          "responseType": "Operation",
+                          "options": {
+                            "(google.api.http).body": "region_snapshot_update_kms_key_request_resource",
+                            "(google.api.http).post": "/compute/beta/projects/{project}/regions/{region}/snapshots/{snapshot}/updateKmsKey",
+                            "(google.api.method_signature)": "project,region,snapshot,region_snapshot_update_kms_key_request_resource",
+                            "(google.cloud.operation_service)": "RegionOperations"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "body": "region_snapshot_update_kms_key_request_resource",
+                                "post": "/compute/beta/projects/{project}/regions/{region}/snapshots/{snapshot}/updateKmsKey"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "project,region,snapshot,region_snapshot_update_kms_key_request_resource"
+                            },
+                            {
+                              "(google.cloud.operation_service)": "RegionOperations"
                             }
                           ]
                         }
@@ -264265,6 +265167,30 @@
                             },
                             {
                               "(google.api.method_signature)": "project,resource,test_permissions_request_resource"
+                            }
+                          ]
+                        },
+                        "UpdateKmsKey": {
+                          "requestType": "UpdateKmsKeySnapshotRequest",
+                          "responseType": "Operation",
+                          "options": {
+                            "(google.api.http).body": "snapshot_update_kms_key_request_resource",
+                            "(google.api.http).post": "/compute/beta/projects/{project}/global/snapshots/{snapshot}/updateKmsKey",
+                            "(google.api.method_signature)": "project,snapshot,snapshot_update_kms_key_request_resource",
+                            "(google.cloud.operation_service)": "GlobalOperations"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "body": "snapshot_update_kms_key_request_resource",
+                                "post": "/compute/beta/projects/{project}/global/snapshots/{snapshot}/updateKmsKey"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "project,snapshot,snapshot_update_kms_key_request_resource"
+                            },
+                            {
+                              "(google.cloud.operation_service)": "GlobalOperations"
                             }
                           ]
                         }
