@@ -24433,6 +24433,103 @@ export namespace google {
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
 
+            /** Properties of a ValueBitmask. */
+            interface IValueBitmask {
+
+                /** ValueBitmask mask */
+                mask?: (Uint8Array|Buffer|string|null);
+            }
+
+            /** Represents a ValueBitmask. */
+            class ValueBitmask implements IValueBitmask {
+
+                /**
+                 * Constructs a new ValueBitmask.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: google.bigtable.v2.IValueBitmask);
+
+                /** ValueBitmask mask. */
+                public mask: (Uint8Array|Buffer|string);
+
+                /**
+                 * Creates a new ValueBitmask instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns ValueBitmask instance
+                 */
+                public static create(properties?: google.bigtable.v2.IValueBitmask): google.bigtable.v2.ValueBitmask;
+
+                /**
+                 * Encodes the specified ValueBitmask message. Does not implicitly {@link google.bigtable.v2.ValueBitmask.verify|verify} messages.
+                 * @param message ValueBitmask message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: google.bigtable.v2.IValueBitmask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified ValueBitmask message, length delimited. Does not implicitly {@link google.bigtable.v2.ValueBitmask.verify|verify} messages.
+                 * @param message ValueBitmask message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: google.bigtable.v2.IValueBitmask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a ValueBitmask message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns ValueBitmask
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.bigtable.v2.ValueBitmask;
+
+                /**
+                 * Decodes a ValueBitmask message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns ValueBitmask
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.bigtable.v2.ValueBitmask;
+
+                /**
+                 * Verifies a ValueBitmask message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a ValueBitmask message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns ValueBitmask
+                 */
+                public static fromObject(object: { [k: string]: any }): google.bigtable.v2.ValueBitmask;
+
+                /**
+                 * Creates a plain object from a ValueBitmask message. Also converts values to other types if specified.
+                 * @param message ValueBitmask
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: google.bigtable.v2.ValueBitmask, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this ValueBitmask to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for ValueBitmask
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
             /** Properties of a RowFilter. */
             interface IRowFilter {
 
@@ -24492,6 +24589,9 @@ export namespace google {
 
                 /** RowFilter applyLabelTransformer */
                 applyLabelTransformer?: (string|null);
+
+                /** RowFilter valueBitmaskFilter */
+                valueBitmaskFilter?: (google.bigtable.v2.IValueBitmask|null);
             }
 
             /** Represents a RowFilter. */
@@ -24560,8 +24660,11 @@ export namespace google {
                 /** RowFilter applyLabelTransformer. */
                 public applyLabelTransformer?: (string|null);
 
+                /** RowFilter valueBitmaskFilter. */
+                public valueBitmaskFilter?: (google.bigtable.v2.IValueBitmask|null);
+
                 /** RowFilter filter. */
-                public filter?: ("chain"|"interleave"|"condition"|"sink"|"passAllFilter"|"blockAllFilter"|"rowKeyRegexFilter"|"rowSampleFilter"|"familyNameRegexFilter"|"columnQualifierRegexFilter"|"columnRangeFilter"|"timestampRangeFilter"|"valueRegexFilter"|"valueRangeFilter"|"cellsPerRowOffsetFilter"|"cellsPerRowLimitFilter"|"cellsPerColumnLimitFilter"|"stripValueTransformer"|"applyLabelTransformer");
+                public filter?: ("chain"|"interleave"|"condition"|"sink"|"passAllFilter"|"blockAllFilter"|"rowKeyRegexFilter"|"rowSampleFilter"|"familyNameRegexFilter"|"columnQualifierRegexFilter"|"columnRangeFilter"|"timestampRangeFilter"|"valueRegexFilter"|"valueRangeFilter"|"cellsPerRowOffsetFilter"|"cellsPerRowLimitFilter"|"cellsPerColumnLimitFilter"|"stripValueTransformer"|"applyLabelTransformer"|"valueBitmaskFilter");
 
                 /**
                  * Creates a new RowFilter instance using the specified properties.

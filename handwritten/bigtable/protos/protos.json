@@ -6470,6 +6470,17 @@
                     }
                   }
                 },
+                "ValueBitmask": {
+                  "fields": {
+                    "mask": {
+                      "type": "bytes",
+                      "id": 1,
+                      "options": {
+                        "(google.api.field_behavior)": "REQUIRED"
+                      }
+                    }
+                  }
+                },
                 "RowFilter": {
                   "oneofs": {
                     "filter": {
@@ -6492,7 +6503,8 @@
                         "cellsPerRowLimitFilter",
                         "cellsPerColumnLimitFilter",
                         "stripValueTransformer",
-                        "applyLabelTransformer"
+                        "applyLabelTransformer",
+                        "valueBitmaskFilter"
                       ]
                     }
                   },
@@ -6572,6 +6584,10 @@
                     "applyLabelTransformer": {
                       "type": "string",
                       "id": 19
+                    },
+                    "valueBitmaskFilter": {
+                      "type": "ValueBitmask",
+                      "id": 20
                     }
                   },
                   "nested": {

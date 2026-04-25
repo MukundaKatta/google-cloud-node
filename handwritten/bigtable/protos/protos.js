@@ -58252,6 +58252,220 @@
                     return ValueRange;
                 })();
     
+                v2.ValueBitmask = (function() {
+    
+                    /**
+                     * Properties of a ValueBitmask.
+                     * @memberof google.bigtable.v2
+                     * @interface IValueBitmask
+                     * @property {Uint8Array|null} [mask] ValueBitmask mask
+                     */
+    
+                    /**
+                     * Constructs a new ValueBitmask.
+                     * @memberof google.bigtable.v2
+                     * @classdesc Represents a ValueBitmask.
+                     * @implements IValueBitmask
+                     * @constructor
+                     * @param {google.bigtable.v2.IValueBitmask=} [properties] Properties to set
+                     */
+                    function ValueBitmask(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * ValueBitmask mask.
+                     * @member {Uint8Array} mask
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @instance
+                     */
+                    ValueBitmask.prototype.mask = $util.newBuffer([]);
+    
+                    /**
+                     * Creates a new ValueBitmask instance using the specified properties.
+                     * @function create
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {google.bigtable.v2.IValueBitmask=} [properties] Properties to set
+                     * @returns {google.bigtable.v2.ValueBitmask} ValueBitmask instance
+                     */
+                    ValueBitmask.create = function create(properties) {
+                        return new ValueBitmask(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified ValueBitmask message. Does not implicitly {@link google.bigtable.v2.ValueBitmask.verify|verify} messages.
+                     * @function encode
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {google.bigtable.v2.IValueBitmask} message ValueBitmask message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    ValueBitmask.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.mask != null && Object.hasOwnProperty.call(message, "mask"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.mask);
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified ValueBitmask message, length delimited. Does not implicitly {@link google.bigtable.v2.ValueBitmask.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {google.bigtable.v2.IValueBitmask} message ValueBitmask message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    ValueBitmask.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes a ValueBitmask message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {google.bigtable.v2.ValueBitmask} ValueBitmask
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    ValueBitmask.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.bigtable.v2.ValueBitmask();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.mask = reader.bytes();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes a ValueBitmask message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {google.bigtable.v2.ValueBitmask} ValueBitmask
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    ValueBitmask.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies a ValueBitmask message.
+                     * @function verify
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    ValueBitmask.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.mask != null && message.hasOwnProperty("mask"))
+                            if (!(message.mask && typeof message.mask.length === "number" || $util.isString(message.mask)))
+                                return "mask: buffer expected";
+                        return null;
+                    };
+    
+                    /**
+                     * Creates a ValueBitmask message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {google.bigtable.v2.ValueBitmask} ValueBitmask
+                     */
+                    ValueBitmask.fromObject = function fromObject(object) {
+                        if (object instanceof $root.google.bigtable.v2.ValueBitmask)
+                            return object;
+                        var message = new $root.google.bigtable.v2.ValueBitmask();
+                        if (object.mask != null)
+                            if (typeof object.mask === "string")
+                                $util.base64.decode(object.mask, message.mask = $util.newBuffer($util.base64.length(object.mask)), 0);
+                            else if (object.mask.length >= 0)
+                                message.mask = object.mask;
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from a ValueBitmask message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {google.bigtable.v2.ValueBitmask} message ValueBitmask
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    ValueBitmask.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults)
+                            if (options.bytes === String)
+                                object.mask = "";
+                            else {
+                                object.mask = [];
+                                if (options.bytes !== Array)
+                                    object.mask = $util.newBuffer(object.mask);
+                            }
+                        if (message.mask != null && message.hasOwnProperty("mask"))
+                            object.mask = options.bytes === String ? $util.base64.encode(message.mask, 0, message.mask.length) : options.bytes === Array ? Array.prototype.slice.call(message.mask) : message.mask;
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this ValueBitmask to JSON.
+                     * @function toJSON
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    ValueBitmask.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    /**
+                     * Gets the default type url for ValueBitmask
+                     * @function getTypeUrl
+                     * @memberof google.bigtable.v2.ValueBitmask
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    ValueBitmask.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/google.bigtable.v2.ValueBitmask";
+                    };
+    
+                    return ValueBitmask;
+                })();
+    
                 v2.RowFilter = (function() {
     
                     /**
@@ -58277,6 +58491,7 @@
                      * @property {number|null} [cellsPerColumnLimitFilter] RowFilter cellsPerColumnLimitFilter
                      * @property {boolean|null} [stripValueTransformer] RowFilter stripValueTransformer
                      * @property {string|null} [applyLabelTransformer] RowFilter applyLabelTransformer
+                     * @property {google.bigtable.v2.IValueBitmask|null} [valueBitmaskFilter] RowFilter valueBitmaskFilter
                      */
     
                     /**
@@ -58446,17 +58661,25 @@
                      */
                     RowFilter.prototype.applyLabelTransformer = null;
     
+                    /**
+                     * RowFilter valueBitmaskFilter.
+                     * @member {google.bigtable.v2.IValueBitmask|null|undefined} valueBitmaskFilter
+                     * @memberof google.bigtable.v2.RowFilter
+                     * @instance
+                     */
+                    RowFilter.prototype.valueBitmaskFilter = null;
+    
                     // OneOf field names bound to virtual getters and setters
                     var $oneOfFields;
     
                     /**
                      * RowFilter filter.
-                     * @member {"chain"|"interleave"|"condition"|"sink"|"passAllFilter"|"blockAllFilter"|"rowKeyRegexFilter"|"rowSampleFilter"|"familyNameRegexFilter"|"columnQualifierRegexFilter"|"columnRangeFilter"|"timestampRangeFilter"|"valueRegexFilter"|"valueRangeFilter"|"cellsPerRowOffsetFilter"|"cellsPerRowLimitFilter"|"cellsPerColumnLimitFilter"|"stripValueTransformer"|"applyLabelTransformer"|undefined} filter
+                     * @member {"chain"|"interleave"|"condition"|"sink"|"passAllFilter"|"blockAllFilter"|"rowKeyRegexFilter"|"rowSampleFilter"|"familyNameRegexFilter"|"columnQualifierRegexFilter"|"columnRangeFilter"|"timestampRangeFilter"|"valueRegexFilter"|"valueRangeFilter"|"cellsPerRowOffsetFilter"|"cellsPerRowLimitFilter"|"cellsPerColumnLimitFilter"|"stripValueTransformer"|"applyLabelTransformer"|"valueBitmaskFilter"|undefined} filter
                      * @memberof google.bigtable.v2.RowFilter
                      * @instance
                      */
                     Object.defineProperty(RowFilter.prototype, "filter", {
-                        get: $util.oneOfGetter($oneOfFields = ["chain", "interleave", "condition", "sink", "passAllFilter", "blockAllFilter", "rowKeyRegexFilter", "rowSampleFilter", "familyNameRegexFilter", "columnQualifierRegexFilter", "columnRangeFilter", "timestampRangeFilter", "valueRegexFilter", "valueRangeFilter", "cellsPerRowOffsetFilter", "cellsPerRowLimitFilter", "cellsPerColumnLimitFilter", "stripValueTransformer", "applyLabelTransformer"]),
+                        get: $util.oneOfGetter($oneOfFields = ["chain", "interleave", "condition", "sink", "passAllFilter", "blockAllFilter", "rowKeyRegexFilter", "rowSampleFilter", "familyNameRegexFilter", "columnQualifierRegexFilter", "columnRangeFilter", "timestampRangeFilter", "valueRegexFilter", "valueRangeFilter", "cellsPerRowOffsetFilter", "cellsPerRowLimitFilter", "cellsPerColumnLimitFilter", "stripValueTransformer", "applyLabelTransformer", "valueBitmaskFilter"]),
                         set: $util.oneOfSetter($oneOfFields)
                     });
     
@@ -58522,6 +58745,8 @@
                             writer.uint32(/* id 18, wireType 0 =*/144).bool(message.blockAllFilter);
                         if (message.applyLabelTransformer != null && Object.hasOwnProperty.call(message, "applyLabelTransformer"))
                             writer.uint32(/* id 19, wireType 2 =*/154).string(message.applyLabelTransformer);
+                        if (message.valueBitmaskFilter != null && Object.hasOwnProperty.call(message, "valueBitmaskFilter"))
+                            $root.google.bigtable.v2.ValueBitmask.encode(message.valueBitmaskFilter, writer.uint32(/* id 20, wireType 2 =*/162).fork()).ldelim();
                         return writer;
                     };
     
@@ -58632,6 +58857,10 @@
                                 }
                             case 19: {
                                     message.applyLabelTransformer = reader.string();
+                                    break;
+                                }
+                            case 20: {
+                                    message.valueBitmaskFilter = $root.google.bigtable.v2.ValueBitmask.decode(reader, reader.uint32());
                                     break;
                                 }
                             default:
@@ -58819,6 +59048,16 @@
                             if (!$util.isString(message.applyLabelTransformer))
                                 return "applyLabelTransformer: string expected";
                         }
+                        if (message.valueBitmaskFilter != null && message.hasOwnProperty("valueBitmaskFilter")) {
+                            if (properties.filter === 1)
+                                return "filter: multiple values";
+                            properties.filter = 1;
+                            {
+                                var error = $root.google.bigtable.v2.ValueBitmask.verify(message.valueBitmaskFilter);
+                                if (error)
+                                    return "valueBitmaskFilter." + error;
+                            }
+                        }
                         return null;
                     };
     
@@ -58899,6 +59138,11 @@
                             message.stripValueTransformer = Boolean(object.stripValueTransformer);
                         if (object.applyLabelTransformer != null)
                             message.applyLabelTransformer = String(object.applyLabelTransformer);
+                        if (object.valueBitmaskFilter != null) {
+                            if (typeof object.valueBitmaskFilter !== "object")
+                                throw TypeError(".google.bigtable.v2.RowFilter.valueBitmaskFilter: object expected");
+                            message.valueBitmaskFilter = $root.google.bigtable.v2.ValueBitmask.fromObject(object.valueBitmaskFilter);
+                        }
                         return message;
                     };
     
@@ -59009,6 +59253,11 @@
                             object.applyLabelTransformer = message.applyLabelTransformer;
                             if (options.oneofs)
                                 object.filter = "applyLabelTransformer";
+                        }
+                        if (message.valueBitmaskFilter != null && message.hasOwnProperty("valueBitmaskFilter")) {
+                            object.valueBitmaskFilter = $root.google.bigtable.v2.ValueBitmask.toObject(message.valueBitmaskFilter, options);
+                            if (options.oneofs)
+                                object.filter = "valueBitmaskFilter";
                         }
                         return object;
                     };
